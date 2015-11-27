@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto:300,400,500,700);
+@import url(http://fonts.googleapis.com/css?family=Raleway|Roboto:300,400,500,700);
 body {
 	font-family: 'Roboto', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
 	font-size: 14px;
@@ -59,7 +59,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: 'Roboto', 'Avenir Next', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
+	font-family: 'Raleway', 'Avenir Next', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
 	position: relative;
 	margin: 10px 0;
 }
@@ -116,7 +116,7 @@ ul.white-list li:before {
 
 .logo {
 	margin-top: -80px;
-	background-color: #00a8ff;
+	background-color: #421045;
 	height: 300px;
 	padding: 40px;
 	padding-bottom: 80px;
@@ -233,11 +233,11 @@ nav.navbar-fixed-top .navbar-nav > li > a:not(.btn) {
 }
 
 .btn.btn-blue {
-	background: #00a8ff;
+	background: #781D7E;
 }
 
 .btn.btn-blue:hover {
-	background: #31b9ff;
+	background: #421045;
 }
 
 .btn.btn-blue-fill {
@@ -301,10 +301,15 @@ section {
 .section {
 	padding: 15px 0;
 	background: #fff;
+
 }
 
 .section-padded {
 	padding: 140px 0 40px;
+}
+
+.spacer { 
+	margin-top: 95px;
 }
 
 .cut-top {
@@ -669,6 +674,130 @@ section {
 	margin-top: 50px;
 }
 
+
+.pricing {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 100%;
+	margin: 0 auto 3em;
+}
+
+.pricing__item {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	text-align: center;
+	flex: 0 1 330px;
+}
+
+.pricing__feature-list {
+	text-align: left;
+}
+
+.pricing__action {
+	color: inherit;
+	border: none;
+	background: none;
+}
+
+.pricing__action:focus {
+	outline: none;
+}
+
+.pricing--pema .pricing__item {
+	font-family: 'Alegreya Sans', sans-serif;
+	padding: 2em 3em;
+	margin: 1em;
+	color: #262b38;
+	background: #fff;
+	cursor: default;
+	overflow: hidden;
+	box-shadow: 0 0 15px rgba(0,0,0,0.05);
+}
+
+@media screen and (min-width: 66.250em) {
+	.pricing--pema .pricing__item {
+		margin: 1.5em 0;
+	}
+	.pricing--pema .pricing__item--featured {
+		z-index: 10;
+		margin: 0;
+		font-size: 1.15em;
+	}
+}
+
+.pricing--pema .pricing__title {
+	font-size: 2em;
+	margin: 0.5em 0 0;
+	color: #1d211f;
+}
+
+.pricing--pema .icon {
+	display: inline-block;
+	min-width: 2em;
+	color: #8A9790;
+	vertical-align: middle;
+}
+
+.pricing--pema .pricing__price {
+	font-size: 4em;
+	font-weight: 800;
+	color: #6ed19c;
+	position: relative;
+	z-index: 100;
+}
+
+.pricing--pema .pricing__currency {
+	font-size: 0.5em;
+	vertical-align: super;
+}
+
+.pricing--pema .pricing__period {
+	font-size: 0.25em;
+	display: inline-block;
+	padding: 0 0 0 0.5em;
+	color: #CEDED6;
+}
+
+.pricing--pema .pricing__sentence {
+	font-weight: bold;
+	margin: 0 0 1em 0;
+	padding: 0 0 0.5em;
+	color: #6ed19c;
+}
+
+.pricing--pema .pricing__feature-list {
+	font-size: 0.95em;
+	margin: 0;
+	padding: 1.5em 0.5em 2.5em;
+	list-style: none;
+}
+
+.pricing--pema .pricing__feature {
+	padding: 0.15em 0;
+}
+
+.pricing--pema .pricing__action {
+	font-weight: bold;
+	margin-top: auto;
+	padding: 1em 2em;
+	color: #fff;
+	border-radius: 5px;
+	background: #6ed19c;
+	-webkit-transition: background-color 0.3s;
+	transition: background-color 0.3s;
+}
+
+.pricing--pema .pricing__action:hover,
+.pricing--pema .pricing__action:focus {
+	background-color: #4F5F56;
+}
+
+
+
+
 .owl-twitter i.icon {
 	font-size: 36px;
 	margin-bottom: 60px;
@@ -1006,7 +1135,6 @@ footer .social-footer li:hover a {
 
 .row.title {
 	padding: 0 20px;
-	margin-top: 45px;
 }
 
 .row.title.main {
@@ -1151,7 +1279,7 @@ li.l {
 
 .small { display: none;}
 
-@media(max-width: 400px) {
+@media(max-width: 800px) {
 	header .typed-cursor {
 		display: none;
 	}
