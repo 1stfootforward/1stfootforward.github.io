@@ -1287,12 +1287,22 @@ li.l {
 		padding-top: 0;
 	}
 
-	.big {
-		display: none;
+	.logo {
+		width: 80%;
 	}
 
 	.small {
 		display: inline-block;
+		width: 100%
+		z-index 99;
+	}
+
+	.service {
+		display: none;
+	}
+
+	.team {
+		margin-top: 45px;
 	}
 }
 
