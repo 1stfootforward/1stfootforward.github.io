@@ -557,7 +557,12 @@ section {
 	height: 300px;
 	padding-top: 40px;
 	opacity: 0;
-	background: rgba(0, 168, 255, 0.9);
+	background:url('img/pro.jpg');
+		background-size: cover;
+		background: no-repeat;
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
 	-webkit-transition: opacity 0.45s ease;
 	transition: opacity 0.45s ease;
 }
@@ -1287,6 +1292,11 @@ li.l {
 	 	background-color: transparent;
 	 	margin-top: 0px;
 	 }
+
+
+	.cover {
+		display: none;
+	}
 	}
 
 @media(max-width: 550px) {
@@ -1314,6 +1324,7 @@ li.l {
 	.intro-tables {
 		top: 65px;
 	}
+
 }
 
 
