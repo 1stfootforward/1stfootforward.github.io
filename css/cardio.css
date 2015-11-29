@@ -144,6 +144,9 @@ header {
 	background: rgba(28, 36, 65, 0.93);
 	background: url('../img/top.jpg');
 	background-size: cover;
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
 }
 
 header .table {
@@ -1279,16 +1282,19 @@ li.l {
 
 .small { display: none;}
 
+@media(max-width: 950px) {
+	 .logo { 
+	 	background-color: transparent;
+	 	margin-top: 0px;
+	 }
+	}
+
 @media(max-width: 550px) {
 	header .typed-cursor {
 		display: none;
 	}
 	.pricings .pricing .box-second {
 		padding-top: 0;
-	}
-
-	.logo {
-		width: 80%;
 	}
 
 	.small {
@@ -1303,6 +1309,10 @@ li.l {
 
 	.team {
 		margin-top: 45px;
+	}
+
+	.intro-tables {
+		top: 65px;
 	}
 }
 
