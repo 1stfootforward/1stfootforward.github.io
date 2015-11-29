@@ -1279,7 +1279,7 @@ li.l {
 
 .small { display: none;}
 
-@media(max-width: 800px) {
+@media(max-width: 550px) {
 	header .typed-cursor {
 		display: none;
 	}
