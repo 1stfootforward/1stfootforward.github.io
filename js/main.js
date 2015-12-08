@@ -167,7 +167,8 @@ jQuery(function($) {
 		var message = $('#message').val()
 		var contact = $('#contact').val()
 		$.post("https://rocky-earth-6889.herokuapp.com/messages.json",
-		    {"message":{"name":name,"note":message,"contact":contact}},
+		    {"message":{"name":name,"note":message,"contact":contact}}
+		    );
 		$('#modal1').modal('hide');
 	});
 
