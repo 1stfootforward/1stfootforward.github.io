@@ -49,10 +49,6 @@ jQuery(function($) {
 		$('.mobile-nav ul').html($('nav .navbar-nav').html());
 		$('nav.navbar-fixed-top .navbar-brand img').attr('src', $('nav.navbar-fixed-top .navbar-brand img').data("active-url"));
 
-		// Typing Intro Init
-		$(".typed").typewriter({
-			speed: 60
-		});
 
 		// Popup Form Init
 		var i = 0;
@@ -162,6 +158,16 @@ jQuery(function($) {
 
 	$('.modal-popup .close-link').click(function(event){
 		event.preventDefault();
+		$('#modal1').modal('hide');
+	});
+
+	$('.modal-popup .submit').click(function(event){
+		event.preventDefault();
+		var name = $('#name').val()
+		var message = $('#message').val()
+		var contact = $('#contact').val()
+		$.post("https://rocky-earth-6889.herokuapp.com/messages.json",
+		    {"message":{"name":name,"note":message,"contact":contact}},
 		$('#modal1').modal('hide');
 	});
 
