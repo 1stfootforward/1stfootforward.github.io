@@ -16,6 +16,8 @@ jQuery(function($) {
 			});
 		});
 
+	  if ($(window).height() > 400) {
+
 		// Header Init
 		
 
@@ -60,6 +62,8 @@ jQuery(function($) {
 			scrollSpeed: 400,
 			filter: ':not(.btn)'
 		});
+
+	  }
 	});
 	/* Window Scroll
 	function onScroll() {
