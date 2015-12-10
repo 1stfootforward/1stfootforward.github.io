@@ -120,10 +120,14 @@ ul.white-list li:before {
   height: 60%;
   max-width: 100%;
   vertical-align: middle;
+  text-align: middle;
 }
 
 .logo-mobile img {
-	max-height: 600px;
+	max-height: 400px;
+	margin-bottom: 45px
+	vertical-align: middle;
+  	text-align: middle;
 }
 
 .logo {
