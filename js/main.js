@@ -19,7 +19,7 @@ jQuery(function($) {
 		// Header Init
 		
 
-		if ($(window).height() > 200) {
+		if ($(window).height() > 700) {
 
 			if ($(window).height() > $(window).width()) {
 				var ratio = $('.parallax').width() / $('.parallax').height();

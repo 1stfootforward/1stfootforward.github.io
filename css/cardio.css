@@ -554,7 +554,6 @@ section {
 .team .avatar {
 	position: relative;
 	z-index: 2;
-	margin-top: -60px;
 	border-radius: 50%;
 }
 
@@ -1229,6 +1228,10 @@ li.l {
 }
 
 .main {margin-top: 100px;}
+
+.team .avatar {
+	margin-top: -60px;
+}
 
 
 .cut-top {
