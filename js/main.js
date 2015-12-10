@@ -16,7 +16,7 @@ jQuery(function($) {
 			});
 		});
 
-	  if ($(window).height() > 400) {
+	  if ($(window).height() > 400 & $(window).height() > 400) {
 
 		// Header Init
 		
