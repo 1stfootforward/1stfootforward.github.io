@@ -1228,6 +1228,8 @@ li.l {
 	position: relative;
 }
 
+.main {margin-top: 100px;}
+
 
 .cut-top {
 	content: ' ';

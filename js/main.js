@@ -17,13 +17,24 @@ jQuery(function($) {
 		});
 
 		// Header Init
-		if ($(window).height() > $(window).width()) {
-			var ratio = $('.parallax').width() / $('.parallax').height();
-			$('.parallax img').css('height', ($(window).height()) + 'px');
-			$('.parallax img').css('width', $('.parallax').height() * ratio + 'px');
+		
+
+		if ($(window).height() > 400) {
+
+			if ($(window).height() > $(window).width()) {
+				var ratio = $('.parallax').width() / $('.parallax').height();
+				$('.parallax img').css('height', ($(window).height()) + 'px');
+				$('.parallax img').css('width', $('.parallax').height() * ratio + 'px');
+			}
+
+			$('header').height($(window).height() - 75);
+			$('section .cut').each(function() {
+				if ($(this).hasClass('cut-top'))
+					$(this).css('border-right-width', $(this).parent().width() + "px");
+				else if ($(this).hasClass('cut-bottom'))
+					$(this).css('border-left-width', $(this).parent().width() + "px");
+			});
 		}
-
-
 
 		// Navbar Init
 		$('.mobile-nav ul').html($('nav .navbar-nav').html());
