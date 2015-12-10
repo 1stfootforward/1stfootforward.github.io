@@ -31,20 +31,6 @@ jQuery(function($) {
 				$(this).css('border-left-width', $(this).parent().width() + "px");
 		});
 
-		// Sliders Init
-		$('.owl-schedule').owlCarousel({
-			singleItem: true,
-			pagination: true
-		});
-		$('.owl-testimonials').owlCarousel({
-			singleItem: true,
-			pagination: true
-		});
-		$('.owl-twitter').owlCarousel({
-			singleItem: true,
-			pagination: true
-		});
-
 		// Navbar Init
 		$('.mobile-nav ul').html($('nav .navbar-nav').html());
 		$('nav.navbar-fixed-top .navbar-brand img').attr('src', $('nav.navbar-fixed-top .navbar-brand img').data("active-url"));
@@ -89,15 +75,7 @@ jQuery(function($) {
 		$('header').height($(window).height());
 	});
 
-	// Pricing Box Click Event
-	$('.pricing .box-main').click(function() {
-		$('.pricing .box-main').removeClass('active');
-		$('.pricing .box-second').removeClass('active');
-		$(this).addClass('active');
-		$(this).next($('.box-second')).addClass('active');
-		$('#pricing').css("background-image", "url(" + $(this).data('img') + ")");
-		$('#pricing').css("background-size", "cover");
-	});
+;
 
 	// Mobile Nav
 	$('body').on('click', 'nav .navbar-toggle', function() {
@@ -167,8 +145,7 @@ jQuery(function($) {
 		var message = $('#message').val()
 		var contact = $('#contact').val()
 		$.post("https://rocky-earth-6889.herokuapp.com/messages.json",
-		    {"message":{"name":name,"note":message,"contact":contact}}
-		    );
+		    {"message":{"name":name,"note":message,"contact":contact}});
 		$('#modal1').modal('hide');
 	});
 
