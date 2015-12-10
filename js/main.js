@@ -65,7 +65,7 @@ jQuery(function($) {
 
 	  }
 	});
-	/* Window Scroll
+	/* Window Scroll */
 	function onScroll() {
 		if ($(window).scrollTop() > 50) {
 			$('nav.original').css('opacity', '0');
@@ -77,7 +77,7 @@ jQuery(function($) {
 	}
 	
 	window.addEventListener('scroll', onScroll, false);
-	*/
+	
 
 	// Window Resize
 	$(window).resize(function() {
