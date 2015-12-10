@@ -1217,6 +1217,10 @@ li.l {
 
 /* Media Queries */
 
+.boo {
+		display: none;
+	}
+
 @media(min-width:1002px) {
 
 .intro-tables {
@@ -1259,6 +1263,9 @@ li.l {
 		display: none !important;
 	}
 
+	.boo {
+		display: inline-block;
+	}
 }
 
 @media(max-width: 768px) {

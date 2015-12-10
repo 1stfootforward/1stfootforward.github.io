@@ -23,15 +23,7 @@ jQuery(function($) {
 			$('.parallax img').css('width', $('.parallax').height() * ratio + 'px');
 		}
 
-		if ($(window).height() > 300) {
-			$('header').height($(window).height() - 75);
-			$('section .cut').each(function() {
-				if ($(this).hasClass('cut-top'))
-					$(this).css('border-right-width', $(this).parent().width() + "px");
-				else if ($(this).hasClass('cut-bottom'))
-					$(this).css('border-left-width', $(this).parent().width() + "px");
-			});
-		}
+
 
 		// Navbar Init
 		$('.mobile-nav ul').html($('nav .navbar-nav').html());
