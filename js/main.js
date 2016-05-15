@@ -21,7 +21,7 @@ jQuery(function($) {
 		// Header Init
 		
 
-		if ($(window).height() > 700) {
+		if ($(window).height() > 400) {
 
 			if ($(window).height() > $(window).width()) {
 				var ratio = $('.parallax').width() / $('.parallax').height();
@@ -36,8 +36,8 @@ jQuery(function($) {
 				else if ($(this).hasClass('cut-bottom'))
 					$(this).css('border-left-width', $(this).parent().width() + "px");
 			});
-		}
-	  }
+			}
+		  }
 		// Navbar Init
 		$('.mobile-nav ul').html($('nav .navbar-nav').html());
 		$('nav.navbar-fixed-top .navbar-brand img').attr('src', $('nav.navbar-fixed-top .navbar-brand img').data("active-url"));
