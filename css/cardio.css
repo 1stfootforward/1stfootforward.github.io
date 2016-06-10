@@ -1194,8 +1194,20 @@ li.l {
 }
 
 .group {
-	background-image: url('../img/group.jpg');
+	background-image: url('../img/group.png');
+	background-size: cover!important;
 }
+
+.nutrition {
+	background-image: url('../img/food.png');
+	background-size: cover!important;
+}
+
+.white {
+	color: white!important;
+}
+
+
 
 @media(max-width:992px) {
 	h1 {
