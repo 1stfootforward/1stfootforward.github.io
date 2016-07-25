@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <script> var pagestart = new Date().getTime(); </script>
+    <title>Task Finder</title>
+    <meta charset="utf-8" />
+
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.css" />
+    <style>
+        .mark {
+            background-color: grey !important;
+        }
+
+        .changeing {
+            background-color: orange !important;
+        }
+
+        .success {
+            background-color: green !important;
+        }
+
+        .hide {
+            display: none !important;
+        }
+
+        .min .sub {
+            display: none !important;
+        }
+
+        .mright {
+            text-align: right !important;
+        }
+
+        @media only screen and (min-width: 900px) {
+            .holder {
+                margin: 20px !important;
+            }
+        }
+    </style>
+    <style>
+        .itemrow {
+            height: 30px !important;
+            margin-bottom: 0px !important;
+        }
+        .item.itemrow b {
+            margin-left: 20px;
+        }
+        .wide.item {
+            margin-left: 10px!important;
+            margin-right: 10px!important;
+        }
+        .secondary.menu {
+            margin-right: 40px!important
+        }
+        .menurow {
+            height: 30px !important;
+            margin-bottom: 0px !important;
+        }
+        .template {
+            display: none!important;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="taskPage" class="holder">
+    </div>
+
+    <!-- Templates -->
+    <!-- Contractor Block -->
+
+    <div id="contractor_section_template" class="template">
+        <div class="ui menu">
+            <div class="header item name">
+                .
+            </div> 
+            <div class="ui floating right pointing secondary menu">
+              <a class="wide item tabcontractor active" onclick="tabs('contractor')">Contractor</a>
+              <a class="wide item tabdates" onclick="tabs('dates')">Timeline</a>
+              <a class="wide item tabpeople" onclick="tabs('people')">Participants</a>
+              <a class="wide item tabstatus" onclick="tabs('status')">Status</a>
+            </div>
+        </div>
+
+        <div class=" relaxed divided list">
+        </div>
+
+        <div class="right">
+        </div>
+
+    </div>
+
+    <!-- Task Block -->
+    <div id="task_section_template" class="ui item itemrow itemleft template eight wide computer column">
+        <div class="ui grid">
+
+            <div class="sixteen wide mobile sixteen wide tablet eight wide computer column">
+                <b class="TaskName">.</b>
+            </div>
+            <div class="details sixteen wide mobile sixteen wide tablet eight wide computer column">
+              <div class="ui grid">
+                <b class="Description">.</b>
+                
+                <div class="wide two column">
+                </div>
+                <div class="six wide mobile six wide tablet six wide computer column">
+                    <p class="StartDate">.</p>
+                    <p class="TaskOwner">.</p>
+                </div>
+                <div class="six wide mobile six wide tablet six wide computer column">
+                    <p class="EndDate">.</p>
+                    <p class="TaskCustomerID">.</p>
+                    <b class="Status">.</b>
+                </div>
+                
+                
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="TaskSection">
+
+        <div class="Task_Container_Template holder">
+            <div class="ui grid">
+                <div class="sixteen wide mobile sixteen wide tablet eight wide computer column">
+                    <div class="entries">
+                        <div id="section-0" class="ui segments">
+                            <div class="ui secondary segment itemrow"><h4>Electracraft Ltd</h4></div>
+                            <div class="ui secondary segment menurow"><h5>.</h5></div>
+                            <div class="ui segment itemrow"><h5>Electracraft Ltd</h5></div>
+                            <div class="ui segment itemrow"><h5>Electracraft Ltd</h5></div>
+                            <div class="ui segment itemrow"><h5>Electracraft Ltd</h5></div>
+                            <div class="ui segment itemrow"><h5>Electracraft Ltd</h5></div>
+                            <div class="ui segment itemrow"><h5>Electracraft Ltd</h5></div>
+                            <div class="ui secondary segment itemrow"><h4>Electracraft Ltd</h4></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sixteen wide mobile sixteen wide tablet eight wide computer column">
+                    <div class="ui segments">
+                        <div class="ui top attached menu itemrow">
+                            <a class="item">Buy</a>
+                            <a class="item">Sell</a>
+                            <a class="item">Rent</a>
+                        </div>
+                        <div class="ui secondary segment menurow"><h5>.</h5></div>
+                        <div class="ui segment itemrow"><h5>Electracraft Ltd</h5></div>
+                        <div class="ui segment itemrow"><h5>Electracraft Ltd</h5></div>
+                        <div class="ui segment itemrow"><h5>Electracraft Ltd</h5></div>
+                        <div class="ui segment itemrow"><h5>Electracraft Ltd</h5></div>
+                        <div class="ui segment itemrow"><h5>Electracraft Ltd</h5></div>
+                        <div class="ui secondary segment itemrow"><h4>Electracraft Ltd</h4></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="holder sixteen wide mobile eight wide tablet four wide computer column">
+
+
+            <div class="ui simple dropdown basic teal button">
+                In Progress
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                    <div class="item">In Progress &nbsp<i class="green checkmark icon"></i></div>
+                    <div class="item">Complete</div>
+                    <div class="divider"></div>
+                    <div class="item">Invoice</div>
+                    <div class="item">Paid</div>
+                    <div class="item">Written Off</div>
+                </div>
+            </div>
+
+            <div class="ui simple dropdown basic teal button"> In Progress <i class="dropdown icon"></i><div class="menu"><div class="item">In Progress &nbsp<i class="green checkmark icon"></i></div><div class="item">Complete</div><div class="divider"></div><div class="item">Invoice</div><div class="item">Paid</div><div class="item">Written Off</div></div></div>
+
+        </div>
+
+
+
+        </br >
+        </br >
+        </br >
+        </br >
+
+        <div class="ui dropdown">
+            <div class="text">Status</div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+                <div class="item">Invoice</div>
+                <div class="item">Write Off</div>
+                <div class="item">Paid</div>
+            </div>
+        </div>
+
+        <div class="ui segments">
+            <div class="ui secondary segment">
+                <h4>Middle</h4>
+            </div>
+            <div class="ui segment">
+                <div class="ui grid">
+                    <div class="sixteen wide mobile sixteen wide tablet eight wide computer column">
+                        <p>OnTrack</p>
+                    </div>
+                    <div class="eight wide mobile eight wide tablet four wide computer column">
+                        <p>1900-01-01T00:00:00</p>
+                    </div>
+                    <div class="eight wide mobile eight wide tablet four wide computer column">
+                        <p>1900-01-01T00:00:00</p>
+                    </div>
+                    <div class="sixteen wide column hide">
+                        <p>Create tables Jobdetails screen add tasktemplate combo default to none populate based on contactid(of company) Create screen in management screen to: 1. Create new jobtemplate 2. and the tasks for it</p>
+                    </div>
+                </div>
+                <div class="ui segments">
+                    <div class="ui secondary segment">
+                        <div class="ui float right compact menu">
+                            <div class="ui simple dropdown item">
+                                Dropdown
+                                <i class="dropdown icon"></i>
+                                <div class="menu">
+                                    <div class="item">Choice 1</div>
+                                    <div class="item">Choice 2</div>
+                                    <div class="item">Choice 3</div>
+                                </div>
+                            </div>
+                            <div class="ui simple dropdown item">
+                                Dropdown
+                                <i class="dropdown icon"></i>
+                                <div class="menu">
+                                    <div class="item">Choice 1</div>
+                                    <div class="item">Choice 2</div>
+                                    <div class="item">Choice 3</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui segment">
+                        <div class="ui grid">
+                            <div class="two wide mobile two wide tablet two wide computer column">
+                                14 <b> &times</b>
+                            </div>
+                            <div class="eight wide mobile eight wide tablet eight wide computer column">
+                                2.5mmtps 2c + E White
+                            </div>
+                            <div class="two wide mobile two wide tablet two wide computer column">
+                                $ 250
+                            </div>
+                            <div class="four wide mobile four wide tablet four wide computer column">
+                                1900-01-01T00:00:00
+                            </div>
+                            <div class="sixteen wide column hide">
+                                <p>Create tables Jobdetails screen add tasktemplate combo default to none populate based on contactid(of company) Create screen in management screen to: 1. Create new jobtemplate 2. and the tasks for it</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui segment">
+                        <p>Middle</p>
+                    </div>
+                    <div class="ui segment">
+                        <p>Bottom</p>
+                    </div>
+                </div>
+            </div>
+            <div class="ui segment">
+                <p>Middle</p>
+            </div>
+            <div class="ui segment">
+                <p>Middle</p>
+            </div>
+            <div class="ui segment">
+                <p>Middle</p>
+            </div>
+            <div class="ui segment">
+                <p>Bottom</p>
+            </div>
+        </div>
+
+        <div>
+            <h1>Get Times</h1>
+            <div id="times"></div>
+            <h1>Set Times</h1>
+            <div id="settimes"></div>
+        </div>
+
+        <button onclick="addTaskHandler()" class="ui primary button">New Task</button>
+
+        <div id="addTaskPage1" class="ui grid holder hide">
+            <div class="eight wide computer column">
+                <div class="ui piled segments">
+                    <div class="ui blue center aligned segment">
+                        <h3>Add a new <b>Task</b> to <b>JobName</b></h3>
+                    </div>
+                    <div class="ui segment">
+                        <div class="ui form">
+                            <div class="fields">
+                                <div class="sixteen wide field">
+                                    <label>Task Name</label>
+                                    <input id="add-0" type="text" placeholder="Task Name">
+                                </div>
+                            </div>
+                            <div class="fields">
+                                <div class="eight wide field">
+                                    <label>Start Date</label>
+                                    <input id="add-1" type="date" placeholder="Start Date">
+                                </div>
+                                <div class="eight wide field">
+                                    <label>End Date</label>
+                                    <input id="add-2" type="date" placeholder="End Date">
+                                </div>
+                            </div>
+
+                            <div class="fields">
+                                <div class="eight wide field">
+                                    <label>Customer</label>
+                                    <select id="add-3" class="ui dropdown">
+                                        <option value="">Customer</option>
+                                        <option value="1">1</option>
+                                        <option value="0">2</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="fields">
+                                <button onclick="addTaskPageTurner(2)" class="ui primary button">Assign Task</button>
+                                <button onclick="cancelTask()" class="ui red secondary button">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="addTaskPage2" class="ui grid holder hide">
+            <div class="eight wide computer column">
+                <div class="ui piled segments">
+                    <div class="ui blue center aligned segment">
+                        <h3>Add a new <b>Task</b> to <b>JobName</b></h3>
+                    </div>
+                    <div class="ui segment">
+                        <div class="ui form">
+                            <div class="fields">
+                                <div class="eight wide field">
+                                    <label>Trade Category</label>
+                                    <select id="add-4" class="ui dropdown">
+                                        <option value="">Trades</option>
+                                        <option value="1">1</option>
+                                        <option value="0">2</option>
+                                    </select>
+                                </div>
+                                <div class="eight wide field">
+                                    <label>Contractor</label>
+                                    <select id="add-5" class="ui dropdown">
+                                        <option value="">Trades</option>
+                                        <option value="1">1</option>
+                                        <option value="0">2</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="fields">
+                                <button onclick="addTaskPageTurner(1)" class="ui button">Edit Task</button>
+                                <button onclick="createTaskFire()" class="ui primary button">Create Task</button>
+                                <button onclick="cancelTask()" class="ui red secondary button">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="insert" class="ui grid holder"></div>
+
+
+
+        <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+        <script>
+
+        var Tasks = [
+  {
+    "TaskID": "f5074a1d-f916-4f7b-a7a9-2603136d8b81",
+    "JobID": "c07f4152-9b1d-4b15-b4d5-110f92a33924",
+    "ContractorID": "eca7b55c-3971-41da-8e84-a50da10dd233",
+    "ParentTaskID": "00000000-0000-0000-0000-000000000000",
+    "TaskName": "OnTrack",
+    "TaskType": 1,
+    "Description": ".",
+    "TaskOwner": "eca7b55c-3971-41da-8e84-a50da10dd233",
+    "Status": 0,
+    "StartDate": "1900-01-01T00:00:00",
+    "StartMinute": -1,
+    "EndDate": "1900-01-01T00:00:00",
+    "EndMinute": -1,
+    "Appointment": false,
+    "AmendedTaskID": "00000000-0000-0000-0000-000000000000",
+    "LMVisibility": 0,
+    "InvoiceToType": 0,
+    "AmendedBy": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+    "AmendedDate": "1900-01-01T00:00:00",
+    "TradeCategoryID": "00000000-0000-0000-0000-000000000000",
+    "TaskNumber": 0,
+    "TaskCustomerID": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+    "SiteID": "3e2418d0-8e5c-4b52-af2a-9cc1dd0cea7e",
+    "PersistenceStatus": 1,
+    "CreatedBy": "9153c98e-a589-4047-b136-10269543d38a",
+    "CreatedDate": "2015-12-09T14:08:37.92",
+    "Active": true
+  },
+  {
+    "TaskID": "1109ce5a-1b22-4329-8e88-ffdacd3e51ad",
+    "JobID": "c07f4152-9b1d-4b15-b4d5-110f92a33924",
+    "ContractorID": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+    "ParentTaskID": "00000000-0000-0000-0000-000000000000",
+    "TaskName": "Database work",
+    "TaskType": 0,
+    "Description": "-make unique for JC table JobID+ContactID combo -tasks need a customer",
+    "TaskOwner": "9153c98e-a589-4047-b136-10269543d38a",
+    "Status": 0,
+    "StartDate": "1900-01-01T00:00:00",
+    "StartMinute": -1,
+    "EndDate": "1900-01-01T00:00:00",
+    "EndMinute": -1,
+    "Appointment": false,
+    "AmendedTaskID": "00000000-0000-0000-0000-000000000000",
+    "LMVisibility": 0,
+    "InvoiceToType": 0,
+    "AmendedBy": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+    "AmendedDate": "1900-01-01T00:00:00",
+    "TradeCategoryID": "0d945739-b115-4603-ba58-b5b993f16624",
+    "TaskNumber": 4,
+    "TaskCustomerID": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+    "SiteID": "3e2418d0-8e5c-4b52-af2a-9cc1dd0cea7e",
+    "PersistenceStatus": 1,
+    "CreatedBy": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+    "CreatedDate": "2016-05-11T14:30:21.417",
+    "Active": true
+  },
+  {
+    "TaskID": "48c35f8a-d453-472c-80d6-a95f084bdc11",
+    "JobID": "c07f4152-9b1d-4b15-b4d5-110f92a33924",
+    "ContractorID": "9153c98e-a589-4047-b136-10269543d38a",
+    "ParentTaskID": "00000000-0000-0000-0000-000000000000",
+    "TaskName": "Email System V1",
+    "TaskType": 0,
+    "Description": "Sending emails to stake holders with login and \"disable\" user functionality:\r\n-New employee\r\n-New customer\r\n-New Contractor\r\n-New Site owner\r\n\r\n-Contractor assigned to a task.\r\n-Customer with new task(Which will include new site and Job info)\r\n-Siteowner with new site",
+    "TaskOwner": "9153c98e-a589-4047-b136-10269543d38a",
+    "Status": 0,
+    "StartDate": "1900-01-01T00:00:00",
+    "StartMinute": -1,
+    "EndDate": "1900-01-01T00:00:00",
+    "EndMinute": -1,
+    "Appointment": false,
+    "AmendedTaskID": "00000000-0000-0000-0000-000000000000",
+    "LMVisibility": 0,
+    "InvoiceToType": 0,
+    "AmendedBy": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+    "AmendedDate": "1900-01-01T00:00:00",
+    "TradeCategoryID": "816df8db-d042-4e6f-8e33-9bee65e4d84a",
+    "TaskNumber": 1,
+    "TaskCustomerID": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+    "SiteID": "3e2418d0-8e5c-4b52-af2a-9cc1dd0cea7e",
+    "PersistenceStatus": 1,
+    "CreatedBy": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+    "CreatedDate": "2016-05-11T15:50:30.75",
+    "Active": true
+  },
+  {
+    "TaskID": "fa26ddfc-09f1-48c7-9749-a85ff1ac38da",
+    "JobID": "c07f4152-9b1d-4b15-b4d5-110f92a33924",
+    "ContractorID": "9153c98e-a589-4047-b136-10269543d38a",
+    "ParentTaskID": "00000000-0000-0000-0000-000000000000",
+    "TaskName": "Written off",
+    "TaskType": 0,
+    "Description": "‘Written off’ payment task status to be after ‘Invoiced’ as alternative to ‘paid’\r\nJob is only completeable when in eithe 'invoiced' or 'wrtten off' state\r\n",
+    "TaskOwner": "9153c98e-a589-4047-b136-10269543d38a",
+    "Status": 0,
+    "StartDate": "1900-01-01T00:00:00",
+    "StartMinute": -1,
+    "EndDate": "1900-01-01T00:00:00",
+    "EndMinute": -1,
+    "Appointment": false,
+    "AmendedTaskID": "00000000-0000-0000-0000-000000000000",
+    "LMVisibility": 0,
+    "InvoiceToType": 0,
+    "AmendedBy": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+    "AmendedDate": "1900-01-01T00:00:00",
+    "TradeCategoryID": "816df8db-d042-4e6f-8e33-9bee65e4d84a",
+    "TaskNumber": 7,
+    "TaskCustomerID": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+    "SiteID": "3e2418d0-8e5c-4b52-af2a-9cc1dd0cea7e",
+    "PersistenceStatus": 1,
+    "CreatedBy": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+    "CreatedDate": "2016-05-11T15:52:20.75",
+    "Active": true
+  },
+  {
+    "TaskID": "6aa27412-2527-4ced-9e92-8753ecd2766f",
+    "JobID": "c07f4152-9b1d-4b15-b4d5-110f92a33924",
+    "ContractorID": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+    "ParentTaskID": "00000000-0000-0000-0000-000000000000",
+    "TaskName": "Create code for health and safety tables, produce database drawing",
+    "TaskType": 0,
+    "Description": "as per 'health and safety' tab in maintimeline worksheet",
+    "TaskOwner": "9153c98e-a589-4047-b136-10269543d38a",
+    "Status": 0,
+    "StartDate": "1900-01-01T00:00:00",
+    "StartMinute": -1,
+    "EndDate": "1900-01-01T00:00:00",
+    "EndMinute": -1,
+    "Appointment": false,
+    "AmendedTaskID": "00000000-0000-0000-0000-000000000000",
+    "LMVisibility": 0,
+    "InvoiceToType": 0,
+    "AmendedBy": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+    "AmendedDate": "1900-01-01T00:00:00",
+    "TradeCategoryID": "2a9bbd93-ec91-41aa-b210-66b8856d5be7",
+    "TaskNumber": 9,
+    "TaskCustomerID": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+    "SiteID": "3e2418d0-8e5c-4b52-af2a-9cc1dd0cea7e",
+    "PersistenceStatus": 1,
+    "CreatedBy": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+    "CreatedDate": "2016-05-14T14:30:01.1",
+    "Active": true
+  },
+  {
+    "TaskID": "26dcbea5-a89b-45e4-ae01-b8d22d247668",
+    "JobID": "c07f4152-9b1d-4b15-b4d5-110f92a33924",
+    "ContractorID": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+    "ParentTaskID": "00000000-0000-0000-0000-000000000000",
+    "TaskName": "Job template",
+    "TaskType": 0,
+    "Description": "Create tables\r\nJobdetails screen add tasktemplate combo default to none\r\npopulate based on contactid(of company)\r\n\r\nCreate screen in management screen to:\r\n1. Create new jobtemplate\r\n2. and the tasks for it",
+    "TaskOwner": "9153c98e-a589-4047-b136-10269543d38a",
+    "Status": 0,
+    "StartDate": "2016-05-14T00:00:00",
+    "StartMinute": -1,
+    "EndDate": "2016-05-28T00:00:00",
+    "EndMinute": -1,
+    "Appointment": false,
+    "AmendedTaskID": "00000000-0000-0000-0000-000000000000",
+    "LMVisibility": 0,
+    "InvoiceToType": 0,
+    "AmendedBy": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+    "AmendedDate": "1900-01-01T00:00:00",
+    "TradeCategoryID": "816df8db-d042-4e6f-8e33-9bee65e4d84a",
+    "TaskNumber": 10,
+    "TaskCustomerID": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+    "SiteID": "3e2418d0-8e5c-4b52-af2a-9cc1dd0cea7e",
+    "PersistenceStatus": 1,
+    "CreatedBy": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+    "CreatedDate": "2016-05-14T16:53:48.69",
+    "Active": true
+  },
+  {
+    "TaskID": "c9d9f30c-5752-49ec-b2e1-d45e877ae345",
+    "JobID": "c07f4152-9b1d-4b15-b4d5-110f92a33924",
+    "ContractorID": "9153c98e-a589-4047-b136-10269543d38a",
+    "ParentTaskID": "00000000-0000-0000-0000-000000000000",
+    "TaskName": "Traffic lights",
+    "TaskType": 0,
+    "Description": "Continue to use button background to be blue if the site/job conatins any incomplete jobs /tasks\r\nand grey if all are complete  for both versions phone and pc for everything except the task\r\n\r\nPC version only to have following functionality\r\n-add fi-play icons to the right of CustomerName, SiteName, JobName to indicate the following:\r\n1. if there is one or more tasks that are complete(Invoiceable) then add  \"fi-flag green.svg\" \r\n2. if there is a task that is invoiced then add \"fi-flag red.svg\"\r\n\r\n",
+    "TaskOwner": "9153c98e-a589-4047-b136-10269543d38a",
+    "Status": 0,
+    "StartDate": "2016-07-11T00:00:00",
+    "StartMinute": -1,
+    "EndDate": "2016-07-18T00:00:00",
+    "EndMinute": -1,
+    "Appointment": false,
+    "AmendedTaskID": "00000000-0000-0000-0000-000000000000",
+    "LMVisibility": 0,
+    "InvoiceToType": 0,
+    "AmendedBy": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+    "AmendedDate": "1900-01-01T00:00:00",
+    "TradeCategoryID": "816df8db-d042-4e6f-8e33-9bee65e4d84a",
+    "TaskNumber": 5,
+    "TaskCustomerID": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+    "SiteID": "3e2418d0-8e5c-4b52-af2a-9cc1dd0cea7e",
+    "PersistenceStatus": 1,
+    "CreatedBy": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+    "CreatedDate": "2016-05-14T17:52:42.15",
+    "Active": true
+  },
+  {
+    "TaskID": "814ca0e8-72a6-4f2b-9c55-7137a2c00828",
+    "JobID": "c07f4152-9b1d-4b15-b4d5-110f92a33924",
+    "ContractorID": "9153c98e-a589-4047-b136-10269543d38a",
+    "ParentTaskID": "00000000-0000-0000-0000-000000000000",
+    "TaskName": "Finish existing task",
+    "TaskType": 0,
+    "Description": "task includes the new method to populate home screen etc. using contractorcustomer and contactsite tables",
+    "TaskOwner": "9153c98e-a589-4047-b136-10269543d38a",
+    "Status": 0,
+    "StartDate": "2016-05-14T00:00:00",
+    "StartMinute": -1,
+    "EndDate": "2016-05-17T00:00:00",
+    "EndMinute": -1,
+    "Appointment": false,
+    "AmendedTaskID": "00000000-0000-0000-0000-000000000000",
+    "LMVisibility": 0,
+    "InvoiceToType": 0,
+    "AmendedBy": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+    "AmendedDate": "1900-01-01T00:00:00",
+    "TradeCategoryID": "816df8db-d042-4e6f-8e33-9bee65e4d84a",
+    "TaskNumber": 12,
+    "TaskCustomerID": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+    "SiteID": "3e2418d0-8e5c-4b52-af2a-9cc1dd0cea7e",
+    "PersistenceStatus": 1,
+    "CreatedBy": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+    "CreatedDate": "2016-05-14T17:58:55.677",
+    "Active": true
+  },
+  {
+    "TaskID": "c1be2036-91f8-4402-bfc5-3c9fb777c34f",
+    "JobID": "c07f4152-9b1d-4b15-b4d5-110f92a33924",
+    "ContractorID": "9153c98e-a589-4047-b136-10269543d38a",
+    "ParentTaskID": "00000000-0000-0000-0000-000000000000",
+    "TaskName": "Merge and publish",
+    "TaskType": 0,
+    "Description": "merge and publish",
+    "TaskOwner": "9153c98e-a589-4047-b136-10269543d38a",
+    "Status": 0,
+    "StartDate": "2016-05-18T00:00:00",
+    "StartMinute": -1,
+    "EndDate": "2016-05-19T00:00:00",
+    "EndMinute": -1,
+    "Appointment": false,
+    "AmendedTaskID": "00000000-0000-0000-0000-000000000000",
+    "LMVisibility": 0,
+    "InvoiceToType": 0,
+    "AmendedBy": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+    "AmendedDate": "1900-01-01T00:00:00",
+    "TradeCategoryID": "816df8db-d042-4e6f-8e33-9bee65e4d84a",
+    "TaskNumber": 13,
+    "TaskCustomerID": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+    "SiteID": "3e2418d0-8e5c-4b52-af2a-9cc1dd0cea7e",
+    "PersistenceStatus": 1,
+    "CreatedBy": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+    "CreatedDate": "2016-05-14T18:01:24.063",
+    "Active": true
+  },
+  {
+    "TaskID": "291aad9d-9f88-4b0e-b8db-a11570cf8154",
+    "JobID": "c07f4152-9b1d-4b15-b4d5-110f92a33924",
+    "ContractorID": "9153c98e-a589-4047-b136-10269543d38a",
+    "ParentTaskID": "00000000-0000-0000-0000-000000000000",
+    "TaskName": "JobContractor and Job table updates",
+    "TaskType": 0,
+    "Description": "During creation of job we need to get optionally job.startdate and job.enddate\r\n\r\nThese values if acquired will be inserted into the gantt chart as vertical lines.\r\n\r\n\r\n\r\nJobContractor\r\nSolution for the potential job number duplicate issue.\r\n\r\nConsider the following:\r\n\r\n1. We will remove column job.jobnumberauto\r\n\r\n2. and add column jobcontractor.jobnumberauto\r\n\r\n3. the search function on home.aspx will need altering\r\n\r\n4. The sitehome.aspx will need to be altered to retrieve the job number from the jobcontractor table instead of the job table\r\n\r\n5. populate jobcontractor.jobnumberauto with values from job table\r\n",
+    "TaskOwner": "9153c98e-a589-4047-b136-10269543d38a",
+    "Status": 0,
+    "StartDate": "2016-05-29T00:00:00",
+    "StartMinute": -1,
+    "EndDate": "2016-07-12T00:00:00",
+    "EndMinute": -1,
+    "Appointment": false,
+    "AmendedTaskID": "00000000-0000-0000-0000-000000000000",
+    "LMVisibility": 0,
+    "InvoiceToType": 0,
+    "AmendedBy": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+    "AmendedDate": "1900-01-01T00:00:00",
+    "TradeCategoryID": "2a9bbd93-ec91-41aa-b210-66b8856d5be7",
+    "TaskNumber": 8,
+    "TaskCustomerID": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+    "SiteID": "3e2418d0-8e5c-4b52-af2a-9cc1dd0cea7e",
+    "PersistenceStatus": 1,
+    "CreatedBy": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+    "CreatedDate": "2016-05-14T18:10:51.63",
+    "Active": true
+  },
+  {
+    "TaskID": "b0c79a48-f89a-426d-ba59-4c823929fa9e",
+    "JobID": "c07f4152-9b1d-4b15-b4d5-110f92a33924",
+    "ContractorID": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+    "ParentTaskID": "00000000-0000-0000-0000-000000000000",
+    "TaskName": "DefineSubscription calculations",
+    "TaskType": 0,
+    "Description": "evaluate subscriptions",
+    "TaskOwner": "9153c98e-a589-4047-b136-10269543d38a",
+    "Status": 0,
+    "StartDate": "2016-05-28T00:00:00",
+    "StartMinute": -1,
+    "EndDate": "2016-06-04T00:00:00",
+    "EndMinute": -1,
+    "Appointment": false,
+    "AmendedTaskID": "00000000-0000-0000-0000-000000000000",
+    "LMVisibility": 0,
+    "InvoiceToType": 0,
+    "AmendedBy": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+    "AmendedDate": "1900-01-01T00:00:00",
+    "TradeCategoryID": "5b998aa7-a64f-4a66-801c-f1872049633f",
+    "TaskNumber": 14,
+    "TaskCustomerID": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+    "SiteID": "3e2418d0-8e5c-4b52-af2a-9cc1dd0cea7e",
+    "PersistenceStatus": 1,
+    "CreatedBy": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+    "CreatedDate": "2016-05-15T15:43:26.937",
+    "Active": true
+  },
+  {
+    "TaskID": "ed858178-f2af-40fd-a8bd-564a5b78899d",
+    "JobID": "c07f4152-9b1d-4b15-b4d5-110f92a33924",
+    "ContractorID": "eca7b55c-3971-41da-8e84-a50da10dd233",
+    "ParentTaskID": "00000000-0000-0000-0000-000000000000",
+    "TaskName": "Database work",
+    "TaskType": 0,
+    "Description": "-Merge customer with contact and stop using customer table\r\n-Rename contactcustomer table to ContractorCustomer\r\n-JobContractor table to make live\r\n",
+    "TaskOwner": "9153c98e-a589-4047-b136-10269543d38a",
+    "Status": 0,
+    "StartDate": "1900-01-01T00:00:00",
+    "StartMinute": -1,
+    "EndDate": "1900-01-01T00:00:00",
+    "EndMinute": -1,
+    "Appointment": false,
+    "AmendedTaskID": "00000000-0000-0000-0000-000000000000",
+    "LMVisibility": 0,
+    "InvoiceToType": 0,
+    "AmendedBy": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+    "AmendedDate": "1900-01-01T00:00:00",
+    "TradeCategoryID": "0d945739-b115-4603-ba58-b5b993f16624",
+    "TaskNumber": 3,
+    "TaskCustomerID": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+    "SiteID": "3e2418d0-8e5c-4b52-af2a-9cc1dd0cea7e",
+    "PersistenceStatus": 1,
+    "CreatedBy": "9153c98e-a589-4047-b136-10269543d38a",
+    "CreatedDate": "2016-05-15T22:57:02.257",
+    "Active": true
+  },
+  {
+    "TaskID": "39d57afa-8b91-4aef-96aa-770fc4c2a881",
+    "JobID": "c07f4152-9b1d-4b15-b4d5-110f92a33924",
+    "ContractorID": "9153c98e-a589-4047-b136-10269543d38a",
+    "ParentTaskID": "00000000-0000-0000-0000-000000000000",
+    "TaskName": "Files at task level",
+    "TaskType": 0,
+    "Description": "New table TaskFiles\r\n\r\n\r\n\r\nProbably fileupload table needs to include...\r\n\"contactid\"\r\n\"filesize\" \r\n\"TemplateFile\" : bit, default=0 \r\n\r\nAdd file upload/download at task level\r\n\r\nAdd file upload/download to my templates screen\r\n",
+    "TaskOwner": "9153c98e-a589-4047-b136-10269543d38a",
+    "Status": 0,
+    "StartDate": "2016-05-20T00:00:00",
+    "StartMinute": -1,
+    "EndDate": "2016-05-27T00:00:00",
+    "EndMinute": -1,
+    "Appointment": false,
+    "AmendedTaskID": "00000000-0000-0000-0000-000000000000",
+    "LMVisibility": 0,
+    "InvoiceToType": 0,
+    "AmendedBy": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+    "AmendedDate": "1900-01-01T00:00:00",
+    "TradeCategoryID": "816df8db-d042-4e6f-8e33-9bee65e4d84a",
+    "TaskNumber": 11,
+    "TaskCustomerID": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+    "SiteID": "3e2418d0-8e5c-4b52-af2a-9cc1dd0cea7e",
+    "PersistenceStatus": 1,
+    "CreatedBy": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+    "CreatedDate": "2016-05-16T10:32:33.407",
+    "Active": true
+  },
+  {
+    "TaskID": "fdaa7ba4-154e-4408-98e5-19b23058ca87",
+    "JobID": "c07f4152-9b1d-4b15-b4d5-110f92a33924",
+    "ContractorID": "9153c98e-a589-4047-b136-10269543d38a",
+    "ParentTaskID": "00000000-0000-0000-0000-000000000000",
+    "TaskName": "User permissions",
+    "TaskType": 0,
+    "Description": "Setup user permissions as defined in DOEmployeeInfo.Rights\r\n",
+    "TaskOwner": "9153c98e-a589-4047-b136-10269543d38a",
+    "Status": 0,
+    "StartDate": "2016-05-28T00:00:00",
+    "StartMinute": -1,
+    "EndDate": "2016-06-04T00:00:00",
+    "EndMinute": -1,
+    "Appointment": false,
+    "AmendedTaskID": "00000000-0000-0000-0000-000000000000",
+    "LMVisibility": 0,
+    "InvoiceToType": 0,
+    "AmendedBy": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+    "AmendedDate": "1900-01-01T00:00:00",
+    "TradeCategoryID": "816df8db-d042-4e6f-8e33-9bee65e4d84a",
+    "TaskNumber": 2,
+    "TaskCustomerID": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+    "SiteID": "3e2418d0-8e5c-4b52-af2a-9cc1dd0cea7e",
+    "PersistenceStatus": 1,
+    "CreatedBy": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+    "CreatedDate": "2016-05-17T13:14:29.56",
+    "Active": true
+  },
+  {
+    "TaskID": "3a0e6033-4f43-4d6e-bb8c-44cc62baee68",
+    "JobID": "c07f4152-9b1d-4b15-b4d5-110f92a33924",
+    "ContractorID": "9153c98e-a589-4047-b136-10269543d38a",
+    "ParentTaskID": "00000000-0000-0000-0000-000000000000",
+    "TaskName": "Customer for task",
+    "TaskType": 0,
+    "Description": "Task table needs a customer\r\nThe \"Customer\" option is available during adding a new task.\r\nwhen a task is created the default customer is the entity you went through on your home screen\r\ncan select all jobcontractors of that job. If the task is not 'quoted' type then the customer can be changed after the task is created.\r\n",
+    "TaskOwner": "9153c98e-a589-4047-b136-10269543d38a",
+    "Status": 0,
+    "StartDate": "2016-05-17T00:00:00",
+    "StartMinute": -1,
+    "EndDate": "2016-05-20T00:00:00",
+    "EndMinute": -1,
+    "Appointment": false,
+    "AmendedTaskID": "00000000-0000-0000-0000-000000000000",
+    "LMVisibility": 0,
+    "InvoiceToType": 0,
+    "AmendedBy": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+    "AmendedDate": "1900-01-01T00:00:00",
+    "TradeCategoryID": "816df8db-d042-4e6f-8e33-9bee65e4d84a",
+    "TaskNumber": 6,
+    "TaskCustomerID": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+    "SiteID": "3e2418d0-8e5c-4b52-af2a-9cc1dd0cea7e",
+    "PersistenceStatus": 1,
+    "CreatedBy": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+    "CreatedDate": "2016-05-17T13:15:06.313",
+    "Active": true
+  },
+  {
+    "TaskID": "0c05c93e-8ea7-4449-b543-bc41ed3b845f",
+    "JobID": "c07f4152-9b1d-4b15-b4d5-110f92a33924",
+    "ContractorID": "eca7b55c-3971-41da-8e84-a50da10dd233",
+    "ParentTaskID": "00000000-0000-0000-0000-000000000000",
+    "TaskName": "new Task Name",
+    "TaskType": 0,
+    "Description": "description",
+    "TaskOwner": "9153c98e-a589-4047-b136-10269543d38a",
+    "Status": 0,
+    "StartDate": "1900-01-01T00:00:00",
+    "StartMinute": -1,
+    "EndDate": "1900-01-01T00:00:00",
+    "EndMinute": -1,
+    "Appointment": false,
+    "AmendedTaskID": "00000000-0000-0000-0000-000000000000",
+    "LMVisibility": 0,
+    "InvoiceToType": 0,
+    "AmendedBy": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+    "AmendedDate": "1900-01-01T00:00:00",
+    "TradeCategoryID": "df33e8bd-2b11-411b-aba3-1d4e0c105b79",
+    "TaskNumber": 15,
+    "TaskCustomerID": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+    "SiteID": "fca5e11d-5733-4337-95bf-981ee611056c",
+    "PersistenceStatus": 1,
+    "CreatedBy": "9153c98e-a589-4047-b136-10269543d38a",
+    "CreatedDate": "2016-07-15T00:05:58.737",
+    "Active": true
+  }
+];
+
+var People = [
+      {
+        "ContactID": "9153c98e-a589-4047-b136-10269543d38a",
+        "FirstName": "hty",
+        "LastName": "ty",
+        "Email": "mandeepk6789@gmail.com",
+        "Phone": "yht",
+        "ContactType": 1,
+        "Address1": "hyt",
+        "Address2": "Bryndwr",
+        "Address3": "Christchurch",
+        "Address4": "Canterbury",
+        "CompanyName": "",
+        "DisplayName": "hty ty",
+        "PersistenceStatus": 1,
+        "CreatedBy": "00000000-0000-0000-0000-000000000000",
+        "CreatedDate": "2015-09-14T16:20:32.24",
+        "Active": true
+      },
+      {
+        "ContactID": "eca7b55c-3971-41da-8e84-a50da10dd233",
+        "FirstName": "",
+        "LastName": "",
+        "Email": "jared.electracraft@gmail.com",
+        "Phone": "0274627483",
+        "ContactType": 0,
+        "Address1": "15 Sledmere St",
+        "Address2": "Burnside",
+        "Address3": "Christchurch",
+        "Address4": "Canterbury",
+        "CompanyName": "Electracraft Ltd",
+        "DisplayName": "Electracraft Ltd",
+        "PersistenceStatus": 1,
+        "CreatedBy": "00000000-0000-0000-0000-000000000000",
+        "CreatedDate": "2015-05-26T15:10:56.637",
+        "Active": true
+      },
+      {
+        "ContactID": "9153c98e-a589-4047-b136-10269543d38a",
+        "FirstName": "hty",
+        "LastName": "ty",
+        "Email": "mandeepk6789@gmail.com",
+        "Phone": "yht",
+        "ContactType": 1,
+        "Address1": "hyt",
+        "Address2": "Bryndwr",
+        "Address3": "Christchurch",
+        "Address4": "Canterbury",
+        "CompanyName": "",
+        "DisplayName": "hty ty",
+        "PersistenceStatus": 1,
+        "CreatedBy": "00000000-0000-0000-0000-000000000000",
+        "CreatedDate": "2015-09-14T16:20:32.24",
+        "Active": true
+      },
+      {
+        "ContactID": "eca7b55c-3971-41da-8e84-a50da10dd233",
+        "FirstName": "",
+        "LastName": "",
+        "Email": "jared.electracraft@gmail.com",
+        "Phone": "0274627483",
+        "ContactType": 0,
+        "Address1": "15 Sledmere St",
+        "Address2": "Burnside",
+        "Address3": "Christchurch",
+        "Address4": "Canterbury",
+        "CompanyName": "Electracraft Ltd",
+        "DisplayName": "Electracraft Ltd",
+        "PersistenceStatus": 1,
+        "CreatedBy": "00000000-0000-0000-0000-000000000000",
+        "CreatedDate": "2015-05-26T15:10:56.637",
+        "Active": true
+      },
+      {
+        "ContactID": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+        "FirstName": "Jared",
+        "LastName": "Mccracken",
+        "Email": "jared.electracraft@gmail.com",
+        "Phone": "0274627483",
+        "ContactType": 1,
+        "Address1": "15 Sledmere St",
+        "Address2": "Burnside",
+        "Address3": "Christchurch",
+        "Address4": "Canterbury",
+        "CompanyName": "",
+        "DisplayName": "Jared Mccracken",
+        "PersistenceStatus": 1,
+        "CreatedBy": "00000000-0000-0000-0000-000000000000",
+        "CreatedDate": "2015-05-26T15:10:39.187",
+        "Active": true
+      },
+      {
+        "ContactID": "eca7b55c-3971-41da-8e84-a50da10dd233",
+        "FirstName": "",
+        "LastName": "",
+        "Email": "jared.electracraft@gmail.com",
+        "Phone": "0274627483",
+        "ContactType": 0,
+        "Address1": "15 Sledmere St",
+        "Address2": "Burnside",
+        "Address3": "Christchurch",
+        "Address4": "Canterbury",
+        "CompanyName": "Electracraft Ltd",
+        "DisplayName": "Electracraft Ltd",
+        "PersistenceStatus": 1,
+        "CreatedBy": "00000000-0000-0000-0000-000000000000",
+        "CreatedDate": "2015-05-26T15:10:56.637",
+        "Active": true
+      },
+  {
+        "ContactID": "eca7b55c-3971-41da-8e84-a50da10dd233",
+        "FirstName": "",
+        "LastName": "",
+        "Email": "jared.electracraft@gmail.com",
+        "Phone": "0274627483",
+        "ContactType": 0,
+        "Address1": "15 Sledmere St",
+        "Address2": "Burnside",
+        "Address3": "Christchurch",
+        "Address4": "Canterbury",
+        "CompanyName": "Electracraft Ltd",
+        "DisplayName": "Electracraft Ltd",
+        "PersistenceStatus": 1,
+        "CreatedBy": "00000000-0000-0000-0000-000000000000",
+        "CreatedDate": "2015-05-26T15:10:56.637",
+        "Active": true
+      }
+    ];
+
+var Contractors = [
+      {
+        "ContactID": "9153c98e-a589-4047-b136-10269543d38a",
+        "FirstName": "hty",
+        "LastName": "ty",
+        "Email": "mandeepk6789@gmail.com",
+        "Phone": "yht",
+        "ContactType": 1,
+        "Address1": "hyt",
+        "Address2": "Bryndwr",
+        "Address3": "Christchurch",
+        "Address4": "Canterbury",
+        "CompanyName": "",
+        "DisplayName": "hty ty",
+        "PersistenceStatus": 1,
+        "CreatedBy": "00000000-0000-0000-0000-000000000000",
+        "CreatedDate": "2015-09-14T16:20:32.24",
+        "Active": true
+      },
+      {
+        "ContactID": "eca7b55c-3971-41da-8e84-a50da10dd233",
+        "FirstName": "",
+        "LastName": "",
+        "Email": "jared.electracraft@gmail.com",
+        "Phone": "0274627483",
+        "ContactType": 0,
+        "Address1": "15 Sledmere St",
+        "Address2": "Burnside",
+        "Address3": "Christchurch",
+        "Address4": "Canterbury",
+        "CompanyName": "Electracraft Ltd",
+        "DisplayName": "Electracraft Ltd",
+        "PersistenceStatus": 1,
+        "CreatedBy": "00000000-0000-0000-0000-000000000000",
+        "CreatedDate": "2015-05-26T15:10:56.637",
+        "Active": true
+      },
+      {
+        "ContactID": "53e58c1b-4d58-41f9-9849-fbb5b4f87833",
+        "FirstName": "Jared",
+        "LastName": "Mccracken",
+        "Email": "jared.electracraft@gmail.com",
+        "Phone": "0274627483",
+        "ContactType": 1,
+        "Address1": "15 Sledmere St",
+        "Address2": "Burnside",
+        "Address3": "Christchurch",
+        "Address4": "Canterbury",
+        "CompanyName": "",
+        "DisplayName": "Jared Mccracken",
+        "PersistenceStatus": 1,
+        "CreatedBy": "00000000-0000-0000-0000-000000000000",
+        "CreatedDate": "2015-05-26T15:10:39.187",
+        "Active": true
+      }
+    ];
+  
+  
+            loadContractors();
+
+$('.ui.dropdown')
+  .dropdown()
+;
+
+/* Global Vars */
+
+var selectedTask = null;
+var selectedPanal = null;
+
+var blankTask = {
+    "TaskID": "",
+    "JobID": "!!!!!!!!!!Get JobID !!!!!!!!!!!!",
+    "ContractorID": "",
+    "ParentTaskID": "00000000-0000-0000-0000-000000000000",
+    "TaskName": "",
+    "TaskType": 0,
+    "Description": "",
+    "TaskOwner": "",
+    "Status": 0,
+    "StartDate": "",
+    "StartMinute": -1,
+    "EndDate": "",
+    "EndMinute": -1,
+    "Appointment": false,
+    "AmendedTaskID": "00000000-0000-0000-0000-000000000000",
+    "LMVisibility": 0,
+    "InvoiceToType": 0,
+    "AmendedBy": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+    "AmendedDate": "1900-01-01T00:00:00",
+    "TradeCategoryID": "",
+    "TaskNumber": 11,
+    "TaskCustomerID": "",
+    "SiteID": "",
+    "PersistenceStatus": 1,
+    "CreatedBy": "",
+    "CreatedDate": "",
+    "Active": true
+  }
+
+/* Helpers */
+
+
+function personWrangler(id) {
+
+    for (var i = People.length - 1; i >= 0; i--) {
+        if( People[i].ContactID == id ) {
+
+            return People[i].DisplayName;
+        }
+    };
+}
+
+function dateWrangler(date) {
+        
+        if (date === "1900-01-01T00:00:00") {
+            return ' ';
+        } 
+
+        return new Date(date).toUTCString().slice(0, 11);
+}
+
+
+/* Display contractors*/
+
+function loadContractors() {
+
+    for (var i = Contractors.length - 1; i >= 0; i--) {
+        
+    
+        var item = $("#contractor_section_template").clone();
+
+        item.find(".name").html( Contractors[i].DisplayName );
+
+        item.attr("id", Contractors[i].ContactID  );
+
+        item.find(".addTask").attr("onClick", "addClicked('" + Contractors[i].ContactID + "')");
+
+        item.removeClass("template");
+
+        item.appendTo("#taskPage");
+
+    };
+
+    loadTasks();
+}
+
+function loadTasks() {
+
+    defaultTaskSort();
+
+    for (var i = 0; Tasks.length > i; i++) {
+
+
+        if($(window).width() > 1100) {
+            var item = $("#task_section_template").clone();
+        } else {
+            var item = $("#mobile_task_section_template").clone();
+        }
+
+        item.attr("id", "T" + Tasks[i].TaskNumber );
+
+        item.find( ".TaskName" ).html( Tasks[i].TaskName );
+
+        item.find( ".taskClicked" ).attr("onClick", "taskClicked(" +  Tasks[i].TaskNumber + ")"); 
+
+        item.find( ".Description" ).html( Tasks[i].Description );
+        item.find( ".StartDate" ).html( dateWrangler(Tasks[i].StartDate) );
+        item.find( ".EndDate" ).html( dateWrangler(Tasks[i].EndDate) );
+        item.find( ".TaskOwner" ).html( personWrangler(Tasks[i].TaskOwner) );
+        item.find( ".TaskCustomer" ).html( personWrangler(Tasks[i].TaskCustomerID) );
+        item.find( ".Status" ).html( Tasks[i].Status );
+
+        item.removeClass("template");
+
+        //item.appendTo("#"+ Tasks[i].ContractorID + " > .left");
+
+        item.appendTo("#"+ Tasks[i].ContractorID + " > .gridHolder > .leftGrid > .left");
+
+    };
+
+    hideAll();
+}
+
+function hideAll() {
+
+    $(".Description").addClass("hide");
+    $(".StartDate").addClass("hide");
+    $(".EndDate").addClass("hide");
+    $(".TaskOwner").addClass("hide");
+    $(".TaskCustomer").addClass("hide");
+    $(".Status").addClass("hide");
+
+}
+
+function displayDetail(detail) {
+
+    removePanal();
+    $( "." + detail ).removeClass("hide");
+}
+
+function displayPanal(panal) {
+
+    removePanal();
+
+    switch ( panal ) {
+        case "Contractor":
+            displayContractor();
+            break;
+        case "View":
+            displayContractor();
+            displayTask("view");
+            break;
+        case "Edit":
+            displayContractor();
+            displayTask("edit");
+            break;
+        case "Add":
+            displayContractor();
+            displayTask("add");
+            break;
+    }
+}
+    //option if view or edit panal
+function displayTask(option) {
+
+    hideAll();
+
+    selectedPanal = $( "#panal-" + selectedTask.ContractorID );
+
+    if(option == "add") {
+        selectedPanal.find(".panal-title").html("Create a new Task");
+    } else {
+        selectedPanal.find(".panal-title").html(selectedTask.TaskName);
+    }
+
+    var item = $("#"+ option + "_template").clone();
+
+    item.removeAttr('id');
+
+    item.find(".view-name").attr("placeholder", selectedTask.TaskName);
+
+    item.find(".view-description").html(selectedTask.Description);
+    item.find(".view-description").attr("placeholder", selectedTask.Description);
+
+    item.find(".view-start-date").html( dateWrangler(selectedTask.StartDate) );
+    item.find(".view-start-date").attr("value", selectedTask.StartDate.slice(0, 10) );
+
+    item.find(".view-end-date").html( dateWrangler(selectedTask.EndDate) ); 
+    item.find(".view-end-date").attr("value", selectedTask.EndDate.slice(0, 10) );
+
+    item.find(".view-customer").html( personWrangler(selectedTask.TaskCustomerID) );
+
+    item.find(".view-owner").html( personWrangler(selectedTask.TaskOwner) );
+
+    item.appendTo(selectedPanal.find(".segments"));
+
+    var item = $("#view_buttons_template").clone();
+
+    item.appendTo(selectedPanal.find(".segments"));
+
+    if(option != "view") {
+            $(".button.edit").addClass("hide");
+            $(".button.update").removeClass("hide");
+    } else {
+            $(".button.edit").removeClass("hide");
+            $(".button.update").addClass("hide");
+    }
+}
+
+
+
+function displayContractor() {
+
+    if($(window).width() > 1100) {
+        $(".gridHolder").addClass("ui grid");
+        $(".leftGrid").addClass("eight wide column");
+        $(".leftAnchor").removeClass("eight wide column");
+        $(".leftAnchor").addClass("sixteen wide column");
+    } else {
+        $(".leftGrid").addClass("hide");
+        $(".rightGrid").removeClass("eight wide column");
+        $(".rightGrid").removeClass("sixteen wide column");
+    }
+
+    for (var i = Contractors.length - 1; i >= 0; i--) {
+
+        var item = $("#panal_template").clone();
+
+        item.find(".panal-title").html("View Contractor");
+
+        item.attr("id","panal-" + Contractors[i].ContactID)
+
+        item.addClass("removablePanal");
+
+        item.removeClass("template");
+
+        item.appendTo("#"+ Contractors[i].ContactID  + " > .gridHolder > .right");
+
+    }
+
+}
+
+function displaySpecificPanal(id, item) {
+
+    $("#"+id).find(".gridHolder").addClass("ui grid");
+    $("#"+id).find(".leftGrid").addClass("eight wide column");
+    $("#"+id).find(".leftAnchor").removeClass("eight wide column");
+    $("#"+id).find(".leftAnchor").addClass("sixteen wide column");
+}
+
+function removePanal() {
+
+    $(".gridHolder").removeClass("ui grid");
+    $(".leftGrid").removeClass("eight wide column");
+    $(".leftAnchor").removeClass("sixteen wide column");
+    $(".leftAnchor").addClass("eight wide column");
+
+    $(".removablePanal").remove();
+    
+}
+
+
+function displaySwitch(option) {
+
+    switch ( option ) {
+        case "dates":
+            displayDetail("StartDate");
+            displayDetail("EndDate");
+            break;
+        case "people":
+            displayDetail("TaskOwner");
+            displayDetail("TaskCustomer");
+            break;
+        case "status":
+            displayDetail("Status");
+            break;
+        case "contractor":
+            displayPanal("Contractor");
+            break;
+    }
+
+}
+
+/* Buttons */
+
+function tabs(tab) {
+
+    hideAll();
+
+    unselectLine();
+
+    $(".tabcontractor").removeClass("active");
+    $(".tabpeople").removeClass("active");
+    $(".tabstatus").removeClass("active");
+    $(".tabdates").removeClass("active");
+
+    $(".tab" + tab).addClass("active");
+    
+    displaySwitch(tab);
+
+}
+
+function taskClicked(TaskNumber) {
+
+    selectedTask = Tasks[TaskNumber];
+
+    selectLine(TaskNumber);
+
+    displayPanal("View");
+
+}
+
+function editTaskClicked() {
+
+    selectLine(selectedTask.TaskNumber);
+
+    displayPanal("Edit");
+
+}
+
+function addClicked(id) {
+
+    selectedTask = blankTask;
+
+    selectedTask.ContractorID = id;
+
+    displayPanal("Add");
+}
+
+/* Selecting */
+
+function unselectLine() {
+
+    $(".icon").addClass("outline");
+}
+
+function selectLine(number) {
+
+    unselectLine();
+
+    $("#T" + number).find(".icon").removeClass("outline");
+}
+
+
+
+/*  Task Sorting  */
+
+function defaultTaskSort() {
+
+    Tasks.sort(function (a, b) {
+      if (a.TaskNumber > b.TaskNumber) {
+        return 1;
+      }
+      if (a.TaskNumber < b.TaskNumber) {
+        return -1;
+      }
+      // a must be equal to b
+      return 0;
+    });
+}
+
+
+        </script>
+</body>
+</html>
