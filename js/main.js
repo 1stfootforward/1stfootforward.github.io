@@ -16,7 +16,7 @@ jQuery(function($) {
 			});
 		});
 
-
+		if($(window).width() < 700){$(".fb-page").remove();}
 
 	  if ($(window).height() > 700 & $(window).width() > 700) {
 
