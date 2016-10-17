@@ -20,7 +20,7 @@ jQuery(function($) {
 
 	  if ($(window).height() > 700 & $(window).width() > 700) {
 
-	  	$(".fb-page").attr("data-height","800");
+	  	$(".fb-page").attr("data-height","1200");
 
 		// Header Init
 		
