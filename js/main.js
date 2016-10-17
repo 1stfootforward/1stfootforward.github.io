@@ -156,8 +156,13 @@ jQuery(function($) {
 		var contactp = $('#contact').val()
 		contact = contact + contactp;
 		$.post("https://rocky-earth-6889.herokuapp.com/messages.json", {"message":{"name":name,"note":message,"contact":contact}}, function( data ) {});
+		$('.modal-content').html("<h4>Thank's I'll be in touch soon!</h4>");
+		setTimeout(function (){
 
-		$('#modal1').modal('hide');
+                 $('#modal1').modal('hide');
+
+             }, 4000);
+				
 	});
 
 	$(window).on("resize", function() {
