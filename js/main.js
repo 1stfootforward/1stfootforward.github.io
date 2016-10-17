@@ -153,8 +153,10 @@ jQuery(function($) {
 		var name = $('#name').val()
 		var message = $('#message').val()
 		var contact = $('#contact').val()
-		$.post("https://rocky-earth-6889.herokuapp.com/messages.json",
-		    {"message":{"name":name,"note":message,"contact":contact}});
+		var contactp = $('#contact').val()
+		contact = contact + contactp;
+		$.post("https://rocky-earth-6889.herokuapp.com/messages.json", {"message":{"name":name,"note":message,"contact":contact}}, function( data ) {});
+
 		$('#modal1').modal('hide');
 	});
 
