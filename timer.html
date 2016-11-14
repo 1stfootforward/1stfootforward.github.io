@@ -29,6 +29,12 @@
         font-size: 91px;
       }
 
+      h5 span {
+
+        text-align: center!important;
+        font-size: 32px!important;
+      }
+
     </style>
   </head>
   <body>
@@ -65,14 +71,13 @@
             <div class="modal-body">
               <h2 id="modal-title"> Blaas </h2>
               <span class="timer">72</span>
-              <h3 id="modal-message"> </h3>
               <button type="button" class="btn btn-primary btn-lg btn-block" onclick="go()">Fetch</button>
             </div>
           </div>
           <div class="screen2 hide">
-            <div class="modal-body">
+            <div class="modal-body text-center">
               <h2 id="modal-title"> </h2>
-              <span id="totalClock" class="timer"></span>
+              <h5><span id="totalClock" class="timer"></span></h5>
               <span id="clock" class="timer"></span>
               <h3 id="modal-message"> </h3>
               <button type="button" class="btn btn-primary btn-lg btn-block" onclick="wait()">Pause / Go</button>
@@ -166,6 +171,11 @@
       var panals = [];
 
       var circuit = [];
+      var message = [];
+      var title = [];
+
+      var currentCircuitTime = 0;
+      var resumeTime = 0
 
       var waiting = false;
 
@@ -240,6 +250,8 @@
 
               var time = $(this).find(".time").val();
               var message = $(this).find(".message").val();
+
+              console.log(message);
 
               if(time > 0) {
 
@@ -340,11 +352,30 @@
         x.play();
 
         console.log("clock called");
+        console.log(circuit);
 
         if(circuit.length == 0) { stop(); } else {
 
           var date = new Date();
-          date = addSeconds(date, parseInt(circuit.shift()));
+
+          if(resumeTime > 0) {
+
+              currentCircuitTime = resumeTime;
+
+              resumeTime = 0;
+
+          } else {
+
+              currentCircuitTime = parseInt(circuit.shift());
+
+              $("#modal-message").html(message.shift());
+              $(".modal-title").html(title.shift());
+          }
+
+          
+          date = addSeconds(date, currentCircuitTime);
+
+          
 
           $('#clock').countdown(date, function(event) {
                 $(this).html(event.strftime('%H:%M:%S'));
@@ -369,17 +400,11 @@
           var date = new Date();
           date = addSeconds(date, totalTime);
 
-         
-
           $('#totalClock').countdown(date, function(event) {
                 $(this).html(event.strftime('%H:%M:%S'));
               })
         }
       }
-
-      $('#totalClock').on('finish.countdown', function() {
-          
-      });
 
       
 
@@ -388,6 +413,8 @@
         var wait = false;
 
         circuit = [];
+        message = [];
+        title = [];
 
          for (var i = 0; panals.length > i; i++) {
             
@@ -396,6 +423,8 @@
                 for (var y = 0; panals[i].period.length > y; y++) {
 
                     circuit.push(parseInt(panals[i].period[y].time)); 
+                    message.push(panals[i].period[y].message); 
+                    title.push(panals[i].name); 
                     
                 }
             }
@@ -439,12 +468,26 @@
 
         $('#totalClock').countdown('pause');
         $('#clock').countdown('pause');
+
+        t1 = new Date();
       }
 
       function resume() {
 
-        $('#totalClock').countdown('resume');
-        $('#clock').countdown('resume');
+         totalTime =  parseInt(currentCircuitTime);
+
+        for (var i = 0; circuit.length > i; i++) {
+
+            totalTime = totalTime + parseInt(circuit[i]);
+            console.log(circuit[i]);
+
+        };
+
+        resumeTime = currentCircuitTime;
+
+        clock();
+
+        totalClock();
       }
 
 
