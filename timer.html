@@ -75,7 +75,7 @@
               <span id="totalClock" class="timer"></span>
               <span id="clock" class="timer"></span>
               <h3 id="modal-message"> </h3>
-              <button type="button" class="btn btn-primary btn-lg btn-block" onclick="stop()">Fetch</button>
+              <button type="button" class="btn btn-primary btn-lg btn-block" onclick="wait()">Pause / Go</button>
             </div>
           </div>
         <div class="modal-footer">
@@ -166,6 +166,8 @@
       var panals = [];
 
       var circuit = [];
+
+      var waiting = false;
 
       init();
 
@@ -420,6 +422,29 @@
         $(".screen2").addClass("hide");
         $(".screen1").removeClass("hide");
 
+      }
+
+      function wait() {
+
+        if(waiting) {
+          waiting = false;
+          resume();
+        } else {
+          waiting = true;
+          pause();
+        }
+      }
+
+      function pause() {
+
+        $('#totalClock').countdown('pause');
+        $('#clock').countdown('pause');
+      }
+
+      function resume() {
+
+        $('#totalClock').countdown('resume');
+        $('#clock').countdown('resume');
       }
 
 
