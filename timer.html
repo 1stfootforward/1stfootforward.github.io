@@ -32,6 +32,10 @@
     </style>
   </head>
   <body>
+
+<audio id="myAudio">
+  <source src="horn.wav" type="audio/wav">
+</audio>
    
 
   <div class="container">
@@ -151,6 +155,8 @@
 
   <script>
 
+      var x = document.getElementById("myAudio");
+
       var count = 0;
       var countPanal = 0;
       var totalTime = 0;
@@ -204,8 +210,6 @@
           item.attr("id", "p" + count);
 
           item.removeClass("hide");
-
-          console.log(anchor);
 
           line.clone().appendTo(anchor);
 
@@ -310,7 +314,6 @@
                 countdownLoop(i , 0);
 
             } else {
-              console.log("fire");
               i++;
               countdownLoop(i , 0);
             }
@@ -332,14 +335,14 @@
 
       function clock() {
 
+        x.play();
+
         console.log("clock called");
 
         if(circuit.length == 0) { stop(); } else {
 
           var date = new Date();
           date = addSeconds(date, parseInt(circuit.shift()));
-
-          console.log(circuit);
 
           $('#clock').countdown(date, function(event) {
                 $(this).html(event.strftime('%H:%M:%S'));
@@ -411,6 +414,8 @@
       }
 
       function stop() {
+
+        console.log("stop");
 
         $(".screen2").addClass("hide");
         $(".screen1").removeClass("hide");
