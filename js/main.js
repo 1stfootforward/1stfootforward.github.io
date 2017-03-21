@@ -157,8 +157,8 @@ jQuery(function($) {
 		var name = $('#name').val()
 		var message = $('#message').val()
 		var contact = $('#contact').val()
-		var contactp = $('#contact').val()
-		contact = contact + contactp;
+		var contactp = $('#contactp').val()
+		contact = contact + " / " +contactp;
 		$.post("https://rocky-earth-6889.herokuapp.com/messages.json", {"message":{"name":name,"note":message,"contact":contact}}, function( data ) {});
 		$('.modal-content').html("<h4>Thank's I'll be in touch soon!</h4>");
 		setTimeout(function (){
