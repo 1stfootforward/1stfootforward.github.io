@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, maximum-scale=1, user-scalable=no" />
+    <title>Task Finder</title>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.css" />
+
+    <style>
+        .hide{
+            display: none;
+        }
+    </style>
+
+
+</head>
+<body>
+    <div id="sent" class="ui four column centered grid">
+      <div class="column">
+          <div id="before">
+            <h1>Get the Newsletter!</h1> 
+
+            <form class="ui form">
+              <div class="field">
+                <label>First Name</label>
+                <input type="text" id="first-name" placeholder="First Name">
+              </div>
+              <div class="field">
+                <label>Last Name</label>
+                <input type="text" id="last-name" placeholder="Last Name">
+              </div>
+              <div class="field">
+                <label>Email Address</label>
+                <input type="text" id="email" placeholder="Email Address">
+              </div>
+              <button class="ui positive button" id="submit" type="submit">Join</button>
+            </form>
+          <div>
+        </div>
+        </div>
+        <div id="after" class="hide">
+           <h1>Thanks!</h1> 
+           <p><b>The newsletter is sent out at the start of the month.</b></p>
+           <p>In the meantime feek free to check out my <a href="www.1stfootforward.co.nz"><b>website</a></b>, where you can sign up for a training session.</p>
+           <p>Or for more great content, follow me on social media:</p>
+        </div>
+      <div>
+    <div>
+
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+    <script>
+        $('#submit').click(function(event){
+            event.preventDefault();
+            var name = $('#first-name').val() + " " + $('#last-name').val()  
+            var email = $('#email').val()
+            $.post("https://rocky-earth-6889.herokuapp.com/messages.json", {"message":{"name":name,"note":"||| Joining Newsletter |||","contact":email}}, function( data ) {});
+             setTimeout(function (){
+
+                     $('#before').addClass('hide');
+
+                     $('#after').removeClass('hide');
+
+            }, 4000);
+                
+        });
+    </script>
+</body>
+</html>
