@@ -1,0 +1,77 @@
+.dropcap:first-letter{
+  color: #c7254e;
+  float       : left;
+  font-size   : 2.8em;
+  line-height : 0.5;
+  margin      : 0.215em 0.039em 0 0;
+}
+
+.dropcap:first-letter + span{
+  margin-left : -0.5em;
+}
+
+
+p {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.5em;
+    line-height: 1.2;
+}
+
+p.with-back-text {
+    z-index: 1;
+}
+
+h6 {
+    font-size: 220px;
+    text-align: center;
+    opacity: 0.05;
+    z-index: 0;
+    line-height: 0px;
+    margin-top: 160px;
+
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+}
+
+h6:hover, h5:hover, h4:hover {
+    color: #ee2324!important;
+}
+
+h1, h2, h3, h5, h4 {
+    font-family: "Brandon";
+    font-weight: 400;
+    font-style: normal;
+}
+
+.main-raised {
+    margin: -120px 0 0 0;
+}
+
+.fold-up {
+    margin-top: -50px!important;
+}
+
+.fold-up-four {
+    margin-top: -500px!important;
+}
+
+.fold-down {
+    margin-top: 40px;
+}
+
+.fold-down-four {
+    margin-top: 200px;
+}
+
+@media (min-width: 1000px){
+    
+    .thin-paper {
+        max-width: 700px!important;
+    }
+}
+
+a {
+    color: #ee2324;
+    text-decoration: none;
+}
