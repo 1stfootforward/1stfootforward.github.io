@@ -149,8 +149,8 @@
 										<div class="card card-signup white-card fold-up">
 											
 												<h4 class="text-center"><b>Measuring Yourself</b></h4> 
-												<p><b>Scales:</b> Yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada. Yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada. Yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada. Yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada. Yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada. Yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada. Yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada. Yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada. Yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada.</p>
-												<p><b>Tape-measure:</b> Yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada. Yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada. Yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada. Yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada. Yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada. Yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada. Yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada. Yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada. Yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada.</p>
+												<p><b>Scales:</b> When you weigh and measure yourself, you will have the best results if you form a pattern, this can be achieved by wearing the same clothes, measuring yourself at the same time of the day and limiting water 1 hour before. I also advise to measure yourself once every 4 weeks, so in this challenge 3 times at the most, any more than that you will create a demotivation as the scales jump about. </p>
+												<p><b>Tape-measure:</b> When measuring your waist, take the measurement from around the smallest point this is usually right under your breasts. For your hips, you will need two measure the largest area, this is usually your bottom.</p>
 											
 
 										</div>
@@ -263,22 +263,13 @@
     		var fb = $("#fb").val();
     		var phone = $("#phone").val();
 
-    		$.post("https://rocky-earth-6889.herokuapp.com/contacts.json", {"contact":{"user":user,"first":first,"last":last,"email":email,"phone":phone,"fb":fb }}, function( data ) {
-    			surveyPost(data.id);
-
+    		$.post("https://rocky-earth-6889.herokuapp.com/contacts.json", {"contact":{"user":user,"first":first,"last":last,"email":email,"phone":phone,"fb":fb }}, function( data ) {});
+    		$( ".survey" ).each(function( index ) {
+    			$.post("https://rocky-earth-6889.herokuapp.com/surveys.json", {"survey":{"user":id,"survey":"pre 8 weeks","question": $(this).attr("question"),"answer": $(this).val()}}, function( data ) {});
     		});
     	}
 
-    	function surveyPost(id) {
-    		var i = 0;
-    		$( ".survey" ).each(function( index ) {
-
-				  $.post("https://rocky-earth-6889.herokuapp.com/surveys.json", {"survey":{"user":id,"survey":"pre 8 weeks","question": $(this).attr("question"),"answer": $(this).val()}}, function( data ) {
-				  		i++;
-		    		});
-			});
-			console.log(i);
-    	} 
+    	
     </script>
 
 </html>
