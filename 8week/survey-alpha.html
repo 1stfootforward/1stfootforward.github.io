@@ -264,7 +264,7 @@
     		var phone = $("#phone").val();
 
     		$.post("https://rocky-earth-6889.herokuapp.com/contacts.json", {"contact":{"user":user,"first":first,"last":last,"email":email,"phone":phone,"fb":fb }}, function( data ) {
-    			id = data.id;
+    			surveyPost(data.id);
 
     		});
     	}
