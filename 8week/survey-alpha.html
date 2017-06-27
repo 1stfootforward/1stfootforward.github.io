@@ -265,7 +265,7 @@
 
     		$.post("https://rocky-earth-6889.herokuapp.com/contacts.json", {"contact":{"user":user,"first":first,"last":last,"email":email,"phone":phone,"fb":fb }}, function( data ) {});
     		$( ".survey" ).each(function( index ) {
-    			$.post("https://rocky-earth-6889.herokuapp.com/surveys.json", {"survey":{"user":id,"survey":"pre 8 weeks","question": $(this).attr("question"),"answer": $(this).val()}}, function( data ) {});
+    			$.post("https://rocky-earth-6889.herokuapp.com/surveys.json", {"survey":{"user":user,"survey":"pre 8 weeks","question": $(this).attr("question"),"answer": $(this).val()}}, function( data ) {});
     		});
     	}
 
