@@ -213,7 +213,7 @@
 
     	function fetch() {
 
-    		$.get( "test.cgi", { user: getUrlParameter('u') } )
+    		$.get( "https://notes.1stfootforward.co.nz/tracked/fetch.json?user=heather", { user: getUrlParameter('u') } )
 			  .done(function( data ) {
 			    console.log( "Data Loaded: " + data );
 			  });
