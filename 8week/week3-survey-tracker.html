@@ -141,8 +141,11 @@
 
 	               
 							</form>
+							<div id="insert" class="container">
+							</div>
 						</div>
 			</div>
+			
 
 		</div>
 
@@ -209,9 +212,17 @@
     		
 
     	function fetch() {
-    		$("#before").addClass("hide");
-    		$("#after").removeClass("hide");
+    		
+    		var template = $( ".template" ).clone()
+
+    		template.removeClass('template');
+    		template.find( "h4" ).html("entry");
+    		template.find( "p" ).html("entry 2");
+
+    		$("#insert").append(template);
     	}
+
+    	fetch();
 
     	
     </script>
