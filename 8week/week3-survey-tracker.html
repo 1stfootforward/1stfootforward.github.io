@@ -212,6 +212,11 @@
     		
 
     	function fetch() {
+
+    		$.get( "test.cgi", { user: getUrlParameter('u') } )
+			  .done(function( data ) {
+			    console.log( "Data Loaded: " + data );
+			  });
     		
     		var template = $( ".template" ).clone()
 
