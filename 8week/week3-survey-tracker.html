@@ -215,16 +215,21 @@
 
     		$.get( "https://notes.1stfootforward.co.nz/tracked/fetch.json?user=heather", { user: getUrlParameter('u') } )
 			  .done(function( data ) {
-			    console.log( "Data Loaded: " + data );
+			    
+			    $.each(data, function(i, item) {
+				    alert(data[i].PageName);
+
+				    var template = $( ".template" ).clone()
+
+		    		template.removeClass('template');
+		    		template.find( "h4" ).html( data[i].when );
+		    		template.find( "p" ).html( data[i].content );
+
+		    		$("#insert").append(template);
+				});​
 			  });
     		
-    		var template = $( ".template" ).clone()
-
-    		template.removeClass('template');
-    		template.find( "h4" ).html("entry");
-    		template.find( "p" ).html("entry 2");
-
-    		$("#insert").append(template);
+    		
     	}
 
     	fetch();
