@@ -211,6 +211,7 @@
 		    } else {
 		            $.post( "https://rocky-earth-6889.herokuapp.com/trackeds.json", {"tracked": {"user": getUrlParameter('u'), "entrytype": entrytype, "when": when, "content":content}} )
 		              .done(function( data ) {
+		              	$("#content").val(" ");
 		               	fetch();
 		            });
 		        
