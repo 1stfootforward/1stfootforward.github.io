@@ -553,17 +553,13 @@
 		$('#main').removeClass("hide");
 	}
 
-	function redirect(user, token) {
-		window.location.href = "home.html?u=" + user + "&t=" + token;
-	}
-
 	function post() {
 		$.post( "https://rocky-earth-6889.herokuapp.com/caspers/check.json", {"user": $('#user').val(), "password": $('#password').val()} )
               .done(function( data ) {
                 console.log( data );
                 user = $('#user').val();
                 token = data;
-                redirect(user, token);
+                toggle();
             });
 	}
 
