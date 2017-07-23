@@ -92,13 +92,13 @@
 									    	<b class="caret"></b>
 										</a>
 										<ul " class="dropdown-menu">
-											<li><a value="17" onClick="selectedItem('17', 'Monday', 'day')">Monday</a></li>
-											<li><a value="18" onClick="selectedItem('18', 'Tuesday', 'day')" >Tuesday</a></li>
-											<li><a value="19" onClick="selectedItem('19', 'Wednesday', 'day')" >Wednesday</a></li>
-											<li><a value="20" onClick="selectedItem('20', 'Thursday', 'day')" >Thursday</a></li>
-											<li><a value="21" onClick="selectedItem('21', 'Friday', 'day')" >Friday</a></li>
-											<li><a value="22" onClick="selectedItem('22', 'Saturday', 'day')" >Saturday</a></li>
-											<li><a value="23" onClick="selectedItem('23', 'Sunday', 'day')" >Sunday</a></li>
+											<li><a value="17" onClick="selectedItem('24', 'Monday', 'day')">Monday</a></li>
+											<li><a value="18" onClick="selectedItem('25', 'Tuesday', 'day')" >Tuesday</a></li>
+											<li><a value="19" onClick="selectedItem('26', 'Wednesday', 'day')" >Wednesday</a></li>
+											<li><a value="20" onClick="selectedItem('27', 'Thursday', 'day')" >Thursday</a></li>
+											<li><a value="21" onClick="selectedItem('28', 'Friday', 'day')" >Friday</a></li>
+											<li><a value="22" onClick="selectedItem('29', 'Saturday', 'day')" >Saturday</a></li>
+											<li><a value="23" onClick="selectedItem('30', 'Sunday', 'day')" >Sunday</a></li>
 										</ul>
 									</div>
 									<div class="col-xs-4 col-md-3 dropdown">
@@ -223,13 +223,13 @@
 			var day = date.substring(0,10);
 			var time = date.substring(11,16);
 
-			if(date.substring(8,10) == "17") { day = "Monday";}
-			if(date.substring(8,10) == "18") { day = "Tuesday";}
-			if(date.substring(8,10) == "19") { day = "Wednesday";}
-			if(date.substring(8,10) == "20") { day = "Thursday";}
-			if(date.substring(8,10) == "21") { day = "Friday";}
-			if(date.substring(8,10) == "22") { day = "Saturday";}
-			if(date.substring(8,10) == "23") { day = "Sunday";}
+			if(date.substring(8,10) == "24") { day = "Monday";}
+			if(date.substring(8,10) == "25") { day = "Tuesday";}
+			if(date.substring(8,10) == "26") { day = "Wednesday";}
+			if(date.substring(8,10) == "27") { day = "Thursday";}
+			if(date.substring(8,10) == "28") { day = "Friday";}
+			if(date.substring(8,10) == "29") { day = "Saturday";}
+			if(date.substring(8,10) == "30") { day = "Sunday";}
 
 			if(date.substring(11,13) == "09") { time = "Breakfast";}
 			if(date.substring(11,13) == "12") { time = "Lunch";}
@@ -246,7 +246,7 @@
 
 
 
-    		$.get( "https://notes.1stfootforward.co.nz/tracked/fetch.json?user=heather", { user: getUrlParameter('u') } )
+    		$.get( "https://notes.1stfootforward.co.nz/tracked/fetch.json", { user: getUrlParameter('u') } )
 			  .done(function( data ) {
 
 			  		$('.removable').remove();
