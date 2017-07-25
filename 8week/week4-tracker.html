@@ -64,6 +64,20 @@
     	.gap {
     		margin-bottom: 30px;
     	}
+    	.selected {
+    		background-color: red;
+    	}
+    	td {
+    		cursor: pointer;
+    	}
+    	td input {
+    		margin: 0!important;
+    		padding: 0!important;
+    	}
+    	.form-group {
+    		margin: 0!important;
+    		padding: 0!important;
+    	}
 
     </style>
 
@@ -147,82 +161,135 @@
 
 						<div  id="before" class="card card-signup">
 							<div class="table-container">
-								<table class="table">
+								<table class="table table-bordered">
+								    <thead>
+								        <tr>
+								            <th class="col-md-1">#</th>
+								            <th>M</th>
+								            <th>T</th>
+								            <th>W</th>
+								            <th>T</th>
+								            <th>F</th>
+								            <th>S</th>
+								            <th>S</th>
+								        </tr>
+								    </thead>
+								    <tbody >
+								        <tr class="table-button">
+								            <td class="text-center">Breakfast</td>
+								            <td id="B1" ></td>
+								            <td id="B2" ></td>
+								            <td id="B3" ></td>
+								            <td id="B4" ></td>
+								            <td id="B5" ></td>
+								            <td id="B6" ></td>
+								            <td id="B7" ></td>
+								        </tr>
+								        <tr class="table-button">
+								            <td class="text-center">Morning</td>
+								            <td id="M1" ></td>
+								            <td id="M2" ></td>
+								            <td id="M3" ></td>
+								            <td id="M4" ></td>
+								            <td id="M5" ></td>
+								            <td id="M6" ></td>
+								            <td id="M7" ></td>
+								        </tr>
+								        <tr class="table-button">
+								            <td class="text-center">Lunch</td>
+								            <td id="L1" ></td>
+								            <td id="L2" ></td>
+								            <td id="L3" ></td>
+								            <td id="L4" ></td>
+								            <td id="L5" ></td>
+								            <td id="L6" ></td>
+								            <td id="L7" ></td>
+								        </tr>
+								        <tr class="table-button">
+								            <td class="text-center">Afternoon</td>
+								            <td id="A1" ></td>
+								            <td id="A2" ></td>
+								            <td id="A3" ></td>
+								            <td id="A4" ></td>
+								            <td id="A5" ></td>
+								            <td id="A6" ></td>
+								            <td id="A7" ></td>
+								        </tr>
+								        <tr class="table-button">
+								            <td class="text-center">Dinner</td>
+								            <td id="D1" ></td>
+								            <td id="D2" ></td>
+								            <td id="D3" ></td>
+								            <td id="D4" ></td>
+								            <td id="D5" ></td>
+								            <td id="D6" ></td>
+								            <td id="D7" ></td>
+								        </tr>
+								        <tr class="table-button">
+								            <td class="text-center">Evening</td>
+								            <td id="E1" ></td>
+								            <td id="E2" ></td>
+								            <td id="E3" ></td>
+								            <td id="E4" ></td>
+								            <td id="E5" ></td>
+								            <td id="E6" ></td>
+								            <td id="E7" ></td>
+								            
+								        </tr>
+								    </tbody>
+								</table>
+								<br />
+								<div class="panel panel-default">
+								  <!-- Default panel contents -->
+								  <div class="panel-heading">Panel heading</div>
+								  <div class="panel-body">
+								    <textarea id="content" class="gap form-control" placeholder="Record your entry here ..." rows="5"></textarea>
+								  </div>
+
+								  <!-- Table -->
+								  <table class="table">
 								    <thead>
 								        <tr>
 								            <th class="text-center">#</th>
-								            <th>Name</th>
-								            <th>Job Position</th>
-								            <th>Since</th>
-								            <th class="text-right">Salary</th>
-								            <th class="text-right">Actions</th>
+								            <th>Ingredient</th>
+								            <th>Amount</th>
+								           
 								        </tr>
 								    </thead>
 								    <tbody>
 								        <tr>
 								            <td class="text-center">1</td>
-								            <td>Andrew Mike</td>
-								            <td>Develop</td>
-								            <td>2013</td>
-								            <td class="text-right">&euro; 99,225</td>
-								            <td class="td-actions text-right">
-								                <button type="button" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs">
-								                    <i class="fa fa-user"></i>
-								                </button>
-								                <button type="button" rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
-								                    <i class="fa fa-edit"></i>
-								                </button>
-								                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
-								                    <i class="fa fa-times"></i>
-								                </button>
-								            </td>
+								            <td><input type="text" value="" placeholder="Regular" class="form-control" /></td>
+								            <td><input type="text" value="" placeholder="Regular" class="form-control" /></td>
+								            
 								        </tr>
 								        <tr>
 								            <td class="text-center">2</td>
-								            <td>John Doe</td>
-								            <td>Design</td>
-								            <td>2012</td>
-								            <td class="text-right">&euro; 89,241</td>
-								            <td class="td-actions text-right">
-								                <button type="button" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs">
-								                    <i class="fa fa-user"></i>
-								                </button>
-								                <button type="button" rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
-								                    <i class="fa fa-edit"></i>
-								                </button>
-								                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
-								                    <i class="fa fa-times"></i>
-								                </button>
-								            </td>
+								            <td><input type="text" value="" placeholder="Regular" class="form-control" /></td>
+								            <td><input type="text" value="" placeholder="Regular" class="form-control" /></td>
+								           
 								        </tr>
 								        <tr>
 								            <td class="text-center">3</td>
-								            <td>Alex Mike</td>
-								            <td>Design</td>
-								            <td>2010</td>
-								            <td class="text-right">&euro; 92,144</td>
-								            <td class="td-actions text-right">
-								                <button type="button" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs">
-								                    <i class="fa fa-user"></i>
-								                </button>
-								                <button type="button" rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
-								                    <i class="fa fa-edit"></i>
-								                </button>
-								                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
-								                    <i class="fa fa-times"></i>
-								                </button>
-								            </td>
+								            <td><input type="text" value="" placeholder="Regular" class="form-control" /></td>
+								            <td><input type="text" value="" placeholder="Regular" class="form-control" /></td>
+								           
+								            
 								        </tr>
 								    </tbody>
-								</table>
+
+
+								  </table>
+								  <button class="col-md-12">Save</button>
+								</div>
 							</div>
 						</div>
 			</div>
 		</div>
     </div>
     <div class="template">
-		<h4>Wednesday 9.00</h4>
-		<p>I ate an apple</p>
+		<h4>0</h4>
+		<p> </p>
 								    	
 	</div>
 
@@ -242,6 +309,8 @@
 	var entrytype = "food";
 	var day = "17";
 	var time = "9";
+
+	
 
 	
 
@@ -347,6 +416,39 @@
     	}
 
     	fetch();
+
+
+    	$( ".table-button td" ).click(function() {
+
+
+    		$('.selected').removeClass("selected");
+
+		  	$(this).addClass( "selected" );
+
+		  	checkArray($(this).attr('id'));
+		});
+
+		var planFood;
+
+		setup();
+
+		function setup() {
+			var b = m = l = a = d = e = [" "," "," "," "," "," "," "]
+			planFood = {'b': b,'m': m,'l': l,'a': a,'d': d,'e': e};
+			console.log(planFood); 
+			console.log(planFood['b'][1]); 
+		}
+
+		
+
+		function checkArray(id) {
+			console.log(id.substring(0,1));
+			console.log(id.substring(1,2));
+
+			planFood[ 'b' ][id.substring(1,2)] = "Test \n Test"
+			console.log(planFood);
+
+		}
     	
 
     	
