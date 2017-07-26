@@ -562,12 +562,10 @@
               .done(function( data ) {
 
                 user = $('#user').val();
-                if(user === "heather") { 
-                	window.location.href = "week4-tracker.html" 
-                } else {
+                
 	                token = data;
 	                redirect(user, token);
-	            }
+	            
             });
 	}
 

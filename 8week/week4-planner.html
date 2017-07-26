@@ -393,7 +393,6 @@
     		$.get( "https://notes.1stfootforward.co.nz/tracked/fetch.json", { user: getUrlParameter('u') } )
 			  .done(function( data ) {
 
-			  		$('.removable').remove();
 			    
 				    $.each(data, function(i, item) {
 
@@ -417,7 +416,7 @@
     		
     	}
 
-    	fetch();
+    	
 
 
     	var times = [ 'b', 'm', 'l', 'a', 'd', 'e'];
@@ -427,7 +426,7 @@
 		var food;
 		var exercise;
 
-		var ingredients = [{ code: "d0", ingredient: "Bread", amount: "2 Slice"},{ code: "d1", ingredient: "Tomato", amount: "2" }]
+		var ingredients = [{ code: 'xy', ingredient: '' }];
 
 		function englishWrangler(code) {
 
@@ -530,10 +529,74 @@
 		    shoppingList();
 		});
 
+    	function grab() {
 
+    			$.get( "https://notes.1stfootforward.co.nz/calendar_entries.json" )
+					  .done(function( data ) {
+
+					    
+						    $.each(data, function(i, item) {
+
+						    	if( data[i].user ===  getUrlParameter('u') ) {
+
+						    		if( data[i].colour === "food" ) {
+
+						    			if( data[i].codea === 'B') { 
+
+						    				data[i].codea ='b'; 
+						    			}
+
+
+						    			planFood[ data[i].codea ][ data[i].codeb ] = data[i].content;
+						    		}
+
+						    		if( data[i].colour === "exercise" ) {
+
+						    			planExercise[ data[i].codea ][ data[i].codeb ] = data[i].content;
+						    		}
+						    	}
+
+
+							})
+							setupPlan();
+							console.log( planFood );
+					});
+
+				$.get( "https://notes.1stfootforward.co.nz/ingredient_entries.json" )
+					  .done(function( data ) {
+
+					   
+						    $.each(data, function(i, item) {
+
+						    	if( data[i].user ===  getUrlParameter('u') ) {
+
+						    		
+
+						    			if( data[i].codea === 'B') { 
+
+						    				data[i].codea ='b'; 
+						    			}
+
+
+						    			ingredients[ingredients.length] = { code: data[i].code, ingredient: data[i].content, amount: data[i].amount }
+						    			console.log(ingredients)
+						    			
+						    		
+						    		
+						    	}
+
+
+							})
+							shoppingList();
+							
+					});
+
+
+
+    	}
 
 		setup();
-		 setupPlan();
+		
 
 		function setup() {
 			var b = [" "," "," "," "," "," "," "];
@@ -551,16 +614,9 @@
 			planFood = {'b': b,'m': m,'l': l,'a': a,'d': d,'e': e};
 			planExercise = {'b': ba,'m': ma,'l': la,'a': aa,'d': da,'e': ea};
 
-			planFood['d']['0'] = "Spinach Soup \n 1 Big glass of water \n Bread on the side. "
-			planFood['d']['2'] = "Spinach Soup \n 1 Big glass of water \n Bread on the side. "
-			planFood['d']['4'] = "Spinach Soup \n 1 Big glass of water \n Bread on the side. "
+			grab();
 
-			planExercise['a']['0'] = "Hiit Camp "
-			planExercise['a']['2'] = "Boot Camp "
-			planExercise['a']['4'] = "Boot Camp "
 
-			planFood['m']['5'] = "Bacon Sammie \n 1 Big glass of water \n Choc Cake. "
-			planExercise['m']['5'] = "Boot Camp"
 		}
 
 		
@@ -594,6 +650,21 @@
 		}
 
 		function exercisePlanSave() {
+
+
+			$.post( "https://rocky-earth-6889.herokuapp.com/calendar_entries.json", {"calendar_entry":{"user": getUrlParameter('u') ,"code":code, "codea": code.substring(0,1), "codeb":parseInt(code.substring(1,2)), "week":"2017-07-31", "weekname":"week5", "plan":0, "content": $("#exercise-plan-content").val(), "colour":"exercise" }} )
+		              .done(function( data ) {
+		              	
+		              	planFood[ code.substring(0,1) ][code.substring(1,2)] = $("#exercise-plan-content").val();
+				
+						setupPlan();
+
+						shoppingList();
+		            });
+
+
+
+
 			planExercise[ code.substring(0,1) ][code.substring(1,2)] = $("#exercise-plan-content").val();
 
 			
@@ -618,20 +689,37 @@
 
 		function ingredientUpdate(id) {
 
+			var i = "";
+			var a = "";
+
 			if(id === 'newI') {
 				i = $('#newI').find( ".icontent" ).val(   );
 				a = $('#newI').find( ".iamount" ).val(   );
-				ingredients[ingredients.length] = { code: code, ingredient: i, amount: a}
-				ingredientSetup();
+			} else {
+				i = $('#' + id).find( ".icontent" ).val(   );
+				a = $('#' + id).find( ".iamount" ).val(   );
 			}
 
-			shoppingList();
+
+			$.post( "https://rocky-earth-6889.herokuapp.com/ingredient_entries.json", {"ingredient_entry":{"user": getUrlParameter('u') ,"code":code, "codea": code.substring(0,1), "codeb":parseInt(code.substring(1,2)), "week":"2017-07-31", "weekname":"week5", "plan":0, "content": i, "amount":a }} )
+		              .done(function( data ) {
+		              	
+		              	ingredients[ingredients.length] = { code: code, ingredient: i, amount: a};
+						
+						ingredientSetup();
+				
+						setupPlan();
+
+						shoppingList();
+
+		            });
 
 		}
 
 		function ingredientSetup() {
 
 			$(".removable").remove();
+			shoppingList();
 
 			for (var i = 0; i < ingredients.length; i++) {
 				
@@ -661,17 +749,29 @@
 				    ingredienttemplate.find( ".btn" ).attr( 'onClick', "ingredientUpdate('newI')");
 				   
 				    $("#insertingredient").append( ingredienttemplate );
+
+
 		}
 
 		function foodPlanSave() {
-			planFood[ code.substring(0,1) ][code.substring(1,2)] = $("#food-plan-content").val();
-			
-			setupPlan();
 
-			shoppingList();
+			$.post( "https://rocky-earth-6889.herokuapp.com/calendar_entries.json", {"calendar_entry":{"user": getUrlParameter('u') ,"code":code, "codea": code.substring(0,1), "codeb":parseInt(code.substring(1,2)), "week":"2017-07-31", "weekname":"week5", "plan":0, "content": $("#food-plan-content").val(), "colour":"food" }} )
+		              .done(function( data ) {
+		              	
+		              	planFood[ code.substring(0,1) ][code.substring(1,2)] = $("#food-plan-content").val();
+				
+						setupPlan();
+
+						shoppingList();
+
+		            });
+				
 		}
 
 		function shoppingList() {
+
+			$("#insertshopping").find(".removable").remove();
+
 			for (var i = ingredients.length - 1; i >= 0; i--) {
 				if(ingredients[i].ingredient.length > 1 ) {
 					

@@ -138,6 +138,29 @@
 
         <row>
 			<div class="col-md-8 col-md-offset-2">
+				<a onClick="readPlanner()">
+				<div class="card fold-up gap ">
+				    	<div class="text-center section-landing ">
+			                
+			                <row>
+			                	<div class="col-md-4">
+			                		<img src="aaron-burden-123584.jpg" alt="Raised Image" class="img-responsive img-raised center-block">
+			                	</div>
+			                	<div class="col-md-8">
+			                		<h2>Meal Planner</h2>
+			                		
+				                	<p>Plan your meals and workouts for next week.</p>
+					            </div>
+			                </row>
+			                <br>
+			            </div>
+			        </div>
+			        </a>
+				</div>
+		</row>
+
+        <row>
+			<div class="col-md-8 col-md-offset-2">
 				<a href="week4-blog.html">
 				<div class="card fold-up gap ">
 				    	<div class="text-center section-landing ">
@@ -588,6 +611,10 @@
 
 	function readTracker() {
 		window.location.href = "week3-tracker.html?u=" + user;
+	}
+
+	function readPlanner() {
+		window.location.href = "week4-planner.html?u=" + user + "&t=" + token;
 	}
 
 
