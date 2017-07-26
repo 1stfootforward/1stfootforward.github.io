@@ -332,7 +332,6 @@
     };
 
     	function selectedItem(value, text, id) {
-    		console.log(value);
     		$( "#"+id ).html( text + ' <b class="caret"></b>' );
     		if(id === "type"){
     			entrytype = value;
@@ -398,8 +397,7 @@
 
 				    	if( (new Date(data[i].when)) > (new Date("Sun Jul 23 2017 23:59:00")) ) {
 
-				    		console.log(new Date("Sun Jul 23 2017 23:59:00"));
-				    		console.log(new Date(data[i].when));
+
 					    
 						    var template = $( ".template" ).clone()
 
@@ -559,7 +557,6 @@
 
 							})
 							setupPlan();
-							console.log( planFood );
 					});
 
 				$.get( "https://notes.1stfootforward.co.nz/ingredient_entries.json" )
@@ -579,7 +576,7 @@
 
 
 						    			ingredients[ingredients.length] = { code: data[i].code, ingredient: data[i].content, amount: data[i].amount }
-						    			console.log(ingredients)
+						    		
 						    			
 						    		
 						    		
