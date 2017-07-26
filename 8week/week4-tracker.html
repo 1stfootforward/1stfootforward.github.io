@@ -55,7 +55,7 @@
     		z-index: 99;
     	}
     	.removable {
-    		width: 100%;
+    		
     	}
     	.table-container {
     		padding: 20px;
@@ -65,6 +65,12 @@
     	}
     	.selected {
     		border: 5px solid #9c27b0!important;
+    	}
+    	.box {
+    		border: 1px solid #9c27b0!important;
+    	}
+    	.shopping-list {
+    		padding: 40px;
     	}
     	.planFood {
     		background-color: #e91e63!important;
@@ -111,6 +117,10 @@
     	.ingredient-template {
     		display: none;
     	}
+    	.bold-title {
+    		font-weight: 600;
+    		margin-top: 50px;
+    	}
 
     </style>
 
@@ -132,7 +142,7 @@
 						
 
 						<div  id="before" class="card card-signup height-control">
-						<h2 class="text-center">Week Four Planner</h2>
+						<h2 class="text-center">Week Five Planner</h2>
 							<div class="table-container">
 								<table class="table table-bordered">
 								    <thead>
@@ -213,7 +223,7 @@
 								</table>
 								<br />
 								<div class="col-md-12">
-											<h2 id="time-date-title" class="text-center"></h2>
+											<b><h3 id="time-date-title" class="text-center bold-title"></h3></b>
 										</div>
 								<div id="plan-choice" class="container hide">
 										
@@ -240,7 +250,7 @@
 										    <div class="col-xs-6"><b>Ingredient</b></div>
 											<div class="col-xs-6"><b>Amount</b></div>	
 										</row>
-									    <div id="insertingredient">
+									    <div id="insertingredient" class="row">
 									        
 									    </div>
 
@@ -262,6 +272,13 @@
 									  <button onClick="exercisePlanSave()" class="col-xs-12 btn btn-primary">Save</button>
 									</div>
 							</div>
+							<br />
+							<br />
+							<br />
+							<h3 class="text-center bold-title">Shopping List</h3>
+							<div id="insertshopping" class="row shopping-list">
+								
+							</div>
 						</div>
 			</div>
 		</div>
@@ -271,6 +288,10 @@
 			<div class="col-xs-5"><input type="text" value="" placeholder="New Entry ....." class="form-control icontent" /></div>
 			<div class="col-xs-4"><input type="text" value="" placeholder="" class="form-control iamount" /></div>
 			<button onClick="ingredientUpdate()" class="col-xs-2 btn btn-xs">Update</button>		
+	</div>
+	<div  id="shoppingtemplate" class="hide col-sm-6 box">
+			<div class="col-xs-7 "><b class="icontent"></b></div>
+			<div class="col-xs-5 iamount text-right"></div>	
 	</div>
 
 
@@ -506,7 +527,7 @@
 
 		  	setupEntry($(this).attr('id'));
 
-		  
+		    shoppingList();
 		});
 
 
@@ -604,6 +625,8 @@
 				ingredientSetup();
 			}
 
+			shoppingList();
+
 		}
 
 		function ingredientSetup() {
@@ -642,16 +665,33 @@
 
 		function foodPlanSave() {
 			planFood[ code.substring(0,1) ][code.substring(1,2)] = $("#food-plan-content").val();
-
 			
 			setupPlan();
 
+			shoppingList();
+		}
 
-			console.log(planFood);
-			console.log(planExercise);
+		function shoppingList() {
+			for (var i = ingredients.length - 1; i >= 0; i--) {
+				if(ingredients[i].ingredient.length > 1 ) {
+					
+
+					var ingredienttemplate = $("#shoppingtemplate").clone();
+
+				    ingredienttemplate.attr( 'id', '' );
+				    ingredienttemplate.addClass('removable');
+				    ingredienttemplate.removeClass('hide');
+				    ingredienttemplate.find( ".icontent" ).html( ingredients[i].ingredient  );
+				    ingredienttemplate.find( ".iamount" ).html( ingredients[i].amount  );
+
+				   
+				    $("#insertshopping").append( ingredienttemplate );
+
+				}
+			}
 		}
     	
-
+		
     	
     </script>
 
