@@ -652,7 +652,7 @@
 			$.post( "https://rocky-earth-6889.herokuapp.com/calendar_entries.json", {"calendar_entry":{"user": getUrlParameter('u') ,"code":code, "codea": code.substring(0,1), "codeb":parseInt(code.substring(1,2)), "week":"2017-07-31", "weekname":"week5", "plan":0, "content": $("#exercise-plan-content").val(), "colour":"exercise" }} )
 		              .done(function( data ) {
 		              	
-		              	planFood[ code.substring(0,1) ][code.substring(1,2)] = $("#exercise-plan-content").val();
+		              	planExercise[ code.substring(0,1) ][code.substring(1,2)] = $("#exercise-plan-content").val();
 				
 						setupPlan();
 
@@ -661,11 +661,6 @@
 
 
 
-
-			planExercise[ code.substring(0,1) ][code.substring(1,2)] = $("#exercise-plan-content").val();
-
-			
-			setupPlan();
 		}
 
 		function foodPlan() {
