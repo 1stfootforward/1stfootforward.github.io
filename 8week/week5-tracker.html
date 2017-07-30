@@ -80,8 +80,29 @@
     		background-color: #00bcd4!important;
     		color:white;
     	}
+    	.planMood {
+    		background-color: #FF6209!important;
+    		color:white;
+    	}
     	.planFood.planExercise {
     		background: linear-gradient(60deg, #e91e63, #00bcd4)!important;
+    	}
+    	.planMood.planExercise {
+    		background: linear-gradient(60deg, #FF6209, #00bcd4)!important;
+    	}
+    	.planFood.planMood {
+    		background: linear-gradient(60deg, #e91e63, #FF6209)!important;
+    	}
+    	.planFood.planMood.planExercise {
+    		 background:  #9c27b0!important; /* For browsers that do not support gradients */
+			  /* For Safari 5.1 to 6.0 */
+			  background: -webkit-linear-gradient(left,#e91e63, #FF6209,#00bcd4)!important;
+			  /* For Opera 11.1 to 12.0 */
+			  background: -o-linear-gradient(left,#e91e63, #FF6209,#00bcd4)!important;
+			  /* For Fx 3.6 to 15 */
+			  background: -moz-linear-gradient(left,#e91e63, #FF6209,#00bcd4)!important;
+			  /* Standard syntax */
+			  background: linear-gradient(to right, left,#e91e63, #FF6209,#00bcd4)!important; 
     	}
     	.panal-header h4 {
     		color:white!important;
@@ -127,22 +148,16 @@
 </head>
 
 <body class="signup-page">
-	<nav class="navbar navbar-transparent navbar-absolute">
-    	<div class="container">
-        	<img src="assets/img/white-logo.png" alt="First foot forward" class=" img-logo">
-        	<img src="assets/img/8-week-challenge-w.png" alt="First foot forward" class=" img-logo pull-right">
-        	
-    	</div>
-    </nav>
+
 
     <div class="wrapper">
-		<div class="header header-filter" style="background-image: url('aaron-burden-123584.jpg'); background-size: cover; background-position: top center;">
+		<div class="header header-filter" style="background-image: url('food/hope-house-press-127593.jpg'); background-size: cover; background-position: top center;">
 			<div class="container">
 					
 						
 
 						<div  id="before" class="card card-signup height-control">
-						<h2 class="text-center">Week Five Planner</h2>
+						<h2 class="text-center"><b>Week Five Tracker</b></h2>
 							<div class="table-container">
 								<table class="table table-bordered">
 								    <thead>
@@ -229,10 +244,13 @@
 										
 									<row class="center-block">
 										
-										<div class="col-xs-6">
+										<div class="col-xs-4">
 											<button onClick="foodPlan()" class="col-xs-10 btn planFood">Food</button>
 										</div>
-										<div class="col-xs-6">
+										<div class="col-xs-4">
+											<button onClick="moodPlan()" class="col-xs-10 btn planMood">Mood</button>
+										</div>
+										<div class="col-xs-4">
 											<button onClick="exercisePlan()" class="col-xs-10 btn btn-info">Exercise</button>
 										</div>
 									</row>
@@ -270,15 +288,23 @@
 
 									  
 									  <button onClick="exercisePlanSave()" class="col-xs-12 btn btn-primary">Save</button>
-									</div>
+								</div>
+								<div id="planMoodPanal" class="panel panel-default hideable hide">
+									  <!-- Default panel contents -->
+									  <div class="panel-heading text-center planMood"><h4>Mood Tracker<h4></div>
+									  <div class="panel-body">
+									    <textarea id="mood-plan-content" class="gap form-control" placeholder="Record your entry here ..." rows="5"></textarea>
+									  </div>
+
+									  
+									  <button onClick="moodPlanSave()" class="col-xs-12 btn btn-primary">Save</button>
+								</div>
 							</div>
 							<br />
 							<br />
 							<br />
-							<h3 class="text-center bold-title">Shopping List</h3>
-							<div id="insertshopping" class="row shopping-list">
-								
-							</div>
+							
+
 						</div>
 			</div>
 		</div>
@@ -507,6 +533,16 @@
     				}
     			}
     		}
+    		for (var i = times.length - 1; i >= 0; i--) {
+    			
+    			
+    			for (var x = planMood[ times[i] ].length - 1; x >= 0; x--) {
+    				if( planMood[ times[i] ][x] != " " ){
+    					
+    					$("#" + times[i] + x).addClass("planMood")
+    				}
+    			}
+    		}
     		
     	}
 
@@ -526,12 +562,12 @@
 
 		  	setupEntry($(this).attr('id'));
 
-		    shoppingList();
+
 		});
 
 		function checker(entry) {
 
-			if( entry.user ===  getUrlParameter('u') && entry.weekname ===  getUrlParameter('w') && entry.plan === 0 ) {
+			if( entry.user ===  getUrlParameter('u') && entry.weekname ===  getUrlParameter('w') && entry.plan === 1 ) {
 				return true;
 			} else {
 				return false;
@@ -547,6 +583,7 @@
 
 					    
 						    $.each(data, function(i, item) {
+						    	console.log(data);
 
 						    	if( checker(data[i]) ) {
 
@@ -565,6 +602,10 @@
 
 						    			planExercise[ data[i].codea ][ data[i].codeb ] = data[i].content;
 						    		}
+
+						    		if( data[i].colour === "mood" ) {
+						    			planMood[ data[i].codea ][ data[i].codeb ] = data[i].content;
+						    		}
 						    	}
 
 
@@ -572,34 +613,7 @@
 							setupPlan();
 					});
 
-				$.get( "https://notes.1stfootforward.co.nz/ingredient_entries.json" )
-					  .done(function( data ) {
-
-					   
-						    $.each(data, function(i, item) {
-
-						    	if( checker(data[i]) ) {
-
-						    		
-
-						    			if( data[i].codea === 'B') { 
-
-						    				data[i].codea ='b'; 
-						    			}
-
-
-						    			ingredients[ingredients.length] = { code: data[i].code, ingredient: data[i].content, amount: data[i].amount }
-						    		
-						    			
-						    		
-						    		
-						    	}
-
-
-							})
-							shoppingList();
-							
-					});
+				
 
 
 
@@ -621,8 +635,15 @@
 			var aa = [" "," "," "," "," "," "," "];
 			var da = [" "," "," "," "," "," "," "];
 			var ea = [" "," "," "," "," "," "," "];
+			var bb = [" "," "," "," "," "," "," "];
+			var mb = [" "," "," "," "," "," "," "];
+			var lb = [" "," "," "," "," "," "," "];
+			var ab = [" "," "," "," "," "," "," "];
+			var db = [" "," "," "," "," "," "," "];
+			var eb = [" "," "," "," "," "," "," "];
 			planFood = {'b': b,'m': m,'l': l,'a': a,'d': d,'e': e};
 			planExercise = {'b': ba,'m': ma,'l': la,'a': aa,'d': da,'e': ea};
+			planMood = {'b': bb,'m': mb,'l': lb,'a': ab,'d': db,'e': eb};
 
 			grab();
 
@@ -643,6 +664,9 @@
 			if(planFood[ id.substring(0,1) ][id.substring(1,2)].length > 1) {
 				foodPlan();
 			}
+			if(planMood[ id.substring(0,1) ][id.substring(1,2)].length > 1) {
+				moodPlan();
+			}
 
 		}
 
@@ -659,17 +683,45 @@
 
 		}
 
+		function moodPlan() {
+			$("#mood-plan-content").val(" ");
+
+			$(".hideable").addClass("hide");
+
+			$("#mood-plan-content").val("" + planMood[ code.substring(0,1) ][code.substring(1,2)]) ;
+
+			$("#planMoodPanal").removeClass("hide");
+
+		}
+
 		function exercisePlanSave() {
 
 
-			$.post( "https://rocky-earth-6889.herokuapp.com/calendar_entries.json", {"calendar_entry":{"user": getUrlParameter('u') ,"code":code, "codea": code.substring(0,1), "codeb":parseInt(code.substring(1,2)), "week":"2017-07-31", "weekname": getUrlParameter('w'), "plan":0, "content": $("#exercise-plan-content").val(), "colour":"exercise" }} )
+			$.post( "https://rocky-earth-6889.herokuapp.com/calendar_entries.json", {"calendar_entry":{"user": getUrlParameter('u') ,"code":code, "codea": code.substring(0,1), "codeb":parseInt(code.substring(1,2)), "week":"2017-07-31", "weekname": getUrlParameter('w'), "plan":1, "content": $("#exercise-plan-content").val(), "colour":"exercise" }} )
 		              .done(function( data ) {
 		              	
 		              	planExercise[ code.substring(0,1) ][code.substring(1,2)] = $("#exercise-plan-content").val();
 				
 						setupPlan();
 
-						shoppingList();
+						
+		            });
+
+
+
+		}
+
+		function moodPlanSave() {
+
+
+			$.post( "https://rocky-earth-6889.herokuapp.com/calendar_entries.json", {"calendar_entry":{"user": getUrlParameter('u') ,"code":code, "codea": code.substring(0,1), "codeb":parseInt(code.substring(1,2)), "week":"2017-07-31", "weekname": getUrlParameter('w'), "plan":1, "content": $("#mood-plan-content").val(), "colour":"mood" }} )
+		              .done(function( data ) {
+		              	
+		              	planMood[ code.substring(0,1) ][code.substring(1,2)] = $("#exercise-plan-content").val();
+				
+						setupPlan();
+
+						
 		            });
 
 
@@ -689,7 +741,6 @@
 			$("#planFoodPanal").removeClass("hide");
 
 			
-			ingredientSetup();
 		}
 
 		function ingredientUpdate(id) {
@@ -706,7 +757,7 @@
 			}
 
 
-			$.post( "https://rocky-earth-6889.herokuapp.com/ingredient_entries.json", {"ingredient_entry":{"user": getUrlParameter('u') ,"code":code, "codea": code.substring(0,1), "codeb":parseInt(code.substring(1,2)), "week":"2017-07-31", "weekname": getUrlParameter('w'), "plan":0, "content": i, "amount":a }} )
+			$.post( "https://rocky-earth-6889.herokuapp.com/ingredient_entries.json", {"ingredient_entry":{"user": getUrlParameter('u') ,"code":code, "codea": code.substring(0,1), "codeb":parseInt(code.substring(1,2)), "week":"2017-07-31", "weekname": getUrlParameter('w'), "plan":1, "content": i, "amount":a }} )
 		              .done(function( data ) {
 		              	
 		              	ingredients[ingredients.length] = { code: code, ingredient: i, amount: a};
@@ -760,7 +811,7 @@
 
 		function foodPlanSave() {
 
-			$.post( "https://rocky-earth-6889.herokuapp.com/calendar_entries.json", {"calendar_entry":{"user": getUrlParameter('u') ,"code":code, "codea": code.substring(0,1), "codeb":parseInt(code.substring(1,2)), "week":"2017-07-31", "weekname": getUrlParameter('w'), "plan":0, "content": $("#food-plan-content").val(), "colour":"food" }} )
+			$.post( "https://rocky-earth-6889.herokuapp.com/calendar_entries.json", {"calendar_entry":{"user": getUrlParameter('u') ,"code":code, "codea": code.substring(0,1), "codeb":parseInt(code.substring(1,2)), "week":"2017-07-31", "weekname": getUrlParameter('w'), "plan":1, "content": $("#food-plan-content").val(), "colour":"food" }} )
 		              .done(function( data ) {
 		              	
 		              	planFood[ code.substring(0,1) ][code.substring(1,2)] = $("#food-plan-content").val();

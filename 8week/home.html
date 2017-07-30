@@ -122,12 +122,12 @@
   <div id="main">
 
     <div class="wrapper">
-        <div class="header header-filter" style="background-image: url('food/william-felker-38344.jpg');">
+        <div class="header header-filter" style="background-image: url('food/brooke-lark-209708.jpg');">
             <div class="container">
                 <div class="row">
 					<div class="col-md-6  col-md-offset-3 text-center">
-						<h2 class="handwritting">Week 4</h2>
-	                    <h1 class="title">Meal Planning</h1>
+						<h2 class="handwritting">Week 5 - 7</h2>
+	                    <h1 class="title">Focus on Macronutrients</h1>
 	                    <br />
 	                    
 					</div>
@@ -135,7 +135,95 @@
                 </div>
             </div>
         </div>
+        <row>
+			<div class="col-md-8 col-md-offset-2">
+				<div class="card text-center gap ">
+			        <h2 class="handwritting">Week 5</h2>
+				    <h1 class="title">Carbohydrates</h1>
 
+				</div>
+			</div>
+		</row>
+
+		<row>
+			<div class="col-md-8 col-md-offset-2">
+				<a onClick="readTracker(5)">
+				<div class="card fold-up gap ">
+				    	<div class="text-center section-landing ">
+			                
+			                <row>
+			                	<div class="col-md-4">
+			                		<img src="food/hope-house-press-127593.jpg" alt="Raised Image" class="img-responsive img-raised center-block">
+			                	</div>
+			                	<div class="col-md-8">
+			                		<h2>Meal Tracker</h2>
+			                		
+				                	<p>Track your meals, mood and workouts for the next week</p>
+					            </div>
+			                </row>
+			                <br>
+			            </div>
+			        </div>
+			        </a>
+				</div>
+		</row>
+
+        <row>
+			<div class="col-md-8 col-md-offset-2">
+				<a href="week5-blog.html">
+				<div class="card fold-up gap ">
+				    	<div class="text-center section-landing ">
+			                
+			                <row>
+			                	<div class="col-md-4">
+			                		<img src="food/Burritobowl.JPG" alt="Raised Image" class="img-responsive img-raised center-block">
+			                	</div>
+			                	<div class="col-md-8">
+			                		<h2>Carbohydrates</h2>
+			                		
+				                	<p>Carbohydrates provide energy in the form of glucose or blood sugar. Glucose is necessary to support your body's everyday needs and performance. But not just any old carb will do; choosing wisely among starches, sugars and fibers helps you maintain your energy levels, avoid weight gain and combat sugar crashes.</p>
+					            </div>
+			                </row>
+			                <br>
+			            </div>
+			        </div>
+			        </a>
+				</div>
+		</row>
+
+
+        <row>
+			<div class="col-md-8 col-md-offset-2">
+				<a href="week5-food.html">
+				<div class="card fold-up gap ">
+				    	<div class="text-center section-landing ">
+			                
+			                <row>
+			                	<div class="col-md-4">
+			                		<img src="food/quinoacup2.JPG" alt="Raised Image" class="img-responsive img-raised center-block">
+			                	</div>
+			                	<div class="col-md-8">
+			                		<h2>Low-Calorie Meals</h2>
+			                		
+				                	<p>Carbohydrates get a bad rap, however we need them to help as function properly. You just need to choose wisely below are some complex and high fibre recipes to get you started. And as you fill out your meal plan. I will help you include these good carbs into the right part of the day when your bodies need them the most!</p>
+					            </div>
+			                </row>
+			                <br>
+			            </div>
+			        </div>
+			        </a>
+				</div>
+		</row>
+
+        <row>
+			<div class="col-md-8 col-md-offset-2">
+				<div class="card text-center gap ">
+			        <h2 class="handwritting">Week 4</h2>
+				    <h1 class="title">Meal Planning</h1>
+
+				</div>
+			</div>
+		</row>
         <row>
 			<div class="col-md-8 col-md-offset-2">
 				<a onClick="readPlanner()">
@@ -615,6 +703,9 @@
 
 	function readPlanner() {
 		window.location.href = "week4-planner.html?u=" + user + "&t=" + token;
+	}
+	function readTracker(i) {
+		window.location.href = "week5-tracker.html?u=" + user + "&t=" + token + "&w=week" + i ;
 	}
 
 
