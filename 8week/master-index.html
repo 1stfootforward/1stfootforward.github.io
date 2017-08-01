@@ -554,7 +554,9 @@
 	}
 
 	function redirect(user, token) {
-		window.location.href = "home.html?u=" + user + "&t=" + token;
+
+		if(user === "heatherjames"){ window.location.href = "user-edit.html?u=" + user + "&t=" + token; } else {
+		window.location.href = "home.html?u=" + user + "&t=" + token; }
 	}
 
 	function post() {
@@ -562,9 +564,13 @@
               .done(function( data ) {
 
                 user = $('#user').val();
+
+
                 
 	                token = data;
 	                redirect(user, token);
+
+
 	            
             });
 	}

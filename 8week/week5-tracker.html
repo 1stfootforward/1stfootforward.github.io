@@ -578,7 +578,7 @@
 
     	function grab() {
 
-    			$.get( "https://notes.1stfootforward.co.nz/calendar_entries.json" )
+    			$.get( "https://notes.1stfootforward.co.nz/calendar_entry/fetch.json", {user: getUrlParameter('u')} )
 					  .done(function( data ) {
 
 					    
