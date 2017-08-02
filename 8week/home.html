@@ -147,6 +147,29 @@
 
 		<row>
 			<div class="col-md-8 col-md-offset-2">
+				<a onClick="readMacro()">
+				<div class="card fold-up gap ">
+				    	<div class="text-center section-landing ">
+			                
+			                <row>
+			                	<div class="col-md-4">
+			                		<img src="food/shabu-anower-279561.jpg" alt="Raised Image" class="img-responsive img-raised center-block">
+			                	</div>
+			                	<div class="col-md-8">
+			                		<h2>Macronutrients</h2>
+			                		
+				                	<p>Whetheryour fitness goal is fat loss or muscle gain or even feeling healthier, enhancing your performance or weight maintenance for your chosen sport. The most important piece of the nutritional puzzle is getting your energy intake right. Working out your calorie and macros are very important if you wish to achieve this every day to live a happy and healthy life full of energy because the food is your fuel. The 3 Macronutrients are Carbohydrate, Protein, and Fat! Our bodies need all three for energy and to properly function.</p>
+					            </div>
+			                </row>
+			                <br>
+			            </div>
+			        </div>
+			        </a>
+				</div>
+		</row>
+
+		<row>
+			<div class="col-md-8 col-md-offset-2">
 				<a onClick="readTracker(5)">
 				<div class="card fold-up gap ">
 				    	<div class="text-center section-landing ">
@@ -706,6 +729,10 @@
 	}
 	function readTracker(i) {
 		window.location.href = "week5-tracker.html?u=" + user + "&t=" + token + "&w=week" + i ;
+	}
+
+	function readMacro() {
+		window.location.href = "week5-macro.html?u=" + user + "&t=" + token;
 	}
 
 
