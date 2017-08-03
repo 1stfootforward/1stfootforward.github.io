@@ -144,6 +144,28 @@
 				</div>
 			</div>
 		</row>
+		<row>
+			<div class="col-md-8 col-md-offset-2">
+				<a onClick="readPlanner(6)">
+				<div class="card fold-up gap ">
+				    	<div class="text-center section-landing ">
+			                
+			                <row>
+			                	<div class="col-md-4">
+			                		<img src="aaron-burden-123584.jpg" alt="Raised Image" class="img-responsive img-raised center-block">
+			                	</div>
+			                	<div class="col-md-8">
+			                		<h2>Meal Planner</h2>
+			                		
+				                	<p>Plan your meals and workouts for next week.</p>
+					            </div>
+			                </row>
+			                <br>
+			            </div>
+			        </div>
+			        </a>
+				</div>
+		</row>
 
 		<row>
 			<div class="col-md-8 col-md-offset-2">
@@ -329,7 +351,7 @@
 
         <row>
 		<div class="col-md-8 col-md-offset-2">
-			<a onClick="readTracker()">
+			<a onClick="readTrackerOld()">
 				<div class="card  gap">
 				    	<div class="text-center section-landing ">
 			                
@@ -720,12 +742,15 @@
 		window.location.href = "week1-water.html?u=" + user + "&t=" + token;
 	}
 
-	function readTracker() {
+	function readTrackerOld() {
 		window.location.href = "week3-tracker.html?u=" + user;
 	}
 
 	function readPlanner() {
 		window.location.href = "week4-planner.html?u=" + user + "&t=" + token + "&w=week5";
+	}
+	function readPlanner(n) {
+		window.location.href = "week5-planner.html?u=" + user + "&t=" + token + "&w=week" + n;
 	}
 	function readTracker(i) {
 		window.location.href = "week5-tracker.html?u=" + user + "&t=" + token + "&w=week" + i ;
