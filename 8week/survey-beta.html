@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Sign Up Page - Material Kit by Creative Tim</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+	<!--     Fonts and icons     -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+
+	<!-- CSS Files -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/material-kit.css" rel="stylesheet"/>
+
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+
+    <style>
+    	.img-logo {
+    		max-height: 80px;
+    	}
+    	.handwritting {
+    		font-family: 'Permanent Marker', cursive;
+    	}
+    	h4 i {
+    		font-size: 34px!important;
+    		margin-bottom: -100px;
+    	}
+    	.indented p {
+    		margin-left: 40px;
+    	}
+    	.indented {
+    		margin-left: 40px;
+    	}
+    	.white-card {
+    		padding: 20px;
+    		color:black!important;
+    	}
+    	.fold-up {
+    		margin-top: 0px!important;
+    	}
+
+    </style>
+
+</head>
+
+<body class="signup-page">
+	<nav class="navbar navbar-transparent navbar-absolute">
+    	<div class="container">
+        	<img src="assets/img/white-logo.png" alt="First foot forward" class=" img-logo">
+        	<img src="assets/img/8-week-challenge-w.png" alt="First foot forward" class=" img-logo pull-right">
+        	
+    	</div>
+    </nav>
+
+    <div class="wrapper">
+		<div class="header header-filter" style="background-image: url('redapples.jpg'); background-size: cover; background-position: top center;">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<div  id="before" class="card card-signup">
+							<form class="form" method="" action="">
+								<h3 class="text-center"><b>Questionnaire</b></h3>
+								<div class="section landing-section">
+	                <div class="row">
+	                    <div class="col-md-10 col-md-offset-1">
+	                        
+	                        <form class="contact-form">
+
+
+								
+
+	                            <div class="row">
+	                                <div class="col-md-12">
+										
+										<div class="form-group label-floating">
+											<label class="control-label">Was the overall layout of the challenge easy to follow?</label>
+											<textarea question="Was the overall layout of the challenge easy to follow?" type="text" class="survey form-control" rows="4"></textarea>
+										</div>
+										<div class="form-group label-floating">
+											<label class="control-label">If you could change anything what would it be?</label>
+											<textarea question="If you could change anything what would it be?" type="text" class="survey form-control" rows="4"></textarea>
+										</div>
+										<div class="form-group label-floating">
+											<label class="control-label">What was the easiest part of the challenge for you?</label>
+											<textarea question="What was the easiest part of the challenge for you?" type="text" class="survey form-control" rows="4"></textarea>
+										</div>
+										<div class="form-group label-floating">
+											<label class="control-label">What was the hardest part of the challenge for you?</label>
+											<textarea question="What was the hardest part of the challenge for you?" type="text" class="survey form-control" rows="4"></textarea>
+										</div>
+										<div class="form-group label-floating">
+											<label class="control-label">Did you find 8 weeks was a long enough time to change some of your habits?</label>
+											<textarea question="Did you find 8 weeks was a long enough time to change some of your habits?" type="text" class="survey form-control" rows="4"></textarea>
+										</div>
+										<div class="form-group label-floating">
+											<label class="control-label">Did you see any results over the course of the 8 weeks?</label>
+											<textarea question="Did you see any results over the course of the 8 weeks?" type="text" class="survey form-control" rows="4"></textarea>
+										</div>
+										<div class="form-group label-floating">
+											<label class="control-label">Did you find the Facebook group helpfull?</label>
+											<textarea question="Did you find the Facebook group helpfull?" type="text" class="survey form-control" rows="4"></textarea>
+										</div>
+										<div class="form-group label-floating">
+											<label class="control-label">How likely would you be to refer this challenge to a friend?</label>
+											<textarea question="How likely would you be to refer this challenge to a friend?" class="form-control" rows="4"></textarea>
+										</div>
+	                                </div>
+	                            </div>
+
+	                            <div class="row">
+	                                <div class="col-md-4 col-md-offset-4 text-center">
+	                                    <a class="btn btn-primary btn-raised" onClick="sendPost()">
+											Send Answers
+										</a>
+	                                </div>
+	                            </div>
+	                        </form>
+	                    </div>
+	                </div>
+
+	            </div>
+							</form>
+						</div>
+					</div>
+				</div>
+
+				<div id="after" class="card card-signup text-center hide">
+					
+					<h2>Thanks</h2>
+					<h4>I'll be in touch soon!</h4>
+				</div>
+			</div>
+
+		</div>
+
+    </div>
+
+
+</body>
+	<!--   Core JS Files   -->
+	<script src="assets/js/jquery.min.js" type="text/javascript"></script>
+	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="assets/js/material.min.js"></script>
+
+	<!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
+	<script src="assets/js/material-kit.js" type="text/javascript"></script>
+
+	<script>
+
+			var getUrlParameter = function getUrlParameter(sParam) {
+		        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+		            sURLVariables = sPageURL.split('&'),
+		            sParameterName,
+		            i;
+
+		        for (i = 0; i < sURLVariables.length; i++) {
+		            sParameterName = sURLVariables[i].split('=');
+
+		            if (sParameterName[0] === sParam) {
+		                return sParameterName[1] === undefined ? true : sParameterName[1];
+		            }
+		        }
+		    };
+
+		function sendPost() {
+
+    		var first = $("#first").val();
+    		var last = $("#last").val();
+    		var user = $("#user").val();
+    		var email = $("#email").val();
+    		var fb = $("#fb").val();
+    		var phone = $("#phone").val();
+
+    		$.post("https://rocky-earth-6889.herokuapp.com/contacts.json", {"contact":{"user":user,"first":first,"last":last,"email":email,"phone":phone,"fb":fb }}, function( data ) {});
+    		$( ".survey" ).each(function( index ) {
+    			$.post("https://rocky-earth-6889.herokuapp.com/surveys.json", {"survey":{"user":getUrlParameter('u') ,"survey":"post 8 weeks","question": $(this).attr("question"),"answer": $(this).val()}}, function( data ) {});
+    		});
+
+    		setTimeout(function(){
+			    success();
+			}, 2000);
+    	}
+
+    	function success() {
+    		$("#before").addClass("hide");
+    		$("#after").removeClass("hide");
+    	}
+
+    	
+    </script>
+
+</html>
