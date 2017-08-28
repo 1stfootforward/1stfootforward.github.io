@@ -211,7 +211,7 @@
 						          <h1 class="pink text-center">Week 1</h1>
 						          <br />
 						        	<p>This week we are all about feeling good, setting goals that are realistic and achievable, putting some plans in place as we start to change some habits.</p>
-						        	<a class="postlink" href="week1-blog.html">
+						        	<a class="postlink" onClick='go("week1-blog.html")'>
 						        		<div class="postlink-box">
 							        		<h3 class="pink text-center title">Article</h3>
 							        		<p>Losing excess weight is one of the hardest things you will do, just because its hard doesn't mean it can’t be done. Below are a few tips to help you be more successful.</p>
@@ -513,6 +513,10 @@
 
 	function right() {
 		$( '#bb-bookblock' ).bookblock( 'next' );
+	}
+
+	function go(link) {
+		window.location.href = link + "?u=" + user + "&t=" + token; 
 	}
 
 
