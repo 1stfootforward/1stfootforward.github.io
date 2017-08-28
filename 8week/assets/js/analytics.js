@@ -20,5 +20,6 @@ var getParameter = function getUrlParameter(sParam) {
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-71250097-1', 'auto');
-  ga('send', 'pageview');
   ga('set', 'userId', getParameter('t'));
+  ga('send', 'pageview');
+  
