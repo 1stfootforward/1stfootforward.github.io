@@ -13,6 +13,15 @@ var getParameter = function getUrlParameter(sParam) {
 	        }
 	    };
 
+	 function check() {
+
+		if(user === undefined || token === undefined){
+			window.location.href = "challenge.html"
+		}
+	}
+
+  	check();
+
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -20,7 +29,8 @@ var getParameter = function getUrlParameter(sParam) {
 
 
   ga('create', 'UA-71250097-1', 'auto', {
-  	userId: getParameter('t')
+  	userId: getParameter('u')
 	});
   ga('send', 'pageview');
   
+ 
