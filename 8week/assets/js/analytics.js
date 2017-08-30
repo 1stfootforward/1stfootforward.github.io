@@ -15,7 +15,7 @@ var getParameter = function getUrlParameter(sParam) {
 
 	 function check() {
 
-		if(user === undefined || token === undefined){
+		if(getParameter('u') === undefined || getParameter('t') === undefined){
 			window.location.href = "challenge.html"
 		}
 	}
