@@ -265,8 +265,25 @@
 						      <div class="col-lg-6 col-sm-12 right post">
 						        
 						          <h1 class="title orange">Week 2</h1>
-						        <p>The main reason I recommend to track and record your meals and exercise is because if you want to improve in something, you need to track you progress and behaviors this is known as “self-monitoring” The process of tracking and analyzing your thoughts and actions help you to become aware of how your choices impact your goals. Whatever your goal may be your eating and exercise habits are the two things that control your outcome.</p>
-						        <h2>September 4 - 10</h2>
+						        <p> The process of tracking and analyzing your thoughts and actions help you to become aware of how your choices impact your goals. Whatever your goal may be your eating and exercise habits are the two things that control your outcome.</p>
+						        <a class="postlink" onClick='go("week2a-blog.html")'>
+						        		<div class="postlink-box">
+							        		<h3 class="orange text-center title">Article</h3>
+							        		<p>5 reasons tracking your eating and exercise habits will play a huge role, in the reaching of your goals</p>
+							        	</div>
+							        </a>
+							        <a class="postlink"  onClick='go("week2a-food.html")'>
+							        	<div class="postlink-box">
+							        		<h3 class="orange text-center title">Recipes</h3>
+							        		<p>Feeling Fuller for longer. You can silence your grumbling stomach without consuming extra calories. In fact, eating certain foods sends a signal to your brain that you’re done eating and quiets your appetite. </p>
+							        	</div>
+							        </a>
+							        <a class="postlink"  onClick='tracker("tracker-food-exercise.html","week2a")'>
+							        	<div class="postlink-box">
+							        		<h3 class="orange text-center title">Food & Exercise Tracker</h3>
+							        		<p>Use this page to track your meals and exercise for this next week! </p>
+							        	</div>
+							        </a>
 						      </div>
 						    </row>
 						</div>
@@ -533,8 +550,11 @@
 	function go(link) {
 		window.location.href = link + "?u=" + user + "&t=" + token; 
 	}
+	function tracker(link, arg) {
+		window.location.href = link + "?u=" + user + "&t=" + token + "&w=" + arg; 
+	}
 
-
+	right();
 </script>
 
 <script src="assets/js/analytics.js"></script>
