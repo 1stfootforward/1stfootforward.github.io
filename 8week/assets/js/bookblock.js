@@ -366,6 +366,10 @@
 		next : function() {
 			this._action( this.options.direction === 'ltr' ? 'next' : 'prev' );
 		},
+		nexta : function() {
+			this._action( this.options.direction === 'ltr' ? 'next' : 'prev' );
+			this._action( this.options.direction === 'ltr' ? 'next' : 'prev' );
+		},
 		// public method: flips back
 		prev : function() {
 			this._action( this.options.direction === 'ltr' ? 'prev' : 'next' );

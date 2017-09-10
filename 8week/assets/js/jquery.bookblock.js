@@ -420,6 +420,9 @@
 		next : function() {
 			this._action( this.options.direction === 'ltr' ? 'next' : 'prev' );
 		},
+		startpage : function() {
+			this.jump(3);
+		},
 		// public method: flips back
 		prev : function() {
 			this._action( this.options.direction === 'ltr' ? 'prev' : 'next' );
