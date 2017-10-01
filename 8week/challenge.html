@@ -220,6 +220,8 @@
 	var token = null;
 	var user = null;
 
+	var betaGroup = ["Christine","Sonya","EmmaO","DeeM","SarahD","AmyD","NicolaMc","GlendaD","GillB","NatashaF","EmmaL","AnnaC","Amy"];
+
 	function toggle() {
 		$('#log').addClass("hide");
 		$('#main').removeClass("hide");
@@ -227,8 +229,13 @@
 
 	function redirect(user, token) {
 
+		if (betaGroup.indexOf(user) > -1) {
+		    window.location.href = "index2.html?u=" + user + "&t=" + token;
+		} else {
+		    window.location.href = "index.html?u=" + user + "&t=" + token;
+		}
 		
-		window.location.href = "index.html?u=" + user + "&t=" + token; 
+		 
 	}
 
 	function post() {

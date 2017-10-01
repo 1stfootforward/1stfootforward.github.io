@@ -421,7 +421,7 @@
 			this._action( this.options.direction === 'ltr' ? 'next' : 'prev' );
 		},
 		startpage : function() {
-			this.jump(5);
+			this.jump(6);
 		},
 		// public method: flips back
 		prev : function() {
