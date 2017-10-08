@@ -275,9 +275,26 @@
 						      </div>
 						      <div class="col-lg-6 col-sm-12 right post">
 						        
-						          <h1 class="title orange">Week 2</h1>
-						        <p>The process of tracking and analyzing your thoughts and actions help you to become aware of how your choices impact your goals. Whatever your goal may be your eating and exercise habits are the two things that control your outcome.</p>
-						        <h2>October 9th - 15th</h2>
+						         <h1 class="title orange">Week 2</h1>
+						        <p> The process of tracking and analyzing your thoughts and actions help you to become aware of how your choices impact your goals. Whatever your goal may be your eating and exercise habits are the two things that control your outcome.</p>
+						        <a class="postlink" onClick='go("week2a-blog.html")'>
+						        		<div class="postlink-box">
+							        		<h3 class="orange text-center title">Article</h3>
+							        		<p>5 reasons tracking your eating and exercise habits will play a huge role, in the reaching of your goals</p>
+							        	</div>
+							        </a>
+							        <a class="postlink"  onClick='go("week2a-food.html")'>
+							        	<div class="postlink-box">
+							        		<h3 class="orange text-center title">Recipes</h3>
+							        		<p>Feeling Fuller for longer. You can silence your grumbling stomach without consuming extra calories. In fact, eating certain foods sends a signal to your brain that you’re done eating and quiets your appetite. </p>
+							        	</div>
+							        </a>
+							        <a class="postlink"  onClick='tracker("tracker-food-exercise.html","week2a","Tracker Week 2","September 3rd - 10th")'>
+							        	<div class="postlink-box">
+							        		<h3 class="orange text-center title">Food & Exercise Tracker</h3>
+							        		<p>Use this page to track your meals and exercise for this week! </p>
+							        	</div>
+							        </a>
 						      </div>
 						    </row>
 						</div>
@@ -297,7 +314,17 @@
 						        <p>Meal planning is the key to better eating. Deciding and planning your meals ahead of time will guarantee success with your current goal, and also save you time and money.</p>
 
 								<p>Meal planning – Shopping List – Food tracking all work together to create a non-fail way to live, be healthy and to be in control with your eating.</p>
-								<h2>October 16th - 22nd</h2>
+								 <a class="postlink"  onClick='tracker("meal-planner.html","week3a","Plan for Week 3","October 16th - 22nd")'>
+							        	<div class="postlink-box">
+							        		<div class="info">
+												<div class="icon icon-success">
+													<i class="material-icons">date_range</i>
+												</div>
+												<h4 class="info-title">Meal Plan</h4>
+												
+											</div>
+							        	</div>
+							    </a>
 						      </div>
 						    </row>
 						</div>
@@ -531,7 +558,7 @@
 	function tracker(link, arg, page, date) {
 		window.location.href = link + "?u=" + user + "&t=" + token + "&w=" + arg + "&p=" + page + "&d=" + date; 
 	}
-	//$( '#bb-bookblock' ).bookblock( 'startpage' );
+	$( '#bb-bookblock' ).bookblock( 'otherpage' );
 
 
 </script>
