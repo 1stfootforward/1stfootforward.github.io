@@ -424,7 +424,7 @@
 			this.jump(7);
 		},
 		otherpage : function() {
-			this.jump(2);
+			this.jump(3);
 		},
 		// public method: flips back
 		prev : function() {
