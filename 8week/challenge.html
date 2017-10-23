@@ -222,6 +222,8 @@
 
 	var betaGroup = ["ChristineJ","Sonya","EmmaO","DeeM","SarahD","AmyD","NicolaMc","GlendaD","GillB","NatashaF","EmmaL","AnnaC","Amy", "AmyG"];
 
+	var deltaGroup = ["ChrissyS"]
+
 	function toggle() {
 		$('#log').addClass("hide");
 		$('#main').removeClass("hide");
@@ -232,7 +234,11 @@
 		if (betaGroup.indexOf(user) > -1) {
 		    window.location.href = "index2.html?u=" + user + "&t=" + token;
 		} else {
-		    window.location.href = "index.html?u=" + user + "&t=" + token;
+			if (deltaGroup.indexOf(user) > -1) {
+				window.location.href = "index3.html?u=" + user + "&t=" + token;
+			} else {
+		    	window.location.href = "index.html?u=" + user + "&t=" + token;
+		    }
 		}
 		
 		 

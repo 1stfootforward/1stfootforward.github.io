@@ -421,10 +421,10 @@
 			this._action( this.options.direction === 'ltr' ? 'next' : 'prev' );
 		},
 		startpage : function() {
-			this.jump(7);
+			this.jump(8);
 		},
 		otherpage : function() {
-			this.jump(3);
+			this.jump(4);
 		},
 		// public method: flips back
 		prev : function() {
