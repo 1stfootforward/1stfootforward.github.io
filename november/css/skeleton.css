@@ -559,7 +559,9 @@ there.
   }
 }
 
-
+.center {
+  text-align: center;
+}
 .loader {
   text-align: center;
     margin-top-top: 300px!important;
