@@ -24,7 +24,7 @@
 
 
 
-      event.preventDefault();
+    
 
       $('#details').validator('validate');
 
@@ -43,7 +43,7 @@
 
   function senddetails() {
 
-      event.preventDefault();
+     
       loader();
 
       email = $("#Email").val();
