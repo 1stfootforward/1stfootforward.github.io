@@ -183,7 +183,6 @@
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js" type="text/javascript"></script>
   <script >
       var token;
 
@@ -210,12 +209,7 @@
   function details() {
 
 
-
-    
-
-      $('#details').validator('validate');
-
-      console.log($('#details').validator('validate'));
+     
        if( $("#Email").val().length < 1 ||  $("#Phone").val().length < 1 ||  $("#Name").val().length < 1 ||  $("#Street").val().length < 1 ||  $("#City").val().length < 1 ||  $("#Suburb").val().length < 1) {
         
           console.log("fail");
