@@ -132,7 +132,6 @@
                       <div class="error-section hide  ">
                         <h4 class="text-center ">Sorry something went wrong</h4>
                         <p class="text-center " id="errormessage"></p>
-                        <a onClick="restart()" class="col-xs-12 btn btn-empty" type="submit"><b>&#8592;</b> Back</a>
                       </div>
 
                       <div class="pass-section hide  ">
@@ -184,6 +183,7 @@
 
   <script >
       var token;
+      var end = false;
 
 
   
@@ -267,9 +267,11 @@
     }
 
     function stripesend( stripetoken ) {
- 
-      console.log("fire");
-      $.post( "https://mighty-shelf-11601.herokuapp.com/stripe/charge.json", {"stripetoken": stripetoken , "name": name, "purchase": "1", "delivery": "", "address": address, "token":token, "email":email} )
+      if(end == true){return null;}
+
+      end = true;
+      
+            $.post( "https://mighty-shelf-11601.herokuapp.com/stripe/charge.json", {"stripetoken": stripetoken , "name": name, "purchase": "1", "delivery": "", "address": address, "token":token, "email":email} )
                     .done(function( data ) { console.log( data ); pass(); })
                     .fail(function(data) {
                         console.log(data)
@@ -277,6 +279,7 @@
 
                         $("#details").addClass("hide");
                         $("#payment").addClass("hide");
+                        $("#loader").addClass("hide");
                         $(".error-section").removeClass("hide");
                  
               });
@@ -319,6 +322,7 @@
     function pass() {
       $("#tokenmessage").html( '#: ' + token.substring(0, 6) );
       $("#payment").addClass("hide");
+      $("#loader").addClass("hide");
       $(".pass-section").removeClass("hide");
     }
 
