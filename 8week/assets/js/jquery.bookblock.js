@@ -423,8 +423,26 @@
 		startpage : function() {
 			this.jump(8);
 		},
-		otherpage : function() {
+		onepage : function() {
+			this.jump(1);
+		},
+		twopage : function() {
+			this.jump(2);
+		},
+		threepage : function() {
+			this.jump(3);
+		},
+		fourpage : function() {
+			this.jump(4);
+		},
+		fivepage : function() {
 			this.jump(5);
+		},
+		sixpage : function() {
+			this.jump(6);
+		},
+		sevenpage : function() {
+			this.jump(7);
 		},
 		// public method: flips back
 		prev : function() {

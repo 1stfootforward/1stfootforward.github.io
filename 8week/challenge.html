@@ -220,9 +220,11 @@
 	var token = null;
 	var user = null;
 
-	var betaGroup = ["ChristineJ","Sonya","EmmaO","DeeM","SarahD","AmyD","NicolaMc","GlendaD","GillB","NatashaF","EmmaL","AnnaC","Amy", "AmyG"];
+	var betaGroup = ["ChristineJ","Sonya","EmmaO","DeeM","SarahD","NicolaMc","GlendaD","GillB","NatashaF","EmmaL","AnnaC","Amy", "AmyG"];
 
-	var deltaGroup = ["ChrissyS"]
+	var deltaGroup = ["ChrissyS","Judi"];
+
+	var gammaGroup = ["AmyD"];
 
 	function toggle() {
 		$('#log').addClass("hide");
@@ -231,13 +233,22 @@
 
 	function redirect(user, token) {
 
+		if (gammaGroup.indexOf(user) > -1) {
+			window.location.href = "index4.html?u=" + user + "&t=" + token;
+		}
+
 		if (betaGroup.indexOf(user) > -1) {
 		    window.location.href = "index2.html?u=" + user + "&t=" + token;
 		} else {
 			if (deltaGroup.indexOf(user) > -1) {
 				window.location.href = "index3.html?u=" + user + "&t=" + token;
 			} else {
-		    	window.location.href = "index.html?u=" + user + "&t=" + token;
+
+				if (gammaGroup.indexOf(user) > -1) {
+					window.location.href = "index4.html?u=" + user + "&t=" + token;
+				} else {
+		    		window.location.href = "index.html?u=" + user + "&t=" + token;
+		    	}
 		    }
 		}
 		
