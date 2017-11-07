@@ -352,11 +352,7 @@
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-striped">
                                     <thead>
-                                        <th class="text-center checkbox">
-                                                               
-                                                                    <input type="checkbox" name="optionsCheckboxes"><span class="checkbox-material"><span class="check"></span></span>
-                                                                
-                                                            </th>
+                                        <th class="text-center checkbox"></th>
                                         <th class="text-center">#</th>
                                         <th>Name</th>
                                         <th>Paid</th>
@@ -385,7 +381,7 @@
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-striped">
                                     <thead>
-                                        <th class="text-center"><input type='checkbox' name='optionsCheckboxes'></th>
+                                        <th class="text-center"></th>
                                         <th class="text-center">#</th>
                                         <th>Name</th>
                                         <th>Paid</th>
@@ -414,7 +410,7 @@
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-striped">
                                     <thead>
-                                        <th class="text-center"><input type='checkbox' name='optionsCheckboxes'></th>
+                                        <th class="text-center"></th>
                                         <th class="text-center">#</th>
                                         <th>Name</th>
                                         <th>Paid</th>
@@ -425,6 +421,35 @@
                                         <th>Date</th>
                                     </thead>
                                     <tbody id="pickupTable">
+                                        
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Orders For Pickup</h4>
+                            </div>
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <th class="text-center"></th>
+                                        <th class="text-center">#</th>
+                                        <th>Name</th>
+                                        <th>Paid</th>
+                                        <th>Delivery</th>
+                                        <th>Email</th>
+                                        <th>City</th>
+                                        <th>Street</th>
+                                        <th>Date</th>
+                                    </thead>
+                                    <tbody id="raffleTable">
                                         
                                     </tbody>
                                 </table>
@@ -611,12 +636,37 @@
             for (var i = 0; i < all.length; i++) {
                                 
                 if(all[i].recordsession[0].ip === "raffle") {
-                   
-                   raffle.push( sale[i] );
+
+                    if(all[i].tickets.length > 0) {
+
+                        if(all[i].tickets[0].id > 50) {
+                       
+                            raffle.push( sale[i] );
+                        }
+                    }
                 }
             }
 
             console.log(raffle);
+            rafflerTable(raffle);
+        }
+
+        function rafflerTable(raffle) {
+
+            for (var i = 0; i < raffle.length; i++) {
+                if(raffle[i].recordcards.length > 0) {
+                    raffleTableRow(raffle[i], "raffleTable");
+
+                   
+                }
+            }
+        }
+
+        function raffleTableRow(item, table) {
+
+            var row = "<tr><td class='text-center'><input type='checkbox' name='optionsCheckboxes'></td><td class='text-center'>" + item.id + "</td><td>" + item.recordcards[0].customer + "</td><td>$ " + (item.recordcards[0].amount / 100) + "</td><td>" + item.id + "</td><td>" +  item.recorddetails[ item.recorddetails.length - 1 ].email + "</td><td>" + item.recorddetails[ item.recorddetails.length - 1 ].city + "</td><td>" + item.recorddetails[ item.recorddetails.length - 1 ].street + "</td><td>" + dateWrangler(item.created_at) + "</td></tr>";
+
+            $("#" + table).append(row);
         }
 
         function fetchSales(){
@@ -794,6 +844,8 @@
                 }
             }
         }
+
+      
 
         function dateWrangler(item) {
 
