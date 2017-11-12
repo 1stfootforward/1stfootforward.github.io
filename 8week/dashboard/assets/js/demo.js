@@ -1,5 +1,26 @@
 type = ['','info','success','warning','danger'];
 
+function markthemap(map, marker, i, t, geocoder) {
+    
+    setTimeout(function(){
+            console.log(i);
+            geocoder.geocode({'address': i}, function(results, status) {
+              if (status === 'OK') {
+                 
+                  var marker = new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location
+                  });
+                  marker.setMap(map);
+              } else {
+                console.log('Geocode was not successful for the following reason: ' + status);
+              }
+            });
+
+              
+    }, 2000 * t);
+}
+
 
 demo = {
     initPickColor: function(){
@@ -110,17 +131,11 @@ demo = {
         });
     },
 
-    initGoogleMaps: function(){
-        var locations = [
-          ['Bondi Beach', -33.890542, 151.274856, 4],
-          ['Coogee Beach', -33.923036, 151.259052, 5],
-          ['Cronulla Beach', -34.028249, 151.157507, 3],
-          ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
-          ['Maroubra Beach', -33.950198, 151.259302, 1]
-        ];
-        var myLatlng = new google.maps.LatLng(-33.950198, 151.259302);
+    initGoogleMaps: function(locations){
+        
+        var myLatlng = new google.maps.LatLng(-43.5271974,172.6365852);
         var mapOptions = {
-          zoom: 6,
+          zoom: 9,
           center: myLatlng,
           scrollwheel: false, //we disable de scroll over the map, it is a really annoing when you scroll through page
           styles: [{"featureType":"water","stylers":[{"saturation":43},{"lightness":-11},{"hue":"#0088ff"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"hue":"#ff0000"},{"saturation":-100},{"lightness":99}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"color":"#808080"},{"lightness":54}]},{"featureType":"landscape.man_made","elementType":"geometry.fill","stylers":[{"color":"#ece2d9"}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"color":"#ccdca1"}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"color":"#767676"}]},{"featureType":"road","elementType":"labels.text.stroke","stylers":[{"color":"#ffffff"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"landscape.natural","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#b8cb93"}]},{"featureType":"poi.park","stylers":[{"visibility":"on"}]},{"featureType":"poi.sports_complex","stylers":[{"visibility":"on"}]},{"featureType":"poi.medical","stylers":[{"visibility":"on"}]},{"featureType":"poi.business","stylers":[{"visibility":"simplified"}]}]
@@ -130,13 +145,13 @@ demo = {
 
          var marker, i;
 
-        for (i = 0; i < locations.length; i++) {  
-          marker = new google.maps.Marker({
-            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-            map: map
-          });
+         var geocoder = new google.maps.Geocoder();
 
-          marker.setMap(map);
+         
+
+        for (i = 0; i < locations.length; i++) {  
+
+            markthemap(map, marker, locations[i], i, geocoder);
         }
 
         // To add the marker to the map, call setMap();
