@@ -220,9 +220,9 @@
 	var token = null;
 	var user = null;
 
-	var betaGroup = [];
+	var betaGroup = ["BrigitteM"];
 
-	var deltaGroup = ["ChrissyS","Judi", "MichelleR"];
+	var deltaGroup = [];
 
 	var gammaGroup = [];
 
@@ -238,7 +238,7 @@
 		}
 
 		if (betaGroup.indexOf(user) > -1) {
-		    window.location.href = "index2.html?u=" + user + "&t=" + token;
+		    window.location.href = "indexfour.html?u=" + user + "&t=" + token;
 		} else {
 			if (deltaGroup.indexOf(user) > -1) {
 				window.location.href = "index2.html?u=" + user + "&t=" + token;
@@ -247,7 +247,7 @@
 				if (gammaGroup.indexOf(user) > -1) {
 					window.location.href = "index.html?u=" + user + "&t=" + token;
 				} else {
-		    		window.location.href = "indexthree.html?u=" + user + "&t=" + token;
+		    		window.location.href = "indexone.html?u=" + user + "&t=" + token;
 		    	}
 		    }
 		}
