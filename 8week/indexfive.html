@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+	<link rel="icon" type="image/png" href="assets/img/favicon.png">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>8 Week Challenge</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+	<!--     Fonts and icons     -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+
+	<!-- CSS Files -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/material-kit.css" rel="stylesheet"/>
+
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+    
+    <link rel="stylesheet" type="text/css" href="assets/css/default.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/bookblock.css" />
+		<!-- custom demo style -->
+		<link rel="stylesheet" type="text/css" href="assets/css/demo4.css" />
+		<script src="assets/js/modernizr.custom.js"></script>
+
+    <style>
+    	.title {
+    		color: white;
+    		text-align: center;
+    	}
+    	
+    	.img-logo {
+    		max-height: 80px;
+    	}
+    	.handwritting {
+ 
+    		text-align: center;
+    		font-family: 'Permanent Marker', cursive;
+    		color: #f44336;
+    	}
+    	.flipper {
+    		color: white!important;
+    		width:70%;
+    		text-align: center;
+    	}
+    	.hide {
+    		display:none!important;
+    	}
+    	html{
+		  height:100%
+		}
+		body{
+		  height:100%;
+		  background-color: #FFF
+		}
+		nav {
+			margin-left: 35%!important;
+			width: 30%!important;
+			background-color: black;
+			height: 80px!important;
+			padding: 20px!important;
+		}
+		.full-page-img {
+            background: no-repeat center center;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+		.intro{
+		  height:100%
+		}
+		.left{
+		  display : flex;
+		  justify-content : center;
+		  align-items : center;
+		  background-color:#3d231b;
+		  height : 100%;
+		  color : #FFF;
+		}
+		.right{
+		  display : flex;
+		  justify-content : center;
+		  align-items : center;
+		  background-color:#FFF;
+		  color : #3d231b;
+		}
+		.about{
+		  display : flex;
+		  justify-content : center;
+		  align-items : center;
+		  background-color:#000;
+		  color : #FFF;
+		  height:100%;
+		}
+		.post {
+			display: inline!important;
+			text-align: center;
+		}
+		.post p {
+			font-size: 20px;
+			padding: 20px;
+		}
+		.post h3.title {
+			
+    		font-weight: 600!important;
+    	}
+    	.post h4 {
+    		font-size: 22px;
+    	}
+    	.post i {
+    		font-size: 60px;
+    	}
+    	a.postlink {
+    		text-decoration: none;
+    		
+    	}
+    	.postlink-box {
+    		cursor: pointer;
+    		margin-top: 50px;
+    		margin-left: 2px;
+    		margin-right: 2px;
+    		border: 1px solid #ff0052;
+    	}
+		.pink {
+			color: #ff0052;
+			font-weight: 300;
+			
+			margin-top: 40px;
+		}
+		.purple {
+			color: #8e2b88;
+			font-weight: 300;
+			
+			margin-top: 60px;
+		}
+		.orange {
+			color: #FF6209;
+			font-weight: 300;
+			
+			margin-top: 60px;
+		}
+		.blue {
+			color: #03A9F4;
+			font-weight: 300;
+			
+			margin-top: 60px;
+		}
+		.fa-arrow-circle-left, .fa-arrow-circle-right, .fa-long-arrow-right, .fa-long-arrow-left {
+			font-size: 40px;
+			line-height: 40px;
+			text-align: center;
+		}
+		a .fa{
+			color: white!important;
+			margin: 30px;
+			font-size: 60px;
+		}
+		.bb-bookblock a .fa:hover{
+			opacity: 0.5;
+		}
+		@media (max-width: 1200px) { 
+		  
+		  h1 {
+		  	font-size: 22px;
+		  }
+		  .fa-arrow-circle-left, .fa-arrow-circle-right, .fa-long-arrow-right, .fa-long-arrow-left {
+				margin: 5px;
+				font-size: 50px!important;
+				text-align: center;
+		  }
+		  nav {
+				margin-left: 0!important;
+				width: 100%!important;
+				background-color: black;
+				height: 80px!important;
+				padding: 20px!important;
+			}
+		}
+		@media (max-width: 600px) { 
+		  
+		  h1 {
+		  	font-size: 20px;
+		  }
+		  .fa-arrow-circle-left, .fa-arrow-circle-right, .fa-long-arrow-right, .fa-long-arrow-left {
+				margin: 5px;
+				font-size: 40px!important;
+				text-align: center;
+		  }
+		  nav {
+				margin-left: 0!important;
+				width: 100%!important;
+				background-color: black;
+				height: 80px!important;
+				padding: 20px!important;
+			}
+		}
+    </style>
+
+</head>
+
+<body class="landing-page">
+
+
+  			<section class="intro bb-custom-wrapper">
+					<div id="bb-bookblock" class="bb-bookblock">
+						<div class="bb-item">
+							<row>
+						      <div class="col-lg-6 col-sm-12 left full-page-img" style="background-image: url('chapterheaders/week1.jpg');">
+							     <div class="flipper">
+							       
+							       <br />
+							       <h1 class="title">Feeling Good While Losing Weight</h1>
+							       		<a href="#" onClick="left()"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></a>
+							       		<a href="#" onClick="right()"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+							     </div>
+						      </div>
+						      <div class="col-lg-6 col-sm-12 right center-block post">
+						        
+						          <h1 class="pink text-center">Week 1</h1>
+						          <br />
+						        	<p>This week we are all about feeling good, setting goals that are realistic and achievable, putting some plans in place as we start to change some habits.</p>
+						        	<a class="postlink" onClick='go("week1-blog.html")'>
+						        		<div class="postlink-box">
+							        		<h3 class="pink text-center title">Article</h3>
+							        		<p>Losing excess weight is one of the hardest things you will do, just because its hard doesn't mean it can’t be done. Below are a few tips to help you be more successful.</p>
+							        	</div>
+							        </a>
+							        <a class="postlink"  onClick='go("week1-food.html")'>
+							        	<div class="postlink-box">
+							        		<h3 class="pink text-center title">Recipes</h3>
+							        		<p>I've chosen these recipes for you to start with because we all know how hard it is to start eating healthy. </p>
+							        	</div>
+							        </a>
+							         <a class="postlink"  onClick='go("week1-water.html")'>
+							        	<div class="postlink-box">
+							        		<h3 class="pink text-center title">Daily Water Goals</h3>
+							        		<p>It might come as a shock to you at how much water your body needs, you may think its impossible to reach that amount of water on a daily basis. Just like everything else the more you try to reach the target the closer you will become. </p>
+							        	</div>
+							        </a> 
+						      </div>
+						    </row>
+						
+						</div>
+						<div class="bb-item">
+							<row>
+						      <div class="col-lg-6 col-sm-12 left full-page-img" style="background-image: url('chapterheaders/week3.jpg');">
+							     <div class="flipper">
+							       <br />
+							       <h1 class="title">Meal Tracking</h1>
+							       <a href="#" onClick="left()"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></a>
+							       		<a href="#" onClick="right()"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+							     </div>
+						      </div>
+						      <div class="col-lg-6 col-sm-12 right post">
+						        
+						          <h1 class="title orange">Week 2</h1>
+						        <!-- <p>The main reason I recommend to track and record your meals and exercise is because if you want to improve in something, you need to track you progress and behaviors this is known as “self-monitoring” The process of tracking and analyzing your thoughts and actions help you to become aware of how your choices impact your goals. Whatever your goal may be your eating and exercise habits are the two things that control your outcome.</p> -->
+						        <p> The process of tracking and analyzing your thoughts and actions help you to become aware of how your choices impact your goals. Whatever your goal may be your eating and exercise habits are the two things that control your outcome.</p>
+						        <a class="postlink" onClick='go("week2a-blog.html")'>
+						        		<div class="postlink-box">
+							        		<h3 class="orange text-center title">Article</h3>
+							        		<p>5 reasons tracking your eating and exercise habits will play a huge role, in the reaching of your goals</p>
+							        	</div>
+							        </a>
+							        <a class="postlink"  onClick='go("week2a-food.html")'>
+							        	<div class="postlink-box">
+							        		<h3 class="orange text-center title">Recipes</h3>
+							        		<p>Feeling Fuller for longer. You can silence your grumbling stomach without consuming extra calories. In fact, eating certain foods sends a signal to your brain that you’re done eating and quiets your appetite. </p>
+							        	</div>
+							        </a>
+							        <a class="postlink"  onClick='tracker("tracker-food-exercise.html","week2a","Tracker Week 2","September 3rd - 10th")'>
+							        	<div class="postlink-box">
+							        		<h3 class="orange text-center title">Food & Exercise Tracker</h3>
+							        		<p>Use this page to track your meals and exercise for this week! </p>
+							        	</div>
+							        </a>
+						       
+						      </div>
+						    </row>
+						</div>
+						<div class="bb-item">
+							<row>
+						      <div class="col-lg-6 col-sm-12 left full-page-img" style="background-image: url('chapterheaders/week4.jpg');">
+							     <div class="flipper">
+							       <br />
+							       <h1 class="title">Meal Planning</h1>
+							       <a href="#" onClick="left()"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></a>
+							       		<a href="#" onClick="right()"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+							     </div>
+						      </div>
+						      <div class="col-lg-6 col-sm-12 right post">
+						        
+						          <h1 class="title blue">Week 3</h1>
+						        <p>Meal planning is the key to better eating. Deciding and planning your meals ahead of time will guarantee success with your current goal, and also save you time and money.</p>
+
+								<p>Meal planning – Shopping List – Food tracking all work together to create a non-fail way to live, be healthy and to be in control with your eating.</p>
+
+								<a class="postlink" onClick='go("week3a-blog.html")'>
+						        		<div class="postlink-box">
+							        		<h3 class="blue text-center title">Article</h3>
+							        		<p>Meal planning is the key to better eating. Deciding and planning your meals ahead of time will guarantee success with your current goal.</p>
+							        	</div>
+							        </a>
+							        <a class="postlink"  onClick='go("week3a-food.html")'>
+							        	<div class="postlink-box">
+							        		<h3 class="blue text-center title">Recipes</h3>
+							        		<p>By choosing some low-calorie options for your different meal times will free up calories to use later. Like if you are going out for dinner and drinks you could have a low-calorie breakfast and lunch so you don’t go over. </p>
+							        	</div>
+							        </a>
+							        <a class="postlink"  onClick='tracker("tracker-food-exercise.html","week3a","Tracker Week 3","September 11th - 17th")'>
+							        	<div class="postlink-box">
+							        		<h3 class="blue text-center title">Food & Exercise Tracker</h3>
+							        		<p>Use this page to track your meals and exercise for this week! </p>
+							        	</div>
+							        </a>
+								
+						      </div>
+						    </row>
+						</div>
+						<div class="bb-item">
+							<row>
+						      <div class="col-lg-6 col-sm-12 left full-page-img" style="background-image: url('chapterheaders/week8.jpg');">
+							     <div class="flipper">
+							       <br />
+							       <h1 class="title">Meal Prep</h1>
+							       <a href="#" onClick="left()"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></a>
+							       		<a href="#" onClick="right()"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+							     </div>
+						      </div>
+						      <div class="col-lg-6 col-sm-12 right post">
+						        
+						          <h1 class="title blue">Week 4</h1>
+						        <p>Meal Prepping is the second most important thing to do after meal planning. I prep my food on a Sunday afternoon for my daughter and myself. Some meals are best fresh, however, that doesn't mean they can’t be prepared before you cook them.</p>
+
+						       <!-- <a class="postlink"  onClick='tracker("meal-planner.html","week4a","Plan for Week 4","November 7th - November 13th")'>
+							        	<div class="postlink-box">
+							        		<div class="info">
+												<div class="icon icon-success">
+													<i class="material-icons">date_range</i>
+												</div>
+												<h4 class="info-title">Meal Plan</h4>
+												
+											</div>
+							        	</div>
+							    </a> -->
+
+							     <a class="postlink" onClick='go("week4a-blog.html")'>
+						        		<div class="postlink-box">
+							        		<h3 class="blue text-center title">Article</h3>
+							        		<p>Meal Prepping is the second most important thing to do after meal planning. I prep my food on a Sunday afternoon for my daughter and myself. Some meals are best fresh, however, that doesn't mean they can’t be prepared before you cook them</p>
+							        	</div>
+							        </a>
+				                	<a class="postlink"  onClick='go("week4a-ideas.html")'>
+							        	<div class="postlink-box">
+							        		<h3 class="blue text-center title">Meal Prepping Ideas</h3>
+							        		<p>Idea's for easy meals to prep </p>
+							        	</div>
+							        </a>
+							        <a class="postlink"  onClick='go("week4a-tips.html")'>
+							        	<div class="postlink-box">
+							        		<h3 class="blue text-center title">Meal Prepping Tips</h3>
+							        		<p>The options are endless when it comes to prepping food ahead of time so there really is no right or wrong way to do it. Basically, it comes down to just making time and getting it done. However, just like any weight loss strategy, to be sustainable it needs to fit into your lifestyle. </p>
+							        	</div>
+							        </a>
+							        <a href="#" onClick='tracker("meal-planner.html","week4a","Plan for Week 4","September 18th - 24th")'>
+								    <div class="col-md-6">
+										<div class="info">
+											<div class="icon icon-success">
+												<i class="material-icons">date_range</i>
+											</div>
+											<h4 class="info-title">Meal Plan</h4>
+											
+										</div>
+				                    </div>
+				                </a>
+				                <a href="#" onClick='tracker("tracker-food-exercise.html","week4a","Tracker Week 4","September 18th - 24th")'>
+				                    <div class="col-md-6">
+										<div class="info">
+											<div class="icon icon-danger">
+												<i class="material-icons">playlist_add_check</i>
+											</div>
+											<h4 class="info-title">Meal Tracker</h4>
+											
+										</div>
+				                    </div>
+				                </a>
+						        
+						      </div>
+						      
+						    </row>
+						</div>
+						<div class="bb-item">
+							<row>
+						      <div class="col-lg-6 col-sm-12 left full-page-img" style="background-image: url('chapterheaders/week2.jpg');">
+							     <div class="flipper">
+							       <br />
+							       <h1 class="title">Keeping Active</h1>
+							       <a href="#" onClick="left()"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></a>
+							       		<a href="#" onClick="right()"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+							     </div>
+						      </div>
+						      <div class="col-lg-6 col-sm-12 right post">
+						        
+						          <h1 class="title purple">Week 5</h1>
+						        <p>Being active may be different for different people, however, it's important to be active in some way or another every day. Whether it’s getting out for a walk around the block or playing a team sport, joining a gym or small group classes, there are a variety of ways to fill up your exercise plan with different activities for the week.</p>
+
+						        <!-- <a class="postlink"  onClick='tracker("meal-planner.html","week5a","Plan for Week 5","November 7th - November 13th")'>
+							        	<div class="postlink-box">
+							        		<div class="info">
+												<div class="icon icon-success">
+													<i class="material-icons">date_range</i>
+												</div>
+												<h4 class="info-title">Meal Plan</h4>
+												
+											</div>
+							        	</div>
+							    </a> -->
+
+							    <a class="postlink" onClick='go("week5a-workout.html")'>
+						        		<div class="postlink-box">
+							        		<h3 class="orange text-center title">Workout</h3>
+							        		<p>At Home Workout, to keep you active.</p>
+							        	</div>
+							        </a>
+						        <a class="postlink" onClick='go("week5a-blog.html")'>
+						        		<div class="postlink-box">
+							        		<h5 class="orange text-center title">Article</h5>
+							        		<p>Being active may be different for different people, however, it's important to be active in some way or another every day.</p>
+							        	</div>
+							        </a>
+							        <a class="postlink"  onClick='go("week5a-food.html")'>
+							        	<div class="postlink-box">
+							        		<h5 class="orange text-center title">Recipes</h5>
+							        		<p>I've chosen High Energy food this week to support our keeping active focus. Food is our body’s fuel and without the right fuel, you will find it hard to keep up with your training. </p>
+							        	</div>
+							        </a>
+							        <a class="postlink"  onClick='go("week5a-snacks.html")'>
+							        	<div class="postlink-box">
+							        		<h5 class="orange text-center title">Snacks</h5>
+							        		<p>Sometimes you can find it hard to eat before going to the gym or working out, and in some cases, can’t stand the thought of it afterward.</p>
+							        	</div>
+							        </a>
+							        <a href="#" onClick='tracker("meal-planner.html","week5a","Plan for Week 5","September 25th - October 1st")'>
+									    <div class="col-md-6">
+											<div class="info">
+												<div class="icon icon-success">
+													<i class="material-icons">date_range</i>
+												</div>
+												<h4 class="info-title">Meal Plan</h4>
+												
+											</div>
+					                    </div>
+					                </a>
+					                <a href="#" onClick='tracker("tracker-food-exercise.html","week5a","Tracker Week 5","September 25th - October 1st")'>
+					                    <div class="col-md-6">
+											<div class="info">
+												<div class="icon icon-danger">
+													<i class="material-icons">playlist_add_check</i>
+												</div>
+												<h4 class="info-title">Meal Tracker</h4>
+												
+											</div>
+					                    </div>
+					                </a>
+						       
+						      </div>
+						    </row>
+						</div>
+						
+						<div class="bb-item">
+							<row>
+						      <div class="col-lg-6 col-sm-12 left full-page-img" style="background-image: url('chapterheaders/week5.jpg');">
+							     <div class="flipper">
+							       <br />
+							       <h1 class="title">Carbohydrates</h1>
+							       <a href="#" onClick="left()"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></a>
+							       		<a href="#" onClick="right()"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+							     </div>
+						      </div>
+						      <div class="col-lg-6 col-sm-12 right post">
+						        
+						          <h1 class="title pink">Week 6</h1>
+						        <p>Why you need Carbohydrates in your diet.</p>
+
+								<p>When you want to slim down or just eat healthier in general, it’s tempting to try to ditch the carbs entirely. I did this myself when I first started to try and lose weight.</p></p>
+
+								<p>But here’s the thing: You need carbs (the good, healthy ones, at least). Your body depends on them to function properly.</p>
+
+								<p>Carbohydrates provide energy in the form of glucose or blood sugar. Glucose is necessary to support your body's everyday needs and performance. But not just any old carb will do; choosing wisely among starches, sugars and fibers helps you maintain your energy levels, avoid weight gain and combat sugar crashes.</p>
+
+								<a class="postlink"  onClick='tracker("meal-planner.html","week5a","Plan for Week 5","November 7th - November 13th")'>
+							        	<div class="postlink-box">
+							        		<div class="info">
+												<div class="icon icon-success">
+													<i class="material-icons">date_range</i>
+												</div>
+												<h4 class="info-title">Meal Plan</h4>
+												
+											</div>
+							        	</div>
+							    </a>
+								
+						      </div>
+						    </row>
+						</div>
+						<div class="bb-item">
+							<row>
+						      <div class="col-lg-6 col-sm-12 left full-page-img" style="background-image: url('chapterheaders/week6.jpg');">
+							     <div class="flipper">
+							       <br />
+							       <h1 class="title">Protein</h1>
+							       <a href="#" onClick="left()"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></a>
+							       		<a href="#" onClick="right()"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+							     </div>
+						      </div>
+						      <div class="col-lg-6 col-sm-12 right post">
+						        
+						          <h1 class="title purple">Week 7</h1>
+						        <p>There is a large and growing body of evidence that protein intake is a key factor in achieving and maintaining a healthy bodyweight. While popular opinion over the last 50 years has mainly focused on altering the amounts of Fats and Carbohydrates in our diets increasing the relative amounts of protein in our diets can help with weight loss</p>
+						      
+						      </div>
+						    </row>
+						</div>
+						<div class="bb-item">
+							<row>
+						      <div class="col-lg-6 col-sm-12 left full-page-img" style="background-image: url('chapterheaders/week7.jpg');">
+							     <div class="flipper">
+							       <br />
+							       <h1 class="title">Fat</h1>
+							       <a href="#" onClick="left()"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></a>
+							       		<a href="#" onClick="right()"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+							     </div>
+						      </div>
+						      <div class="col-lg-6 col-sm-12 right post">
+						        
+						          <h1 class="title orange">Week 8</h1>
+						        <p>Fat is a macro-nutrient so, therefore, a nutrient that provides calories or energy to our bodies. The amount of energy provided by the macro-nutrients varies, fat has 9 calories per gram, more than twice the number of calories in carbs and protein, which each have 4 calories per gram.</p>
+						        
+						      </div>
+						    </row>
+						</div>
+						
+					</div>
+					
+			</section>
+			
+			  
+
+
+
+		
+		
+</body>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="assets/js/jquerypp.custom.js"></script>
+		<script src="assets/js/jquery.bookblock.js"></script>
+		<script>
+			var Page = (function() {
+				
+				var config = {
+						$bookBlock : $( '#bb-bookblock' ),
+						$navNext : $( '#bb-nav-next' ),
+						$navPrev : $( '#bb-nav-prev' ),
+						$navFirst : $( '#bb-nav-first' ),
+						$navLast : $( '#bb-nav-last' )
+					},
+					init = function() {
+						config.$bookBlock.bookblock( {
+							speed : 800,
+							shadowSides : 0.8,
+							shadowFlip : 0.7
+						} );
+						initEvents();
+					},
+					initEvents = function() {
+						
+						var $slides = config.$bookBlock.children();
+						// add navigation events
+						config.$navNext.on( 'click touchstart', function() {
+							config.$bookBlock.bookblock( 'next' );
+							return false;
+						} );
+						config.$navPrev.on( 'click touchstart', function() {
+							config.$bookBlock.bookblock( 'prev' );
+							return false;
+						} );
+						config.$navFirst.on( 'click touchstart', function() {
+							config.$bookBlock.bookblock( 'first' );
+							return false;
+						} );
+						config.$navLast.on( 'click touchstart', function() {
+							config.$bookBlock.bookblock( 'last' );
+							return false;
+						} );
+						
+						// add swipe events
+						$slides.on( {
+							'swipeleft' : function( event ) {
+								config.$bookBlock.bookblock( 'next' );
+								return false;
+							},
+							'swiperight' : function( event ) {
+								config.$bookBlock.bookblock( 'prev' );
+								return false;
+							}
+						} );
+						// add keyboard events
+						$( document ).keydown( function(e) {
+							var keyCode = e.keyCode || e.which,
+								arrow = {
+									left : 37,
+									up : 38,
+									right : 39,
+									down : 40
+								};
+							switch (keyCode) {
+								case arrow.left:
+									config.$bookBlock.bookblock( 'prev' );
+									break;
+								case arrow.right:
+									config.$bookBlock.bookblock( 'next' );
+									break;
+							}
+						} );
+					};
+					return { init : init };
+			})();
+		</script>
+		<script>
+				Page.init();
+		</script>
+	
+
+
+		<script src="assets/js/jquerypp.custom.js"></script>
+		<script src="assets/js/jquery.bookblock.js"></script>
+		
+<script>
+	    var getUrlParameter = function getUrlParameter(sParam) {
+	        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+	            sURLVariables = sPageURL.split('&'),
+	            sParameterName,
+	            i;
+	        for (i = 0; i < sURLVariables.length; i++) {
+	            sParameterName = sURLVariables[i].split('=');
+	            if (sParameterName[0] === sParam) {
+	                return sParameterName[1] === undefined ? true : sParameterName[1];
+	            }
+	        }
+	    };
+	var token = getUrlParameter('t');
+	var user = getUrlParameter('u');
+	check();
+	function check() {
+		if(user === undefined || token === undefined){
+			//window.location.href = "master-index.html"
+		}
+	}
+	function left() {
+		$( '#bb-bookblock' ).bookblock( 'prev' );
+	}
+	function right() {
+		$( '#bb-bookblock' ).bookblock( 'next' );
+	}
+	function go(link) {
+		window.location.href = link + "?u=" + user + "&t=" + token; 
+	}
+	function tracker(link, arg, page, date) {
+		window.location.href = link + "?u=" + user + "&t=" + token + "&w=" + arg + "&p=" + page + "&d=" + date; 
+	}
+	$( '#bb-bookblock' ).bookblock( 'fivepage' );
+</script>
+
+<script src="assets/js/analytics.js"></script>
+
+</html>
