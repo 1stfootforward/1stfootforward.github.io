@@ -226,7 +226,7 @@
 
 	var gammaGroup = ["NicH"];
 
-	var alpha = ["PennyE","NicP","Brittany"];
+	var alpha = ["PennyE","NicP","Brittany","Judi"];
 
 	function toggle() {
 		$('#log').addClass("hide");
@@ -240,13 +240,17 @@
 		    window.location.href = "index.html?u=" + user + "&t=" + token;
 		} else {
 			if (deltaGroup.indexOf(user) > -1) {
-				window.location.href = "indexsix.html?u=" + user + "&t=" + token;
+				window.location.href = "indexseven.html?u=" + user + "&t=" + token;
 			} else {
 
 				if (gammaGroup.indexOf(user) > -1) {
-					window.location.href = "indexfive.html?u=" + user + "&t=" + token;
+					window.location.href = "indexsix.html?u=" + user + "&t=" + token;
 				} else {
-		    		window.location.href = "indexone.html?u=" + user + "&t=" + token;
+		    		if (alphaGroup.indexOf(user) > -1) {
+						window.location.href = "indextwo.html?u=" + user + "&t=" + token;
+					} else {
+			    		window.location.href = "indexone.html?u=" + user + "&t=" + token;
+			    	}
 		    	}
 		    }
 		}
