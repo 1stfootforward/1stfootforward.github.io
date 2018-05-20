@@ -220,7 +220,7 @@
 	var token = null;
 	var user = null;
 
-	var betaGroup = ["BrigitteM","AnneM","NicH","Judi","TraceyM","AmyJ","JustineD","DellaB1","AnnaC1","heather"];
+	var betaGroup = ["BrigitteM","AnneM","NicH","Judi","TraceyM","AmyJ","JustineD","DellaB1","AnnaC1","heather","PennyE","NicP","HamishM"];
 
 	var deltaGroup = ["AmyD1"];
 
@@ -228,7 +228,7 @@
 
 	var onHold = [];
 
-	var alphaGroup = ["PennyE","NicP","HamishM"];
+	var alphaGroup = [];
 
 	function toggle() {
 		$('#log').addClass("hide");
@@ -246,7 +246,7 @@
 			} else {
 
 				if (gammaGroup.indexOf(user) > -1) {
-					window.location.href = "indexthree.html?u=" + user + "&t=" + token;
+					window.location.href = "indexfour.html?u=" + user + "&t=" + token;
 				} else {
 		    		if (alphaGroup.indexOf(user) > -1) {
 						window.location.href = "indexseven.html?u=" + user + "&t=" + token;
