@@ -131,62 +131,92 @@
       <!-- Mask -->
       <span class="mask bg-gradient-primary opacity-8"></span>
       <!-- Header container -->
-      <div class="container-fluid d-flex align-items-center">
-        <div class="row">
-          <div class="col-lg-7 col-md-10">
-            <h1 class="display-2 text-white">Hello Jesse</h1>
-            <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>
-            <a href="#!" class="btn btn-info">Edit profile</a>
+        <!-- Mobile Nav -->
+        <div class="container-fluid mt-3 mobile-nav-cards">
+          <div class="row">
+            <div class="col-6" onclick="navigation('bookings')">
+              <div class="card card-stats border-Danger">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="card-title text-uppercase text-muted mb-0">Discover and Join Classes</h5>
+                            <span class="h2 font-weight-bold mb-0">Bookings</span>
+                        </div>
+                        <div class="col-auto">
+                          <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                              <i class="ni ni-calendar-grid-58"></i>
+                          </div>
+                        </div>
+                    </div>
+                   
+                </div>
+              </div>
+            </div>
+            <div class="col-6" onclick="navigation('dashboard')">
+              <div class="card card-stats border-Primary">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="card-title text-uppercase text-muted mb-0">View Your Schedule</h5>
+                            <span class="h2 font-weight-bold mb-0">Dashboard</span>
+                        </div>
+                        <div class="col-auto">
+                          <div class="icon icon-shape bg-primary text-white rounded-circle shadow">
+                              <i class="fas fa-home"></i>
+                          </div>
+                        </div>
+                    </div>
+                   
+                </div>
+              </div>
+            </div>
+            <div class="col-6" onclick="navigation('account')">
+              <div class="card card-stats border-Success">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="card-title text-uppercase text-muted mb-0">Top up & check balance </h5>
+                            <span class="h2 font-weight-bold mb-0">Account</span>
+                        </div>
+                        <div class="col-auto">
+                          <div class="icon icon-shape bg-success text-white rounded-circle shadow">
+                              <i class="fas fa-money-bill-wave"></i>
+                          </div>
+                        </div>
+                    </div>
+                  </div> 
+                </div>
+              </div>
+
+
+            <div class="col-6" onclick="navigation('classes')">
+              <div class="card card-stats border-Warning">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="card-title text-uppercase text-muted mb-0">View Classes & Sessions</h5>
+                            <span class="h2 font-weight-bold mb-0">Group Classes</span>
+                        </div>
+                        <div class="col-auto">
+                          <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                              <i class="fas fa-clipboard-list"></i>
+                          </div>
+                        </div>
+                    </div>
+                   
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      
     </div>
     <!-- Page content -->
 
-    <!-- Mobile Nav -->
-    <div class="container-fluid mt-3 mobile-nav-cards">
-      <div class="row">
-        <div class="col-6">
-          <div class="card card-stats border-Danger">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col">
-                        <h5 class="card-title text-uppercase text-muted mb-0">Discover and Join Classes</h5>
-                        <span class="h2 font-weight-bold mb-0">Bookings</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
-                          <i class="ni ni-calendar-grid-58"></i>
-                      </div>
-                    </div>
-                </div>
-               
-            </div>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="card card-stats border-Primary">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col">
-                        <h5 class="card-title text-uppercase text-muted mb-0">View Your Schedule</h5>
-                        <span class="h2 font-weight-bold mb-0">Dashboard</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-primary text-white rounded-circle shadow">
-                          <i class="fas fa-home"></i>
-                      </div>
-                    </div>
-                </div>
-               
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    
 
     <!-- Normal Content -->
-    <div class="container-fluid mt--7">
+    <div id="dashboard" class="container-fluid mt--7 hide">
       <div class="row">
         <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
           <div class="card card-profile shadow">
@@ -388,7 +418,8 @@
           </div>
 
         </div>
-
+    </div>
+    <div id="timetable" class="container-fluid mt--7 hide">
         <div class="row mt-3">
           <div class="col">
             <div class="card shadow">
@@ -695,6 +726,534 @@
             </div>
           </div>
       </div>
+
+
+
+
+      <!-- /////////////////////////////////////////////////////////////////////////// -->
+
+
+      </div >
+
+      <div id="notification-area">
+        
+      </div>  
+      <!-- Table -->
+      <div class="row">
+        <div class="col">
+          <div class="card shadow">
+            <div class="card-header bg-transparent">
+
+              <div class="row">
+                  <div class="col-4">
+                      <button type="button" class="btn-time" onclick="backDates()">
+                          <i class="ni ni-bold-left"></i>
+                          <i class="ni ni-bold-left"></i>
+                      </button>
+                    </div>
+
+                    <div class="col-4">
+                      <button type="button" class="btn-time datepicker" >
+                          <b id="main-day-date">Monday, January 28</b>
+                      </button>
+                    </div>
+
+                    <div class="col-4">
+                      <button type="button" class="btn-time" onclick="forwardDates() ">
+                          <i class="ni ni-bold-right"></i>
+                          <i class="ni ni-bold-right"></i>
+                      </button>
+                    </div>
+
+            </div>
+
+            </div>
+            <div class="card-body card-body-removeable Monday-block hide">
+              <div class="row icon-examples ">
+
+                <div class="col-4">
+                  <button type="button" class="btn-time" >
+                      <b>9.15 am</b>
+                  </button>
+                </div>
+                <div class="col-8">
+                  <button id="MON0915HIIT" type="button" class="btn-groupclass hiit" onclick="selectClass('MON0915HIIT', 'HIIT', '9.15am', 'Monday')">                  
+                      <b>HIIT Camp</b>
+                  </button>
+                </div>
+
+              </div>
+
+              <div class="row icon-examples">
+
+                <div class="col-4">
+                  <button type="button" class="btn-time" >
+                      <b>2.00 pm</b>
+                  </button>
+                </div>
+                <div class="col-8">
+                  <button id="MON1400BOX" type="button" class="btn-groupclass box" onclick="selectClass('MON1400BOX', 'BOX', '2.00pm', 'Monday')">
+                    
+                      <b>Box / Kick Fit</b>
+
+                  </button>
+                </div>
+
+              </div>
+
+              <div class="row icon-examples">
+
+                <div class="col-4">
+                  <button type="button" class="btn-time" >
+                      <b>6.30 pm</b>
+                  </button>
+                </div>
+                <div class="col-8">
+                  <button id="MON1830SET" type="button" class="btn-groupclass set" onclick="selectClass('MON1830SET', 'SET', '6.30pm', 'Monday')">                   
+
+                      <b>S.E.T</b>
+
+                  </button>
+                </div>
+
+              </div>
+
+              <div class="row icon-examples">
+
+                <div class="col-4">
+                  <button type="button" class="btn-time" >
+                      <b>7.00 pm</b>
+                  </button>
+                </div>
+                <div class="col-8">
+                  <button id="MON1900HIIT" type="button" class="btn-groupclass hiit" onclick="selectClass('MON1900HIIT', 'HIIT', '7.00pm', 'Monday')">                   
+                      <b>HIIT Camp</b>
+                  </button>
+                </div>
+
+              </div>
+            </div>
+
+
+            <div class="card-body card-body-removeable Tuesday-block hide">
+              <div class="row icon-examples ">
+
+                <div class="col-4">
+                  <button type="button" class="btn-time" >
+                      <b>6.30 am</b>
+                  </button>
+                </div>
+                <div class="col-8">
+                  <button id="TUE0630BOX" type="button" class="btn-groupclass box" onclick="selectClass('TUE0630BOX', 'BOX', '6.30am', 'Tuesday')">                  
+                      <b>Box / Kick Fit</b>
+                  </button>
+                </div>
+
+              </div>
+
+              <div class="row icon-examples">
+
+                <div class="col-4">
+                  <button type="button" class="btn-time" >
+                      <b>9.15 am</b>
+                  </button>
+                </div>
+                <div class="col-8">
+                  <button id="TUE0915SET" type="button" class="btn-groupclass set" onclick="selectClass('TUE0915SET', 'SET', '9.15am', 'Tuesday')">
+                    
+                      <b>S.E.T</b>
+
+                  </button>
+                </div>
+
+              </div>
+
+              <div class="row icon-examples">
+
+                <div class="col-4">
+                  <button type="button" class="btn-time" >
+                      <b>10.00 am</b>
+                  </button>
+                </div>
+                <div class="col-8">
+                  <button id="TUE1000STRETCH" type="button" class="btn-groupclass stretch" onclick="selectClass('TUE1000STRETCH', 'STRETCH', '10.00am', 'Tuesday')">
+                    
+                      <b>Just Stretch</b>
+
+                  </button>
+                </div>
+
+              </div>
+
+              <div class="row icon-examples">
+
+                <div class="col-4">
+                  <button type="button" class="btn-time" >
+                      <b>4.00 pm</b>
+                  </button>
+                </div>
+                <div class="col-8">
+                  <button id="TUE1600TEEN" type="button" class="btn-groupclass teen" onclick="selectClass('TUE1600TEEN', 'TEEN', '4.00pm', 'Tuesday')">                   
+
+                      <b>Teen Fit</b>
+
+                  </button>
+                </div>
+
+              </div>
+
+              <div class="row icon-examples">
+
+                <div class="col-4">
+                  <button type="button" class="btn-time" >
+                      <b>6.30 pm</b>
+                  </button>
+                </div>
+                <div class="col-8">
+                  <button id="TUE1830HIIT" type="button" class="btn-groupclass hiit" onclick="selectClass('TUE1830HIIT', 'HIIT', '6.30pm', 'Tuesday')">                   
+                      <b>HIIT Camp</b>
+                  </button>
+                </div>
+
+              </div>
+              <div class="row icon-examples">
+
+                <div class="col-4">
+                  <button type="button" class="btn-time" >
+                      <b>7.00 pm</b>
+                  </button>
+                </div>
+                <div class="col-8">
+                  <button id="TUE1900BOX" type="button" class="btn-groupclass box" onclick="selectClass('TUE1900BOX', 'BOX', '7.00pm', 'Tuesday')">                   
+                      <b>Box / Kick Fit</b>
+                  </button>
+                </div>
+
+              </div>
+            </div>
+
+
+            <div class="card-body card-body-removeable Wednesday-block hide">
+              
+
+              <div class="row icon-examples">
+
+                <div class="col-4">
+                  <button type="button" class="btn-time" >
+                      <b>9.15 am</b>
+                  </button>
+                </div>
+                <div class="col-8">
+                  <button id="WED0915CORE" type="button" class="btn-groupclass core" onclick="selectClass('WED0915CORE', 'CORE', '9.15am', 'Wednesday')">
+                    
+                      <b>CORE</b>
+
+                  </button>
+                </div>
+
+              </div>
+
+              <div class="row icon-examples">
+
+                <div class="col-4">
+                  <button type="button" class="btn-time" >
+                      <b>2.00 pm</b>
+                  </button>
+                </div>
+                <div class="col-8">
+                  <button id="WED1400HIIT" type="button" class="btn-groupclass hiit" onclick="selectClass('WED1400HIIT', 'HIIT', '2.00pm', 'Wednesday')">                   
+
+                      <b>Hiit Camp</b>
+
+                  </button>
+                </div>
+
+              </div>
+
+              <div class="row icon-examples">
+
+                <div class="col-4">
+                  <button type="button" class="btn-time" >
+                      <b>6.30 pm</b>
+                  </button>
+                </div>
+                <div class="col-8">
+                  <button id="WED1830SET" type="button" class="btn-groupclass set" onclick="selectClass('WED1830SET', 'SET', '6.30pm', 'Wednesday')">                   
+                      <b>S.E.T</b>
+                  </button>
+                </div>
+
+              </div>
+              <div class="row icon-examples">
+
+                <div class="col-4">
+                  <button type="button" class="btn-time" >
+                      <b>7.00 pm</b>
+                  </button>
+                </div>
+                <div class="col-8">
+                  <button id="WED1900CORE" type="button" class="btn-groupclass core" onclick="selectClass('WED1900CORE', 'CORE', '7.00pm', 'Wednesday')">                   
+                      <b>CORE</b>
+                  </button>
+                </div>
+
+              </div>
+            </div>
+
+
+            <div class="card-body card-body-removeable Thursday-block hide">
+              
+
+              <div class="row icon-examples">
+
+                <div class="col-4">
+                  <button type="button" class="btn-time" >
+                      <b>9.15 am</b>
+                  </button>
+                </div>
+                <div class="col-8">
+                  <button id="THU0915HIIT" type="button" class="btn-groupclass hiit" onclick="selectClass('THU0915HIIT', 'HIIT', '9.15am', 'Thursday')">
+                    
+                      <b>Hiit Camp</b>
+
+                  </button>
+                </div>
+
+              </div>
+
+              <div class="row icon-examples">
+
+                <div class="col-4">
+                  <button type="button" class="btn-time" >
+                      <b>10.00 am</b>
+                  </button>
+                </div>
+                <div class="col-8">
+                  <button id="THU1000SET" type="button" class="btn-groupclass set" onclick="selectClass('THU1000SET', 'SET', '10.00am', 'Thursday')">                   
+
+                      <b>S.E.T</b>
+
+                  </button>
+                </div>
+
+              </div>
+
+              <div class="row icon-examples">
+
+                <div class="col-4">
+                  <button type="button" class="btn-time" >
+                      <b>4.00 pm</b>
+                  </button>
+                </div>
+                <div class="col-8">
+                  <button id="THU1600TEEN" type="button" class="btn-groupclass teen" onclick="selectClass('THU1600TEEN', 'TEEN', '4.00pm', 'Thursday')">                   
+                      <b>Teen Fit</b>
+                  </button>
+                </div>
+
+              </div>
+              <div class="row icon-examples">
+
+                <div class="col-4">
+                  <button type="button" class="btn-time" >
+                      <b>6.30 pm</b>
+                  </button>
+                </div>
+                <div class="col-8">
+                  <button id="THU1830BOX" type="button" class="btn-groupclass box" onclick="selectClass('THU1830BOX', 'BOX', '6.30pm', 'Thursday')">                   
+                      <b>Box / Kick Fit</b>
+                  </button>
+                </div>
+
+              </div>
+            </div>
+
+
+            <div class="card-body card-body-removeable Friday-block hide">
+              
+
+              <div class="row icon-examples">
+
+                <div class="col-4">
+                  <button type="button" class="btn-time" >
+                      <b>9.15 am</b>
+                  </button>
+                </div>
+                <div class="col-8">
+                  <button id="FRI0915BOX" type="button" class="btn-groupclass box" onclick="selectClass('FRI0915BOX', 'BOX', '9.15am', 'Friday')">
+                    
+                      <b>Box / Kick Fit</b>
+
+                  </button>
+                </div>
+
+              </div>
+
+              <div class="row icon-examples">
+
+                <div class="col-4">
+                  <button type="button" class="btn-time" >
+                      <b>10.00 am</b>
+                  </button>
+                </div>
+                <div class="col-8">
+                  <button id="FRI1000STRETCH" type="button" class="btn-groupclass stretch" onclick="selectClass('FRI1000STRETCH', 'STRETCH', '10.00am', 'Friday')">                   
+
+                      <b>Just Stretch</b>
+
+                  </button>
+                </div>
+
+              </div>
+
+              <div class="row icon-examples">
+
+                <div class="col-4">
+                  <button type="button" class="btn-time" >
+                      <b>10.30 am</b>
+                  </button>
+                </div>
+                <div class="col-8">
+                  <button id="FRI1030SET" type="button" class="btn-groupclass set" onclick="selectClass('FRI1030SET', 'SET', '10.30pm', 'Friday')">                   
+                      <b>S.E.T</b>
+                  </button>
+                </div>
+
+              </div>
+              
+            </div>
+
+
+            <div class="card-body card-body-removeable Saturday-block hide">
+              
+
+              <div class="row icon-examples">
+
+                <div class="col-4">
+                  <button type="button" class="btn-time" >
+                      <b>8.00 am</b>
+                  </button>
+                </div>
+                <div class="col-8">
+                  <button id="SAT0800SET" type="button" class="btn-groupclass set" onclick="selectClass('SAT0800SET', 'SET', '8.00am', 'Saturday')">
+                    
+                      <b>S.E.T</b>
+
+                  </button>
+                </div>
+
+              </div>
+
+              <div class="row icon-examples">
+
+                <div class="col-4">
+                  <button type="button" class="btn-time" >
+                      <b>8.30 am</b>
+                  </button>
+                </div>
+                <div class="col-8">
+                  <button id="SAT0830HIIT" type="button" class="btn-groupclass hiit" onclick="selectClass('SAT0830HIIT', 'HIIT', '8.30am', 'Saturday')">                   
+
+                      <b>Hiit Camp</b>
+
+                  </button>
+                </div>
+
+              </div>
+
+              <div class="row icon-examples">
+
+                <div class="col-4">
+                  <button type="button" class="btn-time" >
+                      <b>9.00 am</b>
+                  </button>
+                </div>
+                <div class="col-8">
+                  <button id="SAT0900BOX" type="button" class="btn-groupclass box" onclick="selectClass('SAT0900BOX', 'BOX', '9.00am', 'Saturday')">                   
+                      <b>Box / Kick Fit</b>
+                  </button>
+                </div>
+
+              </div>
+              
+            </div>
+
+
+          </div>
+        </div>
+
+
+
+
+
+      </div>
+
+      <!-- Modal -->
+<div class="modal fade" id="joinClassModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+    <div class="modal-content px-lg-5 py-lg-5">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Join Class</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="text-muted text-center mt-2 mb-3"><small>Attend this class</small></div>
+        <div class="btn-wrapper text-center">
+            <a href="#" class="btn btn-neutral btn-icon" onclick="join()" data-dismiss="modal">
+                <span class="btn-inner--icon"><img src="../../assets/img/icons/common/github.svg"></span>
+                <span class="btn-inner--text">Github</span>
+            </a>
+        </div>
+        <div class="text-muted text-center mt-2 mb-3"><small>Join class for a month</small></div>
+        <div class="btn-wrapper text-center">
+            <a href="#" class="btn btn-neutral btn-icon" onclick="signUp()" data-dismiss="modal">
+                <span class="btn-inner--icon"><img src="../../assets/img/icons/common/github.svg"></span>
+                <span class="btn-inner--text">Github</span>
+            </a>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="cancelClassModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+    <div class="modal-content px-lg-5 py-lg-5">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cancel Class</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="text-muted text-center mt-2 mb-3"><small>Cancel this Apointment</small></div>
+        <div class="btn-wrapper text-center">
+            <a href="#" class="btn btn-neutral btn-icon" onclick="cancel()" data-dismiss="modal">
+                <span class="btn-inner--icon"><img src="../../assets/img/icons/common/github.svg"></span>
+                <span class="btn-inner--text">Github</span>
+            </a>
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="reusable-class-notification" class="alert alert-default alert-dismissible fade show hide" role="alert">
+    <span class="alert-inner--icon"><i class="ni ni-like-2"></i></span>
+    <span class="alert-inner--text notification-text"><strong>Tommorow at 4.00 am</strong> Core FIT</span>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
 
 
 

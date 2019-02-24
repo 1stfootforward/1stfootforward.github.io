@@ -196,8 +196,14 @@ img.classlogo
 }
 
 .mobile-nav-cards {
-    margin-bottom: 400px;
+    margin-bottom: 40px;
 }
+
+.card-stats {
+    margin-top: 40px;
+    cursor: pointer;
+}
+
 
 .border-Danger {
     border-color: #f5365c; 
@@ -205,4 +211,12 @@ img.classlogo
 
 .border-Primary {
     border-color: #5e72e4; 
+}
+
+.border-Success {
+    border-color: #2dce89; 
+}
+
+.border-Warning {
+    border-color: #fb6340; 
 }

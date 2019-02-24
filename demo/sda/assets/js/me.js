@@ -37,7 +37,7 @@ initDates();
 cycleClasses();
 
 function forwardDates() {
-	$( ".card-body" ).addClass("hide");
+	$( ".card-body-removeable" ).addClass("hide");
 	currentDay.add(1, 'd');
 	$("." + currentDay.format('dddd') + "-block" ).removeClass("hide");
 	$( "#main-day-date" ).html( currentDay.format('dddd, D MMM') );
@@ -46,7 +46,7 @@ function forwardDates() {
 }
 
 function backDates() {
-	$( ".card-body" ).addClass("hide");
+	$( ".ccard-body-removeable" ).addClass("hide");
 	currentDay.subtract(1, 'd');
 	$("." + currentDay.format('dddd') + "-block" ).removeClass("hide");
 	$( "#main-day-date" ).html( currentDay.format('dddd, D MMM') );
@@ -173,4 +173,14 @@ $( ".btn-class" ).click(function() {
 
 function eightweek() {
 	window.location.href = "https://1stfootforward.co.nz/8week/indexone.html?u=Oli&t=" + "12%200d%2038%20b4%20a2%200f%20cb%20d2";
+}
+
+function navigation(link) {
+
+	console.log(link);
+
+	$("#dashboard").addClass("hide");
+	$("#timetable").addClass("hide");
+
+	$("#" + link).removeClass("hide");
 }
