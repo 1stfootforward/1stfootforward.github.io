@@ -173,3 +173,36 @@ img.classlogo
     float:right;
 }
 
+.current-balance {
+    font-size: 1.5rem;
+}
+
+.bump-up {
+    margin-bottom: 15px;
+}
+
+.btn-class {
+    cursor: pointer;
+}
+
+.sm-logo {
+    border-radius: 0!important;
+}
+
+
+.fill img {
+   object-fit: cover;
+   width: 100%;
+}
+
+.mobile-nav-cards {
+    margin-bottom: 400px;
+}
+
+.border-Danger {
+    border-color: #f5365c; 
+}
+
+.border-Primary {
+    border-color: #5e72e4; 
+}

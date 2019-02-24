@@ -4,6 +4,7 @@ var thisYear = (new Date()).getFullYear();
 var start = new Date("1/1/" + thisYear);
 var defaultStart = moment(start.valueOf());
 var currentDay = moment();
+var CurrentStartOfWeek = moment().startOf('isoWeek');
 
 
 var myClasses = [];
@@ -13,13 +14,27 @@ var activeDay = "";
 var activeCode = "";
 
 function initDates() {
+	
 	$( "#main-day-date" ).html( currentDay.format('dddd, D MMM') );
 	$("." + currentDay.format('dddd') + "-block" ).removeClass("hide");
 }
 
+function cycleClasses() {
+
+	console.log(CurrentStartOfWeek.format('Do, MMM') );
+	console.log(CurrentStartOfWeek.add(7, 'days').format('Do, MMM') );
+
+	for (var i = 0; i < ClassSchedule.length; i++) {
+		$( "." + ClassSchedule[i].place ).html(  '<img class="avatar sm-logo mr-3" src="assets/img/theme/' + ClassSchedule[i].class + '.jpg">' + ClassSchedule[i].class  );
+		$( "." + ClassSchedule[i].place ).attr( "id", ClassSchedule[i].code );
+		$( "." + ClassSchedule[i].place ).attr( "classScheduleID", ClassSchedule[i].id );
+		$( "." + ClassSchedule[i].place ).addClass( "btn-class" );
+	}
+}
 
 
 initDates();
+cycleClasses();
 
 function forwardDates() {
 	$( ".card-body" ).addClass("hide");
@@ -132,4 +147,30 @@ function fillNotifications() {
 		copying.children( ".notification-text" ).html( "<strong>" + myClasses[i].day.calendar() + "</strong> " + myClasses[i].type  );
 		copying.appendTo( "#notification-area" );  
 	}
+}
+
+
+
+$( ".btn-class" ).click(function() {
+
+  var classClicked = parseInt($(this).attr( "classScheduleID")) - 1;
+
+   var nextSession = moment().day( ClassSchedule[classClicked].day );
+
+  if( currentDay.day() >= ClassSchedule[classClicked].day ) {
+  	console.log(nextSession.add(1, 'w').format('dddd, D MMM'));
+
+  }
+
+  
+
+  
+
+  $("#joinBigClassHeader").html( '<img  src="assets/img/theme/big/' + ClassSchedule[classClicked].class + '.png">' );
+  $("#joinBigClassBody").html( nextSession.format('dddd, D MMM') + " - " + nextSession.add(1, 'w').format('dddd, D MMM') + " - " + nextSession.add(1, 'w').format('dddd, D MMM') + " - " + nextSession.add(1, 'w').format('dddd, D MMM'));
+  $("#joinBigClassModal").modal()
+});
+
+function eightweek() {
+	window.location.href = "https://1stfootforward.co.nz/8week/indexone.html?u=Oli&t=" + "12%200d%2038%20b4%20a2%200f%20cb%20d2";
 }
