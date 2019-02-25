@@ -46,7 +46,7 @@ function forwardDates() {
 }
 
 function backDates() {
-	$( ".ccard-body-removeable" ).addClass("hide");
+	$( ".card-body-removeable" ).addClass("hide");
 	currentDay.subtract(1, 'd');
 	$("." + currentDay.format('dddd') + "-block" ).removeClass("hide");
 	$( "#main-day-date" ).html( currentDay.format('dddd, D MMM') );
@@ -162,12 +162,15 @@ $( ".btn-class" ).click(function() {
 
   }
 
+  console.log(ClassSchedule.indexOf("SAT0800SET"));
   
-
+  $(".join-class-1").html(nextSession.format('dddd, D MMM'));
+  $(".join-class-2").html(nextSession.add(1, 'w').format('dddd, D MMM'));
+  $(".join-class-3").html(nextSession.add(1, 'w').format('dddd, D MMM'));
+  $(".join-class-4").html(nextSession.add(1, 'w').format('dddd, D MMM'));
   
 
   $("#joinBigClassHeader").html( '<img  src="assets/img/theme/big/' + ClassSchedule[classClicked].class + '.png">' );
-  $("#joinBigClassBody").html( nextSession.format('dddd, D MMM') + " - " + nextSession.add(1, 'w').format('dddd, D MMM') + " - " + nextSession.add(1, 'w').format('dddd, D MMM') + " - " + nextSession.add(1, 'w').format('dddd, D MMM'));
   $("#joinBigClassModal").modal()
 });
 
@@ -180,7 +183,8 @@ function navigation(link) {
 	console.log(link);
 
 	$("#dashboard").addClass("hide");
-	$("#timetable").addClass("hide");
+	$(".timetable").addClass("hide");
 
 	$("#" + link).removeClass("hide");
+	$("." + link).removeClass("hide");
 }

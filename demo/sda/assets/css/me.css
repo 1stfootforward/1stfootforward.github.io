@@ -1,6 +1,4 @@
-.hide {
-    display: none;
-}
+
 
 .btn-groupclass
 {
@@ -219,4 +217,27 @@ img.classlogo
 
 .border-Warning {
     border-color: #fb6340; 
+}
+
+.desktop {
+    display: none;
+}
+
+.mobile {
+    display: inline;
+}
+
+@media (min-width: 770px)
+{
+    .desktop {
+        display: inline;
+    }
+
+    .mobile {
+        display: none;
+    }
+}
+
+.hide {
+    display: none!important;
 }
