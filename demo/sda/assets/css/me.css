@@ -273,3 +273,7 @@ footer {
 .pull {
     margin-top: -500px;
 }
+
+.timetable.mobile {
+    min-height: 1000px;
+}
