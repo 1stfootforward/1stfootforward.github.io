@@ -250,7 +250,7 @@ img.classlogo
 }
 
 footer {
-    margin-top: 100px;
+    margin-top: 500px;
 }
 
 .card.card-stats {
@@ -271,5 +271,5 @@ footer {
 }
 
 .pull {
-    margin-top: -200px;
+    margin-top: -500px;
 }
