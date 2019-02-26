@@ -57,15 +57,11 @@
         <!-- Navigation -->
         <ul class="navbar-nav mb-md-3">
           <li class="nav-item">
-            <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html">
+            <a class="nav-link" onclick="navigation('account')">
               <i class="ni ni-spaceship"></i> My Account
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/foundation/colors.html">
-              <i class="ni ni-palette"></i> Top Up
-            </a>
-          </li>
+         
         </ul>
         <!-- Divider -->
         <hr class="my-3">
@@ -73,22 +69,22 @@
         <h6 class="navbar-heading text-muted">Sessions</h6>
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="./index.html">
+            <a class="nav-link" onclick="navigation('dashboard')">
               <i class="ni ni-tv-2 text-primary"></i> Dashboard
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./examples/icons.html">
-              <i class="ni ni-watch-time text-blue"></i> By Day & Time
+            <a class="nav-link" onclick="navigation('timetable')">
+              <i class="ni ni-watch-time text-blue"></i> Bookings
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./examples/maps.html">
+            <a class="nav-link" onclick="navigation('classes')">
               <i class="ni ni-user-run text-orange"></i> By  Class
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./examples/profile.html">
+            <a class="nav-link" onclick="navigation('pt')">
               <i class="ni ni-single-02 text-yellow"></i> 1 on 1
             </a>
           </li>
@@ -132,7 +128,7 @@
       <span class="mask bg-gradient-primary opacity-8"></span>
       <!-- Header container -->
         <!-- Mobile Nav -->
-        <div class="container-fluid mt-3 mobile-nav-cards">
+        <div class="container-fluid mt-3 mobile-nav-cards mobile">
           <div class="row">
             <div class="col-6" onclick="navigation('timetable')">
               <div class="card card-stats border-Danger">
@@ -369,9 +365,7 @@
                   </tbody>
                   
                 </table>
-                <div class="card-footer py-4 ">
-                    <div class="col-3 float-right bump-up"><a href="#!" class="btn btn-danger">Join More Classes</a></div>
-                </div>
+                
               </div>
               
             </div>
@@ -434,7 +428,8 @@
 
       
     </div>
-    <div class="timetable desktop container-fluid mt--7 hide">
+    <div class="container-fluid mt--7">
+      <div class="timetable desktop container-fluid mt--7 hide">
         <div class="row mt-3">
           <div class="col">
             <div class="card shadow">
@@ -740,9 +735,33 @@
               </div>
             </div>
           </div>
+        </div>
       </div>
 
-
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="row align-items-center justify-content-xl-between">
+          <div class="col-xl-6">
+            <div class="copyright text-center text-xl-left text-muted">
+              &copy; 2019 <a href="https://www.1stfootforward.co.nz" class="font-weight-bold ml-1" target="_blank">1st Foot Forward</a>
+            </div>
+          </div>
+          <div class="col-xl-6">
+            <ul class="nav nav-footer justify-content-center justify-content-xl-end">
+              
+              <li class="nav-item">
+                <a href="https://www.1stfootforward.co.nz" class="nav-link" target="_blank">Site</a>
+              </li>
+              <li class="nav-item">
+                <a href="https://www.1stfootforward.co.nz/blog" class="nav-link" target="_blank">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a href="https://www.facebook.com/1stfootforward/" class="nav-link" target="_blank">FaceBook</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
 
 
       <!-- /////////////////////////////////////////////////////////////////////////// -->
@@ -825,31 +844,7 @@
       </div>
 
       <!-- Modal -->
-<div class="modal fade" id="joinClassModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
-    <div class="modal-content px-lg-5 py-lg-5">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Join Class</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="text-muted text-center mt-2 mb-3"><small>Attend this class</small></div>
-        <div class="btn-wrapper text-center">
-            <button type="button" class="btn btn-block btn-outline-default mb-3 join-class-1" onclick="join()">Default</button>
-        <button type="button" class="btn btn-block btn-outline-default mb-3 join-class-2">Default</button>
-        <button type="button" class="btn btn-block btn-outline-default mb-3 join-class-3">Default</button>
-        <button type="button" class="btn btn-block btn-outline-default mb-3 join-class-4">Default</button>
-        </div>
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
+
 
 <div class="modal fade" id="cancelClassModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
@@ -906,30 +901,7 @@
 
 
      
-      <!-- Footer -->
-      <footer class="footer">
-        <div class="row align-items-center justify-content-xl-between">
-          <div class="col-xl-6">
-            <div class="copyright text-center text-xl-left text-muted">
-              &copy; 2019 <a href="https://www.1stfootforward.co.nz" class="font-weight-bold ml-1" target="_blank">1st Foot Forward</a>
-            </div>
-          </div>
-          <div class="col-xl-6">
-            <ul class="nav nav-footer justify-content-center justify-content-xl-end">
-              
-              <li class="nav-item">
-                <a href="https://www.1stfootforward.co.nz" class="nav-link" target="_blank">Site</a>
-              </li>
-              <li class="nav-item">
-                <a href="https://www.1stfootforward.co.nz/blog" class="nav-link" target="_blank">Blog</a>
-              </li>
-              <li class="nav-item">
-                <a href="https://www.facebook.com/1stfootforward/" class="nav-link" target="_blank">FaceBook</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </footer>
+      
     </div>
   </div>
 

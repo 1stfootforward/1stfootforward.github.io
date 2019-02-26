@@ -72,16 +72,14 @@ function checkDatesForClasses() {
 	clearClasses();
 
 	for (var i = 0; i < myClasses.length; i++) {
-		if(myClasses[i] != []) {
-				$( "[btn-code='" + myClasses[i].code + "-" + myClasses[i].day.dayOfYear() + "']" ).addClass("joint");
+		
 
-		}
+		$( "#joiner" + myClasses[i].code + myClasses[i].day.dayOfYear()  ).addClass("joint");
+		
+
+		
 	}
 
-	for (var i = 0; i < myClasses.length; i++) {
-		console.log(myClasses[i].day.format('dddd, D MMM'));
-		console.log(myClasses[i].code);
-	}
 	
 }
 
@@ -115,15 +113,26 @@ function selectClass(code, type, time, day) {
 	}
 }
 
+var blankBooking = {code: "", type: "" , time: "", day: moment(currentDay)};
+
 function join(number) {
 
-	console.log(myClasses)
+	var dayOfJoining = moment(selectedDay);
 
-	selectedDay.add(number -1, 'w');
+	dayOfJoining.add(number -1, 'w');
+
+	for (var i = 0; i < myClasses.length; i++) {
+		console.log(myClasses[i].day.dayOfYear());
+		if(myClasses[i].code === ClassSchedule[classClicked].code && myClasses[i].day.dayOfYear() === moment(dayOfJoining).dayOfYear()){
+			myClasses[i] = blankBooking;
+			checkDatesForClasses();
+			return false;
+		}
+	}
 
 	//currentDay = moment(selectedDay);
 
-	var session = {code: ClassSchedule[classClicked].code, type: ClassSchedule[classClicked].class , time: ClassSchedule[classClicked].displaytime, day: moment(selectedDay)};
+	var session = {code: ClassSchedule[classClicked].code, type: ClassSchedule[classClicked].class , time: ClassSchedule[classClicked].displaytime, day: moment(dayOfJoining)};
 	myClasses[myClasses.length] = session;
 	
 	clearClasses();
@@ -131,22 +140,14 @@ function join(number) {
 	myClasses.sort();
 
 	checkDatesForClasses();
-}
 
-function signUp() {
-
-	for (var i = 0; i < 4; i++) {
-		myClasses[myClasses.length] = {code: activeCode, type: activeType , time: activeTime, day: moment(activeDay)};
-		activeDay = activeDay.add(7, 'd');
-	}
-
-	clearClasses();
-	checkDatesForClasses();
-	myClasses.sort();
+	console.log(myClasses);
 }
 
 
-var blankBooking = {code: "", type: "" , time: "", day: moment(currentDay)};
+
+
+
 
 function cancel() {
 	for (var i = 0; i < myClasses.length; i++) {
@@ -181,8 +182,6 @@ function fillNotifications() {
 
 $( ".btn-class" ).click(function() {
 
-  checkDatesForClasses();
-
   defaultStart = moment();
 
   checkDatesForClasses();
@@ -205,19 +204,20 @@ $( ".btn-class" ).click(function() {
   selectedDay = moment(nextSession);
   
   $(".join-class-1").html(nextSession.format('dddd, D MMM'));
-  $(".join-class-1").attr("btn-code", ClassSchedule[classClicked].code + "-" + nextSession.dayOfYear());
+  $(".join-class-1").attr("id", "joiner" + ClassSchedule[classClicked].code + nextSession.dayOfYear());
   $(".join-class-2").html(nextSession.add(1, 'w').format('dddd, D MMM'));
-  $(".join-class-2").attr("btn-code",ClassSchedule[classClicked].code + "-" + nextSession.dayOfYear());
+  $(".join-class-2").attr("id", "joiner" + ClassSchedule[classClicked].code + nextSession.dayOfYear());
   $(".join-class-3").html(nextSession.add(1, 'w').format('dddd, D MMM'));
-  $(".join-class-3").attr("btn-code",ClassSchedule[classClicked].code + "-" + nextSession.dayOfYear());
+  $(".join-class-3").attr("id", "joiner" + ClassSchedule[classClicked].code + nextSession.dayOfYear());
   $(".join-class-4").html(nextSession.add(1, 'w').format('dddd, D MMM'));
-  $(".join-class-4").attr("btn-code",ClassSchedule[classClicked].code + "-" + nextSession.dayOfYear());
+  $(".join-class-4").attr("id", "joiner" + ClassSchedule[classClicked].code + nextSession.dayOfYear());
   
 
   $("#joinBigClassHeader").html( '<img  src="assets/img/theme/big/' + ClassSchedule[classClicked].class + '.png">' );
   $("#joinBigClassModal").modal()
 
-  
+  checkDatesForClasses();
+
 });
 
 function eightweek() {

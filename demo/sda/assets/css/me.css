@@ -244,3 +244,11 @@ img.classlogo
 .hide {
     display: none!important;
 }
+
+.navbar-nav {
+    cursor: pointer;
+}
+
+footer {
+    margin-top: 100px;
+}
