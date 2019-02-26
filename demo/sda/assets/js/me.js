@@ -228,7 +228,7 @@ function navigation(link) {
 
 	console.log(link);
 
-	$("#dashboard").addClass("hide");
+	$(".dashboard").addClass("hide");
 	$(".timetable").addClass("hide");
 
 	$("#" + link).removeClass("hide");

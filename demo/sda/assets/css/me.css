@@ -252,3 +252,11 @@ img.classlogo
 footer {
     margin-top: 100px;
 }
+
+.card.card-stats {
+    min-height: 140px!important;
+}
+
+.btn.btn-lg.btn-block {
+    margin-bottom: 15px;
+}
