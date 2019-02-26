@@ -169,7 +169,7 @@ function fillNotifications() {
 	// var copying;
 	// for (var i = 0; i < myClasses.length; i++) {
 		
-	// 	copying = $("#reusable-class-notification").clone();
+	// 	copying = $("#reusable-row").clone();
 	// 	copying.attr( "id", "not-" + myClasses[i].code );
 	// 	copying.removeClass("hide");
 	// 	copying.addClass("class-notification");
@@ -230,9 +230,14 @@ function navigation(link) {
 
 	$(".dashboard").addClass("hide");
 	$(".timetable").addClass("hide");
+	$(".classes").addClass("hide");
+	$(".profile").addClass("hide");
+	$(".account").addClass("hide");
+	$(".mobile-nav-cards").addClass("hide");
 
 	$("#" + link).removeClass("hide");
 	$("." + link).removeClass("hide");
+	$('.navbar-collapse').collapse('hide');
 }
 
 function dayWrangler(dayNumber) {
@@ -262,4 +267,8 @@ function dayWrangler(dayNumber) {
 	}
 
 	return day;
+}
+
+function destroy(val) {
+	$("#" + val).remove();
 }

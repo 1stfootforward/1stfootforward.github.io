@@ -260,3 +260,16 @@ footer {
 .btn.btn-lg.btn-block {
     margin-bottom: 15px;
 }
+
+.classes {
+
+    margin-top: 50px;
+}
+
+.class-card {
+    margin-top: 50px;
+}
+
+.pull {
+    margin-top: -200px;
+}

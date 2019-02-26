@@ -61,6 +61,11 @@
               <i class="ni ni-spaceship"></i> My Account
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" onclick="navigation('profile')">
+              <i class="ni ni-spaceship"></i> My Profile
+            </a>
+          </li>
          
         </ul>
         <!-- Divider -->
@@ -123,13 +128,14 @@
       </div>
     </nav>
     <!-- Header -->
-    <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(assets/img/theme/FFFGym-24.jpg); background-size: cover; background-position: center top;">
+    <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center mobile" style="min-height: 600px; background-image: url(assets/img/theme/FFFGym-24.jpg); background-size: cover; background-position: center top;">
       <!-- Mask -->
       <span class="mask bg-gradient-primary opacity-8"></span>
       <!-- Header container -->
+      
         <!-- Mobile Nav -->
-        <div class="container-fluid mt-3 mobile-nav-cards mobile">
-          <div class="row">
+        <div class="container-fluid mt-3 mobile-nav-cards dashboard mobile">
+          <div class="row ">
             <div class="col-6" onclick="navigation('timetable')">
               <div class="card card-stats border-Danger">
                 <div class="card-body">
@@ -204,10 +210,196 @@
               </div>
             </div>
           </div>
+        
+          
+        </div>
+
+        <div class="row account hide">
+            <div class="col-lg-7 col-md-10">
+              <h1 class="display-2 text-white">Hello Oli</h1>
+              <p class="text-white mt-0 mb-5">This is your account page. Use one of the following methods to top up your account.</p>
+              <a href="#!" class="btn btn-info">Edit profile</a>
+            </div>
         </div>
       
     </div>
+
+    
     <!-- Page content -->
+
+
+
+
+
+      <div class="container-fluid mt--7 justify-content-md-center classes hide pull">
+        <div>
+          <div class="row">
+            <div class=" col-xl-4 col-md-6 col-12"  >
+              <div class="card class-card">  
+                <img class="card-img-top" src="assets/img/theme/FFFGym-24.jpg" alt="Card image cap">
+                <div class="card-body text-center">
+                  <h3 class="card-title">HIIT Camp</h3>
+                  <p class="card-text">Some quick example text about the class.</p>
+                  <a href="#" class="btn btn-primary">Join</a>
+                </div>
+              </div>
+            </div>
+
+            <div class=" col-xl-4 col-md-6 col-12"  >
+              <div class="card class-card">  
+                <img class="card-img-top" src="assets/img/theme/FFFGym-24.jpg" alt="Card image cap">
+                <div class="card-body text-center">
+                  <h3 class="card-title">S.E.T</h3>
+                  <p class="card-text">Some quick example text about the class.</p>
+                  <a href="#" class="btn btn-primary">Join</a>
+                </div>
+              </div>
+            </div>
+
+            <div class=" col-xl-4 col-md-6 col-12"  >
+              <div class="card class-card">  
+                <img class="card-img-top" src="assets/img/theme/FFFGym-24.jpg" alt="Card image cap">
+                <div class="card-body text-center">
+                  <h3 class="card-title">COREFit</h3>
+                  <p class="card-text">Some quick example text about the class.</p>
+                  <a href="#" class="btn btn-primary">Join</a>
+                </div>
+              </div>
+            </div>
+
+            <div class=" col-xl-4 col-md-6 col-12"  >
+              <div class="card class-card">  
+                <img class="card-img-top" src="assets/img/theme/FFFGym-24.jpg" alt="Card image cap">
+                <div class="card-body text-center">
+                  <h3 class="card-title">Box Fit</h3>
+                  <p class="card-text">Some quick example text about the class.</p>
+                  <a href="#" class="btn btn-primary">Join</a>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="row justify-content-md-center profile hide pull">
+        <div class="col-md-8">
+          <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0">
+              <div class="row align-items-center">
+                <div class="col-8">
+                  <h3 class="mb-0">My account</h3>
+                </div>
+                <div class="col-4 text-right">
+                  <a href="#!" class="btn btn-sm btn-primary">Save</a>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <form>
+                <h6 class="heading-small text-muted mb-4">User information</h6>
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">Username</label>
+                        <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="lucky.jesse">
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-email">Email address</label>
+                        <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="jesse@example.com">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-first-name">First name</label>
+                        <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" value="Lucky">
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-last-name">Last name</label>
+                        <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name" value="Jesse">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr class="my-4" />
+                <!-- Address -->
+                <h6 class="heading-small text-muted mb-4">Contact information</h6>
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-address">Address</label>
+                        <input id="input-address" class="form-control form-control-alternative" placeholder="Home Address" value="" type="text">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-city">Phone</label>
+                        <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="Phone" value="Phone">
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-country">FaceBook</label>
+                        <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="Facebook" value="Facebook">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr class="my-4" />
+                <!-- Description -->
+                <h6 class="heading-small text-muted mb-4">Goals</h6>
+                <div class="pl-lg-4">
+                  <div class="form-group">
+                    <label>My Fitness & Health Goals</label>
+                    <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about your goals ..."></textarea>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     
 
@@ -272,7 +464,7 @@
                   </thead>
                   <tbody>
                     
-                    <tr>
+                    <tr id="des2">
                       <th scope="row">
                         <div class="media align-items-center">
                           <a href="#" class="avatar rounded-circle mr-3">
@@ -310,14 +502,12 @@
                             <i class="fa fa-times-circle"></i>
                           </a>
                           <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="#" onclick="destroy('des2')">Cancel Class</a>
                           </div>
                         </div>
                       </td>
                     </tr>
-                    <tr>
+                    <tr id="des1">
                       <th scope="row">
                         <div class="media align-items-center">
                           <a href="#" class="avatar rounded-circle mr-3">
@@ -334,18 +524,10 @@
                       
                       <td>
                         <div class="avatar-group">
-                          <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">
+                          <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Nicola Wilmot">
                             <img alt="Image placeholder" src="assets/img/theme/team-1-800x800.jpg" class="rounded-circle">
                           </a>
-                          <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Romina Hadid">
-                            <img alt="Image placeholder" src="assets/img/theme/team-2-800x800.jpg" class="rounded-circle">
-                          </a>
-                          <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexander Smith">
-                            <img alt="Image placeholder" src="assets/img/theme/team-3-800x800.jpg" class="rounded-circle">
-                          </a>
-                          <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Jessica Doe">
-                            <img alt="Image placeholder" src="assets/img/theme/team-4-800x800.jpg" class="rounded-circle">
-                          </a>
+                          
                         </div>
                       </td>
                       
@@ -355,9 +537,7 @@
                             <i class="fa fa-times-circle"></i>
                           </a>
                           <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="#" onclick="destroy('des1')">Cancel Class</a>
                           </div>
                         </div>
                       </td>
@@ -434,7 +614,7 @@
                     </thead>
                     <tbody>
                       
-                      <tr>
+                      <tr id="des3">
                         <th scope="row">
                           <div class="media align-items-center">
                             <a href="#" class="avatar rounded-circle mr-3">
@@ -446,10 +626,19 @@
                         <td>
                           Today at 6:30 am <i class="bg-success"></i>
                         </td>
-                        
+                        <td class="text-right">
+                          <div class="dropdown">
+                            <a class="btn btn-icon-only " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <i class="fa fa-times-circle"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                              <a class="dropdown-item" href="#" onclick="destroy('des3')">Cancel Class</a>
+                            </div>
+                          </div>
+                        </td>
                         
                       </tr>
-                      <tr>
+                      <tr id="des4">
                         <th scope="row">
                           <div class="media align-items-center">
                             <a href="#" class="avatar rounded-circle mr-3">
@@ -461,7 +650,16 @@
                         <td>
                           Today at 9:00 am <i class="bg-success"></i>
                         </td>
-                        
+                        <td class="text-right">
+                          <div class="dropdown">
+                            <a class="btn btn-icon-only " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <i class="fa fa-times-circle"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                              <a class="dropdown-item" href="#" onclick="destroy('des4')">Cancel Class</a>
+                            </div>
+                          </div>
+                        </td>
                       
                       </tr>
                     </tbody>
@@ -770,31 +968,7 @@
                   </tbody>
                 </table>
               </div>
-              <div class="card-footer py-4">
-                <nav aria-label="...">
-                  <ul class="pagination justify-content-end mb-0">
-                    <li class="page-item disabled">
-                      <a class="page-link" href="#" tabindex="-1">
-                        <i class="fas fa-angle-left"></i>
-                        <span class="sr-only">Previous</span>
-                      </a>
-                    </li>
-                    <li class="page-item active">
-                      <a class="page-link" href="#">1</a>
-                    </li>
-                    <li class="page-item">
-                      <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                      <a class="page-link" href="#">
-                        <i class="fas fa-angle-right"></i>
-                        <span class="sr-only">Next</span>
-                      </a>
-                    </li>
-                  </ul>
-                </nav>
-              </div>
+              
             </div>
           </div>
         </div>
@@ -996,7 +1170,43 @@
     </div>
   </div>
 </div>
-
+                <!-- notification row 
+                    <tr id="reusable-row" class="hide">
+                      <th scope="row">
+                        <div class="media align-items-center">
+                          <a href="#" class="avatar rounded-circle mr-3">
+                            <img class="" src="assets/img/theme/CoreFit.jpg">
+                          </a>
+                          <div class="media-body">
+                            <span class="not-class mb-0 text-sm">CoreFit</span>
+                          </div>
+                        </div>
+                      </th>
+                      <td>
+                        <b class="not-time">Today at 9:00 am</b> <i class="bg-success"></i>
+                      </td>
+                      
+                      <td>
+                        <div class="avatar-group">
+                          <a href="#" class="avatar avatar-sm not-users" data-toggle="tooltip" data-original-title="Oli James">
+                            <img alt="Image placeholder" src="assets/img/theme/team-1-800x800.jpg" class="rounded-circle">
+                          </a>
+                          
+                        </div>
+                      </td>
+                      
+                      <td class="text-right">
+                        <div class="dropdown">
+                          <a class="btn btn-icon-only " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-times-circle"></i>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                            <a class="dropdown-item" href="#">Cancel Class</a>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  -->
 
   <!-- Argon Scripts -->
   <!-- Core -->
