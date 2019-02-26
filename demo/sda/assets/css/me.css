@@ -21,7 +21,9 @@
 
     color: #32325d;
     border-radius: .375rem;
-    background-color: #f6f9fc;
+    background-color: #fff;
+
+
 
     -moz-appearance: none;
 }
@@ -30,7 +32,7 @@
 {
     background-color: #fff;
 
-    border: 0;
+    
     box-shadow: rgba(0, 0, 0, .1) 0 0 0 1px, rgba(0, 0, 0, .1) 0 4px 16px;
 }
 .btn-groupclass > div
@@ -159,7 +161,8 @@
 
 .joint
 {
-    background-color: #f6f9fc;
+    background-color: #2dce89;
+    color: white;
     border-width: 1px!important;
     border-color: #f6f9fc!important;
 }
