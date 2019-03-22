@@ -38,6 +38,11 @@
         cursor: pointer;
       }
 
+      .list-card.btn {
+        margin-left: 12px!important;
+        margin-right: 12px!important;
+      }
+
 
       .SET {
         border-color: #1e7145;

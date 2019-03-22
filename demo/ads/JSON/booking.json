@@ -3,7 +3,8 @@ var BookingsMaster = [
 	{displayuser: "Nicola Wilmot", 	code: "WED0900HIT", type: "HIIT Camp", 		time: 900, 	displaytime: "9:00 am", day: "2019-04-03", created_at: "2019-04-02"},
 	{displayuser: "Nicola Wilmot", 	code: "WED1830SET", type: "S.E.T", 			time: 1830, displaytime: "6:30 pm", day: "2019-04-03", created_at: "2019-04-02"},
 	{displayuser: "Nicola Wilmot", 	code: "FRI0900STR", type: "Just Stretch", 	time: 900, 	displaytime: "9:00 am", day: "2019-04-05", created_at: "2019-04-02"},
-	{displayuser: "Luanne Cowan", 	code: "TUE0630BOX", type: "BoxFit", 		time: 630, 	displaytime: "6:30 am", day: "2019-04-02", created_at: "2019-04-02"}
+	{displayuser: "Luanne Cowan", 	code: "TUE0630BOX", type: "BoxFit", 		time: 630, 	displaytime: "6:30 am", day: "2019-04-02", created_at: "2019-04-02"},
+	{displayuser: "Nicola Wilmot", 	code: "TUE0630BOX", type: "BoxFit", 		time: 630, 	displaytime: "6:30 am", day: "2019-04-09", created_at: "2019-04-09"}
 ];
 
 var RecordMaster = [
