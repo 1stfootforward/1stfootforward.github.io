@@ -5,6 +5,7 @@
 ---------------------------------------------*/
 var breadCrumbs = [];
 var breadCrumbsRemove = [];
+var breadCrumbsHide = [];
 
 var selectClass = "";
 var selectDate = "";
@@ -61,8 +62,8 @@ function back() {
 		forward(0);
 	}
 	else {
-		console.log( breadCrumbsRemove[ breadCrumbsRemove.length - 1 ] );
 		$( "." + breadCrumbs[ breadCrumbs.length - 1 ] ).removeClass("hide");
+		$( "." + breadCrumbsHide[ breadCrumbsHide.length - 1 ] ).addClass("hide");
 		$( "." + breadCrumbsRemove[ breadCrumbsRemove.length - 1 ] ).remove();
 		breadCrumbs.splice( breadCrumbs.length - 1, 1);
 		breadCrumbsRemove.splice( breadCrumbsRemove.length - 1, 1);
@@ -351,6 +352,16 @@ $( ".individual-booking" ).click(function() {
 });
 
 
+
+
+
+/* ------------------------------------------
+
+	Click Record
+
+---------------------------------------------*/
+
+
 function recordlist() {
 	$("#recordnumber").html( RecordMaster.length);
 	
@@ -383,6 +394,24 @@ $( ".individual-record" ).click(function() {
 
 });
 
+function addRecord() {
+	$(".individual-record").addClass("hide");
+ 	$(".record-add").removeClass("hide");
+ 	breadCrumbs[ breadCrumbs.length ] = "individual-record";
+	breadCrumbsHide[ breadCrumbsHide.length ] = "record-add";
+}
+
+function addRecordIncome() {
+
+ 	$(".recordIncome").removeClass("hide");
+
+ 	for (var i = 0; i < UserMaster.length; i++) {
+ 		$( "<option value='" + i + "'>" + UserMaster[i].display + "</option>" ).appendTo( "#user-dropdown" );
+ 		
+ 	}
+}
+
+
 
 
 
@@ -402,6 +431,12 @@ $( ".individual-record" ).click(function() {
 	Wranglers
 
 ---------------------------------------------*/
+
+ $(document).ready(function()
+ {
+     $("#dtBox").DateTimePicker();
+   
+ });
 
 function classtocssWrangler(messy) {
 
