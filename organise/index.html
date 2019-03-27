@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>Checkout example · Bootstrap</title>
+    <title>Organise</title>
 
 
     <!-- Bootstrap core CSS -->
@@ -33,7 +33,7 @@
       <div class="col-md-6"> <button type="button" class="btn btn-primary btn-lg btn-block" onclick="forward(5)">Records</button></div>
     </div>
   </div>
-
+  <div id="dBox"></div>
   <div id="backButton" class="col-md-12 hide"><button type="button" class="btn btn-danger btn-lg btn-block" onclick="back()">< - Back</button></div>
   <!-- USER LIST 
 
@@ -155,17 +155,14 @@
         <span id="bookingnumber" class="badge badge-secondary badge-pill">3</span>
       </h4>
 
-      <form class="card p-2">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="User">
-          <div class="input-group-append">
-            <button type="submit" class="btn btn-secondary">Search</button>
-          </div>
-        </div>
-      </form>
+      <div class="card p-2">
+        <button class="btn btn-primary" href="#" onClick="addBooking()">Add Booking</button>  
+      </div>
       <ul id="booking-block" class="list-group mb-3">
             <!-- User list here -->
       </ul>   
+      <div class="card p-2 booking-add hide">
+      </div>
     </div>    
   </div>
 
@@ -214,6 +211,27 @@
             </div>
         </li>
 
+        <div id="bookingGroup" class="hide">
+            
+            <label>Date</label>
+            <h6 class="unchanged-date"></h6>
+            <input class="booking-date-input custom-select w-100" type="text" data-field="date" readonly>
+           
+            <label>Class</label>
+            <h6 class="unchanged-type"></h6>
+            <select class="booking-class-input custom-select d-block w-100 class-dropdown" required>
+              <option value="">Choose...</option>
+            </select>
+            
+            <label >User</label>
+            <h6 class="unchanged-user insert-user-dropdown"></h6>
+            <button class="btn btn-secondary btn-block insert-another-user" onClick="addRecordAnotherUser()">Add User</button> 
+            <br />
+            <div class="card p-2">
+              <button class="btn btn-primary" href="#" onClick="saveBooking()">Save</button>  
+            </div>
+        </div>
+
 
 
 
@@ -239,38 +257,17 @@
       <form class="card p-2 record-add hide">
           <h4 class="mb-3">New Record</h4>
           <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary active">
-              <input onClick="addRecordGroup()" type="radio"  id="option1" autocomplete="off" checked> Group
+            <label class="btn btn-secondary active" onClick="addRecordGroup()">
+              <input type="radio"  id="option1" autocomplete="off" checked> Group
             </label>
             <label class="btn btn-secondary"  onClick="addRecordIncome()">
               <input type="radio"  id="option2" autocomplete="off"> Income
             </label>
-            <label class="btn btn-secondary">
-              <input onClick="addRecordPT()" type="radio"  id="option3" autocomplete="off"> PT
+            <label class="btn btn-secondary" onClick="addRecordPT()">
+              <input type="radio"  id="option3" autocomplete="off"> PT
             </label>
           </div>
-          <div class="recordIncome hide">
-            <br /><br />
-            <label for="country">User</label>
-            <select class="custom-select d-block w-100" id="user-dropdown" required>
-              <option value="">Choose...</option>
-            </select>
-            <br />
-            <label for="country">Type</label>
-            <select class="custom-select d-block w-100" required>
-              <option value="">Choose...</option>
-              <option>Direct Deposit</option>
-              <option>Cash</option>
-              <option>Stripe</option>
-            </select>
-            <br />
-            <label for="country">Amount</label>
-            <input class="custom-select d-block w-100" type="number" name="quantity" min="1" max="500">
-            <br />
-            <label for="country">Date</label>
-            <input class="custom-select d-block w-100" type="text" data-field="date" readonly>
-             <div id="dtBox"></div>
-          </div>
+
       </form>
     </div>    
   </div>
@@ -294,7 +291,61 @@
           </div>
         </li>
 
-  
+
+          <div id="recordGroup" class=" hide">
+            <br />
+             <label for="country">Date</label>
+            <input class=" custom-select w-100" type="text" data-field="date" readonly>
+            <br />
+            <label for="country">Type</label>
+            <select class="custom-select d-block w-100 class-dropdown" required>
+              <option value="">Choose...</option>
+            </select>
+            <br />
+            <label for="country">Amount</label>
+            <input class="custom-select d-block w-100" type="number" name="quantity" min="1" max="500">
+            <br />
+            <label class="insert-user-dropdown" for="country">User</label>
+            <br />
+            <button class="btn btn-secondary btn-block insert-another-user" onClick="addRecordAnotherUser()">Add User</button> 
+
+          </div>
+          <div id="recordIncome" class=" hide">
+            <br /><br />
+            <label class="insert-user-dropdown" for="country">User</label>
+            <br />
+            <label for="country">Type</label>
+            <select class="custom-select d-block w-100" required>
+              <option value="">Choose...</option>
+              <option>Direct Deposit</option>
+              <option>Cash</option>
+              <option>Stripe</option>
+            </select>
+            <br />
+            <label for="country">Amount</label>
+            <input class="custom-select d-block w-100" type="number" name="quantity" min="1" max="500">
+            <br />
+            <label for="country">Date</label>
+            <input class="custom-select d-block w-100" type="text" data-field="date" readonly>
+             
+          </div>
+          <div id="recordPT" class="hide">
+            <br /><br />
+            <label class="insert-user-dropdown" for="country">User</label>
+            <br />
+            <br />
+            <label for="country">Cost</label>
+            <input class="custom-select d-block w-100" type="number" name="quantity" min="1" max="500">
+            <br />
+            <label for="country">Date</label>
+            <input class="custom-select d-block w-100" type="text" data-field="date" readonly>
+            <label for="country">Time</label>
+            <input class="custom-select d-block w-100" type="text" data-field="time" readonly>
+          </div>
+
+          <select id="reuseable-user-dropdown" class="custom-select d-block w-100 user-dropdown hide" >
+              <option value="">Choose...</option>
+          </select>
 </div>
 
 

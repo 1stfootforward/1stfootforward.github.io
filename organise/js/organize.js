@@ -13,6 +13,8 @@ var selectUser = "";
 
 var selectedBookings = [];
 
+var saveReady = 0;
+
 
 function forward(num) {
 	$("#navSection").addClass("hide");
@@ -62,10 +64,15 @@ function back() {
 		forward(0);
 	}
 	else {
+		console.log( breadCrumbs[ breadCrumbs.length - 1 ] );
+		console.log( breadCrumbsHide[ breadCrumbsHide.length - 1 ] );
+		console.log( breadCrumbsRemove[ breadCrumbsRemove.length - 1 ] );
+
 		$( "." + breadCrumbs[ breadCrumbs.length - 1 ] ).removeClass("hide");
 		$( "." + breadCrumbsHide[ breadCrumbsHide.length - 1 ] ).addClass("hide");
 		$( "." + breadCrumbsRemove[ breadCrumbsRemove.length - 1 ] ).remove();
 		breadCrumbs.splice( breadCrumbs.length - 1, 1);
+		breadCrumbsHide.splice( breadCrumbsHide.length - 1, 1);
 		breadCrumbsRemove.splice( breadCrumbsRemove.length - 1, 1);
 	}
 }
@@ -318,7 +325,8 @@ function recordBooking(i , type) {
 
 function bookinglist() {
 	$("#bookingnumber").html(  BookingsMaster.length);
-	for (var i = 0; i < BookingsMaster.length; i++) {
+	
+	for (var i = BookingsMaster.length - 1; i >= 0; i--) {
 		bookingBlocks( i );
 	}
 
@@ -329,6 +337,7 @@ function bookingBlocks(i) {
 		var copying = $("#reuseable-booking-block").clone();
 		copying.attr( "id", "booking-" +  i );
 		copying.attr("bookingid", i);
+		copying.attr("onClick", "editBooking(" + i + ")");
 		copying.removeClass("hide");
 		copying.addClass( classtocssWrangler(BookingsMaster[i].type) );
 		copying.addClass( "individual-booking-item" );
@@ -344,15 +353,66 @@ function bookingBlocks(i) {
 
 }
 
-$( ".individual-booking" ).click(function() {
+$( ".individual-booking-item" ).click(function() {
 
-  bookinglist();
-  var pickedbooking = BookingsMaster[ parseInt( $(this).attr("bookingid") ) ]
-
+ // bookinglist();
+  editBooking(BookingsMaster[ parseInt( $(this).attr("bookingid") ) ]);
 });
 
+function addBooking() {
+	$(".individual-booking-item").addClass("hide");
+ 	$(".booking-add").removeClass("hide");
+ 	breadCrumbs[ breadCrumbs.length ] = "individual-booking-item";
+ 	breadCrumbsRemove[ breadCrumbsRemove.length ] = "removeable-form";
 
+	fillDropDowns();
 
+ 	$(".removeable-form").remove();
+ 	copy = $("#bookingGroup").clone();
+ 	copy.addClass("removeable-form");
+	copy.attr( "id", "form" );
+	copy.removeClass("hide");
+	copy.appendTo(".booking-add");
+}
+
+function editBooking(booking) {
+	$(".individual-booking-item").addClass("hide");
+ 	$(".booking-add").removeClass("hide");
+ 	breadCrumbs[ breadCrumbs.length ] = "individual-booking-item";
+ 	breadCrumbsRemove[ breadCrumbsRemove.length ] = "removeable-form";
+
+ 	fillDropDowns();
+
+	$("#form").remove();
+ 	copy = $("#bookingGroup").clone();
+	copy.attr( "id", "form" );
+	copy.addClass("removeable-form");
+	copy.removeClass("hide");
+	copy.appendTo(".booking-add");
+
+	$(".unchanged-date").html(BookingsMaster[booking].day);
+	$(".unchanged-type").html( classCodeDisplayWrangler(booking) );
+	$(".unchanged-user").html(BookingsMaster[booking].displayuser);
+}
+
+function saveBooking() {
+	var pClass = ClassSchedule[ $(".booking-class-input").val() ];
+	var date = moment( $(".booking-date-input").val() , "DD-MM-YYYY").format("YYYY-MM-DD");
+	var user = UserMaster[ $(".user-dropdown").val() ] ;
+
+	$( ".user-dropdown" ).each(function( index ) {
+	  if( $( this ).val() != "" ){
+	  	user =  UserMaster[ $( this ).val() ];
+	  	BookingsMaster[BookingsMaster.length] = {status: 0, user: parseInt($(".user-dropdown").val()), displayuser: user.display,	classId: parseInt( $(".booking-class-input").val()), 	code: pClass.code, type: pClass.class, 		time: 630, 	displaytime: pClass.displaytime, day: date, created_at: ""};
+	  }
+
+	});
+	
+	back();back();
+	forward(4);
+	
+	
+}
 
 
 /* ------------------------------------------
@@ -378,6 +438,7 @@ function recordBlocks(i) {
 		copying.addClass( classtocssWrangler(RecordMaster[i].type) );
 		// copying.attr( "classScheduleID", ClassSchedule[i].id );
 		copying.addClass( "individual-record" );
+		copying.attr("onClick", "editRecord(" + i + ")");
 		copying.children("div").children("div").children("div").children( ".display-name" ).html(RecordMaster[i].displayuser  );
 		copying.children("div").children("div").children( ".display-code" ).html(RecordMaster[i].code  );
 		copying.children("div").children("div").children("div").children( ".display-date" ).html( dateWrangler(RecordMaster[i].day)  );
@@ -398,17 +459,54 @@ function addRecord() {
 	$(".individual-record").addClass("hide");
  	$(".record-add").removeClass("hide");
  	breadCrumbs[ breadCrumbs.length ] = "individual-record";
-	breadCrumbsHide[ breadCrumbsHide.length ] = "record-add";
+ 	breadCrumbsRemove[ breadCrumbsRemove.length ] = "form";
+	breadCrumbsHide[ breadCrumbsHide.length ] = "record-add";	
+
+ 	fillDropDowns();
 }
 
 function addRecordIncome() {
+	$("#form").remove();
+ 	var copy = $("#recordIncome").clone();
+	copy.attr( "id", "form" );
+	copy.removeClass("hide");
+	copy.appendTo(".record-add");
+}
 
- 	$(".recordIncome").removeClass("hide");
+function addRecordPT() {
+	$("#form").remove();
+ 	var copy = $("#recordPT").clone();
+	copy.attr( "id", "form" );
+	copy.removeClass("hide");
+	copy.appendTo(".record-add");
+}
 
- 	for (var i = 0; i < UserMaster.length; i++) {
- 		$( "<option value='" + i + "'>" + UserMaster[i].display + "</option>" ).appendTo( "#user-dropdown" );
- 		
- 	}
+function addRecordGroup() {
+	$("#form").remove();
+ 	var copy = $("#recordGroup").clone();
+	copy.attr( "id", "form" );
+	copy.removeClass("hide");
+	copy.appendTo(".record-add");
+}
+
+function addRecordAnotherUser() {
+
+	var copy = $("#reuseable-user-dropdown").clone();
+	copy.attr( "id", "" );
+	copy.addClass("removeable-dropdown");
+	copy.removeClass("hide");
+	copy.insertBefore(".insert-another-user");
+
+}
+
+function editRecord(record) {
+	$(".individual-record").addClass("hide");
+ 	$(".record-add").removeClass("hide");
+ 	breadCrumbs[ breadCrumbs.length ] = "individual-record";
+ 	breadCrumbsRemove[ breadCrumbsRemove.length ] = "form";
+	breadCrumbsHide[ breadCrumbsHide.length ] = "record-add";	
+
+ 	fillDropDowns();
 }
 
 
@@ -434,9 +532,28 @@ function addRecordIncome() {
 
  $(document).ready(function()
  {
-     $("#dtBox").DateTimePicker();
+ 	 $("#dBox").DateTimePicker();
    
  });
+
+ function fillDropDowns() {
+ 	$(".removeable-dropdown").remove();
+ 	$(".removeable-dropdown-item").remove();
+
+ 	for (var i = 0; i < ClassSchedule.length; i++) {
+ 		$( "<option class='removeable-dropdown-item' value='" + i + "'>" + classCodeDisplayWrangler(i) + "</option>" ).appendTo( ".class-dropdown" );
+ 	}
+
+ 	for (var i = 0; i < UserMaster.length; i++) {
+ 		$( "<option class='removeable-dropdown-item' value='" + i + "'>" + UserMaster[i].display + "</option>" ).appendTo( ".user-dropdown" );
+ 	}
+
+ 	var copy = $("#reuseable-user-dropdown").clone();
+	copy.attr( "id", "" );
+	copy.addClass("removeable-dropdown");
+	copy.removeClass("hide");
+	copy.insertAfter(".insert-user-dropdown");
+ }
 
 function classtocssWrangler(messy) {
 
@@ -455,7 +572,10 @@ function classtocssWrangler(messy) {
 	}
 
 	return css;
+}
 
+function classCodeDisplayWrangler(messy) {
+	return moment().day(ClassSchedule[messy].day).format("dddd") + " - " + ClassSchedule[messy].displaytime + " - " + ClassSchedule[messy].class;
 }
 
 function dateWrangler(dateString) {

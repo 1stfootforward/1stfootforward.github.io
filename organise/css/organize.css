@@ -17,6 +17,19 @@
         margin-top: 20px;
       }
 
+      .removeable-dropdown {
+        margin-top: 20px;
+      }
+
+      label {
+        margin-top: 10px;
+        margin-bottom: -5px;
+      }
+
+      h6 {
+        text-align: center;
+      }
+
       .hide {
         display: none!important;
       }

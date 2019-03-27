@@ -1,0 +1,17 @@
+var BookingsMaster = [
+	{status: 0, user: 0, displayuser: "Nicola Wilmot",	classId: 0, 	code: "TUE0630BOX", type: "BoxFit", 		time: 630, 	displaytime: "6:30 am", day: "2019-04-02", created_at: "2019-04-02"},
+	{status: 0, user: 0, displayuser: "Nicola Wilmot",	classId: 0, 	code: "WED0900HIT", type: "HIIT Camp", 		time: 900, 	displaytime: "9:00 am", day: "2019-04-03", created_at: "2019-04-02"},
+	{status: 0, user: 0, displayuser: "Nicola Wilmot",	classId: 0, 	code: "WED1830SET", type: "S.E.T", 			time: 1830, displaytime: "6:30 pm", day: "2019-04-03", created_at: "2019-04-02"},
+	{status: 0, user: 0, displayuser: "Nicola Wilmot",	classId: 0, 	code: "FRI0900STR", type: "Just Stretch", 	time: 900, 	displaytime: "9:00 am", day: "2019-04-05", created_at: "2019-04-02"},
+	{status: 0, user: 1, displayuser: "Luanne Cowan", 	classId: 0,		code: "TUE0630BOX", type: "BoxFit", 		time: 630, 	displaytime: "6:30 am", day: "2019-04-02", created_at: "2019-04-02"},
+	{status: 0, user: 0, displayuser: "Nicola Wilmot",	classId: 0, 	code: "TUE0630BOX", type: "BoxFit", 		time: 630, 	displaytime: "6:30 am", day: "2019-04-09", created_at: "2019-04-09"}
+];
+
+var RecordMaster = [
+	{status: 0, user: 0, displayuser: "Nicola Wilmot", 	classId: 0,		code: "TUE0630BOX", type: "BoxFit", 		time: 630, 	displaytime: "6:30 am", day: "2019-04-02", created_at: "2019-04-02", paytype: "account",	payamount: 1},
+	{status: 0, user: 0, displayuser: "Nicola Wilmot", 	classId: 0,		code: "WED0900HIT", type: "HIIT Camp", 		time: 900, 	displaytime: "9:00 am", day: "2019-04-03", created_at: "2019-04-02", paytype: "cash",		payamount: 1},
+	{status: 0, user: 0, displayuser: "Nicola Wilmot", 	classId: 0,		code: "WED1830SET", type: "S.E.T", 			time: 1830, displaytime: "6:30 pm", day: "2019-04-03", created_at: "2019-04-02", paytype: "card",		payamount: 1},
+	{status: 0, user: 0, displayuser: "Nicola Wilmot", 	classId: 0,		code: "FRI0900STR", type: "Just Stretch", 	time: 900, 	displaytime: "9:00 am", day: "2019-04-05", created_at: "2019-04-02", paytype: "account",	payamount: 1},
+	{status: 0, user: 1, displayuser: "Luanne Cowan", 	classId: 0,		code: "TUE0630BOX", type: "BoxFit", 		time: 630, 	displaytime: "6:30 am", day: "2019-04-02", created_at: "2019-04-02", paytype: "account",	payamount: 1}
+	
+];
