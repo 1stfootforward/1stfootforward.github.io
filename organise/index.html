@@ -10,16 +10,9 @@
     <meta name="generator" content="Jekyll v3.8.5">
     <title>Organise</title>
 
-
-    <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet" >
     <link href="css/organize.css" rel="stylesheet" >
 
-
-    <style>
-     
-    </style>
-    <!-- Custom styles for this template -->
   </head>
   <body class="bg-light">
     <div class="container">
@@ -32,6 +25,7 @@
       <div class="col-md-6"> <button type="button" class="btn btn-primary btn-lg btn-block" onclick="forward(3)">Class</button></div>
       <div class="col-md-6"> <button type="button" class="btn btn-primary btn-lg btn-block" onclick="forward(4)">Bookings</button></div>
       <div class="col-md-6"> <button type="button" class="btn btn-primary btn-lg btn-block" onclick="forward(5)">Records</button></div>
+      <div class="col-md-6"> <button type="button" class="btn btn-primary btn-lg btn-block" onclick="forward(6)">Purchases</button></div>
     </div>
   </div>
   <div id="dBox"></div>
@@ -347,6 +341,37 @@
           <select id="reuseable-user-dropdown" class="custom-select d-block w-100 user-dropdown hide" >
               <option value="">Choose...</option>
           </select>
+
+  <!-- Record LIST -->
+
+  <!-- Record LIST -->
+
+  <!-- Record LIST -->
+
+  <div id="purchaseSection" class="row hide">
+    <div class="col-md-12">
+      
+      <div class="card p-2">
+            <label for="country">Type</label>
+            <select class="custom-select d-block w-100" required>
+              <option value="">Choose...</option>
+              <option>8 Week</option>
+              <option>Concession Card</option>
+              <option>Unlimited</option>
+              <option>Activity</option>
+              <option>Merchandise</option>
+            </select>
+            <label class="insert-user-dropdown" for="country">User</label>
+            <br />
+            <label for="country">Cost</label>
+            <input class="custom-select d-block w-100" type="number" name="quantity" min="1" max="500">
+            <br />
+            <label for="country">Date</label>
+            <input class="custom-select d-block w-100" type="text" data-field="date" readonly>
+
+      </div>
+    </div>    
+  </div>
 </div>
 
 

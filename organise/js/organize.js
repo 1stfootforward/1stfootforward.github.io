@@ -53,6 +53,11 @@ function forward(num) {
 		$(".individual-record").remove();
 		recordlist();
 	}
+
+	if(num == 6) {
+		$("#purchaseSection").removeClass("hide");
+		$("#backButton").removeClass("hide");
+	}
 }
 
 function back() {
