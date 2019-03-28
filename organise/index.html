@@ -249,7 +249,7 @@
       <ul id="record-block" class="list-group mb-3">
             <!-- User list here -->
       </ul> 
-      <form class="card p-2 record-add hide">
+      <div class="card p-2 record-add hide">
           <h4 class="mb-3">New Record</h4>
           <div class="btn-group btn-group-toggle" data-toggle="buttons">
             <label class="btn btn-secondary active" onClick="addRecordGroup()">
@@ -263,7 +263,7 @@
             </label>
           </div>
 
-      </form>
+      </div>
     </div>    
   </div>
 
@@ -289,21 +289,23 @@
 
           <div id="recordGroup" class=" hide">
             <br />
-             <label for="country">Date</label>
-            <input class=" custom-select w-100" type="text" data-field="date" readonly>
+             <label >Date</label>
+            <input id="recordGroupDate" class=" custom-select w-100" type="text" data-field="date" readonly>
             <br />
-            <label for="country">Type</label>
-            <select class="custom-select d-block w-100 class-dropdown" required>
+            <label >Type</label>
+            <select id="recordGroupType" class="custom-select d-block w-100 class-dropdown" required>
               <option value="">Choose...</option>
             </select>
             <br />
-            <label for="country">Amount</label>
-            <input class="custom-select d-block w-100" type="number" name="quantity" min="1" max="500">
+            <label >Amount</label>
+            <input id="recordGroupAmount" class="custom-select d-block w-100" type="number" name="quantity" min="1" max="500">
             <br />
-            <label class="insert-user-dropdown" for="country">User</label>
+            <label class="insert-user-dropdown" >User</label>
             <br />
             <button class="btn btn-secondary btn-block insert-another-user" onClick="addRecordAnotherUser()">Add User</button> 
-
+            <div class="card p-2">
+                  <button class="btn btn-success" onClick="saveRecordGroup()">Save Record</button>  
+            </div>
           </div>
           <div id="recordIncome" class=" hide">
             <br /><br />
@@ -352,23 +354,27 @@
     <div class="col-md-12">
       
       <div class="card p-2">
-            <label for="country">Type</label>
-            <select class="custom-select d-block w-100" required>
+            <label >Type</label>
+            <select id="purchaseType" class="custom-select d-block w-100" required>
               <option value="">Choose...</option>
-              <option>8 Week</option>
-              <option>Concession Card</option>
-              <option>Unlimited</option>
-              <option>Activity</option>
-              <option>Merchandise</option>
+              <option value="8WK" desc="8 Week">8 Week</option>
+              <option value="COC" desc="Concession Card">Concession Card</option>
+              <option value="UNL" desc="Unlimited">Unlimited</option>
+              <option value="ACT" desc="Activity">Activity</option>
+              <option value="MER" desc="Merchandise">Merchandise</option>
+              <option value="SUP" desc="Supplement">Supplement</option>
             </select>
-            <label class="insert-user-dropdown" for="country">User</label>
-            <br />
-            <label for="country">Cost</label>
-            <input class="custom-select d-block w-100" type="number" name="quantity" min="1" max="500">
-            <br />
-            <label for="country">Date</label>
-            <input class="custom-select d-block w-100" type="text" data-field="date" readonly>
-
+            <label  >User</label>
+            <select id="purchaseUser" class="custom-select d-block w-100 purchase-user-dropdown" >
+              <option value="">Choose...</option>
+            </select>
+            <label >Cost</label>
+            <input id="purchaseCost" class="custom-select d-block w-100" type="number" name="quantity" min="1" max="500">
+            <label >Date</label>
+            <input id="purchaseDate" class="custom-select d-block w-100" type="text" data-field="date" readonly>
+            <div class="card p-2">
+                  <button class="btn btn-success" onClick="savePurchase()">Save Purchase</button>  
+            </div>
       </div>
     </div>    
   </div>

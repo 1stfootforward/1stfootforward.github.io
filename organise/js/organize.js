@@ -22,6 +22,7 @@ function forward(num) {
 	$("#userSection").addClass("hide");
 	$("#bookingSection").addClass("hide");
 	$("#recordSection").addClass("hide");
+	$("#purchaseSection").addClass("hide");
 
 	if(num == 0) {
 		$("#navSection").removeClass("hide");
@@ -56,6 +57,7 @@ function forward(num) {
 
 	if(num == 6) {
 		$("#purchaseSection").removeClass("hide");
+		purchaseMenu();
 		$("#backButton").removeClass("hide");
 	}
 }
@@ -429,8 +431,8 @@ function saveBooking() {
 
 function recordlist() {
 	$("#recordnumber").html( RecordMaster.length);
-	
-	for (var i = 0; i < RecordMaster.length; i++) {
+
+	for (var i = RecordMaster.length - 1; i >= 0; i--) {
 		recordBlocks( i );
 	}
 }
@@ -514,11 +516,56 @@ function editRecord(record) {
  	fillDropDowns();
 }
 
+function saveRecordGroup() {
+	var type = $("#recordGroupType").val();
+	var cost = $("#recordGroupAmount").val();
+	var date = moment( $("#recordGroupDate").val() , "DD-MM-YYYY").format("YYYY-MM-DD");
+
+	$( ".user-dropdown" ).each(function( index ) {
+	  if( $( this ).val() != "" ){
+	  	user =  UserMaster[ $( this ).val() ];
+	  	RecordMaster[RecordMaster.length] = {status: 0, user: $( this ).val(), displayuser: user.display,	classId: type, code: ClassSchedule[type].code, type: ClassSchedule[type].class, 	time: ClassSchedule[type].time, 	displaytime: ClassSchedule[type].displaytime, day: date, created_at: "", paytype: "account", payamount: 12};	
+	  	console.log(RecordMaster[RecordMaster.length - 1]);
+	  }
+	});
+	$( "input" ).val("");
+	back();back();
+	forward(5);
+}
 
 
 
 
 
+/* ------------------------------------------
+
+	Click Purchase
+
+---------------------------------------------*/
+
+
+function purchaseMenu() {
+	$("#purchaseType").val("");
+	$("#purchaseUser").val("");
+	$("#purchaseCost").val("");
+	$("#purchaseDate").val("");
+
+	for (var i = 0; i < UserMaster.length; i++) {
+ 		$( "<option class='removeable-dropdown-item' value='" + i + "'>" + UserMaster[i].display + "</option>" ).appendTo( "#purchaseUser" );
+ 	}
+}
+
+function savePurchase() {
+	var type = $("#purchaseType").val();
+	var typeDesc = $("#purchaseType").attr("desc");
+	var user = $("#purchaseUser").val();
+	var cost = $("#purchaseCost").val();
+	var date = moment( $("#purchaseDate").val() , "DD-MM-YYYY").format("YYYY-MM-DD");
+
+	RecordMaster[RecordMaster.length] = {status: 0, user: user, displayuser: UserMaster[user].display,	classId: "a", 	code: "PUR"+ (parseInt( cost )*100) + type, type: typeDesc, 	time: "", 	displaytime: "", day: date, created_at: "", paytype: "account", payamount: parseInt(cost)};	
+	back();
+	forward(5);
+}
 
 
 

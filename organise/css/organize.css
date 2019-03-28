@@ -76,3 +76,8 @@
       .CoreFit {
         border-color: #b91d47;
       }
+
+      label {
+        font-weight: 500;
+        margin: 3px;
+      }
