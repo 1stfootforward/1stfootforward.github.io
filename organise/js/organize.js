@@ -653,7 +653,7 @@ RecordMaster.sort( function(a, b) {
 
 
 function postBooking(i) {
-		$.post( "https://organise.1stfootforward.co.nz/api/aprilbooking" 
+		$.post( "https://organise.1stfootforward.co.nz/api/aprilbooking", 
 					{"aprilrecord": {
 						"status":0, 
 						"user":BookingsMaster[i].user, 
