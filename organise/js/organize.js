@@ -417,8 +417,7 @@ function saveBooking() {
 	
 	back();back();
 	forward(4);
-	
-	
+	postBooking(BookingsMaster.length - 1);
 }
 
 
@@ -645,6 +644,31 @@ RecordMaster.sort( function(a, b) {
 
 
 
+/* ------------------------------------------
+
+	Get's and Sets
+
+---------------------------------------------*/
 
 
+
+function postBooking(i) {
+		$.post( "https://powerful-island-93691.herokuapp.com/api/aprilbooking", 
+					{"aprilrecord": {
+						"status":0, 
+						"user":BookingsMaster[i].user, 
+						"displayuser":BookingsMaster[i].displayuser, 
+						"classId":BookingsMaster[i].classId, 
+						"code":BookingsMaster[i].code, 
+						"type":BookingsMaster[i].type, 
+						"time":BookingsMaster[i].time, 
+						"displaytime":BookingsMaster[i].displaytime, 
+						"day":BookingsMaster[i].day, 
+						"date":BookingsMaster[i].day, 
+						"replaces":0}
+					}
+				).done(function( data ) { 
+		            console.log( data );  
+            	});
+}
 
