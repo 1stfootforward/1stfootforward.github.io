@@ -726,6 +726,9 @@ RecordMaster.sort( function(a, b) {
 
 function postBooking(i) {
 
+		$(".modal-body").removeClass("green-background");
+		$("#sendModal").modal();
+
 		$.post( "https://organise.1stfootforward.co.nz/api/aprilbooking", 
 					{"april_booking": {
 						"status":0, 
@@ -742,6 +745,7 @@ function postBooking(i) {
 					}
 				).done(function( data ) { 
 		            console.log( data );  
+		            $(".modal-body").addClass("green-background");
             	});
 }
 
@@ -768,18 +772,18 @@ function postRecord(i) {
             	});
 }
 
-function getBookings() {
-	$.get( "https://organise.1stfootforward.co.nz/api/aprilbooking").done(function( data ) { 
-		            console.log(BookingsMaster);
-		            BookingsMaster = data[i];  
-		            console.log(data); 
-            });
-}
+// function getBookings() {
+// 	$.get( "https://organise.1stfootforward.co.nz/api/aprilbooking").done(function( data ) { 
+// 		            console.log(BookingsMaster);
+// 		            BookingsMaster = data[i];  
+// 		            console.log(data); 
+//             });
+// }
 
-function getRecords() {
-	$.get( "https://organise.1stfootforward.co.nz/api/aprilbooking").done(function( data ) { 
-		            RecordMaster = data; 
-		            console.log(data); 
-            });
-}
+// function getRecords() {
+// 	$.get( "https://organise.1stfootforward.co.nz/api/aprilbooking").done(function( data ) { 
+// 		            RecordMaster = data; 
+// 		            console.log(data); 
+//             });
+// }
 

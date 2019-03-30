@@ -56,6 +56,13 @@
         margin-right: 12px!important;
       }
 
+      .sr-only {
+        color: red;
+      }
+
+      .green-background {
+        background-color: green;
+      }
 
       .SET {
         border-color: #1e7145;
