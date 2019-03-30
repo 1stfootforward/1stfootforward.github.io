@@ -3,7 +3,8 @@
 	Setup
 
 ---------------------------------------------*/
-
+var BookingsMaster = [{status: 0, user: 0, displayuser: "Nicola Wilmot",	classId: 0, 	code: "TUE0630BOX", type: "", 		time: , 	displaytime: "", day: "", created_at: ""}];
+var RecordMaster = [{status: 0, user: 0, displayuser: "Nicola Wilmot", 	classId: 0,		code: "TUE0630BOX", type: "BoxFit", 		time: 630, 	displaytime: "6:30 am", day: "2019-04-02", created_at: "2019-04-02", paytype: "account",	payamount: 1}];
 getBookings();
 getRecords();
 
