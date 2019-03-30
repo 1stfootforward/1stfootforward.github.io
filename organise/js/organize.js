@@ -770,13 +770,16 @@ function postRecord(i) {
 
 function getBookings() {
 	$.get( "https://organise.1stfootforward.co.nz/api/aprilbooking").done(function( data ) { 
+		            console.log(BookingsMaster);
 		            BookingsMaster = data;  
+		            console.log(data); 
             });
 }
 
 function getRecords() {
 	$.get( "https://organise.1stfootforward.co.nz/api/aprilbooking").done(function( data ) { 
-		            RecordMaster = data;  
+		            RecordMaster = data; 
+		            console.log(data); 
             });
 }
 
