@@ -410,7 +410,7 @@ function saveBooking() {
 	$( ".user-dropdown" ).each(function( index ) {
 	  if( $( this ).val() != "" ){
 	  	user =  UserMaster[ $( this ).val() ];
-	  	BookingsMaster[BookingsMaster.length] = {status: 0, user: parseInt($(".user-dropdown").val()), displayuser: user.display,	classId: parseInt( $(".booking-class-input").val()), 	code: pClass.code, type: pClass.class, 		time: 630, 	displaytime: pClass.displaytime, day: date, created_at: ""};
+	  	BookingsMaster[BookingsMaster.length] = {status: 0, user: parseInt($(".user-dropdown").val()), displayuser: user.display,	classId: parseInt( $(".booking-class-input").val()), 	code: pClass.code, type: pClass.class, 		time: pClass.time, 	displaytime: pClass.displaytime, day: date, created_at: ""};
 	  }
 
 	});
@@ -654,7 +654,7 @@ RecordMaster.sort( function(a, b) {
 
 function postBooking(i) {
 
-	console.log({"aprilbooking": {
+	console.log({"april_booking": {
 						"status":0, 
 						"user":BookingsMaster[i].user, 
 						"displayuser":BookingsMaster[i].displayuser, 
@@ -668,7 +668,7 @@ function postBooking(i) {
 						"replaces":0}
 					});	
 		$.post( "https://organise.1stfootforward.co.nz/api/aprilbooking", 
-					{"aprilbooking": {
+					{"april_booking": {
 						"status":0, 
 						"user":BookingsMaster[i].user, 
 						"displayuser":BookingsMaster[i].displayuser, 
