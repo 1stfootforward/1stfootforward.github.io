@@ -220,7 +220,7 @@
             
             <label >User</label>
             <h6 class="unchanged-user insert-user-dropdown"></h6>
-            <button class="btn btn-secondary btn-block insert-another-user" onClick="addRecordAnotherUser()">Add User</button> 
+            <button class="btn btn-secondary btn-block insert-another-user" onClick="addBookingAnotherUser()">Add User</button> 
             <br />
             <div class="card p-2">
               <button class="btn btn-primary" href="#" onClick="saveBooking()">Save</button>  
@@ -302,7 +302,7 @@
             <br />
             <label class="insert-user-dropdown" >User</label>
             <br />
-            <button class="btn btn-secondary btn-block insert-another-user" onClick="addRecordAnotherUser()">Add User</button> 
+            <button class="btn btn-secondary btn-block insert-another-user-record" onClick="addRecordAnotherUser()">Add User</button> 
             <div class="card p-2">
                   <button class="btn btn-success" onClick="saveRecordGroup()">Save Record</button>  
             </div>
@@ -311,37 +311,51 @@
             <br /><br />
             <label class="insert-user-dropdown" for="country">User</label>
             <br />
-            <label for="country">Type</label>
-            <select class="custom-select d-block w-100" required>
+            <label >Type</label>
+            <select id="recordIncomeType" class="custom-select d-block w-100" required>
               <option value="">Choose...</option>
-              <option>Direct Deposit</option>
-              <option>Cash</option>
-              <option>Stripe</option>
+              <option value="BNK">Direct Deposit</option>
+              <option value="CSH">Cash</option>
+              <option value="STR">Stripe</option>
             </select>
             <br />
-            <label for="country">Amount</label>
-            <input class="custom-select d-block w-100" type="number" name="quantity" min="1" max="500">
+            <label >Amount</label>
+            <input id="recordIncomeAmount" class="custom-select d-block w-100" type="number" name="quantity" min="1" max="500">
             <br />
-            <label for="country">Date</label>
-            <input class="custom-select d-block w-100" type="text" data-field="date" readonly>
-             
+            <label >Date</label>
+            <input id="recordIncomeDate" class="custom-select d-block w-100" type="text" data-field="date" readonly>
+            <div class="card p-2">
+                  <button class="btn btn-success" onClick="saveRecordIncome()">Save Record</button>  
+            </div>
           </div>
           <div id="recordPT" class="hide">
             <br /><br />
             <label class="insert-user-dropdown" for="country">User</label>
             <br />
             <br />
-            <label for="country">Cost</label>
-            <input class="custom-select d-block w-100" type="number" name="quantity" min="1" max="500">
+            <label>Cost</label>
+            <input id="recordPTAmount" class="custom-select d-block w-100" type="number" name="quantity" min="1" max="500">
             <br />
-            <label for="country">Date</label>
-            <input class="custom-select d-block w-100" type="text" data-field="date" readonly>
-            <label for="country">Time</label>
-            <input class="custom-select d-block w-100" type="text" data-field="time" readonly>
+            <label>Date</label>
+            <input id="recordPTDate" class="custom-select d-block w-100" type="text" data-field="date" readonly>
+            <label>Time</label>
+            <input id="recordPTTime" class="custom-select d-block w-100" type="text" data-field="time" readonly>
+            <div class="card p-2">
+                  <button class="btn btn-success" onClick="saveRecordPT()">Save Record</button>  
+            </div>
           </div>
 
           <select id="reuseable-user-dropdown" class="custom-select d-block w-100 user-dropdown hide" >
               <option value="">Choose...</option>
+          </select>
+
+          <select id="reuseable-paytype-radio" class="custom-select d-block w-100 paytype-dropdown hide" >
+              <option >From Account</option>
+              <option >Comp</option>
+              <option >Card</option>
+              <option >Unlimited</option>
+              <option >No-Show Charge</option>
+              <option >No-Show No-Charge</option>
           </select>
 
   <!-- Record LIST -->

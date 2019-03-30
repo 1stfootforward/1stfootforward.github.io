@@ -1,5 +1,14 @@
 /* ------------------------------------------
 
+	Setup
+
+---------------------------------------------*/
+
+getBookings();
+getRecords();
+
+/* ------------------------------------------
+
 	Navigation
 
 ---------------------------------------------*/
@@ -14,6 +23,7 @@ var selectUser = "";
 var selectedBookings = [];
 
 var saveReady = 0;
+var insertedUserNumber = 0;
 
 
 function forward(num) {
@@ -382,6 +392,15 @@ function addBooking() {
 	copy.appendTo(".booking-add");
 }
 
+function addBookingAnotherUser() {
+	insertedUserNumber++;
+	var copy = $("#reuseable-user-dropdown").clone();
+	copy.attr( "id", "du-" + insertedUserNumber );
+	copy.addClass("removeable-dropdown");
+	copy.removeClass("hide");
+	copy.insertBefore(".insert-another-user");
+}
+
 function editBooking(booking) {
 	$(".individual-booking-item").addClass("hide");
  	$(".booking-add").removeClass("hide");
@@ -468,7 +487,7 @@ function addRecord() {
  	breadCrumbsRemove[ breadCrumbsRemove.length ] = "form";
 	breadCrumbsHide[ breadCrumbsHide.length ] = "record-add";	
 
- 	fillDropDowns();
+ 	
 }
 
 function addRecordIncome() {
@@ -488,20 +507,32 @@ function addRecordPT() {
 }
 
 function addRecordGroup() {
+
 	$("#form").remove();
  	var copy = $("#recordGroup").clone();
 	copy.attr( "id", "form" );
 	copy.removeClass("hide");
 	copy.appendTo(".record-add");
+	fillDropDowns();
+	copy = $("#reuseable-paytype-radio").clone();
+	copy.attr( "id", "" );
+	copy.addClass("removeable-dropdown-paytype");
+	copy.removeClass("hide");
+	copy.insertAfter(".removeable-dropdown" );
 }
 
 function addRecordAnotherUser() {
-
+	insertedUserNumber++;
 	var copy = $("#reuseable-user-dropdown").clone();
-	copy.attr( "id", "" );
+	copy.attr( "id", "du-" + insertedUserNumber );
 	copy.addClass("removeable-dropdown");
 	copy.removeClass("hide");
-	copy.insertBefore(".insert-another-user");
+	copy.insertBefore(".insert-another-user-record");
+	copy = $("#reuseable-paytype-radio").clone();
+	copy.attr( "id", "" );
+	copy.addClass("removeable-dropdown-paytype");
+	copy.removeClass("hide");
+	copy.insertAfter("#du-" + insertedUserNumber );
 
 }
 
@@ -519,11 +550,50 @@ function saveRecordGroup() {
 	var type = $("#recordGroupType").val();
 	var cost = $("#recordGroupAmount").val();
 	var date = moment( $("#recordGroupDate").val() , "DD-MM-YYYY").format("YYYY-MM-DD");
+	var paytypes = [];
+	$( ".removeable-dropdown-paytype" ).each(function( index ) {
+	  	paytypes[index] = $( this ).val();
+	});
 
 	$( ".user-dropdown" ).each(function( index ) {
 	  if( $( this ).val() != "" ){
 	  	user =  UserMaster[ $( this ).val() ];
-	  	RecordMaster[RecordMaster.length] = {status: 0, user: $( this ).val(), displayuser: user.display,	classId: type, code: ClassSchedule[type].code, type: ClassSchedule[type].class, 	time: ClassSchedule[type].time, 	displaytime: ClassSchedule[type].displaytime, day: date, created_at: "", paytype: "account", payamount: 12};	
+	  	RecordMaster[RecordMaster.length] = {status: 0, user: $( this ).val(), displayuser: user.display,	classId: type, code: ClassSchedule[type].code, type: ClassSchedule[type].class, 	time: ClassSchedule[type].time, 	displaytime: ClassSchedule[type].displaytime, day: date, created_at: "",  paytype: paytypes[index], payamount: 12};	
+	  	console.log( paytypes[index] );
+	  }
+	});
+	$( "input" ).val("");
+	back();back();
+	forward(5);
+}
+
+function saveRecordIncome() {
+	var type = $("#recordIncomeType").val();
+	var cost = $("#recordIncomeAmount").val();
+	var date = moment( $("#recordIncomeDate").val() , "DD-MM-YYYY").format("YYYY-MM-DD");
+
+	$( ".user-dropdown" ).each(function( index ) {
+	  if( $( this ).val() != "" ){
+	  	user =  UserMaster[ $( this ).val() ];
+	  	RecordMaster[RecordMaster.length] = {status: 0, user: $( this ).val(), displayuser: user.display,	classId: 0, code: "INC" + (parseInt( cost )*100) + type, type: type, 	time: null, 	displaytime: null, day: date, created_at: "", paytype: type, payamount: cost};	
+	  	console.log(RecordMaster[RecordMaster.length - 1]);
+	  }
+	});
+	$( "input" ).val("");
+	back();back();
+	forward(5);
+}
+
+function saveRecordPT() {
+	var cost = $("#recordPTAmount").val();
+	var time = $("#recordPTTime").val().replace(':','');;
+	var date = moment( $("#recordPTDate").val() , "DD-MM-YYYY").format("YYYY-MM-DD");
+	var day = moment( $("#recordPTDate").val() , "DD-MM-YYYY").format("ddd");
+
+	$( ".user-dropdown" ).each(function( index ) {
+	  if( $( this ).val() != "" ){
+	  	user =  UserMaster[ $( this ).val() ];
+	  	RecordMaster[RecordMaster.length] = {status: 0, user: $( this ).val(), displayuser: user.display,	classId: 0, code:   day + time + "PT0", type: "PT Session", 	time: time, 	displaytime: time, day: date, created_at: "", paytype: null, payamount: cost};	
 	  	console.log(RecordMaster[RecordMaster.length - 1]);
 	  }
 	});
@@ -590,7 +660,8 @@ function savePurchase() {
  function fillDropDowns() {
  	$(".removeable-dropdown").remove();
  	$(".removeable-dropdown-item").remove();
-
+ 	$(".removeable-dropdown-paytype").remove();
+ 	insertedUserNumber = 0;
  	for (var i = 0; i < ClassSchedule.length; i++) {
  		$( "<option class='removeable-dropdown-item' value='" + i + "'>" + classCodeDisplayWrangler(i) + "</option>" ).appendTo( ".class-dropdown" );
  	}
@@ -604,6 +675,7 @@ function savePurchase() {
 	copy.addClass("removeable-dropdown");
 	copy.removeClass("hide");
 	copy.insertAfter(".insert-user-dropdown");
+
  }
 
 function classtocssWrangler(messy) {
@@ -654,19 +726,6 @@ RecordMaster.sort( function(a, b) {
 
 function postBooking(i) {
 
-	console.log({"april_booking": {
-						"status":0, 
-						"user":BookingsMaster[i].user, 
-						"displayuser":BookingsMaster[i].displayuser, 
-						"classId":BookingsMaster[i].classId, 
-						"code":BookingsMaster[i].code, 
-						"type":BookingsMaster[i].type, 
-						"time":BookingsMaster[i].time, 
-						"displaytime":BookingsMaster[i].displaytime, 
-						"day":BookingsMaster[i].day, 
-						"date":BookingsMaster[i].day, 
-						"replaces":0}
-					});	
 		$.post( "https://organise.1stfootforward.co.nz/api/aprilbooking", 
 					{"april_booking": {
 						"status":0, 
@@ -684,5 +743,40 @@ function postBooking(i) {
 				).done(function( data ) { 
 		            console.log( data );  
             	});
+}
+
+function postRecord(i) {
+
+		$.post( "https://organise.1stfootforward.co.nz/api/aprilrecord", 
+					{"april_record": {
+						"status":0, 
+						"user":BookingsMaster[i].user, 
+						"displayuser":BookingsMaster[i].displayuser, 
+						"classId":BookingsMaster[i].classId, 
+						"code":BookingsMaster[i].code, 
+						"type":BookingsMaster[i].type, 
+						"time":BookingsMaster[i].time, 
+						"displaytime":BookingsMaster[i].displaytime, 
+						"day":BookingsMaster[i].day, 
+						"date":BookingsMaster[i].day, 
+						"paytype":BookingsMaster[i].paytype,
+						"payamount":BookingsMaster[i].payamount,
+						"replaces":0}
+					}
+				).done(function( data ) { 
+		            console.log( data );  
+            	});
+}
+
+function getBookings() {
+	$.post( "https://organise.1stfootforward.co.nz/api/aprilbooking").done(function( data ) { 
+		            BookingsMaster = data;  
+            });
+}
+
+function getRecords() {
+	$.post( "https://organise.1stfootforward.co.nz/api/aprilbooking").done(function( data ) { 
+		            RecordMaster = data;  
+            });
 }
 
