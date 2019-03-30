@@ -782,7 +782,7 @@ function getBookings() {
 
 function getRecords() {
 	$.get( "https://organise.1stfootforward.co.nz/api/aprilbooking").done(function( data ) { 
-		            RecordMaster = data; 
+		            RecordMaster = data.data; 
 		            console.log(data); 
             });
 }
