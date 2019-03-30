@@ -771,7 +771,7 @@ function postRecord(i) {
 function getBookings() {
 	$.get( "https://organise.1stfootforward.co.nz/api/aprilbooking").done(function( data ) { 
 		            console.log(BookingsMaster);
-		            BookingsMaster = data;  
+		            BookingsMaster = data[i];  
 		            console.log(data); 
             });
 }
