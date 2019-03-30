@@ -430,13 +430,14 @@ function saveBooking() {
 	  if( $( this ).val() != "" ){
 	  	user =  UserMaster[ $( this ).val() ];
 	  	BookingsMaster[BookingsMaster.length] = {status: 0, user: parseInt($(".user-dropdown").val()), displayuser: user.display,	classId: parseInt( $(".booking-class-input").val()), 	code: pClass.code, type: pClass.class, 		time: pClass.time, 	displaytime: pClass.displaytime, day: date, created_at: ""};
+	  	postBooking(BookingsMaster.length - 1);
 	  }
 
 	});
 	
 	back();back();
 	forward(4);
-	postBooking(BookingsMaster.length - 1);
+	
 }
 
 
@@ -559,7 +560,7 @@ function saveRecordGroup() {
 	  if( $( this ).val() != "" ){
 	  	user =  UserMaster[ $( this ).val() ];
 	  	RecordMaster[RecordMaster.length] = {status: 0, user: $( this ).val(), displayuser: user.display,	classId: type, code: ClassSchedule[type].code, type: ClassSchedule[type].class, 	time: ClassSchedule[type].time, 	displaytime: ClassSchedule[type].displaytime, day: date, created_at: "",  paytype: paytypes[index], payamount: 12};	
-	  	console.log( paytypes[index] );
+	  	postRecord(RecordMaster.length - 1);
 	  }
 	});
 	$( "input" ).val("");
@@ -576,7 +577,7 @@ function saveRecordIncome() {
 	  if( $( this ).val() != "" ){
 	  	user =  UserMaster[ $( this ).val() ];
 	  	RecordMaster[RecordMaster.length] = {status: 0, user: $( this ).val(), displayuser: user.display,	classId: 0, code: "INC" + (parseInt( cost )*100) + type, type: type, 	time: null, 	displaytime: null, day: date, created_at: "", paytype: type, payamount: cost};	
-	  	console.log(RecordMaster[RecordMaster.length - 1]);
+	  	postRecord(RecordMaster.length - 1);
 	  }
 	});
 	$( "input" ).val("");
@@ -594,7 +595,7 @@ function saveRecordPT() {
 	  if( $( this ).val() != "" ){
 	  	user =  UserMaster[ $( this ).val() ];
 	  	RecordMaster[RecordMaster.length] = {status: 0, user: $( this ).val(), displayuser: user.display,	classId: 0, code:   day + time + "PT0", type: "PT Session", 	time: time, 	displaytime: time, day: date, created_at: "", paytype: null, payamount: cost};	
-	  	console.log(RecordMaster[RecordMaster.length - 1]);
+	  	postRecord(RecordMaster.length - 1);
 	  }
 	});
 	$( "input" ).val("");
@@ -632,6 +633,7 @@ function savePurchase() {
 	var date = moment( $("#purchaseDate").val() , "DD-MM-YYYY").format("YYYY-MM-DD");
 
 	RecordMaster[RecordMaster.length] = {status: 0, user: user, displayuser: UserMaster[user].display,	classId: "a", 	code: "PUR"+ (parseInt( cost )*100) + type, type: typeDesc, 	time: "", 	displaytime: "", day: date, created_at: "", paytype: "account", payamount: parseInt(cost)};	
+	postRecord(RecordMaster.length - 1);
 	back();
 	forward(5);
 }
@@ -775,7 +777,7 @@ function postRecord(i) {
 function getBookings() {
 	$.get( "https://organise.1stfootforward.co.nz/api/aprilbooking").done(function( data ) { 
 		            console.log(BookingsMaster);
-		            BookingsMaster = data[1];  
+		            BookingsMaster = data.data;  
 		            console.log(data); 
             });
 }
