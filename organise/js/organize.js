@@ -769,13 +769,13 @@ function postRecord(i) {
 }
 
 function getBookings() {
-	$.post( "https://organise.1stfootforward.co.nz/api/aprilbooking").done(function( data ) { 
+	$.get( "https://organise.1stfootforward.co.nz/api/aprilbooking").done(function( data ) { 
 		            BookingsMaster = data;  
             });
 }
 
 function getRecords() {
-	$.post( "https://organise.1stfootforward.co.nz/api/aprilbooking").done(function( data ) { 
+	$.get( "https://organise.1stfootforward.co.nz/api/aprilbooking").done(function( data ) { 
 		            RecordMaster = data;  
             });
 }
