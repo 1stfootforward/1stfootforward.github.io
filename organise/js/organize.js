@@ -562,6 +562,24 @@ function saveRecordGroup() {
 	forward(5);
 }
 
+function saveRecordGroupNoShow() {
+	var type = $("#recordGroupType").val();
+	var cost = 12;
+	var date = moment( $("#recordGroupDate").val() , "DD-MM-YYYY").format("YYYY-MM-DD");
+	
+
+	$( ".user-dropdown" ).each(function( index ) {
+	  if( $( this ).val() != "" ){
+	  	user =  UserMaster[ $( this ).val() ];
+	  	RecordMaster[RecordMaster.length] = {status: 1, user: $( this ).val(), displayuser: user.display,	classId: type, code: "NO-SHOW", type: ClassSchedule[type].class, 	time: ClassSchedule[type].time, 	displaytime: ClassSchedule[type].displaytime, day: date, created_at: "",  paytype: "deduct", payamount: 12};	
+	  	postRecord(RecordMaster.length - 1);
+	  }
+	});
+	$( "input" ).val("");
+	back();back();
+	forward(5);
+}
+
 function saveRecordIncome() {
 	var type = $("#recordIncomeType").val();
 	var cost = $("#recordIncomeAmount").val();
@@ -589,6 +607,24 @@ function saveRecordPT() {
 	  if( $( this ).val() != "" ){
 	  	user =  UserMaster[ $( this ).val() ];
 	  	RecordMaster[RecordMaster.length] = {status: 0, user: $( this ).val(), displayuser: user.display,	classId: 0, code:   day + time + "PT0", type: "PT Session", 	time: time, 	displaytime: time, day: date, created_at: "", paytype: "deduct", payamount: cost};	
+	  	postRecord(RecordMaster.length - 1);
+	  }
+	});
+	$( "input" ).val("");
+	back();back();
+	forward(5);
+}
+
+function saveRecordPTNoShow {
+	var cost = $("#recordPTAmount").val();
+	var time = $("#recordPTTime").val().replace(':','');;
+	var date = moment( $("#recordPTDate").val() , "DD-MM-YYYY").format("YYYY-MM-DD");
+	var day = moment( $("#recordPTDate").val() , "DD-MM-YYYY").format("ddd");
+
+	$( ".user-dropdown" ).each(function( index ) {
+	  if( $( this ).val() != "" ){
+	  	user =  UserMaster[ $( this ).val() ];
+	  	RecordMaster[RecordMaster.length] = {status: 1, user: $( this ).val(), displayuser: user.display,	classId: 0, code: "NO-SHOW", type: "PT Session", 	time: time, 	displaytime: time, day: date, created_at: "", paytype: "deduct", payamount: cost};	
 	  	postRecord(RecordMaster.length - 1);
 	  }
 	});
@@ -680,6 +716,9 @@ function classtocssWrangler(messy) {
 	switch (messy) {
 	  case "S.E.T":
 	    css = "SET";
+	    break;
+	  case "NO-SHOW":
+	    css = "SHOW";
 	    break;
 	  case "HIIT Camp":
 	    css = "HIIT";

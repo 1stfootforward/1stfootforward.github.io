@@ -92,6 +92,11 @@
         border-color: #b91d47;
       }
 
+      .SHOW {
+        border-bottom: 6px solid red;
+        background-color: lightgrey;
+      }
+
       label {
         font-weight: 500;
         margin: 3px;
