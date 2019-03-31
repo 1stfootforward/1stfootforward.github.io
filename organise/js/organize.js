@@ -798,17 +798,16 @@ function postRecord(i) {
 }
 
 function getBookings() {
-	$.get( "https://organise.1stfootforward.co.nz/api/aprilbooking").done(function( data ) { 
-		            console.log(BookingsMaster);
+	$.get( "https://organise.1stfootforward.co.nz/api/aprilbooking").done(function( data ) { 		           
 		            BookingsMaster = data.data;  
-		            console.log(data); 
+		            $("#stepone").removeClass("hide");
             });
 }
 
 function getRecords() {
 	$.get( "https://organise.1stfootforward.co.nz/api/aprilrecord").done(function( data ) { 
 		            RecordMaster = data.data; 
-		            console.log(data); 
+		             $("#steptwo").removeClass("hide");
             });
 }
 
