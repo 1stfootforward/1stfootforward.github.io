@@ -93,8 +93,8 @@
       }
 
       .SHOW {
-        border-bottom: 6px solid red;
-        background-color: lightgrey;
+        border-bottom: 6px solid red!important;
+        background-color: lightgrey!important;
       }
 
       label {
