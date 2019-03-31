@@ -4,7 +4,7 @@
 
 ---------------------------------------------*/
 var BookingsMaster = [{status: 0, user: 0, displayuser: "Nicola Wilmot",	classId: 0, 	code: "TUE0630BOX", type: "", 		time: "", 	displaytime: "", day: "", created_at: ""}];
-var RecordMaster = [{status: 0, user: 0, displayuser: "Nicola Wilmot", 	classId: 0,		code: "TUE0630BOX", type: "BoxFit", 		time: 630, 	displaytime: "6:30 am", day: "2019-04-02", created_at: "2019-04-02", paytype: "account",	payamount: 1}];
+var RecordMaster = [{status: 0, user: 0, displayuser: "Nicola Wilmot", 	classId: 0,		code: "TUE0630BOX", type: "BoxFit", 		time: 630, 	displaytime: "6:30 am", day: "2019-04-02", created_at: "2019-04-02", paytype: "deduct",	payamount: 1}];
 getBookings();
 getRecords();
 
@@ -500,11 +500,7 @@ function addRecordIncome() {
 	copy.appendTo(".record-add");
 	fillDropDowns();
 
-	copy = $("#reuseable-paytype-radio").clone();
-	copy.attr( "id", "" );
-	copy.addClass("removeable-dropdown-paytype");
-	copy.removeClass("hide");
-	copy.insertAfter(".removeable-dropdown" );
+	
 }
 
 function addRecordPT() {
@@ -515,11 +511,7 @@ function addRecordPT() {
 	copy.appendTo(".record-add");
 	fillDropDowns();
 
-	copy = $("#reuseable-paytype-radio").clone();
-	copy.attr( "id", "" );
-	copy.addClass("removeable-dropdown-paytype");
-	copy.removeClass("hide");
-	copy.insertAfter(".removeable-dropdown" );
+	
 }
 
 function addRecordGroup() {
@@ -530,11 +522,6 @@ function addRecordGroup() {
 	copy.removeClass("hide");
 	copy.appendTo(".record-add");
 	fillDropDowns();
-	copy = $("#reuseable-paytype-radio").clone();
-	copy.attr( "id", "" );
-	copy.addClass("removeable-dropdown-paytype");
-	copy.removeClass("hide");
-	copy.insertAfter(".removeable-dropdown" );
 }
 
 function addRecordAnotherUser() {
@@ -544,11 +531,6 @@ function addRecordAnotherUser() {
 	copy.addClass("removeable-dropdown");
 	copy.removeClass("hide");
 	copy.insertBefore(".insert-another-user-record");
-	copy = $("#reuseable-paytype-radio").clone();
-	copy.attr( "id", "" );
-	copy.addClass("removeable-dropdown-paytype");
-	copy.removeClass("hide");
-	copy.insertAfter("#du-" + insertedUserNumber );
 
 }
 
@@ -566,15 +548,12 @@ function saveRecordGroup() {
 	var type = $("#recordGroupType").val();
 	var cost = 12;
 	var date = moment( $("#recordGroupDate").val() , "DD-MM-YYYY").format("YYYY-MM-DD");
-	var paytypes = [];
-	$( ".removeable-dropdown-paytype" ).each(function( index ) {
-	  	paytypes[index] = $( this ).val();
-	});
+	
 
 	$( ".user-dropdown" ).each(function( index ) {
 	  if( $( this ).val() != "" ){
 	  	user =  UserMaster[ $( this ).val() ];
-	  	RecordMaster[RecordMaster.length] = {status: 0, user: $( this ).val(), displayuser: user.display,	classId: type, code: ClassSchedule[type].code, type: ClassSchedule[type].class, 	time: ClassSchedule[type].time, 	displaytime: ClassSchedule[type].displaytime, day: date, created_at: "",  paytype: paytypes[index], payamount: 12};	
+	  	RecordMaster[RecordMaster.length] = {status: 0, user: $( this ).val(), displayuser: user.display,	classId: type, code: ClassSchedule[type].code, type: ClassSchedule[type].class, 	time: ClassSchedule[type].time, 	displaytime: ClassSchedule[type].displaytime, day: date, created_at: "",  paytype: "deduct", payamount: 12};	
 	  	postRecord(RecordMaster.length - 1);
 	  }
 	});
@@ -609,7 +588,7 @@ function saveRecordPT() {
 	$( ".user-dropdown" ).each(function( index ) {
 	  if( $( this ).val() != "" ){
 	  	user =  UserMaster[ $( this ).val() ];
-	  	RecordMaster[RecordMaster.length] = {status: 0, user: $( this ).val(), displayuser: user.display,	classId: 0, code:   day + time + "PT0", type: "PT Session", 	time: time, 	displaytime: time, day: date, created_at: "", paytype: "null", payamount: cost};	
+	  	RecordMaster[RecordMaster.length] = {status: 0, user: $( this ).val(), displayuser: user.display,	classId: 0, code:   day + time + "PT0", type: "PT Session", 	time: time, 	displaytime: time, day: date, created_at: "", paytype: "deduct", payamount: cost};	
 	  	postRecord(RecordMaster.length - 1);
 	  }
 	});
@@ -647,7 +626,7 @@ function savePurchase() {
 	var cost = $("#purchaseCost").val();
 	var date = moment( $("#purchaseDate").val() , "DD-MM-YYYY").format("YYYY-MM-DD");
 
-	RecordMaster[RecordMaster.length] = {status: 0, user: user, displayuser: UserMaster[user].display,	classId: 0, 	code: "PUR"+ (parseInt( cost )*100) + type, type: type, 	time: 0, 	displaytime: "null", day: date, created_at: "", paytype: "account", payamount: parseInt(cost)};	
+	RecordMaster[RecordMaster.length] = {status: 0, user: user, displayuser: UserMaster[user].display,	classId: 0, 	code: "PUR"+ (parseInt( cost )*100) + type, type: type, 	time: 0, 	displaytime: "null", day: date, created_at: "", paytype: "deduct", payamount: parseInt(cost)};	
 	postRecord(RecordMaster.length - 1);
 	back();
 	forward(5);
@@ -677,7 +656,6 @@ function savePurchase() {
  function fillDropDowns() {
  	$(".removeable-dropdown").remove();
  	$(".removeable-dropdown-item").remove();
- 	$(".removeable-dropdown-paytype").remove();
  	insertedUserNumber = 0;
  	for (var i = 0; i < ClassSchedule.length; i++) {
  		$( "<option class='removeable-dropdown-item' value='" + i + "'>" + classCodeDisplayWrangler(i) + "</option>" ).appendTo( ".class-dropdown" );
