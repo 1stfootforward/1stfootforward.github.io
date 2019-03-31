@@ -784,7 +784,7 @@ function postRecord(i) {
 					}
 				).done(function( data ) { 
 		            console.log( data );  
-		            if(data.data.code == BookingsMaster[i].code || data.data.displayuser == BookingsMaster[i].displayuser ) {
+		            if(data.data.code == RecordMaster[i].code || data.data.displayuser == RecordMaster[i].displayuser ) {
 			            $(".modal-body").addClass("green-background");
 			            $(".spinner-border").addClass("hide");
 			        } else {
