@@ -68,6 +68,10 @@
         color: white;
       }
 
+      .loading {
+        color: red;
+      }
+
       .SET {
         border-color: #1e7145;
       }

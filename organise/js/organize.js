@@ -595,7 +595,7 @@ function saveRecordPT() {
 	$( ".user-dropdown" ).each(function( index ) {
 	  if( $( this ).val() != "" ){
 	  	user =  UserMaster[ $( this ).val() ];
-	  	RecordMaster[RecordMaster.length] = {status: 0, user: $( this ).val(), displayuser: user.display,	classId: 0, code:   day + time + "PT0", type: "PT Session", 	time: time, 	displaytime: time, day: date, created_at: "", paytype: null, payamount: cost};	
+	  	RecordMaster[RecordMaster.length] = {status: 0, user: $( this ).val(), displayuser: user.display,	classId: 0, code:   day + time + "PT0", type: "PT Session", 	time: time, 	displaytime: time, day: date, created_at: "", paytype: "null", payamount: cost};	
 	  	postRecord(RecordMaster.length - 1);
 	  }
 	});
@@ -800,14 +800,14 @@ function postRecord(i) {
 function getBookings() {
 	$.get( "https://organise.1stfootforward.co.nz/api/aprilbooking").done(function( data ) { 		           
 		            BookingsMaster = data.data;  
-		            $("#stepone").removeClass("hide");
+		            $("#stepone").removeClass("loading");
             });
 }
 
 function getRecords() {
 	$.get( "https://organise.1stfootforward.co.nz/api/aprilrecord").done(function( data ) { 
 		            RecordMaster = data.data; 
-		             $("#steptwo").removeClass("hide");
+		             $("#steptwo").removeClass("loading");
             });
 }
 
