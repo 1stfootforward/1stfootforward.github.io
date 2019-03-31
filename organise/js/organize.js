@@ -758,6 +758,9 @@ function postBooking(i) {
 }
 
 function postRecord(i) {
+		$(".spinner-border").removeClass("hide");
+		$(".modal-body").removeClass("green-background");
+		$("#sendModal").modal();
 
 		$.post( "https://organise.1stfootforward.co.nz/api/aprilrecord", 
 					{"april_record": {
@@ -777,6 +780,12 @@ function postRecord(i) {
 					}
 				).done(function( data ) { 
 		            console.log( data );  
+		            if(data.data.code == BookingsMaster[i].code || data.data.displayuser == BookingsMaster[i].displayuser ) {
+			            $(".modal-body").addClass("green-background");
+			            $(".spinner-border").addClass("hide");
+			        } else {
+			        	alert( "Saving Failed" );
+			        }
             	});
 }
 
