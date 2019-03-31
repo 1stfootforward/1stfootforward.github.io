@@ -52,11 +52,12 @@ var UserMaster = [
 { display: "Michelle Raasch", email: "michellera@xtra.co.nz", joindate: "2019-01-21", phone: "21355353"},
 { display: "Fiona Riddle", email: "feez_27@hotmail.com", joindate: "2019-02-12", phone: "275555544"},
 { display: "Barry Steans", email: "barry.steans@arcs.co.nz", joindate: "2019-02-07", phone: "0274335453"},
-{ display: "Amanda Black", email: "manda1979@gmail.com", joindate: "2019-02-25", phone: "0212932137"}
+{ display: "Amanda Black", email: "manda1979@gmail.com", joindate: "2019-02-25", phone: "0212932137"},
+{ display: "Oli James", email: "oli.m.james@gmail.com", joindate: "2019-03-31", phone: "0273232325"}
 ];
 
 
-var UserMaster = [
+var UserAccount = [
 { 
 	display: "Nicola Wilmot",	
 	Account: 0,
@@ -537,6 +538,15 @@ var UserMaster = [
 { 
 	display: "Amanda Black",	
 	Account: 35,
+	Card: 0,
+	UnlimitedStart: "",
+	UnlimitedEnd: "",
+	Active: 0,
+	Timetable: 0
+},
+{ 
+	display: "Oli James",	
+	Account: 0,
 	Card: 0,
 	UnlimitedStart: "",
 	UnlimitedEnd: "",
