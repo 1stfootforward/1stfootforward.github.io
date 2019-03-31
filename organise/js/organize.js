@@ -550,7 +550,7 @@ function editRecord(record) {
 
 function saveRecordGroup() {
 	var type = $("#recordGroupType").val();
-	var cost = $("#recordGroupAmount").val();
+	var cost = 12;
 	var date = moment( $("#recordGroupDate").val() , "DD-MM-YYYY").format("YYYY-MM-DD");
 	var paytypes = [];
 	$( ".removeable-dropdown-paytype" ).each(function( index ) {
