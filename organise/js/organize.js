@@ -786,7 +786,11 @@ function postRecord(i) {
 			        } else {
 			        	alert( "Saving Failed" );
 			        }
-            	});
+            	}).fail(function(xhr, status, error) {
+			        console.log(xhr);
+			        console.log(status);
+			        console.log(error);
+			    });
 }
 
 function getBookings() {
