@@ -40,6 +40,12 @@ function forward(num) {
 		$("#backButton").addClass("hide");
 	}
 
+	if(num == 1) {
+		$("#liveSection").removeClass("hide");
+		$("#backButton").removeClass("hide");
+		live();
+	}
+
 	if(num == 2) {
 		$("#userSection").removeClass("hide");
 		$("#backButton").removeClass("hide");
@@ -102,8 +108,21 @@ function back() {
 	Lists and Blocks
 
 ---------------------------------------------*/
+/* ------------------------------------------
 
+	Live
 
+---------------------------------------------*/
+
+function live() {
+	$(".live-date-input").val( moment() );
+}
+
+/* ------------------------------------------
+
+	Click Class
+
+---------------------------------------------*/
 
 function userlist() {
 	$("#usernumber").html(  UserMaster.length);
