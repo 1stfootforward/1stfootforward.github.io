@@ -754,7 +754,11 @@ function postBooking(i) {
 			        } else {
 			        	alert( "Saving Failed" );
 			        }
-            	});
+            	}).fail(function(xhr, status, error) {
+			        console.log(xhr);
+			        console.log(status);
+			        console.log(error);
+			    });
 }
 
 function postRecord(i) {
@@ -765,17 +769,17 @@ function postRecord(i) {
 		$.post( "https://organise.1stfootforward.co.nz/api/aprilrecord", 
 					{"april_record": {
 						"status":0, 
-						"user":BookingsMaster[i].user, 
-						"displayuser":BookingsMaster[i].displayuser, 
-						"classId":BookingsMaster[i].classId, 
-						"code":BookingsMaster[i].code, 
-						"type":BookingsMaster[i].type, 
-						"time":BookingsMaster[i].time, 
-						"displaytime":BookingsMaster[i].displaytime, 
-						"day":BookingsMaster[i].day, 
-						"date":BookingsMaster[i].day, 
-						"paytype":BookingsMaster[i].paytype,
-						"payamount":BookingsMaster[i].payamount,
+						"user":RecordMaster[i].user, 
+						"displayuser":RecordMaster[i].displayuser, 
+						"classId":RecordMaster[i].classId, 
+						"code":RecordMaster[i].code, 
+						"type":RecordMaster[i].type, 
+						"time":RecordMaster[i].time, 
+						"displaytime":RecordMaster[i].displaytime, 
+						"day":RecordMaster[i].day, 
+						"date":RecordMaster[i].day, 
+						"paytype":RecordMaster[i].paytype,
+						"payamount":RecordMaster[i].payamount,
 						"replaces":0}
 					}
 				).done(function( data ) { 
