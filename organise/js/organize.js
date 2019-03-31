@@ -748,8 +748,12 @@ function postBooking(i) {
 					}
 				).done(function( data ) { 
 		            console.log( data );  
-		            $(".modal-body").addClass("green-background");
-		            $(".spinner-border").addClass("hide");
+		            if(data.data.code == BookingsMaster[i].code || data.data.displayuser == BookingsMaster[i].displayuser ) {
+			            $(".modal-body").addClass("green-background");
+			            $(".spinner-border").addClass("hide");
+			        } else {
+			        	alert( "Saving Failed" );
+			        }
             	});
 }
 
