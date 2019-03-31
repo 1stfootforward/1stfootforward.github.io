@@ -577,7 +577,7 @@ function saveRecordIncome() {
 	$( ".user-dropdown" ).each(function( index ) {
 	  if( $( this ).val() != "" ){
 	  	user =  UserMaster[ $( this ).val() ];
-	  	RecordMaster[RecordMaster.length] = {status: 0, user: $( this ).val(), displayuser: user.display,	classId: 0, code: "INC" + (parseInt( cost )*100) + type, type: type, 	time: null, 	displaytime: null, day: date, created_at: "", paytype: type, payamount: cost};	
+	  	RecordMaster[RecordMaster.length] = {status: 0, user: $( this ).val(), displayuser: user.display,	classId: 0, code: "INC" + (parseInt( cost )*100) + type, type: type, 	time: "null", 	displaytime: "null", day: date, created_at: "", paytype: type, payamount: cost};	
 	  	postRecord(RecordMaster.length - 1);
 	  }
 	});
