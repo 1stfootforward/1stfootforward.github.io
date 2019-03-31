@@ -615,7 +615,7 @@ function saveRecordPT() {
 	forward(5);
 }
 
-function saveRecordPTNoShow {
+function saveRecordPTNoShow() {
 	var cost = $("#recordPTAmount").val();
 	var time = $("#recordPTTime").val().replace(':','');;
 	var date = moment( $("#recordPTDate").val() , "DD-MM-YYYY").format("YYYY-MM-DD");
