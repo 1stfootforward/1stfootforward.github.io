@@ -633,7 +633,7 @@ function savePurchase() {
 	var cost = $("#purchaseCost").val();
 	var date = moment( $("#purchaseDate").val() , "DD-MM-YYYY").format("YYYY-MM-DD");
 
-	RecordMaster[RecordMaster.length] = {status: 0, user: user, displayuser: UserMaster[user].display,	classId: "a", 	code: "PUR"+ (parseInt( cost )*100) + type, type: typeDesc, 	time: "", 	displaytime: "", day: date, created_at: "", paytype: "account", payamount: parseInt(cost)};	
+	RecordMaster[RecordMaster.length] = {status: 0, user: user, displayuser: UserMaster[user].display,	classId: 0, 	code: "PUR"+ (parseInt( cost )*100) + type, type: typeDesc, 	time: "", 	displaytime: "", day: date, created_at: "", paytype: "account", payamount: parseInt(cost)};	
 	postRecord(RecordMaster.length - 1);
 	back();
 	forward(5);
