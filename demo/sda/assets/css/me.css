@@ -281,3 +281,11 @@ footer {
 .btn {
     cursor: pointer;
 }
+
+#live-record-block {
+    background-color: green;
+}
+
+#live-booking-block {
+    background-color: blue;
+}

@@ -29,6 +29,7 @@ var insertedUserNumber = 0;
 
 function forward(num) {
 	$("#navSection").addClass("hide");
+	$("#liveSection").addClass("hide");
 	$("#classSection").addClass("hide");
 	$("#userSection").addClass("hide");
 	$("#bookingSection").addClass("hide");
@@ -115,8 +116,81 @@ function back() {
 ---------------------------------------------*/
 
 function live() {
-	$(".live-date-input").val( moment() );
+	var date = moment( $(".live-date-input").val() , "DD-MM-YYYY").format("YYYY-MM-DD");
+  	
+
+  	for (var i = BookingsMaster.length - 1; i >= 0; i--) {
+  		if(BookingsMaster[i].day == date) {
+  			liveBookingBlocks(i);
+  		}
+  	}
+
+  	for (var i = RecordMaster.length - 1; i >= 0; i--) {
+  		if(RecordMaster[i].day == date){
+  			liveRecordBlocks(i)
+  		}
+  	}
+
+	
 }
+
+$( "#live-date" ).change(function() {
+  	
+  	var date = moment( $(".live-date-input").val() , "DD-MM-YYYY").format("YYYY-MM-DD");
+  	
+
+  	for (var i = BookingsMaster.length - 1; i >= 0; i--) {
+  		if(BookingsMaster[i].day == date) {
+  			liveBookingBlocks(i);
+  		}
+  	}
+
+  	for (var i = RecordMaster.length - 1; i >= 0; i--) {
+  		if(RecordMaster[i].day == date){
+  			liveRecordBlocks(i)
+  		}
+  	}
+});
+
+function liveBookingBlocks(i) {
+
+		var copying = $("#reuseable-booking-block").clone();
+		copying.attr( "id", "booking-" +  i );
+		copying.attr("bookingid", i);
+		copying.attr("onClick", "editBooking(" + i + ")");
+		copying.removeClass("hide");
+		copying.addClass( classtocssWrangler(BookingsMaster[i].type) );
+		copying.addClass( "individual-booking-item" );
+		// copying.attr( "classScheduleID", ClassSchedule[i].id );
+		// copying.addClass( ClassSchedule[i].class );
+		copying.children("div").children("div").children("div").children( ".display-name" ).html(BookingsMaster[i].displayuser  );
+		copying.children("div").children("div").children( ".display-code" ).html(BookingsMaster[i].code  );
+		copying.children("div").children("div").children("div").children( ".display-date" ).html( dateWrangler(BookingsMaster[i].day)  );
+		copying.children("div").children("div").children( ".display-time" ).html(BookingsMaster[i].displaytime  );
+		// copying.children(".col-8").children( ".btn-groupclass" ).html( '<img class="avatar sm-logo mr-3" src="assets/img/theme/' + ClassSchedule[i].class + '.jpg"><b>' + ClassSchedule[i].class + '</b>'  );
+		
+		copying.appendTo( "#live-booking-block" );  
+
+}
+
+function liveRecordBlocks(i) {
+		var copying = $("#reuseable-record-block").clone();
+		copying.attr( "id", "record-" +  i );
+		copying.attr("recordid", i);
+		copying.removeClass("hide");
+		copying.addClass( classtocssWrangler(RecordMaster[i].type) );
+		// copying.attr( "classScheduleID", ClassSchedule[i].id );
+		copying.addClass( "individual-record" );
+		copying.attr("onClick", "editRecord(" + i + ")");
+		copying.children("div").children("div").children("div").children( ".display-name" ).html(RecordMaster[i].displayuser  );
+		copying.children("div").children("div").children( ".display-code" ).html(RecordMaster[i].code  );
+		copying.children("div").children("div").children("div").children( ".display-date" ).html( dateWrangler(RecordMaster[i].day)  );
+		copying.children("div").children("div").children( ".display-time" ).html(RecordMaster[i].displaytime  );
+		// copying.children(".col-8").children( ".btn-groupclass" ).html( '<img class="avatar sm-logo mr-3" src="assets/img/theme/' + ClassSchedule[i].class + '.jpg"><b>' + ClassSchedule[i].class + '</b>'  );
+		
+		copying.appendTo( "#live-record-block" );  
+}
+
 
 /* ------------------------------------------
 
