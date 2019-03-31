@@ -499,7 +499,7 @@ function addRecordIncome() {
 	copy.removeClass("hide");
 	copy.appendTo(".record-add");
 	fillDropDowns();
-	
+
 	copy = $("#reuseable-paytype-radio").clone();
 	copy.attr( "id", "" );
 	copy.addClass("removeable-dropdown-paytype");
@@ -647,7 +647,7 @@ function savePurchase() {
 	var cost = $("#purchaseCost").val();
 	var date = moment( $("#purchaseDate").val() , "DD-MM-YYYY").format("YYYY-MM-DD");
 
-	RecordMaster[RecordMaster.length] = {status: 0, user: user, displayuser: UserMaster[user].display,	classId: 0, 	code: "PUR"+ (parseInt( cost )*100) + type, type: typeDesc, 	time: "null", 	displaytime: "null", day: date, created_at: "", paytype: "account", payamount: parseInt(cost)};	
+	RecordMaster[RecordMaster.length] = {status: 0, user: user, displayuser: UserMaster[user].display,	classId: 0, 	code: "PUR"+ (parseInt( cost )*100) + type, type: type, 	time: 0, 	displaytime: "null", day: date, created_at: "", paytype: "account", payamount: parseInt(cost)};	
 	postRecord(RecordMaster.length - 1);
 	back();
 	forward(5);
