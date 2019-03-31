@@ -728,7 +728,7 @@ RecordMaster.sort( function(a, b) {
 
 
 function postBooking(i) {
-
+		$(".spinner-border").removeClass("hide");
 		$(".modal-body").removeClass("green-background");
 		$("#sendModal").modal();
 
@@ -749,6 +749,7 @@ function postBooking(i) {
 				).done(function( data ) { 
 		            console.log( data );  
 		            $(".modal-body").addClass("green-background");
+		            $(".spinner-border").addClass("hide");
             	});
 }
 

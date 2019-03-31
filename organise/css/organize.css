@@ -64,6 +64,10 @@
         background-color: green;
       }
 
+      .white {
+        color: white;
+      }
+
       .SET {
         border-color: #1e7145;
       }
