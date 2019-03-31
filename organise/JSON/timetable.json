@@ -1,176 +1,26 @@
 var ClassSchedule = [
 	{
 		id: 1,
-		day: 2,
-		time: 630,
-		displaytime: "6:30 am",
-		class: "BoxFit",
-		code: "TUE0630BOX",
-		place: "TD-2-0630"
-	},
-
-	{
-		id: 2,
-		day: 6,
-		time: 800,
-		displaytime: "8:00 am",
-		class: "S.E.T",
-		code: "SAT0800SET",
-		place: "TD-6-0800"
-	},
-
-	{
-		id: 3,
-		day: 6,
-		time: 830,
-		displaytime: "8:30 am",
-		class: "HIIT Camp",
-		code: "SAT0830HIT",
-		place: "TD-6-0830"
-	},
-
-	{
-		id: 4,
 		day: 1,
 		time: 900,
 		displaytime: "9:00 am",
-		class: "BoxFit",
-		code: "MON0900BOX",
+		class: "HIIT Camp",
+		code: "MON0900HIT",
 		place: "TD-1-0900"
 	},
 
 	{
-		id: 5,
-		day: 2,
-		time: 900,
-		displaytime: "9:00 am",
-		class: "CoreFit",
-		code: "TUE0900COR",
-		place: "TD-2-0900"
-	},
-
-	{
-		id: 6,
-		day: 3,
-		time: 900,
-		displaytime: "9:00 am",
-		class: "HIIT Camp",
-		code: "WED0900HIT",
-		place: "TD-3-0900"
-	},
-
-	{
-		id: 7,
-		day: 4,
-		time: 900,
-		displaytime: "9:00 am",
-		class: "S.E.T",
-		code: "THU0900SET",
-		place: "TD-4-0900"
-	},
-
-	{
-		id: 8,
-		day: 5,
-		time: 900,
-		displaytime: "9:00 am",
-		class: "Just Stretch",
-		code: "FRI0900STR",
-		place: "TD-5-0900"
-	},
-
-	{
-		id: 9,
-		day: 1,
-		time: 930,
-		displaytime: "9:30 am",
-		class: "HIIT Camp",
-		code: "MON0930HIT",
-		place: "TD-1-0930"
-	},
-
-	{
-		id: 10,
-		day: 2,
-		time: 930,
-		displaytime: "9:30 am",
-		class: "S.E.T",
-		code: "TUE0930SET",
-		place: "TD-2-0930"
-	},
-
-	{
-		id: 11,
-		day: 3,
-		time: 930,
-		displaytime: "9:30 am",
-		class: "CoreFit",
-		code: "WED0930COR",
-		place: "TD-3-0930"
-	},
-
-	{
-		id: 12,
-		day: 4,
-		time: 930,
-		displaytime: "9:30 am",
-		class: "HIIT Camp",
-		code: "THU0930HIT",
-		place: "TD-4-0930"
-	},
-
-	{
-		id: 13,
-		day: 5,
-		time: 930,
-		displaytime: "9:30 am",
-		class: "BoxFit",
-		code: "FRI0930BOX",
-		place: "TD-5-0930"
-	},
-
-	{
-		id: 14,
-		day: 2,
-		time: 1000,
-		displaytime: "10:00 am",
-		class: "Just Stretch",
-		code: "TUE1000STR",
-		place: "TD-2-1000"
-	},
-
-	{
-		id: 15,
-		day: 5,
-		time: 1000,
-		displaytime: "10:00 am",
-		class: "S.E.T",
-		code: "FRI1000SET",
-		place: "TD-5-1000"
-	},
-
-	{
-		id: 16,
+		id: 2,
 		day: 1,
 		time: 1530,
 		displaytime: "3:30 pm",
-		class: "BoxFit",
-		code: "MON1530BOX",
+		class: "S.E.T",
+		code: "MON1530SET",
 		place: "TD-1-1530"
 	},
 
 	{
-		id: 17,
-		day: 4,
-		time: 1530,
-		displaytime: "3:30 pm",
-		class: "HIIT Camp",
-		code: "THU1530HIT",
-		place: "TD-4-1530"
-	},
-
-	{
-		id: 18,
+		id: 3,
 		day: 1,
 		time: 1830,
 		displaytime: "6:30 pm",
@@ -180,37 +30,7 @@ var ClassSchedule = [
 	},
 
 	{
-		id: 19,
-		day: 2,
-		time: 1830,
-		displaytime: "6:30 pm",
-		class: "HIIT Camp",
-		code: "TUE1830HIT",
-		place: "TD-2-1830"
-	},
-
-	{
-		id: 20,
-		day: 3,
-		time: 1830,
-		displaytime: "6:30 pm",
-		class: "S.E.T",
-		code: "WED1830SET",
-		place: "TD-3-1830"
-	},
-
-	{
-		id: 21,
-		day: 4,
-		time: 1830,
-		displaytime: "6:30 pm",
-		class: "BoxFit",
-		code: "THU1830BOX",
-		place: "TD-4-1830"
-	},
-
-	{
-		id: 22,
+		id: 4,
 		day: 1,
 		time: 1900,
 		displaytime: "7:00 pm",
@@ -220,7 +40,57 @@ var ClassSchedule = [
 	},
 
 	{
-		id: 23,
+		id: 5,
+		day: 2,
+		time: 630,
+		displaytime: "6:30 am",
+		class: "BoxFit",
+		code: "TUE0630BOX",
+		place: "TD-2-0630"
+	},
+
+	{
+		id: 6,
+		day: 2,
+		time: 900,
+		displaytime: "9:00 am",
+		class: "S.E.T",
+		code: "TUE0900SET",
+		place: "TD-2-0900"
+	},
+
+	{
+		id: 7,
+		day: 2,
+		time: 930,
+		displaytime: "9:30 am",
+		class: "CoreFit",
+		code: "TUE0930COR",
+		place: "TD-2-0930"
+	},
+
+	{
+		id: 8,
+		day: 2,
+		time: 1000,
+		displaytime: "10:00 am",
+		class: "Just Stretch",
+		code: "TUE1000STR",
+		place: "TD-2-1000"
+	},
+
+	{
+		id: 9,
+		day: 2,
+		time: 1830,
+		displaytime: "6:30 pm",
+		class: "HIIT Camp",
+		code: "TUE1830HIT",
+		place: "TD-2-1830"
+	},
+
+	{
+		id: 10,
 		day: 2,
 		time: 1900,
 		displaytime: "7:00 pm",
@@ -230,12 +100,152 @@ var ClassSchedule = [
 	},
 
 	{
-		id: 24,
+		id: 11,
+		day: 3,
+		time: 900,
+		displaytime: "9:00 am",
+		class: "CoreFit",
+		code: "WED0900COR",
+		place: "TD-3-0900"
+	},
+
+	{
+		id: 12,
+		day: 3,
+		time: 930,
+		displaytime: "9:30 am",
+		class: "HIIT Camp",
+		code: "WED0930HIT",
+		place: "TD-3-0930"
+	},
+
+	{
+		id: 13,
+		day: 3,
+		time: 1830,
+		displaytime: "6:30 pm",
+		class: "S.E.T",
+		code: "WED1830SET",
+		place: "TD-5-1830"
+	},
+
+	{
+		id: 14,
 		day: 3,
 		time: 1900,
 		displaytime: "7:00 pm",
 		class: "CoreFit",
 		code: "WED1900COR",
 		place: "TD-3-1900"
+	},
+
+	{
+		id: 15,
+		day: 4,
+		time: 900,
+		displaytime: "9:00 am",
+		class: "HIIT Camp",
+		code: "THU0900HIT",
+		place: "TD-4-0900"
+	},
+
+	{
+		id: 16,
+		day: 4,
+		time: 930,
+		displaytime: "9:30 am",
+		class: "S.E.T",
+		code: "THU0930SET",
+		place: "TD-4-0930"
+	},
+
+	{
+		id: 17,
+		day: 4,
+		time: 1530,
+		displaytime: "3:30 pm",
+		class: "CoreFit",
+		code: "THU1530COR",
+		place: "TD-4-1530"
+	},
+
+	{
+		id: 18,
+		day: 4,
+		time: 1830,
+		displaytime: "6:30 pm",
+		class: "BoxFit",
+		code: "THU1830BOX",
+		place: "TD-4-1830"
+	},
+
+	{
+		id: 19,
+		day: 4,
+		time: 1900,
+		displaytime: "7:00 pm",
+		class: "BoxFit",
+		code: "THU1900BOX",
+		place: "TD-4-1900"
+	},
+
+	{
+		id: 20,
+		day: 5,
+		time: 900,
+		displaytime: "9:00 am",
+		class: "BoxFit",
+		code: "FRI0900BOX",
+		place: "TD-5-900"
+	},
+
+	{
+		id: 21,
+		day: 5,
+		time: 930,
+		displaytime: "9:30 am",
+		class: "Just Stretch",
+		code: "FRI0930STR",
+		place: "TD-5-0930"
+	},
+
+	{
+		id: 22,
+		day: 5,
+		time: 1000,
+		displaytime: "10:00 am",
+		class: "Just Stretch",
+		code: "FRI1000STR",
+		place: "TD-5-1000"
+	},
+
+	{
+		id: 23,
+		day: 6,
+		time: 800,
+		displaytime: "8:00 am",
+		class: "S.E.T",
+		code: "SAT0800SET",
+		place: "TD-6-0800"
+	},
+
+	{
+		id: 24,
+		day: 6,
+		time: 830,
+		displaytime: "8:30 am",
+		class: "HIIT Camp",
+		code: "SAT0830HIT",
+		place: "TD-6-0830"
+	},
+
+	{
+		id: 25,
+		day: 6,
+		time: 900,
+		displaytime: "9:00 am",
+		class: "BoxFit",
+		code: "SAT0900BOX",
+		place: "TD-6-0900"
 	}
 ]
