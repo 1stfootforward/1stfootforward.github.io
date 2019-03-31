@@ -498,6 +498,13 @@ function addRecordIncome() {
 	copy.attr( "id", "form" );
 	copy.removeClass("hide");
 	copy.appendTo(".record-add");
+	fillDropDowns();
+	
+	copy = $("#reuseable-paytype-radio").clone();
+	copy.attr( "id", "" );
+	copy.addClass("removeable-dropdown-paytype");
+	copy.removeClass("hide");
+	copy.insertAfter(".removeable-dropdown" );
 }
 
 function addRecordPT() {
@@ -506,6 +513,13 @@ function addRecordPT() {
 	copy.attr( "id", "form" );
 	copy.removeClass("hide");
 	copy.appendTo(".record-add");
+	fillDropDowns();
+
+	copy = $("#reuseable-paytype-radio").clone();
+	copy.attr( "id", "" );
+	copy.addClass("removeable-dropdown-paytype");
+	copy.removeClass("hide");
+	copy.insertAfter(".removeable-dropdown" );
 }
 
 function addRecordGroup() {
