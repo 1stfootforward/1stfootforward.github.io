@@ -26,6 +26,8 @@ var selectedBookings = [];
 var saveReady = 0;
 var insertedUserNumber = 0;
 
+var editingBooking = 0;
+
 
 function forward(num) {
 	$("#navSection").addClass("hide");
@@ -513,6 +515,8 @@ function addBookingAnotherUser() {
 }
 
 function editBooking(booking) {
+	editingBooking = booking;
+
 	$(".individual-booking-item").addClass("hide");
  	$(".booking-add").removeClass("hide");
  	breadCrumbs[ breadCrumbs.length ] = "individual-booking-item";
@@ -975,6 +979,27 @@ function postBooking(i) {
 						"day":BookingsMaster[i].day, 
 						"date":BookingsMaster[i].day, 
 						"replaces":0}
+					}
+				).done(function( data ) { 
+		            console.log( data );  
+		            if(data.data.code == BookingsMaster[i].code || data.data.displayuser == BookingsMaster[i].displayuser ) {
+			            $(".modal-body").addClass("green-background");
+			            $(".spinner-border").addClass("hide");
+			        } else {
+			        	alert( "Saving Failed" );
+			        }
+            	}).fail(function(xhr, status, error) {
+			        console.log(xhr);
+			        console.log(status);
+			        console.log(error);
+			    });
+}
+
+function cancelBooking(i) {		
+
+		$.patch( "https://organise.1stfootforward.co.nz/api/aprilbooking/" + editingBooking, 
+					{"april_booking": {
+						"status":3 }
 					}
 				).done(function( data ) { 
 		            console.log( data );  
