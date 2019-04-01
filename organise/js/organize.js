@@ -511,8 +511,8 @@ function editBooking(booking) {
 
 	copy.appendTo(".booking-add");
 	$(".unchanged-status").html(statusWrangler(BookingsMaster[booking].status));
-	$(".unchanged-created").html( moment( BookingsMaster[booking].inserted_at)add(13,  "hours").calendar() );
-	$(".unchanged-changed").html( moment( BookingsMaster[booking].updated_at)add(13,  "hours").calendar() );
+	$(".unchanged-created").html( moment( BookingsMaster[booking].inserted_at).add(13,  "hours").calendar() );
+	$(".unchanged-changed").html( moment( BookingsMaster[booking].updated_at).add(13,  "hours").calendar() );
 	$(".unchanged-date").html(BookingsMaster[booking].day);
 	$(".unchanged-type").html( classCodeDisplayWrangler(booking) );
 	$(".unchanged-user").html(BookingsMaster[booking].displayuser);
