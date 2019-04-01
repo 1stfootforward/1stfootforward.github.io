@@ -558,22 +558,52 @@ function saveBooking() {
 	
 }
 
+function saveBookingEdit() {
+	var pClass = ClassSchedule[ $(".booking-class-input").val() ];
+	car changed = false;
+	
+	if( $(".booking-date-input-edit").val() != "") {
+		var date = moment( $(".booking-date-input-edit").val() , "DD-MM-YYYY").format("YYYY-MM-DD");
+		BookingsMaster[editingBooking] = { day: date};
+		changed = true;
+	}
+
+	if( $(".booking-class-input-edit").val() != "") {
+		var clas = ClassSchedule[ $(".booking-class-input-edit").val() ];
+		BookingsMaster[editingBooking] = {classId: parseInt( $(".booking-class-input-edit").val()), 	code: clas.code, type: clas.class, 		time: clas.time, 	displaytime: clas.displaytime};
+		changed = true;
+	}
+
+
+	if(changed) {
+	 	postBooking(BookingsMaster.length - 1);
+	 	back();back();
+		forward(4);
+	} else {
+		back();
+	}
+	
+	
+	
+	
+}
+
 function savePTBooking() {
 	
 	var date = moment( $(".bookingpt-date-input").val() , "DD-MM-YYYY").format("YYYY-MM-DD");
 	var day = moment( $(".bookingpt-date-input").val() , "DD-MM-YYYY").format("d");
 	var dayCode = moment( $(".bookingpt-date-input").val() , "DD-MM-YYYY").format("ddd");
 	
-	var time =  $(".bookingpt-date-input").val();
-	var timeCode =  moment( $(".bookingpt-date-input").val() ).format("HH");
-	var timeCode2 =  moment( $(".bookingpt-date-input").val() ).format("MM");
+	var time =  $(".bookingpt-time-input").val();
+	var timeCode =  moment( $(".bookingpt-time-input").val() ).format("HH");
+	var timeCode2 =  moment( $(".bookingpt-time-input").val() ).format("MM");
 	var code = dayCode + timeCode + timeCode2 + "PT0";
 	var user = UserMaster[ $(".user-dropdown").val() ] ;
 
 	$( ".user-dropdown" ).each(function( index ) {
 	  if( $( this ).val() != "" ){
 	  	user =  UserMaster[ $( this ).val() ];
-	  	BookingsMaster[BookingsMaster.length] = {status: 0, user: parseInt($(".user-dropdown").val()), displayuser: user.display,	classId: 0, 	code: code, type: "PT Session", 		time: parseInt(timeCode + timeCode2), 	displaytime: time, day: date, created_at: ""};
+	  	BookingsMaster[BookingsMaster.length] = {status: 0, user: parseInt($(".user-dropdown").val()), displayuser: user.display,	classId: 0, 	code: code, type: "PT Session", 		time: parseInt(timeCode + timeCode2), 	displaytime: time, day: date, date: date, created_at: ""};
 	  	postBooking(BookingsMaster.length - 1);
 	  }
 
