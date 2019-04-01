@@ -635,6 +635,8 @@ function savePTBooking() {
 	$( ".user-dropdown" ).each(function( index ) {
 	  if( $( this ).val() != "" ){
 	  	user =  UserMaster[ $( this ).val() ];
+	  	console.log(parseInt(timeCode + timeCode2));
+	  	console.log(time);
 	  	BookingsMaster[BookingsMaster.length] = {status: 0, user: parseInt($(".user-dropdown").val()), displayuser: user.display,	classId: 0, 	code: code, type: "PT Session", 		time: parseInt(timeCode + timeCode2), 	displaytime: time, day: date, date: date, created_at: ""};
 	  	postBooking(BookingsMaster.length - 1);
 	  }
