@@ -567,13 +567,13 @@ function savePTBooking() {
 	var time =  $(".bookingpt-date-input").val();
 	var timeCode =  moment( $(".bookingpt-date-input").val() ).format("HH");
 	var timeCode2 =  moment( $(".bookingpt-date-input").val() ).format("MM");
-	var code = dayCode + timecode + timecode2 + "PT0";
+	var code = dayCode + timeCode + timeCode2 + "PT0";
 	var user = UserMaster[ $(".user-dropdown").val() ] ;
 
 	$( ".user-dropdown" ).each(function( index ) {
 	  if( $( this ).val() != "" ){
 	  	user =  UserMaster[ $( this ).val() ];
-	  	BookingsMaster[BookingsMaster.length] = {status: 0, user: parseInt($(".user-dropdown").val()), displayuser: user.display,	classId: 0, 	code: code, type: "PT Session", 		time: parseInt(timecode + timecode2), 	displaytime: time, day: date, created_at: ""};
+	  	BookingsMaster[BookingsMaster.length] = {status: 0, user: parseInt($(".user-dropdown").val()), displayuser: user.display,	classId: 0, 	code: code, type: "PT Session", 		time: parseInt(timeCode + timeCode2), 	displaytime: time, day: date, created_at: ""};
 	  	postBooking(BookingsMaster.length - 1);
 	  }
 
