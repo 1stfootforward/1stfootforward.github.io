@@ -496,7 +496,7 @@ function addPTBooking() {
 	fillDropDowns();
 
  	$(".removeable-form").remove();
- 	copy = $("#bookingGroup").clone();
+ 	copy = $("#bookingPTGroup").clone();
  	copy.addClass("removeable-form");
 	copy.attr( "id", "form" );
 	copy.removeClass("hide");
@@ -536,6 +536,25 @@ function editBooking(booking) {
 }
 
 function saveBooking() {
+	var pClass = ClassSchedule[ $(".booking-class-input").val() ];
+	var date = moment( $(".booking-date-input").val() , "DD-MM-YYYY").format("YYYY-MM-DD");
+	var user = UserMaster[ $(".user-dropdown").val() ] ;
+
+	$( ".user-dropdown" ).each(function( index ) {
+	  if( $( this ).val() != "" ){
+	  	user =  UserMaster[ $( this ).val() ];
+	  	BookingsMaster[BookingsMaster.length] = {status: 0, user: parseInt($(".user-dropdown").val()), displayuser: user.display,	classId: parseInt( $(".booking-class-input").val()), 	code: pClass.code, type: pClass.class, 		time: pClass.time, 	displaytime: pClass.displaytime, day: date, created_at: ""};
+	  	postBooking(BookingsMaster.length - 1);
+	  }
+
+	});
+	
+	back();back();
+	forward(4);
+	
+}
+
+function savePTBooking() {
 	var pClass = ClassSchedule[ $(".booking-class-input").val() ];
 	var date = moment( $(".booking-date-input").val() , "DD-MM-YYYY").format("YYYY-MM-DD");
 	var user = UserMaster[ $(".user-dropdown").val() ] ;
