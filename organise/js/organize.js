@@ -602,7 +602,8 @@ function saveBookingEdit() {
 	if( $(".booking-class-input-edit").val() != "") {
 		var clas = ClassSchedule[ $(".booking-class-input-edit").val() ];
 		BookingsMaster[editingBooking].classId = parseInt( $(".booking-class-input-edit").val());
-		BookingsMaster[editingBooking].code = code: clas.code, type: clas.class; 		
+		BookingsMaster[editingBooking].code = clas.code; 
+		BookingsMaster[editingBooking].type = clas.class; 		
 		BookingsMaster[editingBooking].time = clas.time; 
 		BookingsMaster[editingBooking].displaytime = clas.displaytime;
 		changed = true;
