@@ -568,7 +568,6 @@ function editPTBooking(booking) {
 	$(".PTunchanged-changed").html( moment( BookingsMaster[booking].updated_at).add(13,  "hours").calendar() );
 	$(".PTunchanged-date").html(BookingsMaster[booking].day);
 	$(".PTunchanged-time").html( BookingsMaster[booking].time );
-	$(".PTunchanged-user").html(BookingsMaster[booking].displayuser);
 }
 
 function saveBooking() {
@@ -613,11 +612,7 @@ function saveBookingEdit() {
 		forward(4);
 	} else {
 		back();
-	}
-	
-	
-	
-	
+	}	
 }
 
 function savePTBooking() {
@@ -646,6 +641,33 @@ function savePTBooking() {
 	back();back();
 	forward(4);
 	
+}
+
+function savePTBookingEdit() {
+	var pClass = ClassSchedule[ $(".booking-class-input").val() ];
+	var changed = false;
+	
+	if( $(".bookingpt-date-input-edit").val() != "") {
+		var date = moment( $(".bookingpt-date-input-edit").val() , "DD-MM-YYYY").format("YYYY-MM-DD");
+		BookingsMaster[editingBooking] = { day: date};
+		changed = true;
+	}
+
+	if( $(".bookingpt-time-input-edit").val() != "") {
+		var time =  $(".bookingpt-time-input-edit").val();
+		console.log(time);
+		BookingsMaster[editingBooking] = {	time: parseInt(timeCode + timeCode2), 	displaytime: time};
+		changed = true;
+	}
+
+
+	if(changed) {
+	 	postBooking(BookingsMaster.length - 1);
+	 	back();back();
+		forward(4);
+	} else {
+		back();
+	}	
 }
 
 
