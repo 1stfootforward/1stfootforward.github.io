@@ -595,13 +595,16 @@ function saveBookingEdit() {
 	
 	if( $(".booking-date-input-edit").val() != "") {
 		var date = moment( $(".booking-date-input-edit").val() , "DD-MM-YYYY").format("YYYY-MM-DD");
-		BookingsMaster[editingBooking] = { day: date};
+		BookingsMaster[editingBooking].day = date;
 		changed = true;
 	}
 
 	if( $(".booking-class-input-edit").val() != "") {
 		var clas = ClassSchedule[ $(".booking-class-input-edit").val() ];
-		BookingsMaster[editingBooking] = {classId: parseInt( $(".booking-class-input-edit").val()), 	code: clas.code, type: clas.class, 		time: clas.time, 	displaytime: clas.displaytime};
+		BookingsMaster[editingBooking].classId = parseInt( $(".booking-class-input-edit").val());
+		BookingsMaster[editingBooking].code = code: clas.code, type: clas.class; 		
+		BookingsMaster[editingBooking].time = clas.time; 
+		BookingsMaster[editingBooking].displaytime = clas.displaytime;
 		changed = true;
 	}
 
@@ -649,14 +652,15 @@ function savePTBookingEdit() {
 	
 	if( $(".bookingpt-date-input-edit").val() != "") {
 		var date = moment( $(".bookingpt-date-input-edit").val() , "DD-MM-YYYY").format("YYYY-MM-DD");
-		BookingsMaster[editingBooking] = { day: date};
+		BookingsMaster[editingBooking].day = date;
 		changed = true;
 	}
 
 	if( $(".bookingpt-time-input-edit").val() != "") {
 		var time =  $(".bookingpt-time-input-edit").val();
 		console.log(time);
-		BookingsMaster[editingBooking] = {	time: parseInt(timeCode + timeCode2), 	displaytime: time};
+		BookingsMaster[editingBooking].time = parseInt(timeCode + timeCode2); 	
+		BookingsMaster[editingBooking].displaytime = time;
 		changed = true;
 	}
 
