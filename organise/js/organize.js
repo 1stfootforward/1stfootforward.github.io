@@ -842,12 +842,14 @@ function statusWrangler(status) {
 	    css = "Replaced";
 	    break;
 	  case 3:
-	     css = "Cancelled by Heather";
+	    css = "Cancelled by Heather";
+	    break;
 	  case 4:
 	    css = "Cancelled by User";
 	    break;
 	  case 5:
 	    css = "Edited in Place";
+	    break;
 	  case 6:
 	    css = "Done";
 	}
