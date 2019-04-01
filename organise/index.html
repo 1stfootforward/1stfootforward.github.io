@@ -261,7 +261,7 @@
               <option value="">Choose...</option>
             </select>
             
-            <label >User</label>
+            <label class="insert-user-dropdown">User</label>
             <button class="btn btn-secondary btn-block insert-another-user" onClick="addBookingAnotherUser()">Add User</button> 
             <br />
             <div class="card p-2">
@@ -272,12 +272,12 @@
         <div id="bookingPTGroup" class="hide">
             
             <label>Date</label>
-            <input class="bookingpt-date-input custom-select w-100" type="text" data-field="date" readonly>
+            <input class="bookingptpt-date-input custom-select w-100" type="text" data-field="date" readonly>
             <label>Time</label>
-            <input class="bookingpt-date-input custom-select d-block w-100" type="text" data-field="time" readonly>
-            <label >User</label>
+            <input class="bookingptpt-date-input custom-select d-block w-100" type="text" data-field="time" readonly>
+            <label class="insert-user-dropdown">User</label>
              
-            <br class="insert-another-user" />
+            <br />
             <div class="card p-2">
               <button class="btn btn-primary" href="#" onClick="savePTBooking()">Save</button>  
             </div>
@@ -303,7 +303,7 @@
             
             <label >User</label>
             <h6 class="unchanged-user insert-user-dropdown"></h6>
-            <button class="btn btn-secondary btn-block insert-another-user" onClick="addBookingAnotherUser()">Add User</button> 
+            <button class="btn btn-secondary btn-block " onClick="addBookingAnotherUser()">Add User</button> 
             <br />
             <br />
             <div class="card p-2">

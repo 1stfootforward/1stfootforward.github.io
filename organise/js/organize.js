@@ -555,8 +555,9 @@ function saveBooking() {
 }
 
 function savePTBooking() {
-	var pClass = ClassSchedule[ $(".booking-class-input").val() ];
-	var date = moment( $(".booking-date-input").val() , "DD-MM-YYYY").format("YYYY-MM-DD");
+	
+	var date = moment( $(".bookingpt-date-input").val() , "DD-MM-YYYY").format("YYYY-MM-DD");
+	var time =  $(".bookingpt-date-input").val();
 	var user = UserMaster[ $(".user-dropdown").val() ] ;
 
 	$( ".user-dropdown" ).each(function( index ) {
