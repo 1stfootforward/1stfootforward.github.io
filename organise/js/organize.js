@@ -560,7 +560,7 @@ function saveBooking() {
 
 function saveBookingEdit() {
 	var pClass = ClassSchedule[ $(".booking-class-input").val() ];
-	car changed = false;
+	var changed = false;
 	
 	if( $(".booking-date-input-edit").val() != "") {
 		var date = moment( $(".booking-date-input-edit").val() , "DD-MM-YYYY").format("YYYY-MM-DD");
