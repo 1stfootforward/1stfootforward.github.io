@@ -542,7 +542,7 @@ function editBooking(booking) {
 	$(".unchanged-created").html( moment( BookingsMaster[booking].inserted_at).add(13,  "hours").calendar() );
 	$(".unchanged-changed").html( moment( BookingsMaster[booking].updated_at).add(13,  "hours").calendar() );
 	$(".unchanged-date").html(BookingsMaster[booking].day);
-	$(".unchanged-type").html( classCodeDisplayWrangler(booking) );
+	$(".unchanged-type").html( classCodeDisplayWrangler(BookingsMaster[booking].classId) );
 	$(".unchanged-user").html(BookingsMaster[booking].displayuser);
 }
 
