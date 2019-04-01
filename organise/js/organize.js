@@ -563,7 +563,7 @@ function savePTBooking() {
 	var time =  $(".bookingpt-date-input").val();
 	var timeCode =  moment( $(".bookingpt-date-input").val() ).format("HH");
 	var timeCode2 =  moment( $(".bookingpt-date-input").val() ).format("MM");
-	var code = daycode + timecode + timecode2 + "PT0";
+	var code = dayCode + timecode + timecode2 + "PT0";
 	var user = UserMaster[ $(".user-dropdown").val() ] ;
 
 	$( ".user-dropdown" ).each(function( index ) {
