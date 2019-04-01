@@ -635,7 +635,7 @@ function savePTBooking() {
 	  	user =  UserMaster[ $( this ).val() ];
 
 	  	BookingsMaster[BookingsMaster.length] = {status: 0, user: parseInt($(".user-dropdown").val()), displayuser: user.display,	classId: 0, 	code: code, type: "PT Session", 		time: time, 	displaytime: time, day: date, date: date, created_at: ""};
-	  	postBooking(BookingsMaster.length - 1);
+	  	patchBooking(BookingsMaster.length - 1);
 	  }
 
 	});
@@ -665,7 +665,7 @@ function savePTBookingEdit() {
 
 
 	if(changed) {
-	 	postBooking(BookingsMaster.length - 1);
+	 	patchBooking(BookingsMaster.length - 1);
 	 	back();back();
 		forward(4);
 	} else {
@@ -1084,7 +1084,7 @@ function postBooking(i) {
 			    });
 }
 
-function cancelBooking(i) {		
+function cancelBooking() {		
 
 		// $.put( "https://organise.1stfootforward.co.nz/api/aprilbooking/" + editingBooking, 
 		// 			{"april_booking": {
@@ -1107,6 +1107,43 @@ function cancelBooking(i) {
 		var data = {"april_booking": {
 						"status":3 }
 					};
+
+		$.ajax('https://organise.1stfootforward.co.nz/api/aprilbooking/' + editingBooking, {
+		    method: 'PATCH',
+		    data: data,
+			dataType: 'json'
+		});
+}
+
+function patchBooking() {		
+
+		// $.put( "https://organise.1stfootforward.co.nz/api/aprilbooking/" + editingBooking, 
+		// 			{"april_booking": {
+		// 				"status":3 }
+		// 			}
+		// 		).done(function( data ) { 
+		//             console.log( data );  
+		//             if(data.data.code == BookingsMaster[i].code || data.data.displayuser == BookingsMaster[i].displayuser ) {
+		// 	            $(".modal-body").addClass("green-background");
+		// 	            $(".spinner-border").addClass("hide");
+		// 	        } else {
+		// 	        	alert( "Saving Failed" );
+		// 	        }
+  //           	}).fail(function(xhr, status, error) {
+		// 	        console.log(xhr);
+		// 	        console.log(status);
+		// 	        console.log(error);
+		// 	    });
+
+		var data = {"april_booking": {
+						"classId":BookingsMaster[i].classId, 
+						"code":BookingsMaster[i].code, 
+						"type":BookingsMaster[i].type, 
+						"time":BookingsMaster[i].time, 
+						"displaytime":BookingsMaster[i].displaytime, 
+						"day":BookingsMaster[i].day, 
+						"date":BookingsMaster[i].day}
+					}
 
 		$.ajax('https://organise.1stfootforward.co.nz/api/aprilbooking/' + editingBooking, {
 		    method: 'PATCH',
