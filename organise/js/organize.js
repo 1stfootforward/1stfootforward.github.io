@@ -487,6 +487,22 @@ function addBooking() {
 	copy.appendTo(".booking-add");
 }
 
+function addPTBooking() {
+	$(".individual-booking-item").addClass("hide");
+ 	$(".booking-add").removeClass("hide");
+ 	breadCrumbs[ breadCrumbs.length ] = "individual-booking-item";
+ 	breadCrumbsRemove[ breadCrumbsRemove.length ] = "removeable-form";
+
+	fillDropDowns();
+
+ 	$(".removeable-form").remove();
+ 	copy = $("#bookingGroup").clone();
+ 	copy.addClass("removeable-form");
+	copy.attr( "id", "form" );
+	copy.removeClass("hide");
+	copy.appendTo(".booking-add");
+}
+
 function addBookingAnotherUser() {
 	insertedUserNumber++;
 	var copy = $("#reuseable-user-dropdown").clone();

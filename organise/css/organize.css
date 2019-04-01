@@ -98,8 +98,9 @@
       }
 
       .Cancelled {
-        background-color: #FBCFCF!important;
+        background-color: #FF3485!important;
         border: 6px solid red!important;
+        color: white;
       }
 
       label {

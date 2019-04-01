@@ -195,6 +195,9 @@
       <div class="card p-2">
         <button class="btn btn-primary" href="#" onClick="addBooking()">Add Booking</button>  
       </div>
+      <div class="card p-2">
+        <button class="btn btn-primary" href="#" onClick="addPTBooking()">Add PT Session</button>  
+      </div>
       <ul id="booking-block" class="list-group mb-3">
             <!-- User list here -->
       </ul>   
@@ -261,6 +264,20 @@
             <label >User</label>
             <button class="btn btn-secondary btn-block insert-another-user" onClick="addBookingAnotherUser()">Add User</button> 
             <br />
+            <div class="card p-2">
+              <button class="btn btn-primary" href="#" onClick="saveBooking()">Save</button>  
+            </div>
+        </div>
+
+        <div id="bookingPTGroup" class="hide">
+            
+            <label>Date</label>
+            <input class="bookingpt-date-input custom-select w-100" type="text" data-field="date" readonly>
+            <label>Time</label>
+            <input class="bookingpt-date-input custom-select d-block w-100" type="text" data-field="time" readonly>
+            <label >User</label>
+             
+            <br class="insert-another-user" />
             <div class="card p-2">
               <button class="btn btn-primary" href="#" onClick="saveBooking()">Save</button>  
             </div>
