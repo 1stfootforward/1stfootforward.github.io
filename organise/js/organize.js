@@ -1087,7 +1087,7 @@ function postBooking(i) {
 
 function cancelBooking(i) {		
 
-		$.patch( "https://organise.1stfootforward.co.nz/api/aprilbooking/" + editingBooking, 
+		$.put( "https://organise.1stfootforward.co.nz/api/aprilbooking/" + editingBooking, 
 					{"april_booking": {
 						"status":3 }
 					}
