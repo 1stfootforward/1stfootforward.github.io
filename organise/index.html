@@ -251,6 +251,30 @@
         <div id="bookingGroup" class="hide">
             
             <label>Date</label>
+            <input class="booking-date-input custom-select w-100" type="text" data-field="date" readonly>
+           
+            <label>Class</label>
+            <select class="booking-class-input custom-select d-block w-100 class-dropdown" required>
+              <option value="">Choose...</option>
+            </select>
+            
+            <label >User</label>
+            <button class="btn btn-secondary btn-block insert-another-user" onClick="addBookingAnotherUser()">Add User</button> 
+            <br />
+            <div class="card p-2">
+              <button class="btn btn-primary" href="#" onClick="saveBooking()">Save</button>  
+            </div>
+        </div>
+
+
+        <div id="bookingGroupEdit" class="hide">
+            <label>Status</label>
+            <h6 class="unchanged-status"></h6>
+            <label>Created</label>
+            <h6 class="unchanged-created"></h6>
+            <label>Changed</label>
+            <h6 class="unchanged-changed"></h6>
+            <label>Date</label>
             <h6 class="unchanged-date"></h6>
             <input class="booking-date-input custom-select w-100" type="text" data-field="date" readonly>
            
@@ -265,7 +289,10 @@
             <button class="btn btn-secondary btn-block insert-another-user" onClick="addBookingAnotherUser()">Add User</button> 
             <br />
             <div class="card p-2">
-              <button class="btn btn-primary" href="#" onClick="saveBooking()">Save</button>  
+              <button class="btn btn-danger" href="#" onClick="saveBookingCancel()">Cancel Booking</button>  
+            </div>
+            <div class="card p-2">
+              <button class="btn btn-primary" href="#" onClick="saveBookingEdit()">Save Changes</button>  
             </div>
         </div>
 
@@ -484,7 +511,7 @@
 <script src="js/moment.js"></script>
 <script src="JSON/user.json"></script>
 <script src="JSON/timetable.json"></script>
-<!-- <script src="JSON/booking.json"></script> -->
+<script src="JSON/booking.json"></script>
 <script src="js/organize.js"></script>
 
 

@@ -504,12 +504,15 @@ function editBooking(booking) {
  	fillDropDowns();
 
 	$("#form").remove();
- 	copy = $("#bookingGroup").clone();
+ 	copy = $("#bookingGroupEdit").clone();
 	copy.attr( "id", "form" );
 	copy.addClass("removeable-form");
 	copy.removeClass("hide");
-	copy.appendTo(".booking-add");
 
+	copy.appendTo(".booking-add");
+	$(".unchanged-status").html(statusWrangler(BookingsMaster[booking].status));
+	$(".unchanged-created").html( moment( BookingsMaster[booking].inserted_at).format() );
+	$(".unchanged-changed").html( moment( BookingsMaster[booking].updated_at).format() );
 	$(".unchanged-date").html(BookingsMaster[booking].day);
 	$(".unchanged-type").html( classCodeDisplayWrangler(booking) );
 	$(".unchanged-user").html(BookingsMaster[booking].displayuser);
@@ -571,7 +574,7 @@ function recordBlocks(i) {
 $( ".individual-record" ).click(function() {
 
   var pickedrecord = RecordMaster[ parseInt( $(this).attr("recordid") ) ]
-
+  console.log(pickedrecord.id);
 
 });
 
@@ -819,6 +822,34 @@ function classtocssWrangler(messy) {
 	  case "Just Stretch":
 	     css = "STRETCH";
 	   
+	}
+
+	return css;
+}
+
+function statusWrangler(status) {
+
+	var css = status;
+
+	switch (status) {
+	  case 0:
+	    css = "Normal";
+	    break;
+	  case 1:
+	    css = "Flagged";
+	    break;
+	  case 2:
+	    css = "Replaced";
+	    break;
+	  case 3:
+	     css = "Cancelled by Heather";
+	  case 4:
+	    css = "Cancelled by User";
+	    break;
+	  case 5:
+	    css = "Edited in Place";
+	  case 6:
+	    css = "Done";
 	}
 
 	return css;
