@@ -97,6 +97,11 @@
         background-color: lightgrey!important;
       }
 
+      .Cancelled {
+        background-color: FBCFCF!important;
+        border-right: 6px solid red!important;
+      }
+
       label {
         font-weight: 500;
         margin: 3px;

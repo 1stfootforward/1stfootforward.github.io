@@ -452,6 +452,7 @@ function bookingBlocks(i) {
 		copying.removeClass("hide");
 		copying.addClass( classtocssWrangler(BookingsMaster[i].type) );
 		copying.addClass( "individual-booking-item" );
+		copying.addClass( statusCSSWrangler( BookingsMaster[i].status ) );
 		// copying.attr( "classScheduleID", ClassSchedule[i].id );
 		// copying.addClass( ClassSchedule[i].class );
 		copying.children("div").children("div").children("div").children( ".display-name" ).html(BookingsMaster[i].displayuser  );
@@ -849,6 +850,36 @@ function statusWrangler(status) {
 	    break;
 	  case 5:
 	    css = "Edited in Place";
+	    break;
+	  case 6:
+	    css = "Done";
+	}
+
+	return css;
+}
+
+function statusCSSWrangler(status) {
+
+	var css = status;
+
+	switch (status) {
+	  case 0:
+	    css = "Normal";
+	    break;
+	  case 1:
+	    css = "Flagged";
+	    break;
+	  case 2:
+	    css = "Replaced";
+	    break;
+	  case 3:
+	    css = "Cancelled";
+	    break;
+	  case 4:
+	    css = "Cancelled";
+	    break;
+	  case 5:
+	    css = "Edited";
 	    break;
 	  case 6:
 	    css = "Done";
