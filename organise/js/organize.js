@@ -450,7 +450,14 @@ function bookingBlocks(i) {
 		var copying = $("#reuseable-booking-block").clone();
 		copying.attr( "id", "booking-" +  i );
 		copying.attr("bookingid", i);
-		copying.attr("onClick", "editBooking(" + i + ")");
+		
+
+		if(BookingsMaster[i].type == "PT Session"){
+			copying.attr("onClick", "editPTBooking(" + i + ")");
+		} else {
+			copying.attr("onClick", "editBooking(" + i + ")");
+		}
+
 		copying.removeClass("hide");
 		copying.addClass( classtocssWrangler(BookingsMaster[i].type) );
 		copying.addClass( "individual-booking-item" );
@@ -537,6 +544,31 @@ function editBooking(booking) {
 	$(".unchanged-date").html(BookingsMaster[booking].day);
 	$(".unchanged-type").html( classCodeDisplayWrangler(booking) );
 	$(".unchanged-user").html(BookingsMaster[booking].displayuser);
+}
+
+function editPTBooking(booking) {
+	editingBooking = booking;
+
+	$(".individual-booking-item").addClass("hide");
+ 	$(".booking-add").removeClass("hide");
+ 	breadCrumbs[ breadCrumbs.length ] = "individual-booking-item";
+ 	breadCrumbsRemove[ breadCrumbsRemove.length ] = "removeable-form";
+
+ 	fillDropDowns();
+
+	$("#form").remove();
+ 	copy = $("#bookingPTEdit").clone();
+	copy.attr( "id", "form" );
+	copy.addClass("removeable-form");
+	copy.removeClass("hide");
+
+	copy.appendTo(".booking-add");
+	$(".PTunchanged-status").html(statusWrangler(BookingsMaster[booking].status));
+	$(".PTunchanged-created").html( moment( BookingsMaster[booking].inserted_at).add(13,  "hours").calendar() );
+	$(".PTunchanged-changed").html( moment( BookingsMaster[booking].updated_at).add(13,  "hours").calendar() );
+	$(".PTunchanged-date").html(BookingsMaster[booking].day);
+	$(".PTunchanged-time").html( BookingsMaster[booking].time );
+	$(".PTunchanged-user").html(BookingsMaster[booking].displayuser);
 }
 
 function saveBooking() {
