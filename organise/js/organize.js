@@ -1086,23 +1086,33 @@ function postBooking(i) {
 
 function cancelBooking(i) {		
 
-		$.put( "https://organise.1stfootforward.co.nz/api/aprilbooking/" + editingBooking, 
-					{"april_booking": {
+		// $.put( "https://organise.1stfootforward.co.nz/api/aprilbooking/" + editingBooking, 
+		// 			{"april_booking": {
+		// 				"status":3 }
+		// 			}
+		// 		).done(function( data ) { 
+		//             console.log( data );  
+		//             if(data.data.code == BookingsMaster[i].code || data.data.displayuser == BookingsMaster[i].displayuser ) {
+		// 	            $(".modal-body").addClass("green-background");
+		// 	            $(".spinner-border").addClass("hide");
+		// 	        } else {
+		// 	        	alert( "Saving Failed" );
+		// 	        }
+  //           	}).fail(function(xhr, status, error) {
+		// 	        console.log(xhr);
+		// 	        console.log(status);
+		// 	        console.log(error);
+		// 	    });
+
+		var data = {"april_booking": {
 						"status":3 }
-					}
-				).done(function( data ) { 
-		            console.log( data );  
-		            if(data.data.code == BookingsMaster[i].code || data.data.displayuser == BookingsMaster[i].displayuser ) {
-			            $(".modal-body").addClass("green-background");
-			            $(".spinner-border").addClass("hide");
-			        } else {
-			        	alert( "Saving Failed" );
-			        }
-            	}).fail(function(xhr, status, error) {
-			        console.log(xhr);
-			        console.log(status);
-			        console.log(error);
-			    });
+					};
+
+		$.ajax('https://organise.1stfootforward.co.nz/api/aprilbooking/' + editingBooking, {
+		    method: 'PATCH',
+		    data: data,
+			dataType: 'json'
+		});
 }
 
 function postRecord(i) {
