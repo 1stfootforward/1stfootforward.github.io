@@ -1137,14 +1137,23 @@ function cancelBooking() {
 			dataType: 'json'
 		}).done(function() {
 		  console.log( data );  
-		            if(data.data.code == BookingsMaster[i].code || data.data.displayuser == BookingsMaster[i].displayuser ) {
+		            if(data.data.status == 3  ) {
+		            	BookingsMaster[ editingBooking ].status = 3;
 			            $(".modal-body").addClass("green-background");
 			            $(".spinner-border").addClass("hide");
+			            back();back();
+						forward(4);
 			        } else {
 			        	alert( "Something Saved Wrong, Check for errors" );
+			        	getBookings();
+			        	back();back();
+						forward(4);
 			        }
 		}).fail(function() {
 		    alert( "error" );
+		    getBookings();
+			back();back();
+			forward(4);
 		});
 }
 
@@ -1183,15 +1192,24 @@ function patchBooking() {
 		    data: data,
 			dataType: 'json'
 		}).done(function() {
-		  console.log( data );  
-		            if(data.data.code == BookingsMaster[i].code || data.data.displayuser == BookingsMaster[i].displayuser ) {
+		  console.log( data ); 
+		  			if(data.data.code == BookingsMaster[editingBooking].code || data.data.displayuser == BookingsMaster[editingBooking].displayuser ) { 
+		            
 			            $(".modal-body").addClass("green-background");
 			            $(".spinner-border").addClass("hide");
+			            back();back();
+						forward(4);
 			        } else {
 			        	alert( "Something Saved Wrong, Check for errors" );
+			        	getBookings();
+			        	back();back();
+						forward(4);
 			        }
 		}).fail(function() {
 		    alert( "error" );
+		    getBookings();
+			back();back();
+			forward(4);
 		});
 }
 
