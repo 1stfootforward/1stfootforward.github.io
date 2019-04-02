@@ -478,6 +478,36 @@ function bookingBlocks(i) {
 
 }
 
+function bookingBlocksByDate(i) {
+
+		var copying = $("#reuseable-booking-block").clone();
+		copying.attr( "id", "booking-" +  i );
+		copying.attr("bookingid", i);
+		
+
+		if(BookingsMaster[i].type == "PT Session"){
+			copying.attr("onClick", "editPTBooking(" + i + ")");
+		} else {
+			copying.attr("onClick", "editBooking(" + i + ")");
+		}
+
+		copying.removeClass("hide");
+		copying.addClass( classtocssWrangler(BookingsMaster[i].type) );
+		copying.addClass( "individual-booking-item" );
+		copying.addClass( statusCSSWrangler( BookingsMaster[i].status ) );
+
+		copying.children("div").children("div").children("div").children( ".display-name" ).html(BookingsMaster[i].displayuser  );
+		copying.children("div").children("div").children( ".display-code" ).html(BookingsMaster[i].type  );
+		copying.children("div").children("div").children( ".display-date" ).html( dayTimeWrangler(i) );
+		
+		copying.children("div").children("div").children("img").attr("src", "img/" + BookingsMaster[i].type + ".jpg");
+		copying.children("div").children("div").children("button").html(initialsWrangler(BookingsMaster[i].displayuser));
+		copying.children("div").children("div").children("button").addClass(BookingsMaster[i].displayuser[0] + "u");
+
+		copying.appendTo( "#date-" +  BookingsMaster[i].date );  
+
+}
+
 function bookingRearrangeByDay() {
 	$( ".individual-booking-item" ).remove();
 
@@ -495,9 +525,27 @@ function bookingRearrangeByDay() {
 			dates[dates.length] = BookingsMaster[i].day;
 		}
 	}
-	console.log(dates);
+	
 	dates.sort();
-	console.log(dates);
+	
+	for (var i = 0; i < dates.length; i++) {
+		insertBookingDates(dates[i]);
+	}
+
+	for (var i = 0; i < BookingsMaster.length; i++) {
+		bookingBlocksByDate(i);
+	}
+}
+
+function insertBookingDate(date) {
+
+	var copying = $("#reuseable-class-block").clone();
+	copying.attr( "id", "date-" + date);
+	copying.attr( "onClick", "fillClass('" + date + "')");
+	copying.removeClass("hide");
+	copying.addClass("class-booking");
+	copying.children("div").children( ".display-name" ).html( dateWrangler(date) );
+	copying.appendTo( "#booking-block" );
 }
 
 
