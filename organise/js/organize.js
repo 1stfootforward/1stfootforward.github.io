@@ -481,10 +481,21 @@ function bookingBlocks(i) {
 function bookingRearrangeByDay() {
 	$( ".individual-booking-item" ).remove();
 
-	for (var i = BookingsMaster.length - 1; i >= 0; i--) {
-		BookingsMaster[i];
-	}
+	var dates = {[BookingsMaster[0].day]};
+	var used = false;
 
+	for (var i = BookingsMaster.length - 1; i >= 0; i--) {
+		used = false;
+		for (var i = 0; i < dates.length; i++) {
+			if(dates[i] == BookingsMaster[i].day) {
+				used = true;
+			}
+		}
+		if(!used) {
+			dates[dates.length] = BookingsMaster[i].day;
+		}
+	}
+	console.log(dates);
 }
 
 
