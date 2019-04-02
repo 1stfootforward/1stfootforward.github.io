@@ -1131,10 +1131,20 @@ function cancelBooking() {
 						"status":3 }
 					};
 
-		$.ajax('https://organise.1stfootforward.co.nz/api/aprilbooking/' +BookingsMaster[ editingBooking ].id, {
+		$.ajax('https://organise.1stfootforward.co.nz/api/aprilbooking/' + BookingsMaster[ editingBooking ].id, {
 		    method: 'PATCH',
 		    data: data,
 			dataType: 'json'
+		}).done(function() {
+		  console.log( data );  
+		            if(data.data.code == BookingsMaster[i].code || data.data.displayuser == BookingsMaster[i].displayuser ) {
+			            $(".modal-body").addClass("green-background");
+			            $(".spinner-border").addClass("hide");
+			        } else {
+			        	alert( "Something Saved Wrong, Check for errors" );
+			        }
+		}).fail(function() {
+		    alert( "error" );
 		});
 }
 
@@ -1168,10 +1178,20 @@ function patchBooking() {
 						"date":BookingsMaster[i].day}
 					}
 
-		$.ajax('https://organise.1stfootforward.co.nz/api/aprilbooking/' + editingBooking, {
+		$.ajax('https://organise.1stfootforward.co.nz/api/aprilbooking/' + BookingsMaster[ editingBooking ].id, {
 		    method: 'PATCH',
 		    data: data,
 			dataType: 'json'
+		}).done(function() {
+		  console.log( data );  
+		            if(data.data.code == BookingsMaster[i].code || data.data.displayuser == BookingsMaster[i].displayuser ) {
+			            $(".modal-body").addClass("green-background");
+			            $(".spinner-border").addClass("hide");
+			        } else {
+			        	alert( "Something Saved Wrong, Check for errors" );
+			        }
+		}).fail(function() {
+		    alert( "error" );
 		});
 }
 
