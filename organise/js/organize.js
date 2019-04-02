@@ -1131,7 +1131,7 @@ function cancelBooking() {
 						"status":3 }
 					};
 
-		$.ajax('https://organise.1stfootforward.co.nz/api/aprilbooking/' + editingBooking, {
+		$.ajax('https://organise.1stfootforward.co.nz/api/aprilbooking/' +BookingsMaster[ editingBooking ].id, {
 		    method: 'PATCH',
 		    data: data,
 			dataType: 'json'
