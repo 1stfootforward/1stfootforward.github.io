@@ -1080,11 +1080,11 @@ RecordMaster.sort( function(a, b) {
 	return moment(a.day).diff(moment(b.day), 'days');
 });
 
-// dates.sort(function(a, b){
-//     if(a < b) { return -1; }
-//     if(a > b) { return 1; }
-//     return 0;
-// })
+dates.sort(function(a, b){
+    if(a < b) { return -1; }
+    if(a > b) { return 1; }
+    return 0;
+})
 
 
 
