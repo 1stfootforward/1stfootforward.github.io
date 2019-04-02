@@ -23,7 +23,7 @@ var breadCrumbsHide = [];
 var selectClass = "";
 var selectDate = "";
 var selectUser = "";
-
+var dates = [];
 var selectedBookings = [];
 
 var saveReady = 0;
@@ -481,7 +481,7 @@ function bookingBlocks(i) {
 function bookingRearrangeByDay() {
 	$( ".individual-booking-item" ).remove();
 
-	var dates = [BookingsMaster[0].day];
+	dates[0] = BookingsMaster[0].day;
 	var used = false;
 
 	for (var i = BookingsMaster.length - 1; i >= 0; i--) {
@@ -1081,7 +1081,11 @@ RecordMaster.sort( function(a, b) {
 	return moment(a.day).diff(moment(b.day), 'days');
 });
 
-
+dates.sort(function(a, b){
+    if(a < b) { return -1; }
+    if(a > b) { return 1; }
+    return 0;
+})
 
 
 
