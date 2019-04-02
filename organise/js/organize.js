@@ -1070,11 +1070,8 @@ function initialsWrangler(string) {
 
 function dayTimeWrangler(i) {
 	var time = "" + BookingsMaster[i].time;
-	console.log( time.slice(-2));
-	console.log( time.substring(0, time.length - 2));
 
 	return moment(BookingsMaster[i].date).set({'hour': time.substring(0, time.length - 2), 'minute':  time.slice(-2)}).calendar();
-
 }
 
 RecordMaster.sort( function(a, b) {
