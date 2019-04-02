@@ -537,7 +537,7 @@ function bookingRearrangeByDay() {
 	}
 }
 
-function insertBookingDate(date) {
+function insertBookingDates(date) {
 
 	var copying = $("#reuseable-class-block").clone();
 	copying.attr( "id", "date-" + date);
