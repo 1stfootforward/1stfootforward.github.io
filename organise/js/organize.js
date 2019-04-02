@@ -546,7 +546,7 @@ function insertBookingDates(date) {
 		copying.attr( "id", "date-" + date);
 		copying.attr( "onClick", "fillClass('" + date + "')");
 		copying.removeClass("hide");
-		copying.addClass("class-booking");
+		copying.addClass("individual-booking-item");
 		copying.children("div").children( ".display-name" ).html( dateWrangler(date) );
 		copying.appendTo( "#booking-block" );
 	}
