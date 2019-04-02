@@ -496,6 +496,8 @@ function bookingRearrangeByDay() {
 		}
 	}
 	console.log(dates);
+	dates.sort();
+	console.log(dates);
 }
 
 
