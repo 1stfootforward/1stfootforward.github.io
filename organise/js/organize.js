@@ -1224,7 +1224,7 @@ function patchBooking() {
 		}).done(function() {
 		  console.log( data ); 
 		  			if(data.april_booking.code == BookingsMaster[editingBooking].code || data.data.displayuser == BookingsMaster[editingBooking].displayuser ) { 
-		            
+		            	getBookings();
 			            $(".modal-body").addClass("green-background");
 			            $(".spinner-border").addClass("hide");
 			            back();back();
