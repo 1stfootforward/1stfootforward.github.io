@@ -73,7 +73,7 @@
       }
 
       .SET {
-        border-color: #1e7145;
+        border-color: #81C784;
       }
 
       .HIIT {
@@ -81,7 +81,7 @@
       }
 
       .STRETCH {
-        border-color: #2b5797;
+        border-color: #039BE5;
       }
 
       .BoxFit {
@@ -107,3 +107,69 @@
         font-weight: 500;
         margin: 3px;
       }
+
+      .btn-circle.btn-xl {
+          width: 70px;
+          height: 70px;
+          padding: 10px 16px;
+          border-radius: 35px;
+          font-size: 24px;
+          line-height: 1.33;
+      }
+
+      .btn-circle {
+          width: 50px;
+          height: 50px;
+          padding: 6px 0px;
+          border-radius: 25px;
+          text-align: center;
+          font-size: 24px;
+          font-weight: 600;
+          line-height: 1.1;
+      }
+
+      .list-img {
+          margin-left: -10px;
+          height: 50px;
+          width: auto;
+      }
+
+      .Au, .Bu, .Cu {
+        background-color: #B71C1C;
+        color: white;
+      }
+
+      .Du, .Eu, .Fu {
+        background-color: #4A148C;
+        color: white;
+      }
+
+      .Gu, .Hu, .Iu {
+        background-color: #1A237E;
+        color: white;
+      }
+
+      .Ju, .Ku, .Lu {
+        background-color: #01579B;
+        color: white;
+      }
+
+      .Mu, .Nu, .Ou {
+        background-color: #004D40;
+        color: white;
+      }
+
+      .Pu, .Qu, .Ru {
+        background-color: #33691E;
+        color: white;
+      }
+
+      .Su, .Tu, .Uu {
+        background-color: #F57F17;
+        color: white;
+      }
+
+      .Vu, .Wu, .Xu, .Yu, .Zu {
+        background-color: #6D4C41u;
+        color: white;
+      } 

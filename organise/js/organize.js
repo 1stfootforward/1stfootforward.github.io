@@ -3,10 +3,13 @@
 	Setup
 
 ---------------------------------------------*/
-var BookingsMaster = [];
-var RecordMaster = [];
-getBookings();
-getRecords();
+var time = moment("2019-04-02").set({'hour': 21, 'minute': 30});
+console.log(time.calendar());
+
+// var BookingsMaster = [];
+// var RecordMaster = [];
+// getBookings();
+// getRecords();
 
 /* ------------------------------------------
 
@@ -462,14 +465,15 @@ function bookingBlocks(i) {
 		copying.addClass( classtocssWrangler(BookingsMaster[i].type) );
 		copying.addClass( "individual-booking-item" );
 		copying.addClass( statusCSSWrangler( BookingsMaster[i].status ) );
-		// copying.attr( "classScheduleID", ClassSchedule[i].id );
-		// copying.addClass( ClassSchedule[i].class );
+
 		copying.children("div").children("div").children("div").children( ".display-name" ).html(BookingsMaster[i].displayuser  );
-		copying.children("div").children("div").children( ".display-code" ).html(BookingsMaster[i].code  );
-		copying.children("div").children("div").children("div").children( ".display-date" ).html( dateWrangler(BookingsMaster[i].day)  );
-		copying.children("div").children("div").children( ".display-time" ).html(BookingsMaster[i].displaytime  );
-		// copying.children(".col-8").children( ".btn-groupclass" ).html( '<img class="avatar sm-logo mr-3" src="assets/img/theme/' + ClassSchedule[i].class + '.jpg"><b>' + ClassSchedule[i].class + '</b>'  );
+		copying.children("div").children("div").children( ".display-code" ).html(BookingsMaster[i].type  );
+		copying.children("div").children("div").children( ".display-date" ).html( dayTimeWrangler(i) );
 		
+		copying.children("div").children("div").children("img").attr("src", "img/" + BookingsMaster[i].type + ".jpg");
+		copying.children("div").children("div").children("button").html(initialsWrangler(BookingsMaster[i].displayuser));
+		copying.children("div").children("div").children("button").addClass(BookingsMaster[i].displayuser[0] + "u");
+
 		copying.appendTo( "#booking-block" );  
 
 }
@@ -635,7 +639,7 @@ function savePTBooking() {
 	  	user =  UserMaster[ $( this ).val() ];
 
 	  	BookingsMaster[BookingsMaster.length] = {status: 0, user: parseInt($(".user-dropdown").val()), displayuser: user.display,	classId: 0, 	code: code, type: "PT Session", 		time: time, 	displaytime: time, day: date, date: date, created_at: ""};
-	  	patchBooking(BookingsMaster.length - 1);
+	  	postBooking(BookingsMaster.length - 1);
 	  }
 
 	});
@@ -1030,6 +1034,25 @@ function classCodeDisplayWrangler(messy) {
 function dateWrangler(dateString) {
 
 	return moment(dateString).format('dddd, D MMM');
+
+}
+
+function initialsWrangler(string) {
+	var names = string.split(' '),
+        initials = names[0].substring(0, 1).toUpperCase();
+    
+    if (names.length > 1) {
+        initials += names[names.length - 1].substring(0, 1).toUpperCase();
+    }
+    return initials;
+}
+
+function dayTimeWrangler(i) {
+	var time = "" + BookingsMaster[i].time;
+	console.log( time.slice(-2));
+	console.log( time.substring(0, time.length - 2));
+
+	return moment(BookingsMaster[i].date).set({'hour': time.substring(0, time.length - 2), 'minute':  time.slice(-2)}).calendar();
 
 }
 
