@@ -548,6 +548,23 @@ function insertBookingDate(date) {
 	copying.appendTo( "#booking-block" );
 }
 
+function bookingRearrangeOld() {
+	$( ".individual-booking-item" ).remove();
+	var today = moment().add(1,'d');
+	var check = '';
+	for (var i = BookingsMaster.length - 1; i >= 0; i--) {
+		check = moment( BookingsMaster.day );
+		if( check.isBefore(today) ) {
+			bookingBlocks( i );
+		}
+	}
+}
+
+function bookingRearrangeModified() {
+	back(); forward(4);
+	
+}
+
 
 $( ".individual-booking-item" ).click(function() {
 
