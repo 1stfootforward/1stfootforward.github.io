@@ -685,8 +685,9 @@ function savePTBookingEdit() {
 	if( $(".bookingpt-time-input-edit").val() != "") {
 		var time =  $(".bookingpt-time-input-edit").val();
 		console.log(time);
-		BookingsMaster[editingBooking].time = $(".bookingpt-time-input").val().replace(':', ''); 	
 		BookingsMaster[editingBooking].displaytime = time;
+		BookingsMaster[editingBooking].time = time.replace(':', ''); 	
+		
 		changed = true;
 	}
 
