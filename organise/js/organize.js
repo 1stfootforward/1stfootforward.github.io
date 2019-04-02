@@ -636,7 +636,7 @@ function saveBookingEdit() {
 
 
 	if(changed) {
-	 	postBooking(BookingsMaster.length - 1);
+	 	patchBooking(BookingsMaster.length - 1);
 	 	back();back();
 		forward(4);
 	} else {
