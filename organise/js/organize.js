@@ -30,7 +30,7 @@ var saveReady = 0;
 var insertedUserNumber = 0;
 
 var editingBooking = 0;
-var today = moment().add(1,'d');
+var today = moment();
 
 
 function forward(num) {
@@ -540,7 +540,8 @@ function bookingRearrangeByDay() {
 
 function insertBookingDates(date) {
 	var check = moment( BookingsMaster.day );
-	if( check.isBefore(today) ) {
+	today = new moment().subtract(1,'d');
+	if( check.isAfter(today) ) {
 
 		var copying = $("#reuseable-class-block").clone();
 		copying.attr( "id", "date-" + date);
@@ -554,7 +555,7 @@ function insertBookingDates(date) {
 
 function bookingRearrangeOld() {
 	$( ".individual-booking-item" ).remove();
-	var today = moment().add(1,'d');
+	today = new moment().add(1,'d');
 	var check = '';
 	for (var i = BookingsMaster.length - 1; i >= 0; i--) {
 		check = moment( BookingsMaster.day );
