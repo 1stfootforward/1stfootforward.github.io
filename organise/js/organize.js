@@ -1127,6 +1127,10 @@ function cancelBooking() {
 		// 	        console.log(error);
 		// 	    });
 
+		$(".spinner-border").removeClass("hide");
+		$(".modal-body").removeClass("green-background");
+		$("#sendModal").modal();
+
 		var data = {"april_booking": {
 						"status":3 }
 					};
@@ -1137,7 +1141,7 @@ function cancelBooking() {
 			dataType: 'json'
 		}).done(function() {
 		  console.log( data );  
-		            if(data.data.status == 3  ) {
+		            if(data.april_booking.status == 3  ) {
 		            	BookingsMaster[ editingBooking ].status = 3;
 			            $(".modal-body").addClass("green-background");
 			            $(".spinner-border").addClass("hide");
@@ -1177,6 +1181,10 @@ function patchBooking() {
 		// 	        console.log(error);
 		// 	    });
 
+		$(".spinner-border").removeClass("hide");
+		$(".modal-body").removeClass("green-background");
+		$("#sendModal").modal();
+
 		var data = {"april_booking": {
 						"classId":BookingsMaster[i].classId, 
 						"code":BookingsMaster[i].code, 
@@ -1193,7 +1201,7 @@ function patchBooking() {
 			dataType: 'json'
 		}).done(function() {
 		  console.log( data ); 
-		  			if(data.data.code == BookingsMaster[editingBooking].code || data.data.displayuser == BookingsMaster[editingBooking].displayuser ) { 
+		  			if(data.april_booking.code == BookingsMaster[editingBooking].code || data.data.displayuser == BookingsMaster[editingBooking].displayuser ) { 
 		            
 			            $(".modal-body").addClass("green-background");
 			            $(".spinner-border").addClass("hide");
