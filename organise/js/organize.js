@@ -478,6 +478,16 @@ function bookingBlocks(i) {
 
 }
 
+function bookingRearrangeByDay() {
+	$( ".individual-booking-item" ).remove();
+
+	for (var i = BookingsMaster.length - 1; i >= 0; i--) {
+		BookingsMaster[i];
+	}
+
+}
+
+
 $( ".individual-booking-item" ).click(function() {
 
  // bookinglist();
