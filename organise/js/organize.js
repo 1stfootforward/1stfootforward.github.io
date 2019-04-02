@@ -3,13 +3,13 @@
 	Setup
 
 ---------------------------------------------*/
-var time = moment("2019-04-02").set({'hour': 21, 'minute': 30});
-console.log(time.calendar());
+// var time = moment("2019-04-02").set({'hour': 21, 'minute': 30});
+// console.log(time.calendar());
 
-// var BookingsMaster = [];
-// var RecordMaster = [];
-// getBookings();
-// getRecords();
+var BookingsMaster = [];
+var RecordMaster = [];
+getBookings();
+getRecords();
 
 /* ------------------------------------------
 
