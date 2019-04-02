@@ -30,6 +30,7 @@ var saveReady = 0;
 var insertedUserNumber = 0;
 
 var editingBooking = 0;
+var today = moment().add(1,'d');
 
 
 function forward(num) {
@@ -538,14 +539,17 @@ function bookingRearrangeByDay() {
 }
 
 function insertBookingDates(date) {
+	var check = moment( BookingsMaster.day );
+	if( check.isBefore(today) ) {
 
-	var copying = $("#reuseable-class-block").clone();
-	copying.attr( "id", "date-" + date);
-	copying.attr( "onClick", "fillClass('" + date + "')");
-	copying.removeClass("hide");
-	copying.addClass("class-booking");
-	copying.children("div").children( ".display-name" ).html( dateWrangler(date) );
-	copying.appendTo( "#booking-block" );
+		var copying = $("#reuseable-class-block").clone();
+		copying.attr( "id", "date-" + date);
+		copying.attr( "onClick", "fillClass('" + date + "')");
+		copying.removeClass("hide");
+		copying.addClass("class-booking");
+		copying.children("div").children( ".display-name" ).html( dateWrangler(date) );
+		copying.appendTo( "#booking-block" );
+	}
 }
 
 function bookingRearrangeOld() {
