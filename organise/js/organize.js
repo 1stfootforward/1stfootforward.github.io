@@ -486,8 +486,8 @@ function bookingRearrangeByDay() {
 
 	for (var i = BookingsMaster.length - 1; i >= 0; i--) {
 		used = false;
-		for (var i = 0; i < dates.length; i++) {
-			if(dates[i] == BookingsMaster[i].day) {
+		for (var x = 0; x < dates.length; x++) {
+			if(dates[x] == BookingsMaster[i].day) {
 				used = true;
 			}
 		}
@@ -1078,11 +1078,11 @@ RecordMaster.sort( function(a, b) {
 	return moment(a.day).diff(moment(b.day), 'days');
 });
 
-dates.sort(function(a, b){
-    if(a < b) { return -1; }
-    if(a > b) { return 1; }
-    return 0;
-})
+// dates.sort(function(a, b){
+//     if(a < b) { return -1; }
+//     if(a > b) { return 1; }
+//     return 0;
+// })
 
 
 
