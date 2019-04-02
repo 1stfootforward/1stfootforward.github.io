@@ -505,7 +505,7 @@ function bookingBlocksByDate(i) {
 		copying.children("div").children("div").children("button").html(initialsWrangler(BookingsMaster[i].displayuser));
 		copying.children("div").children("div").children("button").addClass(BookingsMaster[i].displayuser[0] + "u");
 
-		copying.appendTo( "#date-" +  BookingsMaster[i].date );  
+		copying.insertAfter( "#date-" +  BookingsMaster[i].date );  
 
 }
 
