@@ -1207,13 +1207,13 @@ function patchBooking() {
 		$("#sendModal").modal();
 
 		var data = {"april_booking": {
-						"classId":BookingsMaster[i].classId, 
-						"code":BookingsMaster[i].code, 
-						"type":BookingsMaster[i].type, 
-						"time":BookingsMaster[i].time, 
-						"displaytime":BookingsMaster[i].displaytime, 
-						"day":BookingsMaster[i].day, 
-						"date":BookingsMaster[i].day}
+						"classId":BookingsMaster[editingBooking].classId, 
+						"code":BookingsMaster[editingBooking].code, 
+						"type":BookingsMaster[editingBooking].type, 
+						"time":BookingsMaster[editingBooking].time, 
+						"displaytime":BookingsMaster[editingBooking].displaytime, 
+						"day":BookingsMaster[editingBooking].day, 
+						"date":BookingsMaster[editingBooking].day}
 					}
 
 		$.ajax('https://organise.1stfootforward.co.nz/api/aprilbooking/' + BookingsMaster[ editingBooking ].id, {
