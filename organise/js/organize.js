@@ -481,7 +481,7 @@ function bookingBlocks(i) {
 function bookingRearrangeByDay() {
 	$( ".individual-booking-item" ).remove();
 
-	var dates = {[BookingsMaster[0].day]};
+	var dates = [BookingsMaster[0].day];
 	var used = false;
 
 	for (var i = BookingsMaster.length - 1; i >= 0; i--) {
