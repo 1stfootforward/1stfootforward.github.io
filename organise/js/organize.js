@@ -3,12 +3,6 @@
 	Setup
 
 ---------------------------------------------*/
-// var time = moment("2019-04-02").set({'hour': 21, 'minute': 30});
-// console.log(time.calendar());
-
-console.log( checkDateWrangler("2019-04-02") );
-console.log( checkDateWrangler("2019-04-03") );
-console.log( checkDateWrangler("2019-04-04") );
 
 var BookingsMaster = [];
 var RecordMaster = [];
@@ -1161,9 +1155,9 @@ dates.sort(function(a, b){
 function checkDateWrangler(date) {
 	var today = moment().hour(23);
 	today.subtract(1,'d');
-	console.log(today);
+	
 	var date = moment( date );
-	console.log(date);
+
 	if(date.isSameOrAfter( today )){
 		return true;
 	} else {
