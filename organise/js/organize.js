@@ -554,7 +554,7 @@ function bookingRearrangeOld() {
 	
 	for (var i = BookingsMaster.length - 1; i >= 0; i--) {
 		
-		if( !checkDateWrangler( BookingsMaster.day ) ) {
+		if( !checkDateWrangler( BookingsMaster[i].day ) ) {
 			bookingBlocks( i );
 		}
 	}
