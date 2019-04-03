@@ -6,6 +6,10 @@
 // var time = moment("2019-04-02").set({'hour': 21, 'minute': 30});
 // console.log(time.calendar());
 
+console.log( checkDateWrangler("2019-04-02") );
+console.log( checkDateWrangler("2019-04-03") );
+console.log( checkDateWrangler("2019-04-04") );
+
 var BookingsMaster = [];
 var RecordMaster = [];
 getBookings();
@@ -30,7 +34,6 @@ var saveReady = 0;
 var insertedUserNumber = 0;
 
 var editingBooking = 0;
-var today = moment();
 
 
 function forward(num) {
@@ -539,9 +542,8 @@ function bookingRearrangeByDay() {
 }
 
 function insertBookingDates(date) {
-	var check = moment( BookingsMaster.day );
-	today = new moment().subtract(1,'d');
-	if( check.isAfter(today) ) {
+	
+	if( checkDateWrangler(date) ) {
 
 		var copying = $("#reuseable-class-block").clone();
 		copying.attr( "id", "date-" + date);
@@ -555,11 +557,10 @@ function insertBookingDates(date) {
 
 function bookingRearrangeOld() {
 	$( ".individual-booking-item" ).remove();
-	today = new moment().add(1,'d');
-	var check = '';
+	
 	for (var i = BookingsMaster.length - 1; i >= 0; i--) {
-		check = moment( BookingsMaster.day );
-		if( check.isBefore(today) ) {
+		
+		if( checkDateWrangler( BookingsMaster.day ) ) {
 			bookingBlocks( i );
 		}
 	}
@@ -1157,7 +1158,18 @@ dates.sort(function(a, b){
     return 0;
 })
 
-
+function checkDateWrangler(date) {
+	var today = moment().hour(23);
+	today.subtract(1,'d');
+	console.log(today);
+	var date = moment( date );
+	console.log(date);
+	if(date.isSameOrAfter( today )){
+		return true;
+	} else {
+		return false;
+	}
+}
 
 
 /* ------------------------------------------
