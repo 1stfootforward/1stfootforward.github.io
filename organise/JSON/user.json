@@ -53,7 +53,6 @@ var UserMaster = [
 { display: "Fiona Riddle", email: "feez_27@hotmail.com", joindate: "2019-02-12", phone: "275555544"},
 { display: "Barry Steans", email: "barry.steans@arcs.co.nz", joindate: "2019-02-07", phone: "0274335453"},
 { display: "Amanda Black", email: "manda1979@gmail.com", joindate: "2019-02-25", phone: "0212932137"},
-{ display: "Oli James", email: "oli.m.james@gmail.com", joindate: "2019-03-31", phone: "0273232325"},
 { display: "Lilly Anderson", email: "lillyanderson126678@gmail.com", joindate: "2018-01-14", phone: "273958733"},
 { display: "Jess Smith", email: "jegs8042@gmail.com", joindate: "2018-01-14", phone: "212233122"},
 { display: "Harriet Willis", email: "", joindate: "2018-01-14", phone: "273784973"},
@@ -63,7 +62,8 @@ var UserMaster = [
 { display: "Kerry Gloistein", email: "gloisteink@gmail.com", joindate: "2018-01-04", phone: "275377901"},
 { display: "Ashton Peters", email: "", joindate: "2018-04-08", phone: "21630459"},
 { display: "Bjorn Raasch", email: "", joindate: "2018-04-08", phone: "277007533"},
-{ display: "Craig Harris", email: "", joindate: "2018-04-08", phone: ""}
+{ display: "Craig Harris", email: "", joindate: "2018-04-08", phone: ""},
+{ display: "Oli James", email: "oli.m.james@gmail.com", joindate: "2019-03-31", phone: "0273232325"}
 ];
 
 
@@ -555,15 +555,6 @@ var UserAccount = [
 	Timetable: 0
 },
 { 
-	display: "Oli James",	
-	Account: 0,
-	Card: 0,
-	UnlimitedStart: "",
-	UnlimitedEnd: "",
-	Active: 0,
-	Timetable: 0
-},
-{ 
 	display: "Lilly Anderson",	
 	Account: 0,
 	Card: 0,
@@ -653,4 +644,13 @@ var UserAccount = [
 	Active: 0,
 	Timetable: 0
 },
+{ 
+	display: "Oli James",	
+	Account: 0,
+	Card: 0,
+	UnlimitedStart: "",
+	UnlimitedEnd: "",
+	Active: 0,
+	Timetable: 0
+}
 ];
