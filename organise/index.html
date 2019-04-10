@@ -118,7 +118,18 @@
             </div>
         </div>
 
-
+          <div id="user-account-info" class="row hide"> 
+            
+            <div class="col-8"> 
+              <div>
+                <h5 class="my-0 display-name text-muted"></h5>
+              </div>
+              <div class=" display-account"></div>
+              <div class=" display-card"></div>
+              <div class=" display-unlimited"></div>
+            </div>
+           
+          </div>
 
 
 
@@ -364,6 +375,11 @@
           </div>
 
       </div>
+      <div class="card p-2 record-edit hide">
+          <h4 class="mb-3">Edit Record</h4>
+          
+
+      </div>
     </div>    
   </div>
 
@@ -388,6 +404,66 @@
 
 
           <div id="recordGroup" class=" hide">
+            <br />
+             <label >Date</label>
+            <input id="recordGroupDate" class=" custom-select w-100" type="text" data-field="date" readonly>
+            <br />
+            <label >Type</label>
+            <select id="recordGroupType" class="custom-select d-block w-100 class-dropdown" required>
+              <option value="">Choose...</option>
+            </select>
+            <br />
+            <label class="insert-user-dropdown" >User</label>
+            <br />
+            <button class="btn btn-secondary btn-block insert-another-user-record" onClick="addRecordAnotherUser()">Add User</button> 
+            <div class="card p-2">
+                  <button class="btn btn-success" onClick="saveRecordGroup()">Save Record</button>  
+            </div>
+            <div class="card p-2">
+                  <button class="btn btn-danger" onClick="saveRecordGroupNoShow()">No Show</button>  
+            </div>
+          </div>
+          <div id="recordGroupEdit" class=" hide">
+            <br />
+             <label >Date</label>
+            <input id="recordGroupDate" class=" custom-select w-100" type="text" data-field="date" readonly>
+            <br />
+            <label >Type</label>
+            <select id="recordGroupType" class="custom-select d-block w-100 class-dropdown" required>
+              <option value="">Choose...</option>
+            </select>
+            <br />
+            <label class="insert-user-dropdown" >User</label>
+            <br />
+            <button class="btn btn-secondary btn-block insert-another-user-record" onClick="addRecordAnotherUser()">Add User</button> 
+            <div class="card p-2">
+                  <button class="btn btn-success" onClick="saveRecordGroup()">Save Record</button>  
+            </div>
+            <div class="card p-2">
+                  <button class="btn btn-danger" onClick="saveRecordGroupNoShow()">No Show</button>  
+            </div>
+          </div>
+          <div id="recordIncomeEdit" class=" hide">
+            <br />
+             <label >Date</label>
+            <input id="recordGroupDate" class=" custom-select w-100" type="text" data-field="date" readonly>
+            <br />
+            <label >Type</label>
+            <select id="recordGroupType" class="custom-select d-block w-100 class-dropdown" required>
+              <option value="">Choose...</option>
+            </select>
+            <br />
+            <label class="insert-user-dropdown" >User</label>
+            <br />
+          
+            <div class="card p-2">
+                  <button class="btn btn-success" onClick="">Save Changes</button>  
+            </div>
+            <div class="card p-2">
+                  <button class="btn btn-danger" onClick="saveRecordGroupNoShow()">Delete Record</button>  
+            </div>
+          </div>
+          <div id="recordPTEdit" class=" hide">
             <br />
              <label >Date</label>
             <input id="recordGroupDate" class=" custom-select w-100" type="text" data-field="date" readonly>
@@ -448,7 +524,7 @@
             </div>
           </div>
 
-          <select id="reuseable-user-dropdown" class="custom-select d-block w-100 user-dropdown hide" >
+          <select id="reuseable-user-dropdown" class="custom-select d-block w-100 user-dropdown hide" onchange="userPicked()">
               <option value="">Choose...</option>
           </select>
 

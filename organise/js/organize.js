@@ -204,6 +204,7 @@ function liveRecordBlocks(i) {
 function userlist() {
 	$("#usernumber").html(  UserMaster.length);
 	for (var i = 0; i < UserMaster.length; i++) {
+
 		userBlocks( i );
 	}
 }
@@ -861,12 +862,49 @@ function addRecordAnotherUser() {
 
 function editRecord(record) {
 	$(".individual-record").addClass("hide");
- 	$(".record-add").removeClass("hide");
+ 	$(".record-edit").removeClass("hide");
  	breadCrumbs[ breadCrumbs.length ] = "individual-record";
  	breadCrumbsRemove[ breadCrumbsRemove.length ] = "form";
-	breadCrumbsHide[ breadCrumbsHide.length ] = "record-add";	
+	breadCrumbsHide[ breadCrumbsHide.length ] = "record-edit";	
+	
 
- 	fillDropDowns();
+	if( RecordMaster[record].type == "BNK" || RecordMaster[record].type == "PT Session" ) {
+		if( RecordMaster[record].type == "BNK") {
+			editRecordIncome(record);
+		} else {editRecordPT(record);}
+	} else {editRecordGroup(record); }
+
+ 	
+}
+
+function editRecordPT() {
+
+	$("#form").remove();
+ 	var copy = $("#recordPTEdit").clone();
+	copy.attr( "id", "form" );
+	copy.removeClass("hide");
+	copy.appendTo(".record-edit");
+	fillDropDowns();
+}
+
+function editRecordIncome() {
+
+	$("#form").remove();
+ 	var copy = $("#recordIncomeEdit").clone();
+	copy.attr( "id", "form" );
+	copy.removeClass("hide");
+	copy.appendTo(".record-edit");
+	fillDropDowns();
+}
+
+function editRecordGroup() {
+
+	$("#form").remove();
+ 	var copy = $("#recordGroupEdit").clone();
+	copy.attr( "id", "form" );
+	copy.removeClass("hide");
+	copy.appendTo(".record-edit");
+	fillDropDowns();
 }
 
 function saveRecordGroup() {
@@ -995,11 +1033,34 @@ function savePurchase() {
 
 
 
+/* ------------------------------------------
 
+	Info Boxes
 
+---------------------------------------------*/
 
+$( ".user-dropdown" ).change(function() {
+  console.log("fire");
+});
 
+function userPicked() {
 
+	var copy = $("#user-account-info").clone();
+	copy.attr("id","");
+	copy.removeClass("hide");
+	$( ".user-dropdown" ).each(function( index ) {
+	  if( $( this ).val() != "" ){
+	  	copy.children(".col-8").children("div").children(".display-name").html(UserAccount[$( this ).val()].display  );
+	  	copy.children(".col-8").children(".display-account").html("<b>Account:</b> $" + UserAccount[$( this ).val()].Account  );
+	  	copy.children(".col-8").children(".display-card").html("<b>Concession:</b> " + UserAccount[$( this ).val()].Card  );
+	  	copy.children(".col-8").children(".display-unlimited").html("<b>Unlimited:</b> " + UserAccount[$( this ).val()].UnlimitedEnd  );
+	  	console.log(copy);
+	  	user =  UserMaster[ $( this ).val() ];
+	  	$(this).attr("id","userdrop-" + user.phone );
+	  	copy.insertBefore("#userdrop-" + user.phone  );
+	  }
+	});
+}
 
 
 /* ------------------------------------------
