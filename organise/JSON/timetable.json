@@ -247,5 +247,146 @@ var ClassSchedule = [
 		class: "BoxFit",
 		code: "SAT0900BOX",
 		place: "TD-6-0900"
+	},
+
+	{
+		id: 26,
+		day: 1,
+		time: 1600,
+		displaytime: "4:00 pm",
+		class: "Teen Boys",
+		code: "MON1600TEB",
+		place: "TD-1-1600"
+	},
+
+	{
+		id: 27,
+		day: 2,
+		time: 1600,
+		displaytime: "4:00 pm",
+		class: "Teen Girls",
+		code: "TUE1600TEG",
+		place: "TD-2-1600"
+	},
+
+	{
+		id: 28,
+		day: 4,
+		time: 1600,
+		displaytime: "4:00 pm",
+		class: "Teen Girls",
+		code: "THU1600TEG",
+		place: "TD-4-1600"
+	},
+
+	{
+		id: 29,
+		day: 4,
+		time: 1630,
+		displaytime: "4:30 pm",
+		class: "Teen BOYS",
+		code: "THU1630TEB",
+		place: "TD-4-1630"
+	},
+
+	{
+		id: 30,
+		day: 1,
+		time: 600,
+		displaytime: "6:00 am",
+		class: "Mens FCT",
+		code: "MON0600FCT",
+		place: "TD-1-0600"
+	},
+
+	{
+		id: 31,
+		day: 1,
+		time: 1730,
+		displaytime: "5:30 pm",
+		class: "Mens Power",
+		code: "MON1730POW",
+		place: "TD-1-1730"
+	},
+
+	{
+		id: 32,
+		day: 2,
+		time: 600,
+		displaytime: "6:00 am",
+		class: "Mens Power",
+		code: "TUE0600POW",
+		place: "TD-2-0600"
+	},
+
+	{
+		id: 33,
+		day: 2,
+		time: 1930,
+		displaytime: "7:30 pm",
+		class: "Mens FCT",
+		code: "TUE1730FCT",
+		place: "TD-2-1930"
+	},
+
+	{
+		id: 34,
+		day: 3,
+		time: 600,
+		displaytime: "6:00 am",
+		class: "Mens Total Core",
+		code: "WED0600MTC",
+		place: "TD-3-0600"
+	},
+
+	{
+		id: 35,
+		day: 4,
+		time: 600,
+		displaytime: "6:00 am",
+		class: "Mens FCT",
+		code: "THU0600FCT",
+		place: "TD-4-0600"
+	},
+
+	{
+		id: 36,
+		day: 4,
+		time: 1900,
+		displaytime: "7:00 pm",
+		class: "BoxFit",
+		code: "THU1900BOX",
+		place: "TD-4-1900"
+	},
+
+	{
+		id: 37,
+		day: 4,
+		time: 1930,
+		displaytime: "7:30 pm",
+		class: "Mens Power",
+		code: "THU1930POW",
+		place: "TD-4-1930"
+	},
+
+	{
+		id: 38,
+		day: 5,
+		time: 600,
+		displaytime: "6:00 am",
+		class: "BoxFit",
+		code: "FRI0600BOX",
+		place: "TD-5-0600"
+	},
+
+	{
+		id: 39,
+		day: 6,
+		time: 600,
+		displaytime: "6:00 am",
+		class: "Mens Power",
+		code: "SAT0600POW",
+		place: "TD-6-0600"
 	}
+
 ]
