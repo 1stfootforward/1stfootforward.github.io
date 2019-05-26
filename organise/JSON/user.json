@@ -69,6 +69,12 @@ var UserMaster = [
 { display: "Emily Hall", email: "emily.dion@yahoo.com", joindate: "2018-05-01", phone: ""},
 { display: "Andrew Gardner", email: "mollybushell.nz@gmail.com", joindate: "2018-05-01", phone: ""},
 { display: "Christy Greenall", email: "christy.greenall@gmail.com", joindate: "2018-05-01", phone: ""},
+{ display: "Jess Andrews", email: "jessicakaye125@hotmail.com", joindate: "2019-05-27", phone: ""},
+{ display: "Dawn Scott", email: "frunkle1@outlook.com", joindate: "2019-05-27", phone: ""},
+{ display: "Nahoko Takada", email: "naporin25@gmail.com", joindate: "2019-05-27", phone: ""},
+{ display: "Josh Tasker", email: "tasker.josh@gmail.com", joindate: "2019-05-27", phone: ""},
+{ display: "Catherine Tomlin", email: "Matt.cat.tomlin@gmail.com", joindate: "2019-05-27", phone: ""},
+{ display: "Tennesee Ovens", email: "tenneseeovens@gmail.com", joindate: "2019-05-27", phone: ""},
 { display: "Oli James", email: "oli.m.james@gmail.com", joindate: "2019-03-31", phone: "0273232325"}
 ];
 
@@ -696,6 +702,60 @@ var UserAccount = [
 },
 { 
 	display: "Christy Greenall",	
+	Account: 0,
+	Card: 0,
+	UnlimitedStart: "",
+	UnlimitedEnd: "",
+	Active: 0,
+	Timetable: 0
+},
+{ 
+	display: "Jess Andrews",	
+	Account: 0,
+	Card: 0,
+	UnlimitedStart: "",
+	UnlimitedEnd: "",
+	Active: 0,
+	Timetable: 0
+},
+{ 
+	display: "Dawn Scott",	
+	Account: 0,
+	Card: 0,
+	UnlimitedStart: "",
+	UnlimitedEnd: "",
+	Active: 0,
+	Timetable: 0
+},
+{ 
+	display: "Nahoko Takada",	
+	Account: 0,
+	Card: 0,
+	UnlimitedStart: "",
+	UnlimitedEnd: "",
+	Active: 0,
+	Timetable: 0
+},
+{ 
+	display: "Josh Tasker",	
+	Account: 0,
+	Card: 0,
+	UnlimitedStart: "",
+	UnlimitedEnd: "",
+	Active: 0,
+	Timetable: 0
+},
+{ 
+	display: "Catherine Tomlin",	
+	Account: 0,
+	Card: 0,
+	UnlimitedStart: "",
+	UnlimitedEnd: "",
+	Active: 0,
+	Timetable: 0
+},
+{ 
+	display: "Tennesee Ovens",	
 	Account: 0,
 	Card: 0,
 	UnlimitedStart: "",
