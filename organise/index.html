@@ -290,6 +290,8 @@
         </div>
 
         <div id="bookingGroupEdit" class="hide">
+            <label>User</label>
+            <h6 class="unchanged-user"></h6>
             <label>Status</label>
             <h6 class="unchanged-status"></h6>
             <label>Created</label>
@@ -316,6 +318,8 @@
         </div>
 
         <div id="bookingPTEdit" class="hide">
+            <label>User</label>
+            <h6 class="PTunchanged-user"></h6>
             <label>Status</label>
             <h6 class="PTunchanged-status"></h6>
             <label>Created</label>
@@ -357,6 +361,13 @@
       <div class="card p-2">
             <button class="btn btn-success" onClick="addRecord()">Add Record</button>  
       </div>
+      <div class="card p-2">
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-secondary" onClick="recordRearrangeModified()">Modified</button>
+          
+          <button type="button" class="btn btn-secondary" onClick="recordRearrangeByDay()">Day</button>
+        </div>
+      </div>
       <ul id="record-block" class="list-group mb-3">
             <!-- User list here -->
       </ul> 
@@ -385,7 +396,7 @@
 
   <!-- Reuseable Components -->
 
-        <li id="reuseable-record-block" class="card list-card hide">
+<!--         <li id="reuseable-record-block" class="card list-card hide">
           <div class="row">  
             <div class="col-6"> 
               <div>
@@ -398,6 +409,24 @@
                 <h6 class="my-0 display-date"> yes </h6>
               </div>
               <span class="text-muted display-time "> yes</span>
+            </div>
+          </div>
+        </li> -->
+
+        <li id="reuseable-record-block" class="card list-card hide">
+          <div class="row"> 
+            <div class="col-2"> 
+              <button type="button" class="btn btn-circle "><i class="fa fa-heart"></i>
+            </div> 
+            <div class="col-8"> 
+              <div>
+                <h5 class="my-0 display-name text-muted"></h5>
+              </div>
+              <span class=" display-code"></span>
+              <span class=" display-date"></span>
+            </div>
+            <div class="col-2"> 
+              <img class="list-img" src="" alt="" width="72" height="72">
             </div>
           </div>
         </li>
@@ -464,23 +493,27 @@
             </div>
           </div>
           <div id="recordPTEdit" class=" hide">
+            <label>User</label>
+            <h6 class="unchanged-user"></h6>
+            <label>Status</label>
+            <h6 class="unchanged-status"></h6>
+            <label>Created</label>
+            <h6 class="unchanged-created"></h6>
+            <label>Changed</label>
+            <h6 class="unchanged-changed"></h6>
             <br />
              <label >Date</label>
             <input id="recordGroupDate" class=" custom-select w-100" type="text" data-field="date" readonly>
             <br />
-            <label >Type</label>
-            <select id="recordGroupType" class="custom-select d-block w-100 class-dropdown" required>
-              <option value="">Choose...</option>
-            </select>
+             <label>Time</label>
+            <h6 class="PTunchanged-time"></h6>
+            <input class="bookingpt-time-input-edit custom-select d-block w-100" type="text" data-field="time" readonly>
             <br />
-            <label class="insert-user-dropdown" >User</label>
-            <br />
-            <button class="btn btn-secondary btn-block insert-another-user-record" onClick="addRecordAnotherUser()">Add User</button> 
             <div class="card p-2">
-                  <button class="btn btn-success" onClick="saveRecordGroup()">Save Record</button>  
+                  <button class="btn btn-success" onClick="saveRecordGroup()">Save Changes</button>  
             </div>
             <div class="card p-2">
-                  <button class="btn btn-danger" onClick="saveRecordGroupNoShow()">No Show</button>  
+                  <button class="btn btn-danger" onClick="cancelRecord()">Cancel</button>  
             </div>
           </div>
           <div id="recordIncome" class=" hide">
