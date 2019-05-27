@@ -9,6 +9,11 @@ var RecordMaster = [];
 getBookings();
 getRecords();
 
+for (var i = 0; i < UserMaster.length; i++) {
+	console.log(UserMaster[i].display);
+	console.log(UserAccount[i].display);
+}
+
 /* ------------------------------------------
 
 	Navigation
@@ -28,6 +33,7 @@ var saveReady = 0;
 var insertedUserNumber = 0;
 
 var editingBooking = 0;
+var editingRecord = 0;
 
 
 function forward(num) {
@@ -204,8 +210,9 @@ function liveRecordBlocks(i) {
 function userlist() {
 	$("#usernumber").html(  UserMaster.length);
 	for (var i = 0; i < UserMaster.length; i++) {
-
-		userBlocks( i );
+		if(UserAccount[i].Active == 0 ) {
+			userBlocks( i );
+		}
 	}
 }
 
@@ -631,10 +638,11 @@ function editBooking(booking) {
 	copy.removeClass("hide");
 
 	copy.appendTo(".booking-add");
+	$(".unchanged-user").html(statusWrangler(BookingsMaster[booking].displayuser));
 	$(".unchanged-status").html(statusWrangler(BookingsMaster[booking].status));
 	$(".unchanged-created").html( moment( BookingsMaster[booking].inserted_at).add(13,  "hours").calendar() );
 	$(".unchanged-changed").html( moment( BookingsMaster[booking].updated_at).add(13,  "hours").calendar() );
-	$(".unchanged-date").html(BookingsMaster[booking].day);
+	$(".unchanged-date").html(moment(BookingsMaster[booking].day).calendar());
 	$(".unchanged-type").html( classCodeDisplayWrangler(BookingsMaster[booking].classId) );
 	$(".unchanged-user").html(BookingsMaster[booking].displayuser);
 }
@@ -656,10 +664,11 @@ function editPTBooking(booking) {
 	copy.removeClass("hide");
 
 	copy.appendTo(".booking-add");
+	$(".PTunchanged-user").html(statusWrangler(BookingsMaster[booking].displayuser));
 	$(".PTunchanged-status").html(statusWrangler(BookingsMaster[booking].status));
 	$(".PTunchanged-created").html( moment( BookingsMaster[booking].inserted_at).add(13,  "hours").calendar() );
 	$(".PTunchanged-changed").html( moment( BookingsMaster[booking].updated_at).add(13,  "hours").calendar() );
-	$(".PTunchanged-date").html(BookingsMaster[booking].day);
+	$(".PTunchanged-date").html( moment(BookingsMaster[booking].day).calendar());
 	$(".PTunchanged-time").html( BookingsMaster[booking].time );
 }
 
@@ -789,16 +798,54 @@ function recordBlocks(i) {
 		copying.attr("recordid", i);
 		copying.removeClass("hide");
 		copying.addClass( classtocssWrangler(RecordMaster[i].type) );
-		// copying.attr( "classScheduleID", ClassSchedule[i].id );
 		copying.addClass( "individual-record" );
-		copying.attr("onClick", "editRecord(" + i + ")");
+		copying.addClass( statusCSSWrangler( RecordMaster[i].status ) );
+
 		copying.children("div").children("div").children("div").children( ".display-name" ).html(RecordMaster[i].displayuser  );
-		copying.children("div").children("div").children( ".display-code" ).html(RecordMaster[i].code  );
-		copying.children("div").children("div").children("div").children( ".display-date" ).html( dateWrangler(RecordMaster[i].day)  );
-		copying.children("div").children("div").children( ".display-time" ).html(RecordMaster[i].displaytime  );
-		// copying.children(".col-8").children( ".btn-groupclass" ).html( '<img class="avatar sm-logo mr-3" src="assets/img/theme/' + ClassSchedule[i].class + '.jpg"><b>' + ClassSchedule[i].class + '</b>'  );
+		copying.children("div").children("div").children( ".display-code" ).html(RecordMaster[i].type  );
+		copying.children("div").children("div").children( ".display-date" ).html( dayTimeRecordWrangler(i) );
+		
+		copying.children("div").children("div").children("img").attr("src", "img/" + RecordMaster[i].type + ".jpg");
+		copying.children("div").children("div").children("button").html(initialsWrangler(RecordMaster[i].displayuser));
+		copying.children("div").children("div").children("button").addClass(RecordMaster[i].displayuser[0] + "u");
 		
 		copying.appendTo( "#record-block" );  
+}
+
+function recordBlocksByDate(i) {
+
+		var copying = $("#reuseable-record-block").clone();
+		copying.attr( "id", "record-" +  i );
+		copying.attr("recordid", i);
+		
+
+		copying.removeClass("hide");
+		copying.addClass( classtocssWrangler(RecordMaster[i].type) );
+		copying.addClass( "individual-record" );
+		copying.addClass( statusCSSWrangler( RecordMaster[i].status ) );
+
+		copying.children("div").children("div").children("div").children( ".display-name" ).html(RecordMaster[i].displayuser  );
+		copying.children("div").children("div").children( ".display-code" ).html(RecordMaster[i].type  );
+		copying.children("div").children("div").children( ".display-date" ).html( dayTimeRecordWrangler(i) );
+		
+		copying.children("div").children("div").children("img").attr("src", "img/" + RecordMaster[i].type + ".jpg");
+		copying.children("div").children("div").children("button").html(initialsWrangler(RecordMaster[i].displayuser));
+		copying.children("div").children("div").children("button").addClass(RecordMaster[i].displayuser[0] + "u");
+
+		copying.insertAfter( "#date-" +  RecordMaster[i].date );  
+
+}
+
+function insertRecordDates(date) {
+
+		var copying = $("#reuseable-class-block").clone();
+		copying.attr( "id", "date-" + date);
+		copying.attr( "onClick", "fillClass('" + date + "')");
+		copying.removeClass("hide");
+		copying.addClass("individual-record");
+		copying.children("div").children( ".display-name" ).html( dateWrangler(date) );
+		copying.prependTo( "#record-block" );
+		console.log("fire");
 }
 
 $( ".individual-record" ).click(function() {
@@ -807,6 +854,40 @@ $( ".individual-record" ).click(function() {
   console.log(pickedrecord.id);
 
 });
+
+
+function recordRearrangeModified() {
+	back(); forward(5);
+}
+
+function recordRearrangeByDay() {
+	$( ".individual-record" ).remove();
+
+	dates[0] = RecordMaster[0].day;
+	var used = false;
+
+	for (var i = RecordMaster.length - 1; i >= 0; i--) {
+		used = false;
+		for (var x = 0; x < dates.length; x++) {
+			if(dates[x] == RecordMaster[i].day) {
+				used = true;
+			}
+		}
+		if(!used) {
+			dates[dates.length] = RecordMaster[i].day;
+		}
+	}
+	
+	dates.sort();
+	
+	for (var i = 0; i < dates.length; i++) {
+		insertRecordDates(dates[i]);
+	}
+
+	for (var i = 0; i < RecordMaster.length; i++) {
+		recordBlocksByDate(i);
+	}
+}
 
 function addRecord() {
 	$(".individual-record").addClass("hide");
@@ -861,12 +942,13 @@ function addRecordAnotherUser() {
 }
 
 function editRecord(record) {
+	editingRecord = record;
+	console.log(record);
 	$(".individual-record").addClass("hide");
  	$(".record-edit").removeClass("hide");
  	breadCrumbs[ breadCrumbs.length ] = "individual-record";
  	breadCrumbsRemove[ breadCrumbsRemove.length ] = "form";
 	breadCrumbsHide[ breadCrumbsHide.length ] = "record-edit";	
-	
 
 	if( RecordMaster[record].type == "BNK" || RecordMaster[record].type == "PT Session" ) {
 		if( RecordMaster[record].type == "BNK") {
@@ -877,17 +959,23 @@ function editRecord(record) {
  	
 }
 
-function editRecordPT() {
+function editRecordPT(id) {
 
 	$("#form").remove();
  	var copy = $("#recordPTEdit").clone();
 	copy.attr( "id", "form" );
 	copy.removeClass("hide");
 	copy.appendTo(".record-edit");
-	fillDropDowns();
+
+	$(".unchanged-user").html(statusWrangler(RecordMaster[id].displayuser));
+	$(".unchanged-status").html(statusWrangler(RecordMaster[id].status));
+	$(".unchanged-created").html( moment( RecordMaster[id].inserted_at).add(13,  "hours").calendar() );
+	$(".unchanged-changed").html( moment( RecordMaster[id].updated_at).add(13,  "hours").calendar() );
+	$(".unchanged-date").html( moment(RecordMaster[id].day).calendar());
+	$(".unchanged-time").html( RecordMaster[id].time );
 }
 
-function editRecordIncome() {
+function editRecordIncome(id) {
 
 	$("#form").remove();
  	var copy = $("#recordIncomeEdit").clone();
@@ -897,7 +985,7 @@ function editRecordIncome() {
 	fillDropDowns();
 }
 
-function editRecordGroup() {
+function editRecordGroup(id) {
 
 	$("#form").remove();
  	var copy = $("#recordGroupEdit").clone();
@@ -906,6 +994,8 @@ function editRecordGroup() {
 	copy.appendTo(".record-edit");
 	fillDropDowns();
 }
+
+
 
 function saveRecordGroup() {
 	var type = $("#recordGroupType").val();
@@ -998,8 +1088,6 @@ function saveRecordPTNoShow() {
 
 
 
-
-
 /* ------------------------------------------
 
 	Click Purchase
@@ -1084,7 +1172,9 @@ function userPicked() {
  	}
 
  	for (var i = 0; i < UserMaster.length; i++) {
- 		$( "<option class='removeable-dropdown-item' value='" + i + "'>" + UserMaster[i].display + "</option>" ).appendTo( ".user-dropdown" );
+ 		if(UserAccount[i].Active == 0 ) {
+ 			$( "<option class='removeable-dropdown-item' value='" + i + "'>" + UserMaster[i].display + "</option>" ).appendTo( ".user-dropdown" );
+ 		}
  	}
 
  	var copy = $("#reuseable-user-dropdown").clone();
@@ -1201,6 +1291,12 @@ function dayTimeWrangler(i) {
 	var time = "" + BookingsMaster[i].time;
 
 	return moment(BookingsMaster[i].date).set({'hour': time.substring(0, time.length - 2), 'minute':  time.slice(-2)}).calendar();
+}
+
+function dayTimeRecordWrangler(i) {
+	var time = "" + RecordMaster[i].time;
+
+	return moment(RecordMaster[i].date).set({'hour': time.substring(0, time.length - 2), 'minute':  time.slice(-2)}).calendar();
 }
 
 RecordMaster.sort( function(a, b) {
@@ -1417,6 +1513,41 @@ function postRecord(i) {
 			        console.log(status);
 			        console.log(error);
 			    });
+}
+
+function cancelRecord() {
+		$(".spinner-border").removeClass("hide");
+		$(".modal-body").removeClass("green-background");
+		$("#sendModal").modal();
+
+		var data = {"april_record": {
+						"status":3 }
+					};
+
+		$.ajax('https://organise.1stfootforward.co.nz/api/aprilrecord/' + RecordMaster[ editingRecord ].id, {
+		    method: 'PATCH',
+		    data: data,
+			dataType: 'json'
+		}).done(function() {
+		  console.log( data );  
+		            if(data.april_record.status == 3  ) {
+		            	RecordMaster[ editingRecord ].status = 3;
+			            $(".modal-body").addClass("green-background");
+			            $(".spinner-border").addClass("hide");
+			            back();back();
+						forward(5);
+			        } else {
+			        	alert( "Something Saved Wrong, Check for errors" );
+			        	getRecords();
+			        	back();back();
+						forward(5);
+			        }
+		}).fail(function() {
+		    alert( "error" );
+		    getRecords();
+			back();back();
+			forward(5);
+		});
 }
 
 function getBookings() {
