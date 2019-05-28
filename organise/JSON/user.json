@@ -94,7 +94,7 @@ var UserAccount = [
 	Card: 0,
 	UnlimitedStart: "",
 	UnlimitedEnd: "",
-	Active: 1,
+	Active: 0,
 	Timetable: 0
 },
 { 
