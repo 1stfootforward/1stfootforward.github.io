@@ -6,6 +6,7 @@
 
 var BookingsMaster = [];
 var RecordMaster = [];
+var recordURL = "junerecord";
 getBookings();
 getRecords();
 
@@ -57,8 +58,11 @@ function forward(num) {
 	}
 
 	if(num == 2) {
+
 		$("#userSection").removeClass("hide");
 		$("#backButton").removeClass("hide");
+		$(".user-item").remove();
+		userlist();
 	}
 
 	if(num == 3) {
@@ -219,7 +223,7 @@ function userlist() {
 //RecordMaster = RecordMaster.sort();
 
 //setTimeout(function(){
-   	userlist();
+
 	classlist();
 //}, 1000);
 
@@ -232,6 +236,8 @@ function userBlocks(i) {
 		copying.attr( "id", "user-" +  i );
 		copying.attr("userid", i);
 		copying.removeClass("hide");
+		copying.addClass("user-item");
+		copying.attr("onClick", "userSelected(" + i + ")");
 		// copying.attr( "classScheduleID", ClassSchedule[i].id );
 		// copying.addClass( ClassSchedule[i].class );
 		copying.children("div").children( ".display-name" ).html(UserMaster[i].display  );
@@ -240,19 +246,8 @@ function userBlocks(i) {
 		copying.appendTo( "#user-block" );  
 }
 
-$( ".individual-user" ).click(function() {
 
-  var user = UserMaster[ parseInt( $(this).attr("userid") ) ]
-  userMenu(user);
 
-});
-
- function userMenu() {
- 	$(".individual-user").addClass("hide");
- 	$(".user-menu").removeClass("hide");
- 	breadCrumbs[ breadCrumbs.length ] = "user-block";
-	breadCrumbsRemove[ breadCrumbsRemove.length ] = "blank";
-}
 
 
 
@@ -790,6 +785,7 @@ function recordlist() {
 	for (var i = RecordMaster.length - 1; i >= 0; i--) {
 		recordBlocks( i );
 	}
+
 }
 
 function recordBlocks(i) {
@@ -808,7 +804,7 @@ function recordBlocks(i) {
 		copying.children("div").children("div").children("img").attr("src", "img/" + RecordMaster[i].type + ".jpg");
 		copying.children("div").children("div").children("button").html(initialsWrangler(RecordMaster[i].displayuser));
 		copying.children("div").children("div").children("button").addClass(RecordMaster[i].displayuser[0] + "u");
-		
+
 		copying.appendTo( "#record-block" );  
 }
 
@@ -1232,6 +1228,26 @@ function statusWrangler(status) {
 	    break;
 	  case 6:
 	    css = "Done";
+	  case 10:
+	    css = "old Normal";
+	    break;
+	  case 11:
+	    css = "old Flagged";
+	    break;
+	  case 12:
+	    css = "old Replaced";
+	    break;
+	  case 13:
+	    css = "old Cancelled by Heather";
+	    break;
+	  case 14:
+	    css = "old Cancelled by User";
+	    break;
+	  case 15:
+	    css = "old Edited in Place";
+	    break;
+	  case 16:
+	    css = "old Done";
 	}
 
 	return css;
@@ -1262,8 +1278,28 @@ function statusCSSWrangler(status) {
 	    break;
 	  case 6:
 	    css = "Done";
+	  case 10:
+	    css = "old Normal";
+	    break;
+	  case 11:
+	    css = "old Flagged";
+	    break;
+	  case 12:
+	    css = "old Replaced";
+	    break;
+	  case 13:
+	    css = "old Cancelled";
+	    break;
+	  case 14:
+	    css = "old Cancelled";
+	    break;
+	  case 15:
+	    css = "old Edited";
+	    break;
+	  case 16:
+	    css = "old Done";
 	}
-
+	
 	return css;
 }
 
@@ -1484,8 +1520,16 @@ function postRecord(i) {
 		$(".modal-body").removeClass("green-background");
 		$("#sendModal").modal();
 
-		$.post( "https://organise.1stfootforward.co.nz/api/aprilrecord", 
-					{"april_record": {
+		if(RecordMaster[ editingRecord ].status > 9) {
+			alert( "error" );
+		    getRecords();
+			back();back();
+			forward(5);
+			return false;
+		}
+
+		$.post( "https://organise.1stfootforward.co.nz/api/" + recordURL , 
+					{"june_record": {
 						"status":0, 
 						"user":RecordMaster[i].user, 
 						"displayuser":RecordMaster[i].displayuser, 
@@ -1520,17 +1564,25 @@ function cancelRecord() {
 		$(".modal-body").removeClass("green-background");
 		$("#sendModal").modal();
 
-		var data = {"april_record": {
+		if(RecordMaster[ editingRecord ].status > 9) {
+			alert( "error" );
+		    getRecords();
+			back();back();
+			forward(5);
+			return false;
+		}
+
+		var data = {"june_record": {
 						"status":3 }
 					};
 
-		$.ajax('https://organise.1stfootforward.co.nz/api/aprilrecord/' + RecordMaster[ editingRecord ].id, {
+		$.ajax('https://organise.1stfootforward.co.nz/api/' + recordURL + '/' + RecordMaster[ editingRecord ].id, {
 		    method: 'PATCH',
 		    data: data,
 			dataType: 'json'
 		}).done(function() {
 		  console.log( data );  
-		            if(data.april_record.status == 3  ) {
+		            if(data.june_record.status == 3  ) {
 		            	RecordMaster[ editingRecord ].status = 3;
 			            $(".modal-body").addClass("green-background");
 			            $(".spinner-border").addClass("hide");
@@ -1553,14 +1605,15 @@ function cancelRecord() {
 function getBookings() {
 	$.get( "https://organise.1stfootforward.co.nz/api/aprilbooking").done(function( data ) { 		           
 		            BookingsMaster = data.data;  
-		            $("#stepone").removeClass("loading");
+		            $("#steptwo").removeClass("loading");
             });
 }
 
 function getRecords() {
-	$.get( "https://organise.1stfootforward.co.nz/api/aprilrecord").done(function( data ) { 
-		            RecordMaster = data.data; 
-		             $("#steptwo").removeClass("loading");
+	$.get( "https://organise.1stfootforward.co.nz/api/" + recordURL).done(function( data ) { 
+		             //RecordMaster = data.data; 
+		             RecordMaster = RecordOld.concat(data.data);
+		             $("#stepone").removeClass("loading");
             });
 }
 

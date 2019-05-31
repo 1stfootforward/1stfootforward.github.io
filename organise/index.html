@@ -90,14 +90,7 @@
       <ul id="user-block" class="list-group mb-3">
             <!-- User list here -->
       </ul>
-      <div class="user-menu hide">  
-        <div class="col-md-8 order-md-1">
-          <h4 class="mb-3">User Details</h4>
-          <form class="needs-validation" novalidate>
-            
-          </form>
-        </div>
-      </div> 
+      
     </div>    
   </div>
 
@@ -111,6 +104,26 @@
             <span class="text-muted"></span>
     
         </li>
+
+        <div id="reuseable-user-menu" class="hide">  
+          <div class="col-md-8 order-md-1">
+            <br />
+            <h4 class="mb-3 display-name">User Details</h4>
+            <div class="list-group">
+              <a href="#" class="list-group-item list-group-item-action"><b>Account</b></a>
+
+              <li href="#" class="list-group-item d-flex justify-content-between align-items-center list-group-item-warning">Balance <span class="badge badge-primary badge-pill">14</span></li>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-primary">A simple primary list group item</a>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">A simple secondary list group item</a>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-success">A simple success list group item</a>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-danger">A simple danger list group item</a>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-warning">A simple warning list group item</a>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-info">A simple info list group item</a>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-light">A simple light list group item</a>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-dark">A simple dark list group item</a>
+            </div>
+          </div>
+        </div> 
 
         <div id="reuseable-mini-user-block" class="col-6 list-group-item d-flex justify-content-between lh-condensed hide">
             <div>
@@ -643,8 +656,9 @@
 <script src="js/moment.js"></script>
 <script src="JSON/user.json"></script>
 <script src="JSON/timetable.json"></script>
-<!-- <script src="JSON/booking.json"></script> -->
+ <script src="JSON/april.json"></script> 
 <script src="js/organize.js"></script>
+<script src="js/accounting.js"></script>
 
 
  <link rel="stylesheet" type="text/css" href="css/DateTimePicker.css" />

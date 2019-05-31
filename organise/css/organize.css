@@ -173,3 +173,11 @@
         background-color: #6D4C41;
         color: white;
       } 
+
+      b.amounts {
+        text-align: right;
+      }
+
+      .old {
+        border-left: 6px solid green!important;
+      }
