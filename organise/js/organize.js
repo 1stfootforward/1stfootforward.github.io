@@ -1520,7 +1520,7 @@ function postRecord(i) {
 		$(".modal-body").removeClass("green-background");
 		$("#sendModal").modal();
 
-		if(RecordMaster[ editingRecord ].status > 9) {
+		if(RecordMaster[ i ].status > 9) {
 			alert( "error" );
 		    getRecords();
 			back();back();
