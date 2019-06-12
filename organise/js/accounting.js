@@ -33,12 +33,13 @@ function userMenu(x) {
 
 		paymentLabels("Income"); 
 		paymentLabels("Purchase"); 
-		paymentLabels("Group");
+		//paymentLabels("Group");
 		paymentLabels("PT");
 
 		for (var i = 0; i < RecordMaster.length; i++) {
 			if(RecordMaster[i].displayuser === UserMaster[x].display){
-				paymentBlocks(i);
+				//paymentBlocks(i);
+				paymentRows(i);
 			}
 		}
 
@@ -87,6 +88,43 @@ function paymentBlocks(i) {
 		}
 		group++;
 		copying.insertAfter( "#label-Group" ); 
+		//copying.appendTo( "#paymentZoneActive" );  
+}
+
+function paymentRows(i) {
+		var copying = $("#reuseable-row").clone();
+		copying.attr( "id", "record-" +  i );
+		copying.attr("recordid", i);
+		copying.removeClass("hide");
+		copying.addClass( "individual-record" );
+
+		copying.children(".line1").html(RecordMaster[i].code  );
+		copying.children(".line2").html(RecordMaster[i].day  );
+
+
+
+		var code = RecordMaster[i].code.substring(0,3); 
+		var codeEnd = RecordMaster[i].code.substring(7,10);
+		
+		if(code == "INC"){
+			console.log(RecordMaster[i].payamount);
+			income = income + RecordMaster[i].payamount;
+			copying.insertAfter( "#label-Income" ); 
+			return true 
+		}
+		if(code == "PUR"){
+			purchase++;
+			copying.insertAfter( "#label-Purchase" ); 
+			return true 
+		}
+		if(codeEnd == "PT0"){
+			pt++;
+			copying.insertAfter( ".group-body" ); 
+			return true 
+		}
+		group++;
+		//copying.insertAfter( "#label-Group" ); 
+		$(".group-body").append(copying);
 		//copying.appendTo( "#paymentZoneActive" );  
 }
 

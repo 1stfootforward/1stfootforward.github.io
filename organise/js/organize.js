@@ -9,11 +9,9 @@ var RecordMaster = [];
 var recordURL = "junerecord";
 getBookings();
 getRecords();
+getUsers();
 
-for (var i = 0; i < UserMaster.length; i++) {
-	console.log(UserMaster[i].display);
-	console.log(UserAccount[i].display);
-}
+
 
 /* ------------------------------------------
 
@@ -1614,6 +1612,15 @@ function getRecords() {
 		             //RecordMaster = data.data; 
 		             RecordMaster = RecordOld.concat(data.data);
 		             $("#stepone").removeClass("loading");
+            });
+}
+
+function getUsers() {
+	$.get( "https://sore-old-morpho.gigalixirapp.com/api/users").done(function( data ) { 
+		             //RecordMaster = data.data; 
+		            UserMaster = data.data;
+		            console.log(UserMaster);
+		             //$("#stepone").removeClass("loading");
             });
 }
 
