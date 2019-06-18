@@ -112,15 +112,11 @@
             <div class="list-group">
               <a href="#" class="list-group-item list-group-item-action"><b>Account</b></a>
 
-              <li href="#" class="list-group-item d-flex justify-content-between align-items-center list-group-item-warning">Balance <span class="badge badge-primary badge-pill">14</span></li>
-              <a href="#" class="list-group-item list-group-item-action list-group-item-primary">A simple primary list group item</a>
-              <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">A simple secondary list group item</a>
-              <a href="#" class="list-group-item list-group-item-action list-group-item-success">A simple success list group item</a>
-              <a href="#" class="list-group-item list-group-item-action list-group-item-danger">A simple danger list group item</a>
-              <a href="#" class="list-group-item list-group-item-action list-group-item-warning">A simple warning list group item</a>
-              <a href="#" class="list-group-item list-group-item-action list-group-item-info">A simple info list group item</a>
-              <a href="#" class="list-group-item list-group-item-action list-group-item-light">A simple light list group item</a>
-              <a href="#" class="list-group-item list-group-item-action list-group-item-dark">A simple dark list group item</a>
+              <li href="#" class="list-group-item d-flex justify-content-between align-items-center list-group-item-warning">Money On Account<span class="badge badge-primary badge-pill" id="accountMoney">0</span></li>
+              <li href="#" class="list-group-item d-flex justify-content-between align-items-center  list-group-item-primary">Coupons<span class="badge badge-primary badge-pill" id="accountCoupons">5</span></li>
+              <li href="#" class="list-group-item d-flex justify-content-between align-items-center  list-group-item-secondary">Comped Hours<span class="badge badge-primary badge-pill" id="accountComped">0</span></li>
+              <li href="#" class="list-group-item d-flex justify-content-between align-items-center  list-group-item-success">Unlimited<span class="badge badge-primary badge-pill" id="accountUnlimited">0</span></li>
+              
             </div>
           </div>
           <div class="paymentZone"></div>
@@ -135,17 +131,116 @@
               <tr>
                 <th scope="col">Class</th>
                 <th scope="col">Date</th>
-                <th scope="col">Last</th>
+                <th scope="col">Value</th>
                 <th scope="col">Handle</th>
               </tr>
             </thead>
             <tbody class="group-body">
-               <tr id="reuseable-row" class="hide">
+               <tr id="reuseable-row-group" class="hide">
+                 <th class="line1" scope="row">1</th>
+                <td  class="line2">Mark</td>
+                <td class="line3"><button type="button" class="btn btn-dark">Dark</button></td>
+                <td class="line4">
+                  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-secondary active groupFree">
+                      <input type="radio" name="options" autocomplete="off" checked> Free
+                    </label>
+                    <label class="btn btn-secondary groupCoup">
+                      <input type="radio" name="options" autocomplete="off"> Coup
+                    </label>
+                    <label class="btn btn-secondary groupDeduct">
+                      <input type="radio" name="options" autocomplete="off"> Deduct
+                    </label>
+                  </div>                    
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <li id="label-group" class="list-group-item d-flex justify-content-between lh-condensed">
+            <Button for="example-number-input" class="col-2 col-form-label btn btn-secondary" onClick="groupDeductAct()">Deduct</Button>
+            <div class="col-10">
+              <input class="form-control" type="number" value="12" id="group-deduct-number-input">
+            </div>
+          </li>
+          <br /><br />
+          <li id="label-group" class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+              <h6 class="my-0 display-name">PT Sessions</h6>
+            </div>
+            <span class="text-muted" id="PT"></span>
+          </li>
+          <table class="table">
+            <thead>
+              <tr>
+               <th scope="col">Class</th>
+                <th scope="col">Date</th>
+                <th scope="col">Value</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </thead>
+            <tbody class="pt-body">
+               <tr class="hide">
+                <th class="line1" scope="row">1</th>
+                <td  class="line2">Mark</td>
+                <td class="line3"><button type="button" class="btn btn-dark">Dark</button></td>
+                <td class="line4"><button type="button" class="btn btn-dark">Dark</button></td>
+                <td class="line5"><button type="button" class="btn btn-dark">Dark</button></td>
+              </tr>
+            </tbody>
+          </table>
+          <li id="label-group" class="list-group-item d-flex justify-content-between lh-condensed">
+            <Button for="example-number-input" class="col-2 col-form-label btn btn-secondary" onClick="ptDeductAct()">Deduct</Button>
+            <div class="col-10">
+              <input class="form-control" type="number" value="35" id="pt-deduct-number-input">
+            </div>
+          </li>
+          <br /><br />
+          <li id="label-group" class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+              <h6 class="my-0 display-name">Purchase</h6>
+            </div>
+            <span class="text-muted" id="Purchase"></span>
+          </li>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Class</th>
+                <th scope="col">Date</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </thead>
+            <tbody class="purchase-body">
+               <tr class="hide">
                 <th class="line1" scope="row">1</th>
                 <td  class="line2">Mark</td>
                 <td class="line3">Otto</td>
                 <td class="line4">@mdo</td>
-        </tr>
+              </tr>
+            </tbody>
+          </table>
+          <li id="label-group" class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+              <h6 class="my-0 display-name">Income</h6>
+            </div>
+            <span class="text-muted" id="Income"></span>
+          </li>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Class</th>
+                <th scope="col">Date</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </thead>
+            <tbody class="income-body">
+               <tr class="hide">
+                <th class="line1" scope="row">1</th>
+                <td  class="line2">Mark</td>
+                <td class="line3">Otto</td>
+                <td class="line4">@mdo</td>
+              </tr>
             </tbody>
           </table>
         </div> 
