@@ -245,9 +245,13 @@
           </table>
            <li id="label-group" class="list-group-item d-flex justify-content-between lh-condensed">
             <Button for="example-number-input" class="col-2 col-form-label btn btn-secondary" onClick="transferMoney()">Transfer</Button>
-            <div class="col-10">
-              <input class="form-control" type="number" value="35" id="pt-deduct-number-input">
+            <div class="col-5">
+              <input type="number" id="transfer-number-input">
             </div>
+            <div class="col-5" id="insert-user-accounting-dropdown">
+              
+            </div>
+            
           </li>
         </div> 
 
@@ -699,6 +703,9 @@
           </div>
 
           <select id="reuseable-user-dropdown" class="custom-select d-block w-100 user-dropdown hide" onchange="userPicked()">
+              <option value="">Choose...</option>
+          </select>
+          <select id="reuseable-user-accounting-dropdown" class="custom-select d-block w-100 user-dropdown hide" >
               <option value="">Choose...</option>
           </select>
 

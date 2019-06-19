@@ -3,6 +3,8 @@ var purchase;
 var group;
 var pt;
 
+var ACTIVEUSER = 999;
+
 var activePT;
 var activeGroup;
 
@@ -34,6 +36,7 @@ function userSelected(i) {
 
 function userMenu(x) {
 		$(".individual-record").remove();
+		ACTIVEUSER = x;
 		income = 0;
 		purchase = 0;
 		group = 0;
@@ -75,6 +78,9 @@ function userMenu(x) {
 		$("#Purchase").html(purchaseWrangler(purchase));
 		$("#Group").html(groupWrangler(group));
 		$("#PT").html(ptWrangler(pt));
+
+
+		fillAccountingDropDowns();
 
 		doneFiller();
 }
@@ -219,7 +225,25 @@ function ptWrangler(record){
 }
 
 
+function fillAccountingDropDowns() {
+ 	$(".removeable-dropdown").remove();
+ 	$(".removeable-dropdown-item").remove();
+ 	insertedUserNumber = 0;
 
+ 	for (var i = 0; i < UserMaster.length; i++) {
+ 		if(UserAccount[i].Active == 0 ) {
+ 			$( "<option class='removeable-dropdown-item' value='" + i + "'>" + UserMaster[i].display + "</option>" ).appendTo( ".user-dropdown" );
+ 			
+ 		}
+ 	}
+
+ 	var copy = $("#reuseable-user-accounting-dropdown").clone();
+	console.log(copy);
+	copy.attr("id","transfer-user-input");
+	copy.removeClass("hide");
+	$("#insert-user-accounting-dropdown").append(copy);
+
+ }
 
 
 
@@ -369,6 +393,62 @@ function accountingPatcher(i, status, paytype, payamount) {
 		  console.log( data ); 
 		  done(i, data);
 		  getActingRecords();
+			        
+		}).fail(function() {
+		    alert( "Something Saved Wrong, Check for errors" );
+			error(i);
+		    console.log( data );
+		});
+
+}
+
+function transferMoney() {
+	var other = $("#transfer-user-input").val();
+	console.log( UserMaster[other].display   );
+	var amount = $("#transfer-number-input").val();
+	console.log( amount  );
+	
+
+	accountingTransfer(ACTIVEUSER, -(amount), other, 0);
+	accountingTransfer(other, amount, ACTIVEUSER, 1);
+}
+
+function accountingTransfer(i, amount, other, last) {
+
+	var joiner = Month + "_record";
+
+	var data = {"april_record": {
+						"classId": 0,
+			            "code":  "INC" + UserMaster[i].id + "TRANS" + UserMaster[other].id ,
+			            "date": moment( ).format("YYYY-MM-DD"),
+			            "day": moment( ).format("YYYY-MM-DD"),
+			            "displaytime": "null",
+			            "displayuser": UserMaster[i].display,
+			            "payamount": amount,
+			            "paytype": "Transfer",
+			            "replaces": 0,
+			            "status": 10,
+			            "time": 0,
+			            "type": "Transfer",
+			            "user": UserMaster[i].id
+					}
+				}
+
+		$.ajax( "https://sore-old-morpho.gigalixirapp.com/api/" + Month + "record" , {
+		    method: 'POST',
+		    data: data,
+			dataType: 'json'
+		}).done(function() {
+		  
+		  console.log( data ); 
+		  if(last == 0) {
+		  	getActingRecords();
+		  } else {
+		  	back();
+		  	userSelected(ACTIVEUSER);
+		  }
+		 
+		  
 			        
 		}).fail(function() {
 		    alert( "Something Saved Wrong, Check for errors" );
