@@ -8,6 +8,8 @@ var activeGroup;
 
 var deductGroup = [];
 var deductPT = [];
+var deductPurchase = [];
+var deductIncome = [];
 
 var RecordActive = []
 const Month = "april"
@@ -40,6 +42,8 @@ function userMenu(x) {
 		activeGroup = [];
 		deductGroup = [];
 		deductPT = [];
+		deductPurchase = [];
+		deductIncome = [];
 
 
 		var copying = $("#reuseable-user-menu").clone();
@@ -139,11 +143,15 @@ function paymentRows(i) {
 			
 			income = income + RecordActive[i].payamount;
 			copying.children(".line3").html(RecordActive[i].payamount  );
+			copying.children(".line4").html( RecordActive[i].type  );
 			$(".income-body").append(copying);
 			return true 
 		}
 		if(code == "PUR"){
 			purchase++;
+			deductPurchase[deductPurchase.length] = i;
+			copying.children(".line3").html( RecordActive[i].payamount  );
+			copying.children(".line4").html( "Deduct"  );
 			$(".purchase-body").append(copying);
 			return true 
 		}
@@ -251,13 +259,13 @@ function doneFiller() {
 			doneFillRow(activeGroup[i]);
 
 			if(RecordActive[activeGroup[i]].paytype === "Deduct") {
-				accountMoney = accountMoney + RecordActive[activeGroup[i]].payamount;
+				accountMoney = accountMoney - RecordActive[activeGroup[i]].payamount;
 			}
 			if(RecordActive[activeGroup[i]].paytype === "Free") {
 				accountComped++;
 			}
 			if(RecordActive[activeGroup[i]].paytype === "Coupon") {
-				accountCoupons++;
+				accountCoupons--;
 			}
 		}
 	}
@@ -266,16 +274,22 @@ function doneFiller() {
 			doneFillRow(activePT[i]);
 
 			if(RecordActive[activePT[i]].paytype === "Deduct") {
-				accountMoney = accountMoney + RecordActive[activePT[i]].payamount;
+				accountMoney = accountMoney - RecordActive[activePT[i]].payamount;
 			}
 			if(RecordActive[activePT[i]].paytype === "Free") {
 				accountComped++;
 			}
 			if(RecordActive[activePT[i]].paytype === "Coupon") {
-				accountCoupons++;
+				accountCoupons--;
 			}
 		}
 	}
+	for (var i = 0; i < deductPurchase.length; i++) {
+		
+		accountMoney = accountMoney - RecordActive[deductPurchase[i]].payamount;
+	}
+
+	accountMoney = accountMoney + income;
 
 	$("#accountMoney").html(accountMoney + "");
 	$("#accountComped").html(accountComped + "");

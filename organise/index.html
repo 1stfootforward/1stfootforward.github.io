@@ -204,14 +204,14 @@
           <table class="table">
             <thead>
               <tr>
-                <th scope="col">Class</th>
+                <th scope="col">Code</th>
                 <th scope="col">Date</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Type</th>
               </tr>
             </thead>
             <tbody class="purchase-body">
-               <tr class="hide">
+               <tr id="reuseable-row" class="hide">
                 <th class="line1" scope="row">1</th>
                 <td  class="line2">Mark</td>
                 <td class="line3">Otto</td>
@@ -243,6 +243,12 @@
               </tr>
             </tbody>
           </table>
+           <li id="label-group" class="list-group-item d-flex justify-content-between lh-condensed">
+            <Button for="example-number-input" class="col-2 col-form-label btn btn-secondary" onClick="transferMoney()">Transfer</Button>
+            <div class="col-10">
+              <input class="form-control" type="number" value="35" id="pt-deduct-number-input">
+            </div>
+          </li>
         </div> 
 
         
