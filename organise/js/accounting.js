@@ -40,14 +40,14 @@ function getActingRecords() {
 		             fillActingRecords(data.data , "may");
 		             
             });
-	}, 2000);
+	}, 1000);
 	setTimeout(function(){
 		$.get( "https://sore-old-morpho.gigalixirapp.com/api/" + "june" + "record").done(function( data ) { 
 		             //RecordMaster = data.data; 
 		             fillActingRecords(data.data , "june");
 		             
             });
-	}, 4000);
+	}, 2000);
 	
 	
 }
@@ -63,7 +63,10 @@ function fillActingRecords(data, month) {
 function refresh() {
 	back();
 	userSelected(ACTIVEUSER);
-	//doneFiller();
+	setTimeout(function(){
+		doneFiller();
+	}, 3000);
+
 }
 
 function userSelected(i) {
