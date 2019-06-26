@@ -3,7 +3,7 @@ var purchase;
 var group;
 var pt;
 
-var ACTIVEUSER = 0;
+var ACTIVEUSER = 78;
 
 var activePT = [];
 var activeGroup = [];
@@ -352,7 +352,7 @@ function doneFillRow(i) {
 }
 //console.log(UserAccount[77]);
 function doneFiller() {
-	console.log(ACTIVEUSER-1);
+	console.log(ACTIVEUSER);
 	var accountMoney = UserAccount[ACTIVEUSER].Account;
 	var accountSpent = 0;
 	var accountComped = 0;
