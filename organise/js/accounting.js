@@ -394,13 +394,13 @@ function doneFiller() {
 			}
 		}
 	}
-	for (var i = 0; i < deductPurchase.length; i++) {
-		if(RecordActive[deductPurchase[i]].status > 9){
+	for (var i = 0; i < activePurchase.length; i++) {
+		if(RecordActive[activePurchase[i]].status > 9){
 			accountSpent = accountSpent - RecordActive[deductPurchase[i]].payamount;
-			if(RecordActive[deductPurchase[i]].type == "COC"){
+			if(RecordActive[activePurchase[i]].type == "COC"){
 				accountCoupons = accountCoupons + 10;
 			}
-			if(RecordActive[deductPurchase[i]].type == "UNL"){
+			if(RecordActive[activePurchase[i]].type == "UNL"){
 				unlimitedNumber++;
 			}
 		}
@@ -413,7 +413,7 @@ function doneFiller() {
 		}
 	}
 
-	accountMoney = accountMoney + income;
+	accountMoney = accountMoney - accountSpent;
 
 	doneTotal();
 
