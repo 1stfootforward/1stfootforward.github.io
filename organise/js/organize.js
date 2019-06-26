@@ -92,7 +92,6 @@ function forward(num) {
 }
 
 function back() {
-	
 
 	$("#classBooking2Record").addClass("hide");
 	$(".pay-block").addClass("hide");
@@ -101,9 +100,7 @@ function back() {
 		forward(0);
 	}
 	else {
-		console.log( breadCrumbs[ breadCrumbs.length - 1 ] );
-		console.log( breadCrumbsHide[ breadCrumbsHide.length - 1 ] );
-		console.log( breadCrumbsRemove[ breadCrumbsRemove.length - 1 ] );
+		
 
 		$( "." + breadCrumbs[ breadCrumbs.length - 1 ] ).removeClass("hide");
 		$( "." + breadCrumbsHide[ breadCrumbsHide.length - 1 ] ).addClass("hide");
