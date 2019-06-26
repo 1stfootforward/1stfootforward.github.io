@@ -575,10 +575,8 @@ function accountingPatcher(i, status, paytype, payamount) {
 		}).done(function() {
 		  
 		  console.log( data ); 
-		  done(i, data);
 		  modified[modified.length] = i;
-		  doneTotal();
-		  getActingRecords();
+		  refresh();
 			        
 		}).fail(function() {
 		    alert( "Something Saved Wrong, Check for errors" );
