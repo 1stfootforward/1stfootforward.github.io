@@ -90,7 +90,7 @@ function getActingRecords() {
 		back();
 		userSelected(ACTIVEUSER);
 		             
-            });
+            
 	}, 4000);
 	
 	
