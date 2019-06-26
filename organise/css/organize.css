@@ -190,7 +190,9 @@
         border-left: 6px solid green!important;
       }
 
-      
+      .edited {
+        border-right: 6px solid blue!important;
+      }
 
       .error {
         border-left: 6px solid red!important;

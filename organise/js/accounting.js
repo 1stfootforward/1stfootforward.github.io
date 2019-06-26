@@ -7,22 +7,63 @@ var ACTIVEUSER = 999;
 
 var activePT;
 var activeGroup;
+var activeIncome;
+var activePurchase;
+
+var modified = [];
 
 var deductGroup = [];
 var deductPT = [];
 var deductPurchase = [];
 var deductIncome = [];
 
-var RecordActive = []
-const Month = "april"
+var RecordActive = [];
+const Month = ["april","may","june"];
 
 getActingRecords();
 
 function getActingRecords() {
-	$.get( "https://sore-old-morpho.gigalixirapp.com/api/" + Month + "record").done(function( data ) { 
+	
+		RecordActive = [];
+//console.log(Month[i]);		
+		$.get( "https://sore-old-morpho.gigalixirapp.com/api/" + "april" + "record").done(function( data ) { 
 		             //RecordMaster = data.data; 
-		             RecordActive = data.data;
+		             fillActingRecords(data.data , "april");
+		             
             });
+
+	setTimeout(function(){
+  
+
+		$.get( "https://sore-old-morpho.gigalixirapp.com/api/" + "may" + "record").done(function( data ) { 
+		             //RecordMaster = data.data; 
+		             fillActingRecords(data.data , "may");
+		             
+            });
+	}, 2000);
+	setTimeout(function(){
+		$.get( "https://sore-old-morpho.gigalixirapp.com/api/" + "june" + "record").done(function( data ) { 
+		             //RecordMaster = data.data; 
+		             fillActingRecords(data.data , "june");
+		             
+            });
+	}, 4000);
+	
+	
+}
+
+function fillActingRecords(data, month) {
+	for (var i = 0; i < data.length; i++) {
+		data[i].month = month;
+	}
+	RecordActive = RecordActive.concat(data);
+	console.log(data);
+}
+
+function refresh() {
+	back();
+	userSelected(ACTIVEUSER);
+	//doneFiller();
 }
 
 function userSelected(i) {
@@ -43,6 +84,8 @@ function userMenu(x) {
 		pt = 0;
 		activePT = [];
 		activeGroup = [];
+		activeIncome = [];
+		activePurchase = [];
 		deductGroup = [];
 		deductPT = [];
 		deductPurchase = [];
@@ -148,16 +191,22 @@ function paymentRows(i) {
 		if(code == "INC"){
 			
 			income = income + RecordActive[i].payamount;
+			activeIncome[activeIncome.length] = i;
 			copying.children(".line3").html(RecordActive[i].payamount  );
 			copying.children(".line4").html( RecordActive[i].type  );
+			copying.find(".uncancel").attr("onClick","uncancel(" + i + ");");
+			copying.find(".cancel").attr("onClick","cancel(" + i + ");");
 			$(".income-body").append(copying);
 			return true 
 		}
 		if(code == "PUR"){
 			purchase++;
+			activePurchase[activePurchase.length] = i;
 			deductPurchase[deductPurchase.length] = i;
 			copying.children(".line3").html( RecordActive[i].payamount  );
 			copying.children(".line4").html( "Deduct"  );
+			copying.find(".uncancel").attr("onClick","uncancel(" + i + ");");
+			copying.find(".cancel").attr("onClick","cancel(" + i + ");");
 			$(".purchase-body").append(copying);
 			return true 
 		}
@@ -175,6 +224,7 @@ function paymentRows(i) {
 			copying.children(".line3").html( "Waiting"  );
 			copying.find(".groupFree").attr("onClick","ptFree(" + i + ");");
 			copying.find(".groupCoup").attr("onClick","ptCoup(" + i + ");");
+			copying.find(".groupUnlimited").attr("onClick","ptUnlimited(" + i + ");");
 			copying.find(".groupDeduct").attr("onClick","ptDeduct(" + i + ");");
 			$(".pt-body").append(copying);
 			return true 
@@ -194,6 +244,7 @@ function paymentRows(i) {
 		copying.children(".line3").html( "Waiting"  );
 		copying.find(".groupFree").attr("onClick","groupFree(" + i + ");");
 		copying.find(".groupCoup").attr("onClick","groupCoup(" + i + ");");
+		copying.find(".groupUnlimited").attr("onClick","groupUnlimited(" + i + ");");
 		copying.find(".groupDeduct").attr("onClick","groupDeduct(" + i + ");");
 		$(".group-body").append(copying);
 		//copying.appendTo( "#paymentZoneActive" );  
@@ -263,24 +314,51 @@ function holding(i) {
 function done(i,data) {
 
 	$("#record-"+i).addClass("old");
+	$("#record-"+i).addClass("edited");
 	$("#record-"+i).removeClass("process error holding");
-	$("#record-"+i).children(".line3").html( data.april_record.paytype + " " + data.april_record.payamount   );
+	$("#record-"+i).children(".line3").html( RecordActive[i].paytype + " " + RecordActive[i].payamount   );
+}
+
+function doneTotal() {
+	$(".old").removeClass("old");
+
+	for (var i = 0; i < RecordActive.length; i++) {
+			if(RecordActive[i].displayuser === UserMaster[ACTIVEUSER].display){
+				if(RecordActive[i].status > 9){
+					$("#record-"+i).addClass("old");
+					$("#record-"+i).children(".line3").html( RecordActive[i].paytype + " " + RecordActive[i].payamount   );
+				}
+			}
+		}
+	for (var i = 0; i < modified.length; i++) {
+			
+					$("#record-"+ modified[i]).addClass("edited");			
+		}
+}
+
+function doneEdited(i) {
+	$("#record-"+i).removeClass("process error holding");
+	$("#record-"+i).addClass("edited");
 }
 
 function doneFillRow(i) {
 
 	$("#record-"+i).addClass("old");
+	//$("#record-"+i).addClass("edited");
 	$("#record-"+i).removeClass("process error holding");
 	$("#record-"+i).children(".line3").html( RecordActive[i].paytype + " " + RecordActive[i].payamount   );
 }
 
 function doneFiller() {
 	var accountMoney = 0;
+	var accountSpent = 0;
 	var accountComped = 0;
 	var accountCoupons = 0;
+	var accountUnlimited = 0;
+	var unlimitedNumber = 0;
 	for (var i = 0; i < activeGroup.length; i++) {
 		if( RecordActive[activeGroup[i]].status > 9) {
-			doneFillRow(activeGroup[i]);
+			
 
 			if(RecordActive[activeGroup[i]].paytype === "Deduct") {
 				accountMoney = accountMoney - RecordActive[activeGroup[i]].payamount;
@@ -291,11 +369,14 @@ function doneFiller() {
 			if(RecordActive[activeGroup[i]].paytype === "Coupon") {
 				accountCoupons--;
 			}
+			if(RecordActive[activeGroup[i]].paytype === "Unlimited") {
+				accountUnlimited--;
+			}
 		}
 	}
 	for (var i = 0; i < activePT.length; i++) {
 		if( RecordActive[activePT[i]].status > 9) {
-			doneFillRow(activePT[i]);
+			
 
 			if(RecordActive[activePT[i]].paytype === "Deduct") {
 				accountMoney = accountMoney - RecordActive[activePT[i]].payamount;
@@ -306,18 +387,38 @@ function doneFiller() {
 			if(RecordActive[activePT[i]].paytype === "Coupon") {
 				accountCoupons--;
 			}
+			if(RecordActive[activePT[i]].paytype === "Coupon") {
+				accountUnlimited--;
+			}
 		}
 	}
 	for (var i = 0; i < deductPurchase.length; i++) {
-		
-		accountMoney = accountMoney - RecordActive[deductPurchase[i]].payamount;
+		if(RecordActive[deductPurchase[i]].status > 9){
+			accountSpent = accountSpent - RecordActive[deductPurchase[i]].payamount;
+			if(RecordActive[deductPurchase[i]].type == "COC"){
+				accountCoupons = accountCoupons + 10;
+			}
+			if(RecordActive[deductPurchase[i]].type == "UNL"){
+				unlimitedNumber++;
+			}
+		}
+	}
+	for (var i = 0; i < activeIncome.length; i++) {
+		if( RecordActive[activeIncome[i]].status > 9) {
+			
+			accountMoney = accountMoney + RecordActive[activeIncome[i]].payamount;
+			
+		}
 	}
 
 	accountMoney = accountMoney + income;
 
+	doneTotal();
+
 	$("#accountMoney").html(accountMoney + "");
 	$("#accountComped").html(accountComped + "");
 	$("#accountCoupons").html(accountCoupons + "");
+	$("#accountUnlimited").html(accountUnlimited + " / " + unlimitedNumber);
 }
 
 
@@ -329,6 +430,12 @@ function groupCoup(i) {
 function groupFree(i) {
 	processing(i);
 	accountingPatcher(i, 10, "Free", 0);
+	
+}
+
+function groupUnlimited(i) {
+	processing(i);
+	accountingPatcher(i, 10, "Unlimited", 0);
 	
 }
 
@@ -358,6 +465,12 @@ function ptFree(i) {
 	
 }
 
+function ptUnlimited(i) {
+	processing(i);
+	accountingPatcher(i, 10, "Unlimited", 0);
+	
+}
+
 function ptDeduct(i) {
 	holding(i);
 	deductPT[ deductPT.length ] = i;
@@ -375,16 +488,39 @@ function ptDeductAct() {
 
 function accountingPatcher(i, status, paytype, payamount) {
 
-	var joiner = Month + "_record";
+	var tMonth = RecordActive[i].month;
 
-	var data = {"april_record": {
+
+	if( tMonth == "april") {
+		var data = {"april_record": {
 						"status": status,
 						"paytype": paytype,
 						"payamount": payamount
 					}
 				}
+	}
 
-		$.ajax( "https://sore-old-morpho.gigalixirapp.com/api/" + Month + "record/" + RecordActive[i].id, {
+	if( tMonth == "may") {
+		var data = {"may_record": {
+						"status": status,
+						"paytype": paytype,
+						"payamount": payamount
+					}
+				}
+	}
+
+	if( tMonth == "june") {
+		var data = {"june_record": {
+						"status": status,
+						"paytype": paytype,
+						"payamount": payamount
+					}
+				}
+	}
+
+	console.log( tMonth );
+
+		$.ajax( "https://sore-old-morpho.gigalixirapp.com/api/" + tMonth + "record/" + RecordActive[i].id, {
 		    method: 'PATCH',
 		    data: data,
 			dataType: 'json'
@@ -392,6 +528,8 @@ function accountingPatcher(i, status, paytype, payamount) {
 		  
 		  console.log( data ); 
 		  done(i, data);
+		  modified[modified.length] = i;
+		  doneTotal();
 		  getActingRecords();
 			        
 		}).fail(function() {
@@ -417,7 +555,7 @@ function accountingTransfer(i, amount, other, last) {
 
 	var joiner = Month + "_record";
 
-	var data = {"april_record": {
+	var data = {"june_record": {
 						"classId": 0,
 			            "code":  "INC" + UserMaster[i].id + "TRANS" + UserMaster[other].id ,
 			            "date": moment( ).format("YYYY-MM-DD"),
@@ -434,7 +572,7 @@ function accountingTransfer(i, amount, other, last) {
 					}
 				}
 
-		$.ajax( "https://sore-old-morpho.gigalixirapp.com/api/" + Month + "record" , {
+		$.ajax( "https://sore-old-morpho.gigalixirapp.com/api/" + "june" + "record" , {
 		    method: 'POST',
 		    data: data,
 			dataType: 'json'
@@ -449,6 +587,68 @@ function accountingTransfer(i, amount, other, last) {
 		  }
 		 
 		  
+			        
+		}).fail(function() {
+		    alert( "Something Saved Wrong, Check for errors" );
+			error(i);
+		    console.log( data );
+		});
+
+}
+
+
+function cancel(i) {
+	processing(i);
+	accountingStatus(i, 0);
+}
+
+function uncancel(i) {
+	processing(i);
+	accountingStatus(i, 11);
+}
+
+function accountingStatus(i, status) {
+
+	var tMonth = RecordActive[i].month;
+
+
+	if( tMonth == "april") {
+		var data = {"april_record": {
+						"status": status,
+
+					}
+				}
+	}
+
+	if( tMonth == "may") {
+		var data = {"may_record": {
+						"status": status,
+						
+					}
+				}
+	}
+
+	if( tMonth == "june") {
+		var data = {"june_record": {
+						"status": status,
+						
+					}
+				}
+	}
+
+	console.log( tMonth );
+
+		$.ajax( "https://sore-old-morpho.gigalixirapp.com/api/" + tMonth + "record/" + RecordActive[i].id, {
+		    method: 'PATCH',
+		    data: data,
+			dataType: 'json'
+		}).done(function() {
+		  
+		  console.log( data ); 
+		  doneEdited(i)
+		  doneTotal();
+		  modified[modified.length] = i;
+		  getActingRecords();
 			        
 		}).fail(function() {
 		    alert( "Something Saved Wrong, Check for errors" );
