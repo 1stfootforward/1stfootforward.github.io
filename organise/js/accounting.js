@@ -390,12 +390,12 @@ function doneFillRow(i) {
 }
 //console.log(UserAccount[78]);
 function doneFiller() {
-	if(UserAccount[ACTIVEUSER - 1] == null) {
+	if(UserAccount[ACTIVEUSER ] == null) {
 		var accountMoney = 0;
 		var accountCoupons = 0;
 	} else {
-		var accountMoney = UserAccount[ACTIVEUSER -1].Account;
-		var accountCoupons = UserAccount[ACTIVEUSER -1].Card;
+		var accountMoney = UserAccount[ACTIVEUSER].Account;
+		var accountCoupons = UserAccount[ACTIVEUSER].Card;
 	}
 	console.log(ACTIVEUSER);
 	
