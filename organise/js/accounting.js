@@ -22,6 +22,44 @@ const Month = ["april","may","june"];
 
 getActingRecords();
 
+function getActingRecordsFirst() {
+	
+		RecordActive = [];
+//console.log(Month[i]);		
+		$.get( "https://sore-old-morpho.gigalixirapp.com/api/" + "april" + "record").done(function( data ) { 
+		             //RecordMaster = data.data; 
+		             fillActingRecordsFirst(data.data , "april");
+		             
+            });
+
+	setTimeout(function(){
+  
+
+		$.get( "https://sore-old-morpho.gigalixirapp.com/api/" + "may" + "record").done(function( data ) { 
+		             //RecordMaster = data.data; 
+		             fillActingRecordsFirst(data.data , "may");
+		             
+            });
+	}, 1000);
+	setTimeout(function(){
+		$.get( "https://sore-old-morpho.gigalixirapp.com/api/" + "june" + "record").done(function( data ) { 
+		             //RecordMaster = data.data; 
+		             fillActingRecordsFirst(data.data , "june");
+		             
+            });
+	}, 2000);
+	
+	
+}
+
+function fillActingRecordsFirst(data, month) {
+	for (var i = 0; i < data.length; i++) {
+		data[i].month = month;
+	}
+	RecordActive = RecordActive.concat(data);
+	
+}
+
 function getActingRecords() {
 	
 		RecordActive = [];
