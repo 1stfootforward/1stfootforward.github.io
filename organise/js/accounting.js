@@ -3,7 +3,7 @@ var purchase;
 var group;
 var pt;
 
-var ACTIVEUSER = 999;
+var ACTIVEUSER = 0;
 
 var activePT = [];
 var activeGroup = [];
@@ -350,9 +350,9 @@ function doneFillRow(i) {
 	$("#record-"+i).removeClass("process error holding");
 	$("#record-"+i).children(".line3").html( RecordActive[i].paytype + " " + RecordActive[i].payamount   );
 }
-
+//console.log(UserAccount[77]);
 function doneFiller() {
-	console.log(UserAccount[ACTIVEUSER-1]);
+	console.log(ACTIVEUSER-1);
 	var accountMoney = UserAccount[ACTIVEUSER].Account;
 	var accountSpent = 0;
 	var accountComped = 0;
