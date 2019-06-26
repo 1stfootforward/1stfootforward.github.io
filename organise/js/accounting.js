@@ -5,10 +5,10 @@ var pt;
 
 var ACTIVEUSER = 999;
 
-var activePT;
-var activeGroup;
-var activeIncome;
-var activePurchase;
+var activePT = [];
+var activeGroup = [];
+var activeIncome = [];
+var activePurchase = [];
 
 var modified = [];
 
@@ -352,10 +352,10 @@ function doneFillRow(i) {
 }
 
 function doneFiller() {
-	var accountMoney = 0;
+	var accountMoney = UserAccount[ACTIVEUSER].Account;
 	var accountSpent = 0;
 	var accountComped = 0;
-	var accountCoupons = 0;
+	var accountCoupons = UserAccount[ACTIVEUSER].Card;
 	var accountUnlimited = 0;
 	var unlimitedNumber = 0;
 	for (var i = 0; i < activeGroup.length; i++) {
