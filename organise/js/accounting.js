@@ -352,7 +352,7 @@ function doneFillRow(i) {
 }
 
 function doneFiller() {
-	console.log(UserAccount[ACTIVEUSER]);
+	console.log(UserAccount[ACTIVEUSER-1]);
 	var accountMoney = UserAccount[ACTIVEUSER].Account;
 	var accountSpent = 0;
 	var accountComped = 0;
