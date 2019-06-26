@@ -691,10 +691,9 @@ function accountingStatus(i, status) {
 		}).done(function() {
 		  
 		  console.log( data ); 
-		  doneEdited(i)
-		  doneTotal();
+		 
 		  modified[modified.length] = i;
-		  getActingRecords();
+		  refresh();
 			        
 		}).fail(function() {
 		    alert( "Something Saved Wrong, Check for errors" );
