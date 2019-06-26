@@ -58,14 +58,13 @@ function fillActingRecords(data, month) {
 	}
 	RecordActive = RecordActive.concat(data);
 	console.log(data);
+	doneFiller();
 }
 
 function refresh() {
 	back();
 	userSelected(ACTIVEUSER);
-	setTimeout(function(){
-		doneFiller();
-	}, 3000);
+	getActingRecords();
 
 }
 
