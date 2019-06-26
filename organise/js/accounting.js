@@ -442,7 +442,7 @@ function doneFiller() {
 	}
 	for (var i = 0; i < activePurchase.length; i++) {
 		if(RecordActive[activePurchase[i]].status > 9){
-			accountSpent = accountSpent - RecordActive[deductPurchase[i]].payamount;
+			accountSpent = accountSpent + RecordActive[deductPurchase[i]].payamount;
 			if(RecordActive[activePurchase[i]].type == "COC"){
 				accountCoupons = accountCoupons + 10;
 			}
