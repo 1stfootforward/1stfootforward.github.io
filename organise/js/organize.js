@@ -92,7 +92,7 @@ function forward(num) {
 }
 
 function back() {
-	ACTIVEUSER = 78;
+	
 
 	$("#classBooking2Record").addClass("hide");
 	$(".pay-block").addClass("hide");
