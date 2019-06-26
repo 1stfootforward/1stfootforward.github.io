@@ -20,7 +20,7 @@ var deductIncome = [];
 var RecordActive = [];
 const Month = ["april","may","june"];
 
-getActingRecords();
+getActingRecordsFirst();
 
 function getActingRecordsFirst() {
 	
