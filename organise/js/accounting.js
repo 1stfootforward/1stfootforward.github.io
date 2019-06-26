@@ -86,6 +86,12 @@ function getActingRecords() {
 		             
             });
 	}, 2000);
+	setTimeout(function(){
+		back();
+		userSelected(ACTIVEUSER);
+		             
+            });
+	}, 4000);
 	
 	
 }
@@ -96,12 +102,11 @@ function fillActingRecords(data, month) {
 	}
 	RecordActive = RecordActive.concat(data);
 	console.log(data);
-	doneFiller();
+	
 }
 
 function refresh() {
-	back();
-	userSelected(ACTIVEUSER);
+	
 	getActingRecords();
 
 }
