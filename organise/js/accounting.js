@@ -350,13 +350,20 @@ function doneFillRow(i) {
 	$("#record-"+i).removeClass("process error holding");
 	$("#record-"+i).children(".line3").html( RecordActive[i].paytype + " " + RecordActive[i].payamount   );
 }
-//console.log(UserAccount[77]);
+//console.log(UserAccount[78]);
 function doneFiller() {
+	if(UserAccount[ACTIVEUSER] == null) {
+		var accountMoney = 0;
+		var accountCoupons = 0;
+	} else {
+		var accountMoney = UserAccount[ACTIVEUSER].Account;
+		var accountCoupons = UserAccount[ACTIVEUSER].Card;
+	}
 	console.log(ACTIVEUSER);
-	var accountMoney = UserAccount[ACTIVEUSER].Account;
+	
 	var accountSpent = 0;
 	var accountComped = 0;
-	var accountCoupons = UserAccount[ACTIVEUSER].Card;
+	
 	var accountUnlimited = 0;
 	var unlimitedNumber = 0;
 	for (var i = 0; i < activeGroup.length; i++) {
