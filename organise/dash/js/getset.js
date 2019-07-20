@@ -128,7 +128,7 @@ function selectUser(user) {
 }
 
 function rs(str) {
-	return str.replace(/\s+/g, '');
+	return str.replace(/\s+/g, '').replace('data-','');
 }
 
 function change(i) {
