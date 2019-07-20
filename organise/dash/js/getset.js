@@ -192,7 +192,6 @@ function refillRecordLists() {
 }
 
 function rerecordListInsert(i) {
-	console.log(NEWRECORDS[i].replces);
 	var copying = $("#record-"+ NEWRECORDS[i].replaces);
 
 		copying.find(".tc-1").addClass("updated");
