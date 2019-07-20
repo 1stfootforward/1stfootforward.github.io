@@ -59,7 +59,7 @@ function fillRecordLists() {
 
 function recordListInsert(i) {
 
-	console.log( moment( RECORDS[i].date ).format(M) );
+	console.log( moment( RECORDS[i].date, "DD-MM-YYYY" ).format(M) );
 	
 	var copying = $("#reuseable-tr-record").clone();
 	
