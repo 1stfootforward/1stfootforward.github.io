@@ -128,7 +128,8 @@ function selectUser(user) {
 }
 
 function rs(str) {
-	return str.replace(/\s+/g, '').replace('data-','');
+	str = str.replace('-','');
+	return str.replace(/\s+/g, '').replace('-','');
 }
 
 function change(i) {
