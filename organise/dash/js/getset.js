@@ -128,7 +128,7 @@ function selectUser(user) {
 }
 
 function rs(str) {
-	str = str.replace('-','');
+	str = str.replace('\'','');
 	return str.replace(/\s+/g, '');
 }
 
