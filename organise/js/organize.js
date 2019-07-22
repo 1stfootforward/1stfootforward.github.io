@@ -210,7 +210,7 @@ function liveRecordBlocks(i) {
 function userlist() {
 	$("#usernumber").html(  UserMaster.length);
 	for (var i = 0; i < UserMaster.length; i++) {
-		if(UserAccount[i].Active == 0 ) {
+		if(UserAccount[UserMaster.casper].Active == 0 ) {
 			userBlocks( i );
 		}
 	}
@@ -1164,7 +1164,7 @@ function userPicked() {
  	}
 
  	for (var i = 0; i < UserMaster.length; i++) {
- 		if(UserAccount[i].Active == 0 ) {
+ 		if(UserAccount[UserMaster.casper].Active == 0 ) {
  			$( "<option class='removeable-dropdown-item' value='" + i + "'>" + UserMaster[i].display + "</option>" ).appendTo( ".user-dropdown" );
  		}
  	}
