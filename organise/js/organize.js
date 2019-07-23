@@ -210,9 +210,9 @@ function liveRecordBlocks(i) {
 function userlist() {
 	$("#usernumber").html(  UserMaster.length);
 	for (var i = 0; i < UserMaster.length; i++) {
-		if(UserAccount[UserMaster.casper].Active == 0 ) {
+		//if(UserAccount[UserMaster.casper].Active == 0 ) {
 			userBlocks( i );
-		}
+		//}
 	}
 }
 
@@ -1130,11 +1130,11 @@ function userPicked() {
 	copy.removeClass("hide");
 	$( ".user-dropdown" ).each(function( index ) {
 	  if( $( this ).val() != "" ){
-	  	copy.children(".col-8").children("div").children(".display-name").html(UserAccount[$( this ).val()].display  );
-	  	copy.children(".col-8").children(".display-account").html("<b>Account:</b> $" + UserAccount[$( this ).val()].Account  );
-	  	copy.children(".col-8").children(".display-card").html("<b>Concession:</b> " + UserAccount[$( this ).val()].Card  );
-	  	copy.children(".col-8").children(".display-unlimited").html("<b>Unlimited:</b> " + UserAccount[$( this ).val()].UnlimitedEnd  );
-	  	console.log(copy);
+	  	// copy.children(".col-8").children("div").children(".display-name").html(UserAccount[$( this ).val()].display  );
+	  	// copy.children(".col-8").children(".display-account").html("<b>Account:</b> $" + UserAccount[$( this ).val()].Account  );
+	  	// copy.children(".col-8").children(".display-card").html("<b>Concession:</b> " + UserAccount[$( this ).val()].Card  );
+	  	// copy.children(".col-8").children(".display-unlimited").html("<b>Unlimited:</b> " + UserAccount[$( this ).val()].UnlimitedEnd  );
+	  	// console.log(copy);
 	  	user =  UserMaster[ $( this ).val() ];
 	  	$(this).attr("id","userdrop-" + user.phone );
 	  	copy.insertBefore("#userdrop-" + user.phone  );
@@ -1164,9 +1164,9 @@ function userPicked() {
  	}
 
  	for (var i = 0; i < UserMaster.length; i++) {
- 		if(UserAccount[UserMaster.casper].Active == 0 ) {
+ 		//if(UserAccount[UserMaster.casper].Active == 0 ) {
  			$( "<option class='removeable-dropdown-item' value='" + i + "'>" + UserMaster[i].display + "</option>" ).appendTo( ".user-dropdown" );
- 		}
+ 		//}
  	}
 
  	var copy = $("#reuseable-user-dropdown").clone();
