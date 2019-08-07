@@ -50,16 +50,18 @@ function fillRecordLists() {
 	for (var i = 0; i < RECORDS.length; i++) {
 		recordListInsert( i);
 		recordListInputInsert(i);
+		calculateRecord(i);
 	}
 	$(".mdl-data-table").addClass("mdl-js-data-table mdl-data-table--selectable");
 	
 	componentHandler.upgradeAllRegistered();
 	updateAll("data");
+	calculate();
 }
 
 function recordListInsert(i) {
 
-	console.log( moment( RECORDS[i].date, "DD-MM-YYYY" ) );
+	
 	
 	var copying = $("#reuseable-tr-record").clone();
 	
@@ -124,7 +126,72 @@ function selectUser(user) {
 	$(".individual-record").addClass("hide");
 	$(".individual-record-input").addClass("hide");
 	$(".user-"+rs(user)).removeClass("hide");
+
+	calculateUser(user);
 	console.log(".user-"+ rs(user));
+}
+
+function calculate() {
+	
+	var account = 0;
+	var coupon = 0;
+	for (var i = 0; i < RECORDS.length; i++) {
+		//console.log(RECORDS[i].displayuser);
+		account = account + parseInt( RECORDS[i].income);
+		coupon = coupon + parseInt( RECORDS[i].coupon);		
+	}
+	$("#account").html( account );
+	$("#coupon").html( coupon );
+	console.log(account);
+}
+
+function calculateUser(user) {
+	console.log(user);
+	var account = 0;
+	var coupon = 0;
+	for (var i = 0; i < RECORDS.length; i++) {
+		//console.log(RECORDS[i].displayuser);
+		if( rs(RECORDS[i].displayuser) == user ) {
+			account = account + parseInt( RECORDS[i].income);
+			coupon = coupon + parseInt( RECORDS[i].coupon);
+		}
+	}
+	$("#account").html( account );
+	$("#coupon").html( coupon );
+	console.log(account);
+}
+
+function calculateRecord(i) {
+	var code = RECORDS[i].code.substring(0,3); 
+	var codeEnd = RECORDS[i].code.substring(7,10);
+
+	RECORDS[i].income = 0;
+	RECORDS[i].coupon = 0;
+
+	if(code == "INC"){
+		RECORDS[i].income = RECORDS[i].payamount;
+		
+	} 
+	if(code == "PUR"){
+		RECORDS[i].income = -(RECORDS[i].payamount);
+
+		if(codeEnd == "COC"){
+			RECORDS[i].coupon = 10;
+		}
+	}
+	if(codeEnd == "PT0"){
+		RECORDS[i].income = -(RECORDS[i].payamount);
+	}
+
+	
+
+	if(code != "INC" && code != "PUR" && codeEnd != "PT0"){
+		if(RECORDS[i].payamount < 2 ) {
+			RECORDS[i].coupon = -1;
+		} else {
+			RECORDS[i].income = -(RECORDS[i].payamount);
+		}
+	}
 }
 
 function rs(str) {
@@ -170,6 +237,7 @@ function post(i) {
 function updateAll(data) {
 	console.log(data);
 	regetrecords();
+	calculate();
 }
 
 function regetrecords() {
