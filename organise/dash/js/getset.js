@@ -266,7 +266,7 @@ function refillRecordLists() {
 
 	
 	componentHandler.upgradeAllRegistered();
-	calculateUser( rs(RECORDS[i].displayuser) );
+	calculate( );
 }
 
 function rerecordListInsert(i) {
