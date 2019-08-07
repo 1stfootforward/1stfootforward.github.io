@@ -139,6 +139,18 @@ function selectUsers(user, users) {
 	console.log(".user-"+ rs(user));
 }
 
+function selectUsers(user, users, userss) {
+	$(".individual-record").addClass("hide");
+	$(".individual-record-input").addClass("hide");
+	$(".user-"+rs(user)).removeClass("hide");
+	$(".user-"+rs(users)).removeClass("hide");
+	$(".user-"+rs(userss)).removeClass("hide");
+
+	calculateUsers(user, users);
+	calculateUserss(user, users, userss);
+	console.log(".user-"+ rs(user));
+}
+
 function calculate() {
 	
 	var account = 0;
@@ -178,6 +190,23 @@ function calculateUsers(user, users) {
 	for (var i = 0; i < RECORDS.length; i++) {
 		//console.log(RECORDS[i].displayuser);
 		if( rs(RECORDS[i].displayuser) == user || rs(RECORDS[i].displayuser) == users ) {
+			
+			account = account + parseInt( RECORDS[i].income);
+			coupon = coupon + parseInt( RECORDS[i].coupon);
+		}
+	}
+	$("#account").html( account );
+	$("#coupon").html( coupon );
+	console.log(account);
+}
+
+function calculateUsers(user, users, userss) {
+	console.log(user);
+	var account = 0;
+	var coupon = 0;
+	for (var i = 0; i < RECORDS.length; i++) {
+		//console.log(RECORDS[i].displayuser);
+		if( rs(RECORDS[i].displayuser) == user || rs(RECORDS[i].displayuser) == users || rs(RECORDS[i].displayuser) == userss ) {
 			
 			account = account + parseInt( RECORDS[i].income);
 			coupon = coupon + parseInt( RECORDS[i].coupon);
