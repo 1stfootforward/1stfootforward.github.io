@@ -139,7 +139,7 @@ function selectUsers(user, users) {
 	console.log(".user-"+ rs(user));
 }
 
-function selectUsers(user, users, userss) {
+function selectUserss(user, users, userss) {
 	$(".individual-record").addClass("hide");
 	$(".individual-record-input").addClass("hide");
 	$(".user-"+rs(user)).removeClass("hide");
@@ -200,7 +200,7 @@ function calculateUsers(user, users) {
 	console.log(account);
 }
 
-function calculateUsers(user, users, userss) {
+function calculateUserss(user, users, userss) {
 	console.log(user);
 	var account = 0;
 	var coupon = 0;
