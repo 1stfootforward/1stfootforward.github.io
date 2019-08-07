@@ -129,6 +129,16 @@ function selectUser(user) {
 	console.log(".user-"+ rs(user));
 }
 
+function selectUsers(user, users) {
+	$(".individual-record").addClass("hide");
+	$(".individual-record-input").addClass("hide");
+	$(".user-"+rs(user)).removeClass("hide");
+	$(".user-"+rs(users)).removeClass("hide");
+
+	calculateUsers(user, users);
+	console.log(".user-"+ rs(user));
+}
+
 function calculate() {
 	
 	var account = 0;
@@ -150,6 +160,22 @@ function calculateUser(user) {
 	for (var i = 0; i < RECORDS.length; i++) {
 		//console.log(RECORDS[i].displayuser);
 		if( rs(RECORDS[i].displayuser) == user ) {
+			account = account + parseInt( RECORDS[i].income);
+			coupon = coupon + parseInt( RECORDS[i].coupon);
+		}
+	}
+	$("#account").html( account );
+	$("#coupon").html( coupon );
+	console.log(account);
+}
+
+function calculateUsers(user, users) {
+	console.log(user);
+	var account = 0;
+	var coupon = 0;
+	for (var i = 0; i < RECORDS.length; i++) {
+		//console.log(RECORDS[i].displayuser);
+		if( rs(RECORDS[i].displayuser) == user || rs(RECORDS[i].displayuser) == users ) {
 			account = account + parseInt( RECORDS[i].income);
 			coupon = coupon + parseInt( RECORDS[i].coupon);
 		}
@@ -247,21 +273,23 @@ function regetrecords() {
 	}
 
 function refillRecordLists() {
-		
+	var x = 0;
 	for (var i = 0; i < NEWRECORDS.length; i++) {
+		x = NEWRECORDS[i].replaces;
+
 		rerecordListInsert( i);
 		rerecordListInputInsert(i);
 
-		RECORDS[i].status = NEWRECORDS[i].status;
-		RECORDS[i].displayuser = NEWRECORDS[i].displayuser;
-		RECORDS[i].code = NEWRECORDS[i].code;
-		RECORDS[i].type = NEWRECORDS[i].type;
-		RECORDS[i].displaytime = NEWRECORDS[i].displaytime;
-		RECORDS[i].date = NEWRECORDS[i].date;
-		RECORDS[i].paytype = NEWRECORDS[i].paytype;
-		RECORDS[i].payamount = NEWRECORDS[i].payamount;
+		RECORDS[x].status = NEWRECORDS[i].status;
+		RECORDS[x].displayuser = NEWRECORDS[i].displayuser;
+		RECORDS[x].code = NEWRECORDS[i].code;
+		RECORDS[x].type = NEWRECORDS[i].type;
+		RECORDS[x].displaytime = NEWRECORDS[i].displaytime;
+		RECORDS[x].date = NEWRECORDS[i].date;
+		RECORDS[x].paytype = NEWRECORDS[i].paytype;
+		RECORDS[x].payamount = NEWRECORDS[i].payamount;
 
-						
+		console.log(i);				
 	}
 
 	
