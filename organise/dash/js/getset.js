@@ -52,9 +52,9 @@ function fillRecordLists() {
 		recordListInputInsert(i);
 		calculateRecord(i);
 	}
-	$(".mdl-data-table").addClass("mdl-js-data-table mdl-data-table--selectable");
 	
-	componentHandler.upgradeAllRegistered();
+	
+	
 	updateAll("data");
 	calculate();
 }
@@ -160,6 +160,8 @@ function calculateUser(user) {
 	for (var i = 0; i < RECORDS.length; i++) {
 		//console.log(RECORDS[i].displayuser);
 		if( rs(RECORDS[i].displayuser) == user ) {
+			console.log(RECORDS[i].income);
+			console.log(RECORDS[i].coupon);
 			account = account + parseInt( RECORDS[i].income);
 			coupon = coupon + parseInt( RECORDS[i].coupon);
 		}
@@ -176,6 +178,7 @@ function calculateUsers(user, users) {
 	for (var i = 0; i < RECORDS.length; i++) {
 		//console.log(RECORDS[i].displayuser);
 		if( rs(RECORDS[i].displayuser) == user || rs(RECORDS[i].displayuser) == users ) {
+			
 			account = account + parseInt( RECORDS[i].income);
 			coupon = coupon + parseInt( RECORDS[i].coupon);
 		}
@@ -210,11 +213,15 @@ function calculateRecord(i) {
 	
 
 	if(code != "INC" && code != "PUR" && codeEnd != "PT0"){
-		if(RECORDS[i].payamount < 2 ) {
+		if(RECORDS[i].paytype == "Coupon" ) {
 			RECORDS[i].coupon = -1;
 		} else {
 			RECORDS[i].income = -(RECORDS[i].payamount);
 		}
+	}
+	if(RECORDS[i].paytype == "Free" ) {
+			RECORDS[i].coupon = 0;
+			RECORDS[i].income = 0;
 	}
 }
 
@@ -272,14 +279,25 @@ function regetrecords() {
             });
 	}
 
+function findRecordById(x) {
+	for (var i = RECORDS.length - 1; i >= 0; i--) {
+		if(RECORDS[i].id == x) { return i;}
+	}
+}
+
 function refillRecordLists() {
 	var x = 0;
 	for (var i = 0; i < NEWRECORDS.length; i++) {
-		x = NEWRECORDS[i].replaces;
+		
+
+		x = findRecordById(NEWRECORDS[i].replaces);
+
+		console.log(NEWRECORDS[i].displayuser);
+		console.log(RECORDS[x].displayuser);
 
 		rerecordListInsert( i);
 		rerecordListInputInsert(i);
-
+				
 		RECORDS[x].status = NEWRECORDS[i].status;
 		RECORDS[x].displayuser = NEWRECORDS[i].displayuser;
 		RECORDS[x].code = NEWRECORDS[i].code;
@@ -289,7 +307,7 @@ function refillRecordLists() {
 		RECORDS[x].paytype = NEWRECORDS[i].paytype;
 		RECORDS[x].payamount = NEWRECORDS[i].payamount;
 
-		console.log(i);				
+		calculateRecord(x);	
 	}
 
 	
