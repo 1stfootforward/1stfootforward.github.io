@@ -60,8 +60,6 @@ function fillRecordLists() {
 }
 
 function recordListInsert(i) {
-
-	
 	
 	var copying = $("#reuseable-tr-record").clone();
 	
@@ -253,10 +251,22 @@ function refillRecordLists() {
 	for (var i = 0; i < NEWRECORDS.length; i++) {
 		rerecordListInsert( i);
 		rerecordListInputInsert(i);
+
+		RECORDS[i].status = NEWRECORDS[i].status;
+		RECORDS[i].displayuser = NEWRECORDS[i].displayuser;
+		RECORDS[i].code = NEWRECORDS[i].code;
+		RECORDS[i].type = NEWRECORDS[i].type;
+		RECORDS[i].displaytime = NEWRECORDS[i].displaytime;
+		RECORDS[i].date = NEWRECORDS[i].date;
+		RECORDS[i].paytype = NEWRECORDS[i].paytype;
+		RECORDS[i].payamount = NEWRECORDS[i].payamount;
+
+						
 	}
 
 	
 	componentHandler.upgradeAllRegistered();
+	calculateUser( rs(RECORDS[i].displayuser) );
 }
 
 function rerecordListInsert(i) {
