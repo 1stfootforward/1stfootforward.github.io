@@ -197,3 +197,8 @@ _:-ms-input-placeholder, :root .demo-graph {
 .hide {
   display: none!important;
 }
+
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link{
+  padding: 6px 20px;
+  cursor: pointer;
+}
