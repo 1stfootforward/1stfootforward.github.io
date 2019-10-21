@@ -2,6 +2,16 @@ var ClassSchedule = [
 	{
 		id: 1,
 		day: 1,
+		time: 700,
+		displaytime: "7:00 am",
+		class: "S.E.T",
+		code: "MON0700SET",
+		place: "TD-1-0700"
+	},
+
+	{
+		id: 2,
+		day: 1,
 		time: 900,
 		displaytime: "9:00 am",
 		class: "HIIT Camp",
@@ -10,17 +20,17 @@ var ClassSchedule = [
 	},
 
 	{
-		id: 2,
+		id: 3,
 		day: 1,
 		time: 1530,
 		displaytime: "3:30 pm",
-		class: "S.E.T",
-		code: "MON1530SET",
+		class: "BoxFit",
+		code: "MON1530BOX",
 		place: "TD-1-1530"
 	},
 
 	{
-		id: 3,
+		id: 4,
 		day: 1,
 		time: 1830,
 		displaytime: "6:30 pm",
@@ -30,23 +40,13 @@ var ClassSchedule = [
 	},
 
 	{
-		id: 4,
+		id: 5,
 		day: 1,
 		time: 1900,
 		displaytime: "7:00 pm",
 		class: "HIIT Camp",
-		code: "MON1900HIT",
-		place: "TD-1-1900"
-	},
-
-	{
-		id: 5,
-		day: 2,
-		time: 630,
-		displaytime: "6:30 am",
-		class: "BoxFit",
-		code: "TUE0630BOX",
-		place: "TD-2-0630"
+		code: "MON1700BOX",
+		place: "TD-1-1700"
 	},
 
 	{
@@ -64,8 +64,8 @@ var ClassSchedule = [
 		day: 2,
 		time: 930,
 		displaytime: "9:30 am",
-		class: "CoreFit",
-		code: "TUE0930COR",
+		class: "HIIT Camp",
+		code: "TUE0930HIT",
 		place: "TD-2-0930"
 	},
 
@@ -82,15 +82,25 @@ var ClassSchedule = [
 	{
 		id: 9,
 		day: 2,
-		time: 1830,
-		displaytime: "6:30 pm",
+		time: 1800,
+		displaytime: "6:00 pm",
 		class: "HIIT Camp",
-		code: "TUE1830HIT",
-		place: "TD-2-1830"
+		code: "TUE1800HIT",
+		place: "TD-2-1800"
 	},
 
 	{
 		id: 10,
+		day: 2,
+		time: 1830,
+		displaytime: "6:30 pm",
+		class: "CoreFit",
+		code: "TUE1830COR",
+		place: "TD-2-18300"
+	},
+
+	{
+		id: 11,
 		day: 2,
 		time: 1900,
 		displaytime: "7:00 pm",
@@ -100,7 +110,17 @@ var ClassSchedule = [
 	},
 
 	{
-		id: 11,
+		id: 12,
+		day: 3,
+		time: 700,
+		displaytime: "7:00 am",
+		class: "BoxFit",
+		code: "WED0700BOX",
+		place: "TD-3-0700"
+	},
+
+	{
+		id: 13,
 		day: 3,
 		time: 900,
 		displaytime: "9:00 am",
@@ -110,37 +130,27 @@ var ClassSchedule = [
 	},
 
 	{
-		id: 12,
-		day: 3,
-		time: 930,
-		displaytime: "9:30 am",
-		class: "HIIT Camp",
-		code: "WED0930HIT",
-		place: "TD-3-0930"
-	},
-
-	{
-		id: 13,
+		id: 14,
 		day: 3,
 		time: 1830,
 		displaytime: "6:30 pm",
-		class: "S.E.T",
-		code: "WED1830SET",
-		place: "TD-5-1830"
-	},
-
-	{
-		id: 14,
-		day: 3,
-		time: 1900,
-		displaytime: "7:00 pm",
-		class: "CoreFit",
-		code: "WED1900COR",
-		place: "TD-3-1900"
+		class: "Hoop Fit",
+		code: "WED1830HOP",
+		place: "TD-3-1830"
 	},
 
 	{
 		id: 15,
+		day: 3,
+		time: 1900,
+		displaytime: "7:00 pm",
+		class: "S.E.T",
+		code: "WED1900SET",
+		place: "TD-3-1900"
+	},
+
+	{
+		id: 16,
 		day: 4,
 		time: 900,
 		displaytime: "9:00 am",
@@ -150,7 +160,7 @@ var ClassSchedule = [
 	},
 
 	{
-		id: 16,
+		id: 17,
 		day: 4,
 		time: 930,
 		displaytime: "9:30 am",
@@ -160,7 +170,17 @@ var ClassSchedule = [
 	},
 
 	{
-		id: 17,
+		id: 18,
+		day: 4,
+		time: 1000,
+		displaytime: "10:00 am",
+		class: "Stacked",
+		code: "THU1000STA",
+		place: "TD-4-1000"
+	},
+
+	{
+		id: 19,
 		day: 4,
 		time: 1530,
 		displaytime: "3:30 pm",
@@ -170,7 +190,17 @@ var ClassSchedule = [
 	},
 
 	{
-		id: 18,
+		id: 20,
+		day: 4,
+		time: 1800,
+		displaytime: "6:00 pm",
+		class: "BoxFit",
+		code: "THU1800BOX",
+		place: "TD-4-1800"
+	},
+
+	{
+		id: 21,
 		day: 4,
 		time: 1830,
 		displaytime: "6:30 pm",
@@ -180,47 +210,37 @@ var ClassSchedule = [
 	},
 
 	{
-		id: 19,
+		id: 22,
 		day: 4,
 		time: 1900,
 		displaytime: "7:00 pm",
-		class: "BoxFit",
-		code: "THU1900BOX",
+		class: "S.E.T",
+		code: "THU1900SET",
 		place: "TD-4-1900"
 	},
 
 	{
-		id: 20,
+		id: 23,
+		day: 5,
+		time: 700,
+		displaytime: "7:00 am",
+		class: "HIIT Camp",
+		code: "FRI0700HIT",
+		place: "TD-5-700"
+	},
+
+	{
+		id: 24,
 		day: 5,
 		time: 900,
 		displaytime: "9:00 am",
 		class: "BoxFit",
 		code: "FRI0900BOX",
-		place: "TD-5-900"
+		place: "TD-5-0900"
 	},
 
 	{
-		id: 21,
-		day: 5,
-		time: 930,
-		displaytime: "9:30 am",
-		class: "Just Stretch",
-		code: "FRI0930STR",
-		place: "TD-5-0930"
-	},
-
-	{
-		id: 22,
-		day: 5,
-		time: 1000,
-		displaytime: "10:00 am",
-		class: "Just Stretch",
-		code: "FRI1000STR",
-		place: "TD-5-1000"
-	},
-
-	{
-		id: 23,
+		id: 25,
 		day: 6,
 		time: 800,
 		displaytime: "8:00 am",
@@ -230,7 +250,7 @@ var ClassSchedule = [
 	},
 
 	{
-		id: 24,
+		id: 26,
 		day: 6,
 		time: 830,
 		displaytime: "8:30 am",
@@ -240,37 +260,49 @@ var ClassSchedule = [
 	},
 
 	{
-		id: 25,
+		id: 27,
 		day: 6,
 		time: 900,
 		displaytime: "9:00 am",
-		class: "BoxFit",
-		code: "SAT0900BOX",
+		class: "S.E.T",
+		code: "SAT0900SET",
 		place: "TD-6-0900"
 	},
 
 	{
-		id: 26,
+		id: 28,
+		day: 6,
+		time: 930,
+		displaytime: "9:30 am",
+		class: "BoxFit",
+		code: "SAT0930BOX",
+		place: "TD-6-0930"
+	},
+
+	{
+		id: 29,
 		day: 1,
 		time: 1600,
 		displaytime: "4:00 pm",
-		class: "Teen Boys",
-		code: "MON1600TEB",
+		class: "Teen Girls",
+		code: "MON1600TEG",
 		place: "TD-1-1600"
 	},
 
 	{
-		id: 27,
-		day: 2,
-		time: 1600,
-		displaytime: "4:00 pm",
-		class: "Teen Girls",
-		code: "TUE1600TEG",
-		place: "TD-2-1600"
+		id: 30,
+		day: 1,
+		time: 1630,
+		displaytime: "4:30 pm",
+		class: "Teen Boys",
+		code: "MON1630TEB",
+		place: "TD-1-1630"
 	},
 
+	
+
 	{
-		id: 28,
+		id: 31,
 		day: 4,
 		time: 1600,
 		displaytime: "4:00 pm",
@@ -280,7 +312,7 @@ var ClassSchedule = [
 	},
 
 	{
-		id: 29,
+		id: 32,
 		day: 4,
 		time: 1630,
 		displaytime: "4:30 pm",
@@ -290,7 +322,7 @@ var ClassSchedule = [
 	},
 
 	{
-		id: 30,
+		id: 33,
 		day: 1,
 		time: 600,
 		displaytime: "6:00 am",
@@ -300,17 +332,7 @@ var ClassSchedule = [
 	},
 
 	{
-		id: 31,
-		day: 1,
-		time: 1730,
-		displaytime: "5:30 pm",
-		class: "Mens Power",
-		code: "MON1730POW",
-		place: "TD-1-1730"
-	},
-
-	{
-		id: 32,
+		id: 34,
 		day: 2,
 		time: 600,
 		displaytime: "6:00 am",
@@ -320,17 +342,17 @@ var ClassSchedule = [
 	},
 
 	{
-		id: 33,
+		id: 35,
 		day: 2,
 		time: 1930,
 		displaytime: "7:30 pm",
-		class: "Mens FCT",
-		code: "TUE1730FCT",
+		class: "Mens Rotate",
+		code: "TUE1730ROT",
 		place: "TD-2-1930"
 	},
 
 	{
-		id: 34,
+		id: 36,
 		day: 3,
 		time: 600,
 		displaytime: "6:00 am",
@@ -340,37 +362,38 @@ var ClassSchedule = [
 	},
 
 	{
-		id: 35,
+		id: 37,
 		day: 4,
 		time: 600,
 		displaytime: "6:00 am",
-		class: "Mens FCT",
-		code: "THU0600FCT",
+		class: "Mens Rotate",
+		code: "THU0600ROT",
 		place: "TD-4-0600"
 	},
 
 	{
-		id: 36,
+		id: 38,
 		day: 4,
-		time: 1900,
-		displaytime: "7:00 pm",
+		time: 1830,
+		displaytime: "6:30 pm",
 		class: "BoxFit",
-		code: "THU1900BOX",
-		place: "TD-4-1900"
+		code: "THU1830BOX",
+		place: "TD-4-1830"
 	},
 
 	{
-		id: 37,
+		id: 39,
 		day: 4,
 		time: 1930,
 		displaytime: "7:30 pm",
-		class: "Mens Power",
-		code: "THU1930POW",
+		class: "Mens Rotate",
+		code: "THU1930ROT",
 		place: "TD-4-1930"
 	},
 
+
 	{
-		id: 38,
+		id: 40,
 		day: 5,
 		time: 600,
 		displaytime: "6:00 am",
@@ -380,13 +403,13 @@ var ClassSchedule = [
 	},
 
 	{
-		id: 39,
+		id: 41,
 		day: 6,
-		time: 600,
-		displaytime: "6:00 am",
-		class: "Mens Power",
-		code: "SAT0600POW",
-		place: "TD-6-0600"
+		time: 930,
+		displaytime: "9:30 am",
+		class: "BoxFit",
+		code: "SAT0930BOX",
+		place: "TD-6-0930"
 	}
 
 ]
