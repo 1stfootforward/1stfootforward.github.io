@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>1st Foot Forward Concession Card</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Condiment" rel="stylesheet">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+
+  <script src="https://js.stripe.com/v3/"></script>
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.ico">
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <div class="row">
+    <div class="four columns"> <img class="u-max-full-width" src="images/marion-michele-191320.jpg"></div>
+    <div class="four columns"><img class="u-max-full-width" src="images/pullupbw.jpg"></div>
+    <div class="four columns"><img class="u-max-full-width" src="images/bruno-nascimento-149663.jpg"></div>
+  </div>
+  
+  <div class="text gap">
+    <div class="container">
+      <div class="row">
+        <div class="twelve columns fade-black" style="margin-top: 25%">
+          
+          <h5 class="center"> Order Form </h5>
+          <h3 class="center"> $60 Concession Card </h3>
+          <form id="details" class="hide" data-toggle="validator" role="form">
+            <div class="row">
+              
+              <div class="twelve columns">
+                <label for="Name">Your Name</label>
+                <input class="u-full-width form-control" type="text" id="Name" required>
+                <div class="help-block with-errors"></div>
+              </div>
+              <div class="six columns">
+                <label for="Email">Your email</label>
+                <input class="u-full-width form-control" type="email"  id="Email" required>
+                <div class="help-block with-errors"></div>
+              </div>
+              <div class="six columns">
+                <label for="Phone">Your Phone Number</label>
+                <input class="u-full-width form-control" type="text"  id="Phone" required>
+                <div class="help-block with-errors"></div>
+              </div>
+              <div class="twelve columns">
+                <label for="Street">Street Address</label>
+                <input class="u-full-width form-control" type="text"  id="Street" required>
+                <div class="help-block with-errors"></div>
+              </div>
+              <div class="six columns">
+                <label for="Suburb">Suburb</label>
+                <input class="u-full-width form-control" type="text"  id="Suburb" required>
+                <div class="help-block with-errors"></div>
+              </div>
+              <div class="six columns">
+                <label for="City">City</label>
+                <input class="u-full-width form-control" type="text"  id="City" required>
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+            <label for="exampleMessage">Classes Your Most Interested In</label>
+              <textarea class="u-full-width" placeholder=".…" id="classes"></textarea>
+              
+              <label for="exampleMessage">Your Goals</label>
+              <textarea class="u-full-width" placeholder="…" id="goals"></textarea>
+              
+            <h5 id="error-message" class="hide"> Please Complete Every Field </h5>
+            <br />
+            <a  onClick="details()" class="button-primary u-full-width" type="submit">Next</a>
+          </form>
+
+          <div id="payment" class=" gap spacer">
+            <form action="/charge" method="post" id="payment-form">
+            <div class="form-row">
+            <label for="card-element">
+           <h3> Credit or debit card </h3>
+            </label>
+            <div id="card-element">
+
+            </div>
+
+            <div id="card-errors" role="alert"></div>
+            </div>
+            <button class="button-primary u-full-width ">Submit Payment</button>
+            </form>
+            <br>
+          </div>
+
+                      <div class="error-section hide  ">
+                        <h4 class="text-center ">Sorry something went wrong</h4>
+                        <p class="text-center " id="errormessage"></p>
+                      </div>
+
+                      <div class="pass-section hide  ">
+                        <h4 class="text-center ">Thank You</h4>
+                        <h4 class="text-center ">Your Order has been processed, you should recieve an email reciept shortly.</h4>
+                        <h4 class="text-center ">Your Order Token Is:</h4>
+                        <h1 class="text-center " id="tokenmessage"></h1>
+                      </div>
+
+                      <div class="loader hide ">
+                        <h2 class="center">Sending ....</h2>
+                      </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row gap big">
+    <div class="four columns"><img class="u-max-full-width" src="images/801.jpg"></div>
+    <div class="four columns terms">
+        <h3>Terms and Conditions</h3>
+        <p><b>1</b> The card has no commercial value and cannot be sold or converted into cash.</p>
+        <p><b>2</b> Valid from 1 January untill 30 December 2020</p>
+        <p><b>3</b> May be used for any 1st Foot Forward Class Only.</p>
+        <p><b>4</b> Refunds only given if required by law.</p>
+
+        <img class="u-max-full-width" src="images/pullupbw.jpg">
+       
+    </div>
+    <div class="four columns"><img class="u-max-full-width" src="images/806.jpg"></div>
+  </div>
+  <div class="row gap small">
+    <div class="column terms">
+        <h3>Terms and Conditions</h3>
+        <p><b>1</b> The card has no commercial value and cannot be sold or converted into cash.</p>
+        <p><b>2</b> Valid from 1 January untill 30 December 2020</p>
+        <p><b>3</b> May be used for any 1st Foot Forward Class Only.</p>
+        <p><b>4</b> Refunds only given if required by law.</p>
+        
+    </div>
+  </div>
+  
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+  <script >
+      var token;
+      var end = false;
+
+
+  
+  $('#tickets').change(function(){
+
+    var price = $('#tickets').val();
+
+    price = price * 10;
+
+    $('#price').html("$" + price);
+  });
+
+  start();
+
+  function loader() {
+    $("#details").addClass("hide");
+    $("#payment").addClass("hide");
+    $(".loader").removeClass("hide");
+
+  }
+
+  function details() {
+
+
+     
+       if( $("#Email").val().length < 1 ||  $("#Phone").val().length < 1 ||  $("#Name").val().length < 1 ||  $("#Street").val().length < 1 ||  $("#City").val().length < 1 ||  $("#Suburb").val().length < 1) {
+        
+          console.log("fail");
+          $("#error-message").removeClass("hide");
+      } else {
+          senddetails();
+          
+      }
+
+      
+  }
+
+  function senddetails() {
+
+     
+      loader();
+
+      email = $("#Email").val();
+      name =  $("#Name").val();
+
+      address = $("#Street").val()+ " " +$("#Suburb").val() + " " + $("#City").val();
+
+      $.post( "https://mighty-shelf-11601.herokuapp.com/recorddetails.json", {"fname": $("#Name").val() , "lname": " ", "email": $("#Email").val(), "street": $("#Street").val(), "suburb": $("#Suburb").val(), "city": $("#City").val(), "postcode": " ", "note": $("#Phone").val(), "note2": $("#goals").val() + " " + $("#classes").val(), "token" : token } )
+                  .done(function( data ) {
+                      
+                      $(".loader").addClass("hide");
+                       $("#payment").removeClass("hide");
+
+                  })
+                    .fail(function(response) {
+
+                        $("#errormessage").html( 'Error: ' + "We're experiencing some technical difficulties, please try again later" );
+
+                        $(".loader").addClass("hide");
+                        $(".error-section").removeClass("hide");
+                  
+              });
+    }
+
+  function start() {
+      $.post( "https://mighty-shelf-11601.herokuapp.com/beginsale.json", {"ip": "concession" , "location":"nz" } )
+                    .done(function( data ) {
+                      
+                      token = data.token;
+                      console.log(token);
+
+                    })
+                    .fail(function(response) {
+
+                        $("#errormessage").html( 'Error: ' + "We're experiencing some technical difficulties. please try again later" );
+                        $("#details").addClass("hide");
+                        $("#payment").addClass("hide");
+                        $(".error-section").removeClass("hide");
+                  
+              });
+    }
+
+    function stripesend( stripetoken ) {
+      if(end == true){return null;}
+
+      end = true;
+      
+            $.post( "https://mighty-shelf-11601.herokuapp.com/stripe/charge.json", {"stripetoken": stripetoken , "name": "Oli", "purchase": "1", "delivery": "", "address": "sd", "token":"token", "email":"oli@olijames.co.nz"} )
+                    .done(function( data ) { console.log( data ); pass(); })
+                    .fail(function(data) {
+                        console.log(data)
+                        $("#errormessage").html( 'Please check your order and try again.\nError: <span>' + data + "</span>");
+
+                        $("#details").addClass("hide");
+                        $("#payment").addClass("hide");
+                        $("#loader").addClass("hide");
+                        $(".error-section").removeClass("hide");
+                 
+              });
+    }
+
+    var stripe = Stripe('pk_test_SUeNFNj6V61JZVrnFQi6Fb41');
+    var elements = stripe.elements();
+
+    // Custom styling can be passed to options when creating an Element.
+    var style = {
+      base: {
+        // Add your base input styles here. For example:
+        fontSize: '16px',
+        lineHeight: '24px'
+      }
+    };
+
+    // Create an instance of the card Element
+    var card = elements.create('card', {style: style});
+
+    // Add an instance of the card Element into the `card-element` <div>
+    card.mount('#card-element');
+
+    var form = document.getElementById('payment-form');
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      stripe.createToken(card).then(function(result) {
+        if (result.error) {
+          // Inform the user if there was an error
+          var errorElement = document.getElementById('card-errors');
+          errorElement.textContent = result.error.message;
+        } else {
+          // Send the token to your server
+          stripesend(result.token.id);
+        }
+      });
+    });
+
+    function pass() {
+      $("#tokenmessage").html( '#: ' + token.substring(0, 6) );
+      $("#payment").addClass("hide");
+      $("#loader").addClass("hide");
+      $(".pass-section").removeClass("hide");
+    }
+
+  </script>
+  
+
+</html>
