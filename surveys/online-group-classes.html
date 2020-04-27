@@ -40,10 +40,15 @@
    
  
     <div class="col-md-8 order-md-1">
+      <div class="row">
+         <p>Your name</p>
+        <input id="name" class="form-control" type="text" placeholder="Name">
+      </div>
+      <br /><br /><br />
       <h4 class="mb-3">Session Times</h4>
       <form class="needs-validation" novalidate="">
         <div class="row">
-          <p><b>Q.1</b>&nbsp&nbsp When are your preferred times to train in person at the gym? (available from level 2)</p>
+          <p><b>Q.1</b>&nbsp&nbsp When are your preferred times to train in person at the gym? (available from level 2) Select as many as you like.</p>
           <div class="col-md-12 mb-12">
             <div class="custom-control custom-checkbox">
               <input type="checkbox" class="custom-control-input" id="qOne530am">
@@ -161,7 +166,7 @@
         </div>
         <br /><br /><br />
         <div class="row">
-          <p><b>Q.2</b>&nbsp&nbsp When are your preferred times to train through Online live classes?</p>
+          <p><b>Q.2</b>&nbsp&nbsp When are your preferred times to train through Online live classes? Select as many as you like.</p>
           <div class="col-md-12 mb-12">
             <div class="custom-control custom-checkbox">
               <input type="checkbox" class="custom-control-input" id="qTwo530am">
@@ -279,7 +284,7 @@
         </div>
         <br /><br /><br />
         <div class="row">
-          <p><b>Q.3</b>&nbsp&nbsp When are your least preferred times to train In person and online? (what times would never suit you)</p>
+          <p><b>Q.3</b>&nbsp&nbsp When are your least preferred times to train In person and online? (what times would never suit you) Select as many as you like.</p>
           <div class="col-md-12 mb-12">
             <div class="custom-control custom-checkbox">
               <input type="checkbox" class="custom-control-input" id="qThree530am">
@@ -399,7 +404,9 @@
         <br /><br /><br />
         <h4 class="mb-3">Session Types</h4>
         <div class="row">
-          <p><b>Q.4</b>&nbsp&nbsp Please Rate these <b>Online</b> classes:</p>
+          <p><b>Q.4</b>&nbsp&nbsp Please Rate these <b>Online</b> classes: </p>
+          <br />
+          <p>&nbsp <i>1 - Less favourable, 3 - Very favourable</i></p>
           <div class="col-md-12 mb-12">
             <br />
             <p>Bodyweight S.E.T</p>
@@ -544,7 +551,9 @@
         </div>
         <br /><br /><br />
         <div class="row">
-          <p><b>Q.4</b>&nbsp&nbsp Please Rate these <b>In Person</b> classes:</p>
+          <p><b>Q.4</b>&nbsp&nbsp Please Rate these <b>In Person</b> classes: </p>
+          <br />
+          <p>&nbsp <i>1 - Less favourable, 3 - Very favourable</i></p>
           <div class="col-md-12 mb-12">
             <br />
             <p>S.E.T</p>
@@ -807,6 +816,7 @@
         var nine = "Yes - " + $("#qNineYes").is(':checked') + " Mixed - " + $("#qNineYesWith").is(':checked') + " No - " + $("#qNineNo").is(':checked');
 
         firebase.database().ref('surveys/group1').push().set({
+            name: $("#name").val(),
             one: one, 
             two: two, 
             three: three, 
